@@ -73,8 +73,8 @@ Function by function description of custom functions...
 
 >####        "language option"
 
-            "ARABIC", Hebrew if printing operations will be done according to Arabic numeral
-            readings. If it is to be made according to the readings, it is entered as "HEBREW".            
+            "ARABIC", if printing operations will be done according to Arabic numeral
+            readings. If it is to be made according to Hebrew the readings, it is entered as "HEBREW".            
         
         
 I will continue telling about other functions, soon.
