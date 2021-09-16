@@ -11,12 +11,18 @@ Function by function description of custom functions...
 
 ####        abjad table code
 
+            
+            0 - 5 table codes for both Arabic and Hebrew
+            
             0 Minimum Abjad
             1 Small Abjad (Cumel-i Kebir)
             2 Big Abjad
             3 Maximum Abjad
             4 Small Abjad + Letter Quantity
             5 Letter Quantity
+            
+            6 - 15 table codes for Arabic only
+            
             6 Minimum Frequency Order
             7 Small Frequency Order
             8 Big Frequency Order
