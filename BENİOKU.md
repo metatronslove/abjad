@@ -5,11 +5,11 @@ Fonksiyon-fonksiyon kullanıcı tanımlı fonksiyonların anlatılması.
 
 ###    abjad("ebced değeri bulunacak metin"; ebced tablosu kodu; şedde seçeneği; ayrıntı seçeneği)
 
-##        "ebced değeri bulunacak metin"
+####        "ebced değeri bulunacak metin"
 
             Arapça ya da İbranice bir metin ya da metnin bulunduğu hücre.
 
-##        ebced tablosu kodu
+####        ebced tablosu kodu
 
             0 Asgari Ebced
             1 Sağir Ebced (Cümel-i Kebir)
@@ -28,12 +28,12 @@ Fonksiyon-fonksiyon kullanıcı tanımlı fonksiyonların anlatılması.
             14 Ekber Frekans Ebcedi
             15 Sağir Frekans Ebcedi + Harf Miktarı
 
-##       şedde seçeneği
+####        şedde seçeneği
 
             Şeddeli harf  içermeyen metinler  hesaplanırken formulde verilmesi gerekmez. Şeddeli 
             harfler çift hesaplanacaksa 2, tek hesaplanacaksa 1 girin.
 
-##        ayrıntı seçeneği
+####        ayrıntı seçeneği
 
             bu seçeneği girmek seçimliktir, eğer 1 olarak girerseniz her harf için verilmiş olan
             tablo koduna göre değerleriyle beraber listeler.
