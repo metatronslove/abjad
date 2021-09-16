@@ -3,13 +3,13 @@ Abjad Calculation Macro Commands To Use Custom Functions For Google Sheets And L
 
 Function by function description of custom functions...
 
-    abjad("text to find abjad value"; abjad table code; shadda option; detail option)
+#    abjad("text to find abjad value"; abjad table code; shadda option; detail option)
 
-        "text to find abjad value"
+##        "text to find abjad value"
 
             Arabic or Hebrew text or cell including that text.
 
-        abjad table code
+##        abjad table code
 
             0 Minimum Abjad
             1 Small Abjad (Cumel-i Kebir)
@@ -28,13 +28,15 @@ Function by function description of custom functions...
             14 Maximum Frequency Abjad
             15 Small Frequency Abjad + Letter Quantity
 
-        shadda option
+##        shadda option
 
-            Unnecessary to give for texts does not contain shadda; in order to calculate letters with shadda "double times" give 2, for single time give 1.
+            Unnecessary to give for texts does not contain shadda; in order to calculate 
+            letters with shadda "double times" give 2, for single time give 1.
 
-        detail option
+##        detail option
 
-            giving this option is optional, if you give 1 here, it lists every letter with value according to given table code.
+            giving this option is optional,  if you give  1  here, it lists every letter 
+            with value according to given table code.
         
         
 I will continue telling about other functions, soon.
