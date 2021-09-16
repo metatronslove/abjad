@@ -3,7 +3,7 @@ Abjad Calculation Macro Commands To Use Custom Functions For Google Sheets And L
 
 Function by function description of custom functions...
 
-###         abjad("text to find abjad value"; abjad table code; shadda option; detail option)
+>###         abjad("text to find abjad value"; abjad table code; shadda option; detail option)
 
 ####        "text to find abjad value"
 
@@ -43,7 +43,7 @@ Function by function description of custom functions...
             giving this option is optional,  if you give  1  here, it lists every letter 
             with value according to given table code.
             
-###         bastet(“text or number”; number of bast repetitions; table code; shadda option; “language option”)
+>###         bastet(“text or number”; number of bast repetitions; table code; shadda option; “language option”)
 
 ####        "text or number"
 
