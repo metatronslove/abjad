@@ -37,4 +37,4 @@ Function by function description of custom functions...
             giving this option is optional, if you give 1 here, it lists every letter with value according to given table code.
         
         
-I will contuniue telling about other functions.
+I will continue telling about other functions, soon.
