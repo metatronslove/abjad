@@ -3,7 +3,7 @@ Google E-tablolar ve LibreOffice Hesap Tablosu için Ebced Hesaplama fonksiyonla
 
 Fonksiyon-fonksiyon kullanıcı tanımlı fonksiyonların anlatılması.
 
-#    abjad("ebced değeri bulunacak metin"; ebced tablosu kodu; şedde seçeneği; ayrıntı seçeneği)
+###    abjad("ebced değeri bulunacak metin"; ebced tablosu kodu; şedde seçeneği; ayrıntı seçeneği)
 
 ##        "ebced değeri bulunacak metin"
 
