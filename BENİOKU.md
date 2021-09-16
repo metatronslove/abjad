@@ -3,13 +3,13 @@ Google E-tablolar ve LibreOffice Hesap Tablosu için Ebced Hesaplama fonksiyonla
 
 Fonksiyon-fonksiyon kullanıcı tanımlı fonksiyonların açıklaması.
 ***
->###    abjad("ebced değeri bulunacak metin"; ebced tablosu kodu; şedde seçeneği; ayrıntı seçeneği)
-
-####        "ebced değeri bulunacak metin"
+###    abjad("ebced değeri bulunacak metin"; ebced tablosu kodu; şedde seçeneği; ayrıntı seçeneği)
+***
+>####        "ebced değeri bulunacak metin"
 
             Arapça ya da İbranice bir metin ya da metnin bulunduğu hücre.
 
-####        ebced tablosu kodu
+>####        ebced tablosu kodu
 
             0 - 5 tablo kodları Arapça ve İbranice için
 
@@ -33,29 +33,29 @@ Fonksiyon-fonksiyon kullanıcı tanımlı fonksiyonların açıklaması.
             14 Ekber Frekans Ebcedi
             15 Sağir Frekans Ebcedi + Harf Miktarı
 
-####        şedde seçeneği
+>####        şedde seçeneği
 
             Şeddeli harf  içermeyen metinler  hesaplanırken formulde verilmesi gerekmez. Şeddeli 
             harfler çift hesaplanacaksa 2, tek hesaplanacaksa 1 girin.
 
-####        ayrıntı seçeneği
+>####        ayrıntı seçeneği
 
             bu seçeneği girmek seçimliktir, eğer 1 olarak girerseniz her harf için verilmiş olan
             tablo koduna göre değerleriyle beraber listeler.
 ***            
->###         bastet(“metin veya sayı”; bast tekrar adedi; tablo kodu; şedde seçeneği; "dil seçeneği")
-
-####        "metin veya sayı"
+###         bastet(“metin veya sayı”; bast tekrar adedi; tablo kodu; şedde seçeneği; "dil seçeneği")
+***
+>####        "metin veya sayı"
 
             eğer  Arapça  ya da  İbranice  bir  metin girerseniz tablo koduna göre ebced değerini
             kullanır, doğrudan sayı verirseniz de işlem yapar.
 
-####        bast tekrar adedi
+>####        bast tekrar adedi
 
             usul-ul bast yöntemi açısından ebced değerine uygulanacak yayma işlemini kaç kez
             tekrar edeceğini belirtmelisiniz.
 
-####        tablo kodu
+>####        tablo kodu
 
             usul-ul bast yöntemini hangi ebced tablosuna göre uygulayacağını belirtmelisiniz, bu
             tablo kodları abjad() fonksiyonundaki  tablo kodlarını  içerir,  abjad() fonksiyonundaki
@@ -65,12 +65,12 @@ Fonksiyon-fonksiyon kullanıcı tanımlı fonksiyonların açıklaması.
             söyleyebiliriz,  mesela  ebced  tablosu  kodu   1  olan  sağir  ebced  için  harf  miktarı
             eklenmeyecekse tablo kodu olarak -2 girerseniz.
 
-####        şedde seçeneği
+>####        şedde seçeneği
 
             şeddeli harfleri çift hesaplatmak için 2, tek hesaplatmak için 1 girilebilir, şedde yoksa
             girilmesi gerekmez, seçimliktir.
 
-####        "dil seçeneği"
+>####        "dil seçeneği"
 
             bast etme işlemleri  Arapça   sayı   okunuşlarına göre yapılacaksa "ARABIC", İbranice
             okunuşlara göre yapılacaksa "HEBREW" olarak girilir.            
