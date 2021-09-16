@@ -11,12 +11,17 @@ Fonksiyon-fonksiyon kullanıcı tanımlı fonksiyonların açıklaması.
 
 ####        ebced tablosu kodu
 
+            0 - 5 tablo kodları Arapça ve İbranice için
+
             0 Asgari Ebced
             1 Sağir Ebced (Cümel-i Kebir)
             2 Kebir Ebced
             3 Ekber Ebced
             4 Sağir Ebced + Harf Miktarı
             5 Harf Miktarı
+            
+            6 - 16 tablo kodları sadece Arapça için
+            
             6 Asgari Frekans Sırası 
             7 Sağir Frekans Sırası
             8 Kebir Frekans Sırası
