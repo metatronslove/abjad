@@ -17,15 +17,15 @@ Function by function description of custom functions...
             3 Maximum Abjad
             4 Small Abjad + Letter Quantity
             5 Letter Quantity
-            6 Minimum Frequency Sequence
+            6 Minimum Frequency Order
             7 Small Frequency Order
-            8 Big Frequency Sequences
-            9 Maximum Frequency Sequence
-            10 Small Frequency Sequence + Letter Quantity
-            11 Minimum Frequency Ebony
-            12 Small Frequency Ebony
-            13 Big Frequency Ebony
-            14 Maximum Frequency Absence
+            8 Big Frequency Order
+            9 Maximum Frequency Order
+            10 Small Frequency Order + Letter Quantity
+            11 Minimum Frequency Abjad
+            12 Small Frequency Abjad
+            13 Big Frequency Abjad
+            14 Maximum Frequency Abjad
             15 Small Frequency Abjad + Letter Quantity
 
         shadda option
