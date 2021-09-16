@@ -11,7 +11,6 @@ Function by function description of custom functions...
 
 ####        abjad table code
 
-            
             0 - 5 table codes for both Arabic and Hebrew
             
             0 Minimum Abjad
