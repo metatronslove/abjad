@@ -66,9 +66,9 @@ Function by function description of custom functions...
             letters for the small abjad whose abjad table code is 1 If it will not be added, you enter
             -2 as the table code.
 
-####        sedda option
+####        shadda option
 
-            You can enter 2 for double calculation and 1 for odd calculation, if there is no sedde.
+            You can enter 2 for double calculation and 1 for odd calculation, if there is no shadda.
             It is optional, not required.
 
 ####        "language option"
