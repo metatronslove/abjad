@@ -77,7 +77,7 @@ Function by function description of custom functions...
 >####        "language"
 
             "ARABIC", if printing operations will be done according to Arabic numeral
-            readings. If it is to be made according to Hebrew the readings, it is entered as "HEBREW".            
+            readings. If it is to be made according to Hebrew the readings, it is entered as "HEBREW".
         
 ***
 ### unsur(text; output type code; element code; feature option)
@@ -94,10 +94,10 @@ Function by function description of custom functions...
 
 >#### element code
 
-            0 fever
+            0 fire
             1 air
             2 water
-            3 soils
+            3 earth
 
 >#### shadda option
 
