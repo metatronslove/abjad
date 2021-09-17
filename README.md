@@ -122,7 +122,7 @@ Function by function description of custom functions...
 ### numbers2arab(cell to convert numbers)
 ***
 
-Cell to convert >#### digits
+>#### cell to convert numbers
 
                 Numbers consisting of Arabic numerals [0-9] are in the entered cell, these are Indian numerals.
                 turns into It is very useful when spreading formulas.
