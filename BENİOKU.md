@@ -1,6 +1,9 @@
 # abjad
 Google E-tablolar ve LibreOffice Hesap Tablosu için Ebced Hesaplama fonksiyonları
 
+HİÇ BİR KESİN TUTARLI YA DA DOĞRU HESAPLANMIŞ SONUÇ VAADETMİYORUM; KODLARI GÖZDEN GEÇİRİN VE 
+İHTİYAÇLARINIZA GÖRE YENİDEN DÜZENLEYİN Kİ ARADIĞINIZ KESİNLİĞE ULAŞABİLESİNİZ.
+
 Fonksiyon-fonksiyon kullanıcı tanımlı fonksiyonların açıklaması.
 ***
 ###    abjad("ebced değeri bulunacak metin"; ebced tablosu kodu; şedde seçeneği; ayrıntı seçeneği)
