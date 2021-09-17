@@ -76,5 +76,134 @@ Function by function description of custom functions...
             "ARABIC", if printing operations will be done according to Arabic numeral
             readings. If it is to be made according to Hebrew the readings, it is entered as "HEBREW".            
         
-        
-I will continue telling about other functions, soon.
+***
+### unsur(text; output type code; element code; feature option)
+***
+
+>#### text
+
+            Arabic or Hebrew text whose letters are to be sorted by element
+
+>#### output type code
+
+            0 letter quantity
+            1 letter list
+
+>#### element code
+
+            0 fever
+            1 air
+            2 water
+            3 soils
+
+>#### sedda option
+
+            1-letter letters are counted once
+            2-shade letters count twice
+
+***
+### saf(text; separator)
+***
+
+>#### text
+
+            From the characters that do not contribute to the abjad analysis and from the actions including the seddes.
+            Arabic or Hebrew text to be purified
+
+>#### separator
+
+            If 0 is entered, it purifies the text and the spaces stay where they were in the original.
+            If " " is entered, the letters that may be included in the analysis are displayed with spaces between them.
+                     lists
+
+            If necessary, other characters can be entered instead of spaces.
+
+***
+### numbers2arab(cell to convert numbers)
+***
+
+Cell to convert >#### digits
+
+                Numbers consisting of Arabic numerals [0-9] are in the entered cell, these are Indian numerals.
+                turns into It is very useful when spreading formulas.
+
+***
+### huddam(calculated number; duty type specifier; method option)
+***
+
+>#### calculated number
+
+            The magic square is the number calculated for the tasked spiritual being required to work.
+
+>#### tasker type token
+
+            is the suffix selection for the task name to be generated
+
+            If "ULVI" is entered, the suffix is ​​the month.
+            If "SUFLI" is entered, the suffix is ​​yush.
+            If "Evil" is entered, the suffix will be tash.
+
+            any other desired suffix in Arabic letters between double quotation marks for this token.
+            can be entered. For "ULVI" type for a reason due to our abjad calculation method
+            The abjad value of the given ayil suffix was calculated as 51, the amount of 41 given in the books.
+            If you are targeting, instead of typing "ULVI", use the letter "hemze" or "alif" instead of the letter "ulvi".
+            Enter your own type identifier using
+
+>#### method option
+
+            Optional if you want to produce a name with an abced technique that fits the Cümel-i Kebir table.
+            do not enter this method option. When you enter 1 for this option, the Cümel-i Kebir table is replaced.
+            Experimental Frequency begins to produce names that fit the Abjad table.
+
+***
+### rakamtopla(number to reduce; number of digits)
+***
+
+>#### number to reduce
+
+                any number
+
+>#### number of digits
+
+                If 3 is entered, add the digits of the number to be reduced until you reach a 3-digit number.
+                continues to collect.
+                If 2 is entered, 2 digits,
+                If 1 is entered, it reduces to one digit!
+                If 0 is entered, it lists all the stages it encounters in the reduction process.
+
+***
+### teksir("text to duplicate"; "separator")
+***
+
+>#### "text to duplicate"
+
+            For the Arabic or Hebrew text you enter here, type all letters from the beginning to the end.
+            It allows the letters in the text to be reproduced in different order by taking the space up to the area.
+
+>#### "separator"
+
+            During the duplication process, I recommend using the " " space as a separator for visual purposes,
+            Other characters can also be selected.
+
+***
+### tesbeh(target number; minimum value; number of rosary beads; rosary sections)
+***
+
+>#### target number
+
+            If a number determined by the abjad account is to be reached while using the beaded rosary, it is entered here.
+    
+>#### minimum value
+
+            value to be calculated ie target numbers entered less than 25 when the minimum value of 25 is entered
+            treats the SQUARE of the target number as the target number.
+    
+>#### number of rosary beads
+
+            In order to give a recommendation for the use of the rosary, we need to give the characteristics of the rosary to be used.
+            It's like entering 99 for a 99 rosary.
+
+>#### rosary sections
+
+            In order to give the recommendation for the use of the rosary, we need to give the characteristics of the rosary to be used,
+            It's like having 33 sections for a 99 rosary. 
