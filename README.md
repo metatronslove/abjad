@@ -38,7 +38,7 @@ Function by function description of custom functions...
 
 >####        shadda option
 
-            Unnecessary to give for texts does not contain shadda; in order to calculate 
+            Unnecessary to give for texts do not contain shadda; in order to calculate 
             letters with shadda "double times" give 2, for single time give 1.
 
 >####        detail option
@@ -60,11 +60,11 @@ Function by function description of custom functions...
 
 >####        table code
 
-            You must specify according to which abjad table you will apply the method-ul bast
+            You must specify according to which abjad table you will apply the usul-ul bast
             method, this The table codes contain the table codes in the abjad() function, the table
             codes in the abjad() function the process of adding the amount of letters at the end of
             the spreading operations in addition to the codes You can use negative abjad table
-            codes to avoid these negative codes. To keep in mind, it can be found by multiplying
+            codes to use these tables. To keep in mind, it can be found by multiplying
             positive abjad codes by -1 and adding -1. we can say, for example, the number of
             letters for the small abjad whose abjad table code is 1 If it will not be added, you enter
             -2 as the table code.
@@ -76,7 +76,7 @@ Function by function description of custom functions...
 
 >####        "language"
 
-            "ARABIC", if printing operations will be done according to Arabic numeral
+            "ARABIC", if "bastet" operations will be done according to Arabic numeral
             readings. If it is to be made according to Hebrew the readings, it is entered as "HEBREW".
         
 ***
@@ -136,7 +136,7 @@ Function by function description of custom functions...
 
 >#### calculated number
 
-            The magic square is the number calculated for the tasked spiritual being required to work.
+            The magic square has a number calculated for the tasked spiritual being required to work.
 
 >#### tasker type token
 
@@ -154,9 +154,9 @@ Function by function description of custom functions...
 
 >#### method option
 
-            Optional if you want to produce a name with an abced technique that fits the Cümel-i Kebir table.
+            Optional if you want to produce a name with an abjad technique that fits the Cümel-i Kebir table.
             do not enter this method option. When you enter 1 for this option, the Cümel-i Kebir table is
-            replaced with Experimental Frequency begins to produce names that fit the Abjad table.
+            replaced with Experimental Frequency Abjad Table begins to produce names that fit the Abjad table.
 
 ***
 ### rakamtopla(number to reduce; number of digits)
@@ -195,7 +195,7 @@ Function by function description of custom functions...
 
 >#### target number
 
-            If a number determined by the abjad account is to be reached while using the beaded rosary, it
+            If a number determined by the abjad calculation is to be reached while using the beaded rosary, it
             is entered here.
     
 >#### minimum value
