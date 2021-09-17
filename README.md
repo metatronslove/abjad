@@ -16,25 +16,25 @@ Arabic or Hebrew text or cell including that text.
 
 0 - 5 table codes for both Arabic and Hebrew
     
-0 Minimum Abjad
-1 Small Abjad (Cumel-i Kebir)
-2 Big Abjad
-3 Maximum Abjad
-4 Small Abjad + Letter Quantity
-5 Letter Quantity
+* 0 Minimum Abjad
+* 1 Small Abjad (Cumel-i Kebir)
+* 2 Big Abjad
+* 3 Maximum Abjad
+* 4 Small Abjad + Letter Quantity
+* 5 Letter Quantity
 
 6 - 15 table codes for Arabic only
 
-6 Minimum Frequency Order
-7 Small Frequency Order
-8 Big Frequency Order
-9 Maximum Frequency Order
-10 Small Frequency Order + Letter Quantity
-11 Minimum Frequency Abjad
-12 Small Frequency Abjad
-13 Big Frequency Abjad
-14 Maximum Frequency Abjad
-15 Small Frequency Abjad + Letter Quantity
+* 6 Minimum Frequency Order
+* 7 Small Frequency Order
+* 8 Big Frequency Order
+* 9 Maximum Frequency Order
+* 10 Small Frequency Order + Letter Quantity
+* 11 Minimum Frequency Abjad
+* 12 Small Frequency Abjad
+* 13 Big Frequency Abjad
+* 14 Maximum Frequency Abjad
+* 15 Small Frequency Abjad + Letter Quantity
 
 >#### shadda option
 
@@ -89,20 +89,20 @@ Arabic or Hebrew text whose letters are to be sorted by element
 
 >#### output type code
 
-0 letter quantity
-1 letter list
+* 0 letter quantity
+* 1 letter list
 
 >#### element code
 
-0 fire
-1 air
-2 water
-3 earth
+* 0 fire
+* 1 air
+* 2 water
+* 3 earth
 
 >#### shadda option
 
-1-letters are counted once
-2-shadda letters count twice
+* 1-letters are counted once
+* 2-shadda letters count twice
 
 ***
 ### saf(text; separator)
@@ -142,9 +142,9 @@ The magic square has a number calculated for the tasked spiritual being required
 
 is the suffix selection for the task name to be generated
 
-If "ULVI" is entered, the suffix is ayeel.
-If "SUFLI" is entered, the suffix is yush.
-If "Evil" is entered, the suffix will be teesh.
+* If "ULVI" is entered, the suffix is ayeel.
+* If "SUFLI" is entered, the suffix is yush.
+* If "Evil" is entered, the suffix will be teesh.
 
 any other desired suffix in Arabic letters between double quotation marks for this token.
 can be entered. For "ULVI" type for a reason due to our abjad calculation method The abjad value
@@ -168,11 +168,11 @@ any number
 
 >#### number of digits
 
-If 3 is entered, add the digits of the number to be reduced until you reach a 3-digit number.
+* If 3 is entered, add the digits of the number to be reduced until you reach a 3-digit number.
 continues to collect.
-If 2 is entered, 2 digits,
-If 1 is entered, it reduces to one digit!
-If 0 is entered, it lists all the stages it encounters in the reduction process.
+* If 2 is entered, 2 digits,
+* If 1 is entered, it reduces to one digit!
+* If 0 is entered, it lists all the stages it encounters in the reduction process.
 
 ***
 ### teksir("text to duplicate"; "separator")
