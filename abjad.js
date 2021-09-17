@@ -2910,25 +2910,31 @@ function unsur(unsurmetin, otabiat, otype, shadda) {
     err = 0;
     if (typeof otabiat === 'string') {
         switch (otabiat.toLowerCase()) {
-            case "liste", "list":
+            case "liste":
+            case "list":
                 otabiat = 1;
             	break;
-            case "adet", "amount":
+            case "adet":
+            case "amount":
                 otabiat = 0;
         }
     }
     if (typeof otype === 'string') {
         switch (otype.toLowerCase()) {
-            case "fire", "ateş":
+            case "fire":
+            case "ateş":
                 otype = 0;
             	break;
-            case "air", "hava":
+            case "air":
+            case "hava":
                 otype = 1;
             	break;
-            case "water", "su":
+            case "water":
+            case "su":
                 otype = 2;
             	break;
-            case "earth", "toprak":
+            case "earth":
+            case "toprak":
                 otype = 3;
         }
     }
