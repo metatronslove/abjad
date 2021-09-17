@@ -96,10 +96,10 @@ Function by function description of custom functions...
             2 water
             3 soils
 
->#### sedda option
+>#### shadda option
 
-            1-letter letters are counted once
-            2-shade letters count twice
+            1-letters are counted once
+            2-shadda letters count twice
 
 ***
 ### saf(text; separator)
@@ -107,14 +107,14 @@ Function by function description of custom functions...
 
 >#### text
 
-            From the characters that do not contribute to the abjad analysis and from the actions including the seddes.
-            Arabic or Hebrew text to be purified
+            From the characters that do not contribute to the abjad analysis and from the actions
+            including the shaddas. Arabic or Hebrew text to be purified
 
 >#### separator
 
             If 0 is entered, it purifies the text and the spaces stay where they were in the original.
-            If " " is entered, the letters that may be included in the analysis are displayed with spaces between them.
-                     lists
+            If " " is entered, the letters that may be included in the analysis are displayed with 
+            spaces between them, lists
 
             If necessary, other characters can be entered instead of spaces.
 
@@ -124,8 +124,8 @@ Function by function description of custom functions...
 
 >#### cell to convert numbers
 
-                Numbers consisting of Arabic numerals [0-9] are in the entered cell, these are Indian numerals.
-                turns into It is very useful when spreading formulas.
+                Numbers consisting of Arabic numerals [0-9] are in the entered cell, these are Indian 
+                numerals. turns into It is very useful when spreading formulas.
 
 ***
 ### huddam(calculated number; duty type specifier; method option)
@@ -144,16 +144,16 @@ Function by function description of custom functions...
             If "Evil" is entered, the suffix will be tash.
 
             any other desired suffix in Arabic letters between double quotation marks for this token.
-            can be entered. For "ULVI" type for a reason due to our abjad calculation method
-            The abjad value of the given ayil suffix was calculated as 51, the amount of 41 given in the books.
-            If you are targeting, instead of typing "ULVI", use the letter "hemze" or "alif" instead of the letter "ulvi".
+            can be entered. For "ULVI" type for a reason due to our abjad calculation method The abjad value
+            of the given ayil suffix was calculated as 51, the amount of 41 given in the books. If you are
+            targeting, instead of typing "ULVI", use the letter "hemze" or "alif" instead of the letter "ulvi".
             Enter your own type identifier using
 
 >#### method option
 
             Optional if you want to produce a name with an abced technique that fits the Cümel-i Kebir table.
-            do not enter this method option. When you enter 1 for this option, the Cümel-i Kebir table is replaced.
-            Experimental Frequency begins to produce names that fit the Abjad table.
+            do not enter this method option. When you enter 1 for this option, the Cümel-i Kebir table is
+            replaced with Experimental Frequency begins to produce names that fit the Abjad table.
 
 ***
 ### rakamtopla(number to reduce; number of digits)
@@ -178,12 +178,13 @@ Function by function description of custom functions...
 >#### "text to duplicate"
 
             For the Arabic or Hebrew text you enter here, type all letters from the beginning to the end.
-            It allows the letters in the text to be reproduced in different order by taking the space up to the area.
+            It allows the letters in the text to be reproduced in different order by taking the space up to
+            the area.
 
 >#### "separator"
 
-            During the duplication process, I recommend using the " " space as a separator for visual purposes,
-            Other characters can also be selected.
+            During the duplication process, I recommend using the " " space as a separator for visual
+            purposes, Other characters can also be selected.
 
 ***
 ### tesbeh(target number; minimum value; number of rosary beads; rosary sections)
@@ -191,19 +192,20 @@ Function by function description of custom functions...
 
 >#### target number
 
-            If a number determined by the abjad account is to be reached while using the beaded rosary, it is entered here.
+            If a number determined by the abjad account is to be reached while using the beaded rosary, it
+            is entered here.
     
 >#### minimum value
 
-            value to be calculated ie target numbers entered less than 25 when the minimum value of 25 is entered
-            treats the SQUARE of the target number as the target number.
+            value to be calculated ie target numbers entered less than 25 when the minimum value of 25 is
+            entered treats the SQUARE of the target number as the target number.
     
 >#### number of rosary beads
 
-            In order to give a recommendation for the use of the rosary, we need to give the characteristics of the rosary to be used.
-            It's like entering 99 for a 99 rosary.
+            In order to give a recommendation for the use of the rosary, we need to give the characteristics
+            of the rosary to be used. It's like entering 99 for a 99 rosary.
 
 >#### rosary sections
 
-            In order to give the recommendation for the use of the rosary, we need to give the characteristics of the rosary to be used,
-            It's like having 33 sections for a 99 rosary. 
+            In order to give the recommendation for the use of the rosary, we need to give the characteristics
+            of the rosary to be used, It's like having 33 sections for a 99 rosary. 
