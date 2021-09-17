@@ -17,7 +17,7 @@ There ara enough syntax references to code in these languages. Simple used searc
 * Wikipedia Turkish - Arabic - English encyclopedic references
 * Havas İlminin Derinlikleri - Facebook Group
 
-My Code Simple Refer To These Sources Worked On Them Between 2017 - 2021
+My Code Simply Refers To These Sources Worked On Them Between 2017 - 2021
 ***
 
 Other than codes I have published on github; I have notes taken in pdf files and some other things
