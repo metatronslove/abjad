@@ -1,7 +1,10 @@
 # abjad
 Abjad Calculation Macro Commands To Use Custom Functions For Google Sheets And LibreOffice Calc
 
-Function by function description of custom functions...
+I DO NOT OFFER ANY CERTAIN CALCULATIONS; CHECK THE CODE AND REMOUNT YOUR FUNCTIONS TO REACH
+YOUR CERTAINITY !!!
+
+Function by function description of custom functions... 
 ***
 ###         abjad("text to find abjad value"; abjad table code; shadda option; detail option)
 ***
