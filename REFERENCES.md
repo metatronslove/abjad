@@ -1,10 +1,11 @@
-#References
+# References
 
 * JavaScript
 * Google Apps Script
 * LibreOffice Basic
 
-*** There ara enough syntax references to code in these languages. Simple used search engines for this.
+There ara enough syntax references to code in these languages. Simple used search engines for this.
+***
 
 * İlm-i Cifir Şerhi ve Havassı - Muhiyiddin ibni Arabi - Turkish Translation by Mustafa Varlı
 * Usul-ul Bast Fi Sırrı-l Evfak Vel Havas - İdris Çelebi
@@ -16,7 +17,8 @@
 * Wikipedia Turkish - Arabic - English encyclopedic references
 * Havas İlminin Derinlikleri - Facebook Group
 
-*** My Code Simple Refer To These Sources Worked On Them Between 2017 - 2021
+My Code Simple Refer To These Sources Worked On Them Between 2017 - 2021
+***
 
 Other than codes I have published on github; I have notes taken in pdf files and some other things
 which could be found at Google Drive or Dosya.Org:
