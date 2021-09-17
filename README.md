@@ -142,9 +142,9 @@ Function by function description of custom functions...
 
             is the suffix selection for the task name to be generated
 
-            If "ULVI" is entered, the suffix is ​​the month.
-            If "SUFLI" is entered, the suffix is ​​yush.
-            If "Evil" is entered, the suffix will be tash.
+            If "ULVI" is entered, the suffix is ayeel.
+            If "SUFLI" is entered, the suffix is yush.
+            If "Evil" is entered, the suffix will be teesh.
 
             any other desired suffix in Arabic letters between double quotation marks for this token.
             can be entered. For "ULVI" type for a reason due to our abjad calculation method The abjad value
