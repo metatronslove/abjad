@@ -43,14 +43,14 @@ Function by function description of custom functions...
             giving this option is optional,  if you give  1  here, it lists every letter 
             with value according to given table code.
 ***            
-###         bastet(“text or number”; number of bast repetitions; table code; shadda option; “language option”)
+###         bastet(“text or number”; bast repetitions; table code; shadda option; “language”)
 ***
 >####        "text or number"
 
             If you enter Arabic or Hebrew text, you can set the abjad value according to the table
             code. uses it, even if you give a number directly, it does the operation.
 
->####        number of bast repetitions
+>####        bast repetitions
 
             In terms of the method-ul bast method, how many times will the spread operation be
             applied to the abjad value? you must indicate that how many times it will repeat.
@@ -71,7 +71,7 @@ Function by function description of custom functions...
             You can enter 2 for double calculation and 1 for odd calculation, if there is no shadda.
             It is optional, not required.
 
->####        "language option"
+>####        "language"
 
             "ARABIC", if printing operations will be done according to Arabic numeral
             readings. If it is to be made according to Hebrew the readings, it is entered as "HEBREW".            
