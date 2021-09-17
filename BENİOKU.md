@@ -16,25 +16,25 @@ Arapça ya da İbranice bir metin ya da metnin bulunduğu hücre.
 
 0 - 5 tablo kodları Arapça ve İbranice için
 
-0 Asgari Ebced
-1 Sağir Ebced (Cümel-i Kebir)
-2 Kebir Ebced
-3 Ekber Ebced
-4 Sağir Ebced + Harf Miktarı
-5 Harf Miktarı
+*0 Asgari Ebced
+*1 Sağir Ebced (Cümel-i Kebir)
+*2 Kebir Ebced
+*3 Ekber Ebced
+*4 Sağir Ebced + Harf Miktarı
+*5 Harf Miktarı
 
 6 - 16 tablo kodları sadece Arapça için
 
-6 Asgari Frekans Sırası 
-7 Sağir Frekans Sırası
-8 Kebir Frekans Sırası
-9 Ekber Frekans Sırası
-10 Sağir Frekans Sırası + Harf Miktarı
-11 Asgari Frekans Ebcedi
-12 Sağir Frekans Ebcedi
-13 Kebir Frekans Ebcedi
-14 Ekber Frekans Ebcedi
-15 Sağir Frekans Ebcedi + Harf Miktarı
+*6 Asgari Frekans Sırası 
+*7 Sağir Frekans Sırası
+*8 Kebir Frekans Sırası
+*9 Ekber Frekans Sırası
+*10 Sağir Frekans Sırası + Harf Miktarı
+*11 Asgari Frekans Ebcedi
+*12 Sağir Frekans Ebcedi
+*13 Kebir Frekans Ebcedi
+*14 Ekber Frekans Ebcedi
+*15 Sağir Frekans Ebcedi + Harf Miktarı
 
 >#### şedde seçeneği
 
@@ -88,20 +88,20 @@ harfleri elementlere göre tasnif edilecek olan Arapça veya İbranice metin
 
 >#### çıktı türü kodu
 
-0 harf miktarı
-1 harf listesi
+*0 harf miktarı
+*1 harf listesi
 
 >#### unsur kodu
 
-0 ateş
-1 hava
-2 su
-3 toprak
+*0 ateş
+*1 hava
+*2 su
+*3 toprak
 
 >#### şedde seçeneği
 
-1 şeddeli harfler tek sefer hesaba katılır
-2 şeddeli harfler iki kez hesaba katılır
+*1 şeddeli harfler tek sefer hesaba katılır
+*2 şeddeli harfler iki kez hesaba katılır
 
 ***
 ### saf(metin; ayraç)
@@ -114,8 +114,8 @@ arındırılacak Arapça veya İbranice metin
 
 >#### ayraç
 
-0  girilirse metni arındırır ve boşluklar orjinaldeki yerlerinde kalır
-" "  girilirse incelemeye dahil olabilecek harfleri aralarında boşluklar olduğu halde
+*0  girilirse metni arındırır ve boşluklar orjinaldeki yerlerinde kalır
+*" "  girilirse incelemeye dahil olabilecek harfleri aralarında boşluklar olduğu halde
   listeler
 
 ihtiyaç varsa boşluk yerine başka karakterler de girilebilir.
@@ -141,9 +141,9 @@ sihirli kare çalışmak için gereken vazifeli ruhsal varlık için hesaplanan 
 
 üretilecek vazifeli ismi için son ek seçimidir
 
-"ULVI"  girilirse, son ek ayil olur.
-"SUFLI" girilirse, son ek yuş olur.
-"ŞER" girilirse, son ek tıyş olur.
+*"ULVI"  girilirse, son ek ayil olur.
+*"SUFLI" girilirse, son ek yuş olur.
+*"ŞER" girilirse, son ek tıyş olur.
 
 bu belirteç için çift tırnak işareti arasına arap harfleriyle istenen herhangi bir başka ek de
 girilebiliyor. Ebced hesaplama yöntemimizden kaynaklanan bir sebeple "ULVI" türü için
@@ -167,11 +167,11 @@ herhangi bir sayı
 
 >#### basamak miktarı
 
-3 girilirse, indirgenecek sayının basamaklarını toplayarak 3 basamaklı bir sayıya ulaşanadek
+*3 girilirse, indirgenecek sayının basamaklarını toplayarak 3 basamaklı bir sayıya ulaşanadek
 toplamayı sürdürür.
-2 girilirse 2 basamağa,
-1 girilirse tek basamağa kadar indirger!
-0 girilirse indirgeme işlemlerinde karşılaştığı tüm aşamaları listeler.
+*2 girilirse 2 basamağa,
+*1 girilirse tek basamağa kadar indirger!
+*0 girilirse indirgeme işlemlerinde karşılaştığı tüm aşamaları listeler.
 
 ***
 ### teksir("çoğaltılacak metin"; "ayraç")
