@@ -124,8 +124,8 @@ Function by function description of custom functions...
 
 >#### cell to convert numbers
 
-                Numbers consisting of Arabic numerals [0-9] are in the entered cell, these are Indian 
-                numerals. turns into It is very useful when spreading formulas.
+            Numbers consisting of Arabic numerals [0-9] are in the entered cell, these are Indian 
+            numerals. turns into It is very useful when spreading formulas.
 
 ***
 ### huddam(calculated number; duty type specifier; method option)
@@ -161,15 +161,15 @@ Function by function description of custom functions...
 
 >#### number to reduce
 
-                any number
+            any number
 
 >#### number of digits
 
-                If 3 is entered, add the digits of the number to be reduced until you reach a 3-digit number.
-                continues to collect.
-                If 2 is entered, 2 digits,
-                If 1 is entered, it reduces to one digit!
-                If 0 is entered, it lists all the stages it encounters in the reduction process.
+            If 3 is entered, add the digits of the number to be reduced until you reach a 3-digit number.
+            continues to collect.
+            If 2 is entered, 2 digits,
+            If 1 is entered, it reduces to one digit!
+            If 0 is entered, it lists all the stages it encounters in the reduction process.
 
 ***
 ### teksir("text to duplicate"; "separator")
