@@ -1,4 +1,4 @@
-# abjad
+# abjad https://github.com/metatronslove/abjad
 Abjad Calculation Macro Commands To Use Custom Functions For Google Sheets And LibreOffice Calc
 
 I DO NOT OFFER ANY CERTAIN CALCULATION; CHECK THE CODE AND RECREATE YOUR FUNCTIONS TO REACH
