@@ -1,4 +1,4 @@
-# abjad
+# abjad https://github.com/metatronslove/abjad
 Google E-tablolar ve LibreOffice Hesap Tablosu için Ebced Hesaplama fonksiyonları
 
 HİÇ BİR KESİN TUTARLI YA DA DOĞRU HESAPLANMIŞ SONUÇ VAADETMİYORUM; KODLARI GÖZDEN GEÇİRİN VE 
