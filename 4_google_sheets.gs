@@ -1,4 +1,4 @@
-// Merhaba Sahur Özel'in Ebced Hesaplayan Makrolarının LibreOffice Basic dilinden JavaScript diline çevirisidir. Konu hakkında daha geniş bilgi için go.abdil.one/6 adresinden ilgili Google Drive klasörüne erişebilirsiniz bu kodlar MIT, Creative commons ve GPL gibi lisanslarla değil; kullanıcılarının vicdanlarıyla korunmaktadır. Vicdansızları büyük yargı gününde rab hesaba çeker.
+// Merhaba Sahur Özel'in Ebced Hesaplayan Makrolarının LibreOffice Basic dilinden Google Apps Script diline çevirisidir. Konu hakkında daha geniş bilgi için go.abdil.one/6 adresinden ilgili Google Drive klasörüne erişebilirsiniz bu kodlar MIT, Creative commons ve GPL gibi lisanslarla değil; kullanıcılarının vicdanlarıyla korunmaktadır. Vicdansızları büyük yargı gününde rab hesaba çeker.
 function saf(metinsaf, ayrac) {
     var safmetin, irun, choosen, counter, s;
     safmetin = "";
