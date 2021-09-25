@@ -3558,6 +3558,7 @@ function rakamtopla(urval, d1g1tamount) {
 
 function tesbeh(zkr, minimum, boncuk, bolum) {
     var turn, part, rest, outp;
+    outp = "";
     zkr = parseFloat(zkr);
     if (zkr < minimum) {
         zkr = zkr * zkr;
