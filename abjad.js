@@ -3565,13 +3565,13 @@ function tesbeh(zkr, minimum, boncuk, bolum) {
     turn = Math.floor(zkr / boncuk);
     part = Math.floor((zkr - (turn * boncuk)) / bolum);
     rest = ((zkr - (turn * boncuk)) - (part * bolum));
-    if (turn > 0) {
+    if (turn > 0 && turn !== undefined) {
         outp = "[" + turn + " tur]";
     }
-    if (part > 0) {
+    if (part > 0 && part !== undefined) {
         outp = outp + "[" + part + "X" + bolum + "]";
     }
-    if (rest > 0) {
+    if (rest > 0 && rest !== undefined) {
         outp = outp + "[" + rest + " kalan]";
     }
     return outp;
