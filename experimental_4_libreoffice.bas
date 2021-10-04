@@ -44,8 +44,8 @@ Sub altayaz(Optional girdi As Variant) As String
             Case "+" : ss = ss & "₊"
             Case "-" : ss = ss & "₋"
             Case "=" : ss = ss & "₌"
-            Case "(" : ss = ss & "₍"
-            Case ")" : ss = ss & "₎"
+            Case "(", "[" : ss = ss & "₍"
+            Case ")", "]" : ss = ss & "₎"
             Case " " : ss = ss & " "
             Case Else : ss = ss & choosen
         End Select
