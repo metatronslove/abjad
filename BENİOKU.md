@@ -7,6 +7,7 @@ HİÇ BİR KESİN TUTARLI YA DA DOĞRU HESAPLANMIŞ SONUÇ VAADETMİYORUM; KODLA
 Fonksiyon-fonksiyon kullanıcı tanımlı fonksiyonların açıklaması.
 ***
 ### abjad("ebced değeri bulunacak metin"; ebced tablosu kodu; şedde seçeneği; ayrıntı seçeneği)
+### wordbyword("ebced değeri bulunacak metin"; ebced tablosu kodu; şedde seçeneği; ayrıntı seçeneği)
 ***
 >#### "ebced değeri bulunacak metin"
 
