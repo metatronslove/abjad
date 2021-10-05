@@ -7,6 +7,7 @@ YOUR CERTAINITY !!!
 Function by function description of custom functions... 
 ***
 ### abjad("text to find abjad value"; abjad table code; shadda option; detail option)
+### wordbyword("text to find abjad value"; abjad table code; shadda option; detail option)
 ***
 >#### "text to find abjad value"
 
