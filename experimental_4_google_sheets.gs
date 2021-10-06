@@ -9,14 +9,15 @@ function wordbyword(klmmetin, tablow, shaddaw, detailw) {
           word = word + klmchoosen;
           switch (klmchoosen) {
             case " ":
-            calculation = "(" + abjad(word, tablow, shaddaw, detailw) + ")";
+            word = word.substr(0, word.length - 1);
+            calculation = abjad(word, tablow, shaddaw, detailw).toString();
             content += word + altayaz(calculation) + " ";
             word = "";
             calculation = "";
             break;
             default:
             if (counter == klmmetin.length - 1) {
-                calculation = "(" + abjad(word, tablow, shaddaw, detailw) + ")";
+                calculation = abjad(word, tablow, shaddaw, detailw).toString();
                 content += word + altayaz(calculation) + "";
                 word = "";
                 calculation = "";
@@ -31,7 +32,7 @@ function altayaz(girdi) {
     girdi = girdi.toString();
     ss = "";
     for (counter = 0; counter < girdi.length; counter++) {
-        choosenalta = girdi[counter - 1];
+        choosenalta = girdi[counter];
         switch (choosenalta) {
             case "1":
                 ss = ss + "₁";
