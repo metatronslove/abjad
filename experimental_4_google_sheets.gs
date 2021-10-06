@@ -9,15 +9,15 @@ function wordbyword(klmmetin, tablow, shaddaw, detailw) {
           word = word + klmchoosen;
           switch (klmchoosen) {
             case " ":
-            calculation = "(" + abjad(word, tablow, shaddaw, detailw) + ") ";
-            content += word + altayaz(calculation);
+            calculation = "(" + abjad(word, tablow, shaddaw, detailw) + ")";
+            content += word + altayaz(calculation) + " ";
             word = "";
             calculation = "";
             break;
             default:
             if (counter == klmmetin.length - 1) {
-                calculation = "(" + abjad(word, tablow, shaddaw, detailw) + ") ";
-                content += word + altayaz(calculation);
+                calculation = "(" + abjad(word, tablow, shaddaw, detailw) + ")";
+                content += word + altayaz(calculation) + "";
                 word = "";
                 calculation = "";
           }
