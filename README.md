@@ -4,6 +4,8 @@ Abjad Calculation Macro Commands To Use Custom Functions For Google Sheets And L
 I DO NOT OFFER ANY CERTAIN CALCULATION; CHECK THE CODE AND RECREATE YOUR FUNCTIONS TO REACH
 YOUR CERTAINITY !!!
 
+[![wordbyword() function](https://i.ytimg.com/vi/FWqtQP_V5u4/maxresdefault.jpg)](https://youtu.be/FWqtQP_V5u4 "wordbyword() function")
+
 Function by function description of custom functions... 
 ***
 ### abjad("text to find abjad value"; abjad table code; shadda option; detail option)
