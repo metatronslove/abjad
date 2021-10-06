@@ -4,6 +4,8 @@ Google E-tablolar ve LibreOffice Hesap Tablosu için Ebced Hesaplama fonksiyonla
 HİÇ BİR KESİN TUTARLI YA DA DOĞRU HESAPLANMIŞ SONUÇ VAADETMİYORUM; KODLARI GÖZDEN GEÇİRİN VE 
 İHTİYAÇLARINIZA GÖRE YENİDEN DÜZENLEYİN Kİ ARADIĞINIZ KESİNLİĞE ULAŞABİLESİNİZ.
 
+[![wordbyword() function](https://i.ytimg.com/vi/FWqtQP_V5u4/maxresdefault.jpg)](https://youtu.be/FWqtQP_V5u4 "wordbyword() function")
+
 Fonksiyon-fonksiyon kullanıcı tanımlı fonksiyonların açıklaması.
 ***
 ### abjad("ebced değeri bulunacak metin"; ebced tablosu kodu; şedde seçeneği; ayrıntı seçeneği)
