@@ -3144,7 +3144,7 @@ function numbers2arab(indians) {
     indians = indians.toString();
     na = "";
     for (counter = 0; counter < indians.length; counter++) {
-        choosenarab = indians[counter - 1];
+        choosenarab = indians[counter];
         switch (choosenarab) {
             case "1":
                 na = na + "١";
@@ -3178,6 +3178,8 @@ function numbers2arab(indians) {
                 break;
             case " ":
                 na = na + " ";
+                break;
+            case undefined:
                 break;
             default:
                 na = na + choosenarab;
