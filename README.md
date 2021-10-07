@@ -1,3 +1,5 @@
+# Join us here to participate these codes as open source, I believe in finding common points. Use Discussions tab.
+
 # abjad https://github.com/metatronslove/abjad
 Abjad Calculation Macro Commands To Use Custom Functions For Google Sheets And LibreOffice Calc
 
