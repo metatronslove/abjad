@@ -48,6 +48,8 @@ harfler çift hesaplanacaksa 2, tek hesaplanacaksa 1 girin.
 
 bu seçeneği girmek seçimliktir, eğer 1 olarak girerseniz her harf için verilmiş olan
 tablo koduna göre değerleriyle beraber listeler.
+![https://www.hizliresim.com/7ba8muh](https://i.hizliresim.com/7ba8muh.png)
+
 ***
 ### bastet(“metin veya sayı”; bast tekrar adedi; tablo kodu; şedde seçeneği; "dil seçeneği")
 ***
