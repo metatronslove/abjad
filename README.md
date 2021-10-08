@@ -50,9 +50,9 @@ letters with shadda "double times" give 2, for single time give 1.
 
 giving this option is optional,  if you give  1  here, it lists every letter 
 with value according to given table code.
-***
 ![https://www.hizliresim.com/7ba8muh](https://i.hizliresim.com/7ba8muh.png)
 
+***
 ###  bastet(“text or number”; bast repetitions; table code; shadda option; “language”)
 ***
 >#### "text or number"
