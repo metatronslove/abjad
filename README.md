@@ -51,7 +51,7 @@ letters with shadda "double times" give 2, for single time give 1.
 giving this option is optional,  if you give  1  here, it lists every letter 
 with value according to given table code.
 
-![https://tinyurl.com/t3stc0d3](https://i.ibb.co/Jp19XXS/Ekran-g-r-nt-s-2021-10-08-14-47-23.png)
+[![https://tinyurl.com/t3stc0d3](https://i.ibb.co/Jp19XXS/Ekran-g-r-nt-s-2021-10-08-14-47-23.png)](https://tinyurl.com/t3stc0d3)
 
 ***
 ###  bastet(“text or number”; bast repetitions; table code; shadda option; “language”)
@@ -138,7 +138,7 @@ If necessary, other characters can be entered instead of spaces.
 Numbers consisting of Arabic numerals [0-9] are in the entered cell, these are Indian 
 numerals. turns into It is very useful when spreading formulas.
 
-![https://tinyurl.com/1v3fk](https://i.ibb.co/bK80X5H/Ekran-g-r-nt-s-2021-10-11-19-55-02.png)
+[![https://tinyurl.com/1v3fk](https://i.ibb.co/bK80X5H/Ekran-g-r-nt-s-2021-10-11-19-55-02.png)](https://tinyurl.com/1v3fk)
 
 ***
 ### huddam(calculated number; duty type specifier; method option)
