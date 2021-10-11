@@ -137,6 +137,8 @@ If necessary, other characters can be entered instead of spaces.
 Numbers consisting of Arabic numerals [0-9] are in the entered cell, these are Indian 
 numerals. turns into It is very useful when spreading formulas.
 
+![https://tinyurl.com/1v3fk](https://i.ibb.co/bK80X5H/Ekran-g-r-nt-s-2021-10-11-19-55-02.png)
+
 ***
 ### huddam(calculated number; duty type specifier; method option)
 ***
