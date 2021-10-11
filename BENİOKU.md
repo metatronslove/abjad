@@ -48,7 +48,8 @@ harfler çift hesaplanacaksa 2, tek hesaplanacaksa 1 girin.
 
 bu seçeneği girmek seçimliktir, eğer 1 olarak girerseniz her harf için verilmiş olan
 tablo koduna göre değerleriyle beraber listeler.
-![https://www.hizliresim.com/7ba8muh](https://i.hizliresim.com/7ba8muh.png)
+
+![https://tinyurl.com/t3stc0d3](https://i.ibb.co/Jp19XXS/Ekran-g-r-nt-s-2021-10-08-14-47-23.png)
 
 ***
 ### bastet(“metin veya sayı”; bast tekrar adedi; tablo kodu; şedde seçeneği; "dil seçeneği")
@@ -133,6 +134,8 @@ ihtiyaç varsa boşluk yerine başka karakterler de girilebilir.
 
 Arap rakamlarından [0-9] oluşan sayılar girilmiş hücrededir, bunlar Hint rakamlarına
 dönüşür. Formul yayarken oldukça kullanışlıdır.
+
+![https://tinyurl.com/1v3fk](https://i.ibb.co/bK80X5H/Ekran-g-r-nt-s-2021-10-11-19-55-02.png)
 
 ***
 ### huddam(hesaplanmış sayı; vazifeli türü belirteci; yöntem seçeneği)
