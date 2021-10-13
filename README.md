@@ -1,6 +1,7 @@
 # Join us here to participate these codes as open source, I believe in finding common points. Use Discussions tab.
 
-    A google spread sheet pre-added some macro code sets is here https://tinyurl.com/bl4nksh33t
+A google spread sheet pre-added some macro code sets is here:
+    https://tinyurl.com/bl4nksh33t
 
 # abjad https://github.com/metatronslove/abjad
 Abjad Calculation Macro Commands To Use Custom Functions For Google Sheets And LibreOffice Calc
