@@ -3245,7 +3245,7 @@ function huddam(num, htype, method) {
             if (suffix > num) {
                 do {
                     num += 361;
-                } while (suffix < num);
+                } while (suffix > num);
             }
             preffix = (num - suffix).toString();
             if (preffix.length > 3) {
