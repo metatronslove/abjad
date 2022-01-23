@@ -1269,7 +1269,12 @@ Sub huddam(Optional num As LONG, Optional htype As Variant, Optional method As V
                 Case Else : suffix = CLng(abjad(htype, 1, 1))
             End Select
     End Select
-    If suffix > num Then num = num + 361
+    If suffix > num Then
+    	Do
+        	num = num + 361
+	    Loop Until suffix < num 
+	Else
+	End If
     preffix = CStr(num - suffix)
     P(0) = (LEN(preffix) / 3)
     P(1) = 0
@@ -2059,3 +2064,77 @@ Function tumle(range)
     276 If result = "" Then MsgBox "tumle() için girilen aralıktaki tüm hücreler zaten boş; makrolar harika çalışıyorlar"
     Tumle = result
 End Function
+Sub wordbyword(Optional klmmetin As String, Optional tablo As Variant, Optional shadda As Variant, Optional detail As Variant) As String
+    'Bu fonksiyonu kullandığınız hücreler için Metin Kaydır seçeneğini etkinleştirirseniz daha düzgün çalışıyor, parametreleri abjad() fonksiyonuyla aynı'
+    Dim content, word As String
+    content = ""
+    word = ""
+    For counter = 1 To LEN(klmmetin)
+            klmchoosen = MID(klmmetin, counter, 1)
+            word = word + klmchoosen
+            Select Case klmchoosen
+                Case " "
+                    calculation =  "("  & abjad(word, tablo, shadda, detail) & ") "
+                    content = content & word & altayaz(calculation)
+                    word = ""
+                    calculation = ""
+                Case Else
+                    If counter = LEN(klmmetin) Then
+                        calculation =  "("  & abjad(word, tablo, shadda, detail) & ") "
+                        content = content & word & altayaz(calculation)
+                        word = ""
+                        calculation = ""
+                    Else
+                    End If
+            End Select
+    Next
+    ReDim word, calculation, content
+    wordbyword = content
+End Sub
+Sub altayaz(Optional girdi As Variant) As String
+    Dim counter     As Integer
+    Dim choosen, ss As String : ss = "" : altayaz = ""
+    For counter = 1 To LEN(girdi)
+        choosen = MID(girdi, counter, 1)
+        Select Case choosen
+            Case "1" : ss = ss & "₁"
+            Case "2" : ss = ss & "₂"
+            Case "3" : ss = ss & "₃"
+            Case "4" : ss = ss & "₄"
+            Case "5" : ss = ss & "₅"
+            Case "6" : ss = ss & "₆"
+            Case "7" : ss = ss & "₇"
+            Case "8" : ss = ss & "₈"
+            Case "9" : ss = ss & "₉"
+            Case "0" : ss = ss & "₀"
+            Case "+" : ss = ss & "₊"
+            Case "-" : ss = ss & "₋"
+            Case "=" : ss = ss & "₌"
+            Case "(", "[" : ss = ss & "₍"
+            Case ")", "]" : ss = ss & "₎"
+            Case " " : ss = ss & " "
+            Case Else : ss = ss & choosen
+        End Select
+    Next
+    altayaz = ss
+    ReDim altayaz, ss
+End Sub
+Sub hepart(Optional npotent As Double, Optional memec As Integer) As Double
+    Dim result, sum, rsum As Long
+    Dim Rounder     As Object
+    Dim P(1)        As Long : P(1) = 0
+    Dim R(1), kat	As Double: kat = 2
+    Rounder = CreateUnoService("com.sun.star.sheet.FunctionAccess")
+    Do
+        P(0) = (npotent-30)/4
+        R(0) = Rounder.callFunction("ROUNDDOWN", P())
+        result = npotent * kat
+        kat = kat + 1
+    Loop Until 1 <= R(0)
+    ReDim result, sum, rsum
+    If memec = 1 Then
+        hepart = kat - 1
+    Else
+        hepart = result
+    EndIf
+End Sub
