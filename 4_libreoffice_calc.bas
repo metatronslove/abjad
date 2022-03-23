@@ -2119,24 +2119,30 @@ Sub altayaz(Optional girdi As Variant) As String
     altayaz = ss
     ReDim altayaz, ss
 End Sub
-Sub hepart(npotent As Long, memec As Integer) As Double
-    Dim result, sum, rsum As Long
+Sub hepart(Optional npotent As Long, Optional memec As Integer) As Double
+    Dim result As Double
     Dim Rounder     As Object
-    Dim Q(1)        As Long : Q(1) = 0
+    Dim Q(1)        As Double : Q(1) = 0
     Dim R(1), kat	As Double: kat = 2
+    result = 0
     On Error GoTo 726
     Rounder = CreateUnoService("com.sun.star.sheet.FunctionAccess")
     Q(0) = (npotent - 30) / 4
-    Do
-        R(0) = Rounder.callFunction("ROUNDDOWN", Q())
-        result = npotent * kat
-        kat = kat + 1
-    Loop Until 1 <= R(0)
-    ReDim result, sum, rsum
+    If Rounder.callFunction("ROUNDDOWN", Q()) < 1 Then
+    	Do
+        	result = npotent * kat
+        	Q(0) = (result - 30) / 4
+        	R(0) = Rounder.callFunction("ROUNDDOWN", Q())
+        	kat = kat + 1
+    	Loop Until 1 <= R(0)
+    Else
+    	result = npotent
+    EndIf
+    ReDim result
     If memec = 1 Then
         hepart = kat - 1
     Else
         hepart = result
     EndIf
-    726 If hepart = "" Then MsgBox "hepart() için değişken seçimlik değil; fakat, makrolar harika çalışıyorlar"
+    726 If result = 0 Then MsgBox "hepart() için değişken seçimlik değil; fakat, makrolar harika çalışıyorlar"
 End Sub
