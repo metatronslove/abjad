@@ -2106,13 +2106,13 @@ Sub HEPART(Optional npotent As Long, Optional memec As Integer) As Double
         result = npotent
         EndIf
         ReDim result
-        If memec = 1 Then
-            HEPART = kat - 1
-        Else
-            HEPART = result
-            EndIf
-            726 If result = 0 Then MsgBox "HEPART() için değişken seçimlik değil; fakat, makrolar harika çalışıyorlar"
-        End Sub
+   If memec = 1 Then
+        HEPART = kat - 1
+   Else
+        HEPART = result
+   EndIf
+   726 If result = 0 Then MsgBox "HEPART() için değişken seçimlik değil; fakat, makrolar harika çalışıyorlar"
+End Sub
 Sub RAKAMTOPLA(Optional valuez As Long, Optional d1g1tamount As Integer) As String
     Dim hepsi       As String
     Dim counter     As Integer
