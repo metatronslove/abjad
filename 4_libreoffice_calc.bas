@@ -2151,7 +2151,7 @@ End Sub
 Sub NEWLINE(Optional amount As Long) As String
 	Dim rows As Long
 	Dim NL As String : NL = ""
-	For rows = 1 To amount
+	For rows = 0 To amount
 		NL = NL & Chr(10) & Chr(13)
 	Next rows
 	NEWLINE = NL
