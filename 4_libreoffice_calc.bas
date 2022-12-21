@@ -2104,15 +2104,15 @@ Sub HEPART(Optional npotent As Long, Optional memec As Integer) As Double
         Loop Until 1 <= R
     Else
         result = npotent
-        EndIf
-        ReDim result
-        If memec = 1 Then
-            HEPART = kat - 1
-        Else
-            HEPART = result
-            EndIf
-            726 If result = 0 Then MsgBox "HEPART() için değişken seçimlik değil; fakat, makrolar harika çalışıyorlar"
-        End Sub
+    EndIf
+    ReDim result
+    If memec = 1 Then
+        HEPART = kat - 1
+    Else
+        HEPART = result
+    EndIf
+    726 If result = 0 Then MsgBox "HEPART() için değişken seçimlik değil; fakat, makrolar harika çalışıyorlar"
+End Sub
 Sub RAKAMTOPLA(Optional valuez As Long, Optional d1g1tamount As Integer) As String
     Dim hepsi       As String
     Dim counter     As Integer
@@ -2136,7 +2136,15 @@ Sub RAKAMTOPLA(Optional valuez As Long, Optional d1g1tamount As Integer) As Stri
         Loop : ReDim d1g1tamount, valuez : RAKAMTOPLA = valuez
     End If
 End Sub
-Sub ASGAR(Optional harf As String, Optional level As Integer) As String
+Sub NEWLINE(Optional amount As Long) As String
+    Dim rows As Long
+    Dim NL As String : NL = ""
+    For rows = 1 To amount
+        NL = NL & Chr(10) & Chr(13)
+    Next rows
+    NEWLINE = NL
+End Sub
+Function ASGAR(Optional harf As String, Optional level As Integer) As String
     Dim C           As Long
     Select Case level
         Case > 1 : C = ABJAD(harf, level, 1)
@@ -2147,23 +2155,15 @@ Sub ASGAR(Optional harf As String, Optional level As Integer) As String
     Else
         ASGAR = C
     End If
-End Sub
-Sub NEWLINE(Optional amount As Long) As String
-	Dim rows As Long
-	Dim NL As String : NL = ""
-	For rows = 0 To amount
-		NL = NL & Chr(10) & Chr(13)
-	Next rows
-	NEWLINE = NL
-End Sub
-Sub DUZLE(Optional numbertofloor As Double) As Long
+End Function
+Function DUZLE(Optional numbertofloor As Double) As Long
     Dim mathfloor   As Object
     Dim P(1)        As Double
     mathfloor = CreateUnoService("com.sun.star.sheet.FunctionAccess")
     P(0) = numbertofloor
     P(1) = 0
     DUZLE = mathfloor.callFunction("ROUNDDOWN", P())
-End Sub
+End Function
 Function TUMLE(range)
     Dim row, col    As Integer
     Dim result, cell As String
