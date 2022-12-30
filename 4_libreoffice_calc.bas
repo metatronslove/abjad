@@ -1254,7 +1254,7 @@ Sub SAF(Optional metin As String, Optional ayrac As Variant) As String
             Case "ۀ" : S = "ۀ" & irun
             Case "א", "ב", "ג", "ד", "ה", "ו", "ז", "ח", "ט", "י" : S = choosen & irun
             Case "ל", "ס", "ע", "ק", "ר", "ש", "ת" : S = choosen & irun
-            Case "כ", "ך" ,"מ", "ם"  "נ", "ן" ,"פ", "ף", "צ", "ץ" : S = choosen & irun
+            Case "כ", "ך" ,"מ", "ם" ,"נ", "ן" ,"פ", "ף", "צ", "ץ" : S = choosen & irun
             Case " "
                 Select Case ayrac
                     Case "" : S = choosen
