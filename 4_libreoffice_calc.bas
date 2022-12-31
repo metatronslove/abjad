@@ -875,7 +875,7 @@ Sub WORDBYWORD(Optional klmmetin As String, Optional tablo As Variant, Optional 
     ReDim word, calculation, content
     WORDBYWORD = content
 End Sub
-Sub BASTET(Optional metin As String, Optional MT As Variant, Optional tablo As Variant, Optional shadda As Variant, Optional language As Variant) As String
+Sub BASTET(Optional metin As String, Optional MT As Variant, Optional tablo As Variant, Optional shadda As Variant, Optional language As Variant, Optional  detail As Variant) As String
     Dim HM, invertablo, BC, Turn, err As Integer : err = 0
     Dim Baster, choosen, NS As String
     Select Case CStr(CLng(metin))
@@ -1100,7 +1100,11 @@ Sub BASTET(Optional metin As String, Optional MT As Variant, Optional tablo As V
         End Select
     Next HM
     Select Case err
-        Case 0 : BASTET = Baster
+        Case 0
+            Select Case detail
+                Case 1 : BASTET =  NS
+                Case Else : BASTET = Baster
+            End Select
         Case 1 : BASTET = "Dil Tanımı?"
         Case Else
     End Select
@@ -1254,7 +1258,7 @@ Sub SAF(Optional metin As String, Optional ayrac As Variant) As String
             Case "ۀ" : S = "ۀ" & irun
             Case "א", "ב", "ג", "ד", "ה", "ו", "ז", "ח", "ט", "י" : S = choosen & irun
             Case "ל", "ס", "ע", "ק", "ר", "ש", "ת" : S = choosen & irun
-            Case "כ", "ך" ,"מ", "ם", "נ", "ן" ,"פ", "ף", "צ", "ץ" : S = choosen & irun
+            Case "כ", "ך" ,"מ", "ם" , "נ", "ן" ,"פ", "ף", "צ", "ץ" : S = choosen & irun
             Case " "
                 Select Case ayrac
                     Case "" : S = choosen
@@ -2087,28 +2091,6 @@ Sub ALTAYAZ(Optional girdi As Variant) As String
     ALTAYAZ = ss
     ReDim ALTAYAZ, ss
 End Sub
-Sub HEPART(Optional npotent As Long, Optional memec As Integer) As Double
-    Dim result      As Double
-    Dim R, kat	As Double: kat = 2
-    result = 0
-    On Error GoTo 726
-    If DUZLE((result - 30) / 4) < 1 Then
-        Do
-            result = npotent * kat
-            R = DUZLE((result - 30) / 4)
-            kat = kat + 1
-        Loop Until 1 <= R
-    Else
-        result = npotent
-    EndIf
-    ReDim result
-    If memec = 1 Then
-        HEPART = kat - 1
-    Else
-        HEPART = result
-    EndIf
-    726 If result = 0 Then MsgBox "HEPART() için değişken seçimlik değil; fakat, makrolar harika çalışıyorlar"
-End Sub
 Sub RAKAMTOPLA(Optional valuez As Long, Optional d1g1tamount As Integer) As String
     Dim hepsi       As String
     Dim counter     As Integer
@@ -2133,8 +2115,8 @@ Sub RAKAMTOPLA(Optional valuez As Long, Optional d1g1tamount As Integer) As Stri
     End If
 End Sub
 Sub NEWLINE(Optional amount As Long) As String
-    Dim rows As Long
-    Dim NL As String : NL = ""
+    Dim rows        As Long
+    Dim NL          As String : NL = ""
     For rows = 1 To amount
         NL = NL & Chr(10) & Chr(13)
     Next rows
@@ -2179,3 +2161,25 @@ Function TUMLE(range)
     276 If result = "" Then MsgBox "TUMLE() için girilen aralıktaki tüm hücreler zaten boş; makrolar harika çalışıyorlar"
     TUMLE = result
 End Function
+Sub HEPART(Optional npotent As Long, Optional memec As Integer) As Double
+    Dim result      As Double
+    Dim R, kat	As Double: kat = 2
+    result = 0
+    On Error GoTo 726
+    If DUZLE((result - 30) / 4) < 1 Then
+        Do
+            result = npotent * kat
+            R = DUZLE((result - 30) / 4)
+            kat = kat + 1
+        Loop Until 1 <= R
+    Else
+        result = npotent
+        EndIf
+        ReDim result
+        If memec = 1 Then
+            HEPART = kat - 1
+        Else
+            HEPART = result
+        EndIf
+        726 If result = 0 Then MsgBox "HEPART() için değişken seçimlik değil; fakat, makrolar harika çalışıyorlar"
+End Sub
