@@ -1,160 +1,9 @@
-function hepart(npotent,mimic) {
-  var kat = 2;
-  var result, sum, rsum;
-  do {
-    result = npotent * kat;
-    kat += 1;
-  } while (Math.floor((result-30)/4) < 1);
-  if (mimic == 1) {
-    return kat - 1;
-  } else {
-    return result;
-  }
-}
-// Merhaba Sahur Özel'in Ebced Hesaplayan Makrolarının LibreOffice Basic dilinden Google Apps Script diline çevirisidir. Konu hakkında daha geniş bilgi için go.abdil.one/6 adresinden ilgili Google Drive klasörüne erişebilirsiniz bu kodlar MIT, Creative commons ve GPL gibi lisanslarla değil; kullanıcılarının vicdanlarıyla korunmaktadır. Vicdansızları büyük yargı gününde rab hesaba çeker.
-function saf(metinsaf, ayrac) {
-    var safmetin, irun, choosen, counter, s;
-    safmetin = "";
-    switch (ayrac) {
-        case 0:
-            irun = "";
-            break;
-        default:
-            irun = ayrac;
-    }
-    if (metinsaf !== undefined) {
-        for (counter = 0; counter < metinsaf.length; counter++) {
-            choosen = metinsaf[counter];
-            s = "";
-            switch (choosen) {
-                case "ا":
-                case "ء":
-                case "ى":
-                case "ب":
-                case "ج":
-                case "د":
-                case "ه":
-                case "و":
-                case "ؤ":
-                case "ز":
-                case "ح":
-                case "ط":
-                case "ي":
-                case "ك":
-                case "ل":
-                case "م":
-                case "ن":
-                case "س":
-                case "ع":
-                case "ف":
-                case "ص":
-                case "ق":
-                case "ر":
-                case "ش":
-                case "ت":
-                case "ض":
-                case "ة":
-                case "ث":
-                case "خ":
-                case "ذ":
-                case "ض":
-                case "ظ":
-                case "غ":
-                case "ئ":
-                    s = choosen + irun;
-                    break;
-                case "أ":
-                case "إ":
-                case "آ":
-                case "ىٰ":
-                    s = "ا" + irun;
-                    break;
-                case "ک":
-                    s = "ک" + irun;
-                    break;
-                case "ﮒ":
-                    s = "ﮒ" + irun;
-                    break;
-                case "ی":
-                    s = "ی" + irun;
-                    break;
-                case "ۀ":
-                    s = "ۀ" + irun;
-                    break;
-                case "א":
-                case "ב":
-                case "ג":
-                case "ד":
-                case "ה":
-                case "ו":
-                case "ז":
-                case "ח":
-                case "ט":
-                case "י":
-                case "ל":
-                case "ס":
-                case "ע":
-                case "ק":
-                case "ר":
-                case "ש":
-                case "ת":
-                    s = choosen + irun;
-                    break;
-                case "כ":
-                case "ך":
-                    s = "כ" + irun;
-                    break;
-                case "מ":
-                case "ם":
-                    s = "מ" + irun;
-                    break;
-                case "נ":
-                case "ן":
-                    s = "נ" + irun;
-                    break;
-                case "פ":
-                case "ף":
-                    s = "פ" + irun;
-                    break;
-                case "צ":
-                case "ץ":
-                    s = "צ" + irun;
-                    break;
-                case " ":
-                    switch (ayrac) {
-                        case "":
-                            s = choosen;
-                            break;
-                        case 0:
-                            s = "";
-                            break;
-                        default:
-                            s = irun;
-                    }
-                    break;
-                default:
-                    s = "";
-            }
-            safmetin = safmetin + s;
-        }
-    }
-    return safmetin;
-}
-
-function asgar(harf, level) {
-    var c;
-    if (level > 1) {
-        c = parseFloat(abjad(harf, level, 1));
-    } else {
-        c = parseFloat(abjad(harf, 1, 1));
-    }
-    if (c > 12) {
-        return c - (12 * Math.floor(c / 12));
-    } else {
-        return c;
-    }
-}
-
+// Merhaba Sahur Özel'in Ebced Hesaplayan Makrolarının LibreOffice Basic
+// dilinden Google Apps Script diline çevirisidir. Konu hakkında daha 
+// geniş bilgi için go.abdil.one/6 adresinden ilgili Google Drive kla-
+// sörüne erişebilirsiniz bu kodlar MIT, Creative commons ve GPL gibi 
+// lisanslarla değil; kullanıcılarının vicdanlarıyla korunmaktadır. 
+// Vicdansızları büyük yargı gününde rab hesaba çeker.
 function abjad(metin, tablo, shadda, detail) {
     var sm, s, n, shaddie, counter, err, space, hrk, sn, choosen, nitem, c;
     sm = 0;
@@ -1931,7 +1780,6 @@ function abjad(metin, tablo, shadda, detail) {
                         }
                         break;
                     case "כ":
-                    case "ך":
                         switch (tablo) {
                             case 0:
                                 s = parseFloat(asgar(choosen, 1));
@@ -1976,7 +1824,6 @@ function abjad(metin, tablo, shadda, detail) {
                         }
                         break;
                     case "מ":
-                    case "ם":
                         switch (tablo) {
                             case 0:
                                 s = parseFloat(asgar(choosen, 1));
@@ -1999,7 +1846,6 @@ function abjad(metin, tablo, shadda, detail) {
                         }
                         break;
                     case "נ":
-                    case "ן":
                         switch (tablo) {
                             case 0:
                                 s = parseFloat(asgar(choosen, 1));
@@ -2066,7 +1912,6 @@ function abjad(metin, tablo, shadda, detail) {
                         }
                         break;
                     case "פ":
-                    case "ף":
                         switch (tablo) {
                             case 0:
                                 s = parseFloat(asgar(choosen, 1));
@@ -2089,7 +1934,6 @@ function abjad(metin, tablo, shadda, detail) {
                         }
                         break;
                     case "צ":
-                    case "ץ":
                         switch (tablo) {
                             case 0:
                                 s = parseFloat(asgar(choosen, 1));
@@ -2099,7 +1943,7 @@ function abjad(metin, tablo, shadda, detail) {
                                 s = 90;
                                 break;
                             case 2:
-                                s = parseFloat(abjad("צדיק", 1, 1));
+                                s = parseFloat(abjad("צדי", 1, 1));
                                 break;
                             case 3:
                                 s = parseFloat(bastet(choosen, 1, -2, 1, "HEBREW"));
@@ -2198,8 +2042,117 @@ function abjad(metin, tablo, shadda, detail) {
                             default:
                                 err = 1;
                         }
-                        break;
-                    default:
+                        break;                    
+                    case "ך":
+                        switch (tablo) {
+                            case 0:
+                                s = parseFloat(asgar(choosen, 1));
+                                break;
+                            case 1:
+                            case 4:
+                                s = 500;
+                                break;
+                            case 2:
+                                s = parseFloat(abjad("ךף", 1, 1));
+                                break;
+                            case 3:
+                                s = parseFloat(bastet(choosen, 1, -2, 1, "HEBREW"));
+                                break;
+                            case 5:
+                                s = 1;
+                                break;
+                            default:
+                                err = 1;
+                        }
+                        break; 
+                    case "ם":
+                        switch (tablo) {
+                            case 0:
+                                s = parseFloat(asgar(choosen, 1));
+                                break;
+                            case 1:
+                            case 4:
+                                s = 600;
+                                break;
+                            case 2:
+                                s = parseFloat(abjad("םם", 1, 1));
+                                break;
+                            case 3:
+                                s = parseFloat(bastet(choosen, 1, -2, 1, "HEBREW"));
+                                break;
+                            case 5:
+                                s = 1;
+                                break;
+                            default:
+                                err = 1;
+                        }
+                        break; 
+                    case "ן":
+                        switch (tablo) {
+                            case 0:
+                                s = parseFloat(asgar(choosen, 1));
+                                break;
+                            case 1:
+                            case 4:
+                                s = 700;
+                                break;
+                            case 2:
+                                s = parseFloat(abjad("וןן", 1, 1));
+                                break;
+                            case 3:
+                                s = parseFloat(bastet(choosen, 1, -2, 1, "HEBREW"));
+                                break;
+                            case 5:
+                                s = 1;
+                                break;
+                            default:
+                                err = 1;
+                        }
+                        break; 
+                    case "ף":
+                        switch (tablo) {
+                            case 0:
+                                s = parseFloat(asgar(choosen, 1));
+                                break;
+                            case 1:
+                            case 4:
+                                s = 800;
+                                break;
+                            case 2:
+                                s = parseFloat(abjad("ףא", 1, 1));
+                                break;
+                            case 3:
+                                s = parseFloat(bastet(choosen, 1, -2, 1, "HEBREW"));
+                                break;
+                            case 5:
+                                s = 1;
+                                break;
+                            default:
+                                err = 1;
+                        }
+                        break; 
+                    case "ץ":
+                        switch (tablo) {
+                            case 0:
+                                s = parseFloat(asgar(choosen, 1));
+                                break;
+                            case 1:
+                            case 4:
+                                s = 900;
+                                break;
+                            case 2:
+                                s = parseFloat(abjad("ץדי", 1, 1));
+                                break;
+                            case 3:
+                                s = parseFloat(bastet(choosen, 1, -2, 1, "HEBREW"));
+                                break;
+                            case 5:
+                                s = 1;
+                                break;
+                            default:
+                                err = 1;
+                        }
+                        break; default:
                         s = 0;
                         n = n + 1;
                         switch (choosen) {
@@ -2299,8 +2252,36 @@ function abjad(metin, tablo, shadda, detail) {
             return "\ " + "Şedde Ayarı?" + "\ ";
     }
 }
-
-function bastet(metin, mt, tablo, shadda, language) {
+function wordbyword(klmmetin, tablow, shaddaw, detailw) {
+    if(klmmetin !== undefined) {
+      var calculation = "";
+      var content = "";
+      var word = "";
+      var klmchoosen;
+      for (counter = 0; counter < klmmetin.length; counter++) {
+          klmchoosen = klmmetin[counter];
+          word = word + klmchoosen;
+          switch (klmchoosen) {
+            case " ":
+            word = word.substr(0, word.length - 1);
+            calculation = abjad(word, tablow, shaddaw, detailw).toString();
+            content += word + altayaz(calculation) + " ";
+            word = "";
+            calculation = "";
+            break;
+            default:
+            if (counter == klmmetin.length - 1) {
+                calculation = abjad(word, tablow, shaddaw, detailw).toString();
+                content += word + altayaz(calculation) + "";
+                word = "";
+                calculation = "";
+          }
+        }
+      }
+    }
+    return content;
+}
+function bastet(metin, mt, tablo, shadda, language, detail) {
     var err, baster, invertablo, hm, ns, bc, turn, choosen;
     err = 0;
     switch (metin) {
@@ -2903,13 +2884,17 @@ function bastet(metin, mt, tablo, shadda, language) {
     }
     switch (err) {
         case 0:
-            return baster;
+			switch (detail) {
+				case 1:
+					return ns;
+				default:
+					return baster;
+			}
         case 1:
             return "Dil Tanımı?";
         default:
     }
 }
-
 function unsur(unsurmetin, otabiat, otype, shadda) {
     var fc, ac, wc, ec, fs, ai, ws, es, err, counter, choosen, c, ounsur;
     fc = 0;
@@ -3125,8 +3110,7 @@ function unsur(unsurmetin, otabiat, otype, shadda) {
             return "Şedde Ayarı?";
     }
 }
-
-function TEKSIR(teksirmetin, teksirayrac) {
+function teksir(teksirmetin, teksirayrac) {
     var iksir, result, inversed, newmetin, lengthdouble, produce, counter, teksired;
     lengthdouble = 0;
     newmetin = saf(teksirmetin, 0);
@@ -3151,7 +3135,6 @@ function TEKSIR(teksirmetin, teksirayrac) {
     }
     return result;
 }
-
 function numbers2arab(indians) {
     var na, counter, choosenarab;
     indians = indians.toString();
@@ -3200,7 +3183,6 @@ function numbers2arab(indians) {
     }
     return na;
 }
-
 function huddam(num, htype, method) {
     var suffix, preffix, h, gh, counts, departs, rest, counter, counting, choosenduty, turn, counted;
     var hpart = new Array();
@@ -3543,7 +3525,6 @@ function huddam(num, htype, method) {
         return "";
     }
 }
-
 function rakamtopla(urval, d1g1tamount) {
     var choosen, newsum, hepsi, myval, counter, showvar;
     myval = "" + urval + "";
@@ -3572,7 +3553,6 @@ function rakamtopla(urval, d1g1tamount) {
     }
     return showvar;
 }
-
 function tesbeh(zkr, minimum, boncuk, bolum) {
     var turn, part, rest, outp;
     outp = "";
@@ -3593,35 +3573,6 @@ function tesbeh(zkr, minimum, boncuk, bolum) {
         outp = outp + "[" + rest + " kalan]";
     }
     return outp;
-}
-function wordbyword(klmmetin, tablow, shaddaw, detailw) {
-    if(klmmetin !== undefined) {
-      var calculation = "";
-      var content = "";
-      var word = "";
-      var klmchoosen;
-      for (counter = 0; counter < klmmetin.length; counter++) {
-          klmchoosen = klmmetin[counter];
-          word = word + klmchoosen;
-          switch (klmchoosen) {
-            case " ":
-            word = word.substr(0, word.length - 1);
-            calculation = abjad(word, tablow, shaddaw, detailw).toString();
-            content += word + altayaz(calculation) + " ";
-            word = "";
-            calculation = "";
-            break;
-            default:
-            if (counter == klmmetin.length - 1) {
-                calculation = abjad(word, tablow, shaddaw, detailw).toString();
-                content += word + altayaz(calculation) + "";
-                word = "";
-                calculation = "";
-          }
-        }
-      }
-    }
-    return content;
 }
 function altayaz(girdi) {
     var ss, counter, choosenalta;
@@ -3691,4 +3642,155 @@ function altayaz(girdi) {
         }
     }
     return ss;
+}
+function saf(metinsaf, ayrac) {
+    var safmetin, irun, choosen, counter, s;
+    safmetin = "";
+    switch (ayrac) {
+        case 0:
+            irun = "";
+            break;
+        default:
+            irun = ayrac;
+    }
+    if (metinsaf !== undefined) {
+        for (counter = 0; counter < metinsaf.length; counter++) {
+            choosen = metinsaf[counter];
+            s = "";
+            switch (choosen) {
+                case "ا":
+                case "ء":
+                case "ى":
+                case "ب":
+                case "ج":
+                case "د":
+                case "ه":
+                case "و":
+                case "ؤ":
+                case "ز":
+                case "ح":
+                case "ط":
+                case "ي":
+                case "ك":
+                case "ل":
+                case "م":
+                case "ن":
+                case "س":
+                case "ع":
+                case "ف":
+                case "ص":
+                case "ق":
+                case "ر":
+                case "ش":
+                case "ت":
+                case "ض":
+                case "ة":
+                case "ث":
+                case "خ":
+                case "ذ":
+                case "ض":
+                case "ظ":
+                case "غ":
+                case "ئ":
+                    s = choosen + irun;
+                    break;
+                case "أ":
+                case "إ":
+                case "آ":
+                case "ىٰ":
+                    s = "ا" + irun;
+                    break;
+                case "ک":
+                    s = "ک" + irun;
+                    break;
+                case "ﮒ":
+                    s = "ﮒ" + irun;
+                    break;
+                case "ی":
+                    s = "ی" + irun;
+                    break;
+                case "ۀ":
+                    s = "ۀ" + irun;
+                    break;
+                case "א":
+                case "ב":
+                case "ג":
+                case "ד":
+                case "ה":
+                case "ו":
+                case "ז":
+                case "ח":
+                case "ט":
+                case "י":
+                case "ל":
+                case "ס":
+                case "ע":
+                case "ק":
+                case "ר":
+                case "ש":
+                case "ת":
+                case "כ":
+                case "ך":
+                case "מ":
+                case "ם":
+                case "נ":
+                case "ן":
+                case "פ":
+                case "ף":
+                case "צ":
+                case "ץ":
+                    s = choosen + irun;
+                    break;
+                case " ":
+                    switch (ayrac) {
+                        case "":
+                            s = choosen;
+                            break;
+                        case 0:
+                            s = "";
+                            break;
+                        default:
+                            s = irun;
+                    }
+                    break;
+                default:
+                    s = "";
+            }
+            safmetin = safmetin + s;
+        }
+    }
+    return safmetin;
+}
+function asgar(harf, level) {
+    var c;
+    if (level > 1) {
+        c = parseFloat(abjad(harf, level, 1));
+    } else {
+        c = parseFloat(abjad(harf, 1, 1));
+    }
+    if (c > 12) {
+        return c - (12 * Math.floor(c / 12));
+    } else {
+        return c;
+    }
+}
+function newline(amount) {
+	var nl = "";
+	for (var rows = 1; rows < amount; rows += 1) {
+		nl = nl + String.fromCharCode(10) + String.fromCharCode(13):
+	}
+	return nl;
+}
+function hepart(npotent,mimic) {
+  var kat = 2;
+  var result, sum, rsum;
+  do {
+    result = npotent * kat;
+    kat += 1;
+  } while (Math.floor((result-30)/4) < 1);
+  if (mimic == 1) {
+    return kat - 1;
+  } else {
+    return result;
+  }
 }
