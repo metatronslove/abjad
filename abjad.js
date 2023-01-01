@@ -3777,7 +3777,7 @@ function asgar(harf, level) {
 function newline(amount) {
 	var nl = "";
 	for (var rows = 1; rows < amount; rows += 1) {
-		nl = nl + String.fromCharCode(10) + String.fromCharCode(13):
+		nl = nl + String.fromCharCode(10) + String.fromCharCode(13);
 	}
 	return nl;
 }
