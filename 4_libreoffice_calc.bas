@@ -701,7 +701,7 @@ Sub ABJAD(Optional metin As String, Optional tablo As Variant, Optional shadda A
                 Select Case tablo
                     Case 0 : S = CLng(ASGAR(choosen, 1))
                     Case 1, 4 : S = 90
-                    Case 2 : S = CLng(ABJAD("צדיק", 1, 1))
+                    Case 2 : S = CLng(ABJAD("צדי", 1, 1))
                     Case 3 : S = CLng(BASTET(choosen, 1, -2, 1, "HEBREW"))
                     Case 5 : S = 1
                     Case Else : err = 1
@@ -782,7 +782,7 @@ Sub ABJAD(Optional metin As String, Optional tablo As Variant, Optional shadda A
                 Select Case tablo
                     Case 0 : S = CLng(ASGAR(choosen, 1))
                     Case 1, 4 : S = 900
-                    Case 2 : S = CLng(ABJAD("ץדיק", 1, 1))
+                    Case 2 : S = CLng(ABJAD("ץדי", 1, 1))
                     Case 3 : S = CLng(BASTET(choosen, 1, -2, 1, "HEBREW"))
                     Case 5 : S = 1
                     Case Else : err = 1
