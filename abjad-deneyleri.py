@@ -755,24 +755,43 @@ def sesver(letter, seda):
 		elif seda == 5:	kume = ['Z', 'Y', 'V', 'T', 'Ş', 'S', 'R', 'P', 'N', 'M', 'L', 'K', 'H', 'Ğ', 'G', 'F', 'D', 'C', 'B', '']
 		if letter is not None or letter != '':
 			for chant in kume:
-				subject = huddam(abjad(letter, 1, 1) - abjad(chant, 1, 1), '', 'recursive')
-				if abjad(chant, 1, 1) < abjad(letter, 1, 1):
-					points = 0
-					for harf in subject:
-						if is_ses(harf, seda) is True:
-							points += 1
-						elif is_sesli(harf) is False:
-							points += 1
-					if points == len(subject): 
-						nicechant = chant
-						break		
+				if seda in range(0, 4):
+					if abjad(chant, 1, 1) < abjad(letter, 1, 1):
+						subject = huddam(abjad(letter, 1, 1) - abjad(chant, 1, 1), '', 'recursive' + str(seda))
+						points = 0
+						for harf in subject:
+							if is_sesli(harf) is True and is_ses(harf, seda) is True:
+								points += 1
+							elif is_sesli(harf) is False:
+								points += 1
+							else:
+								points -= 1
+						if points == len(subject): 
+							nicechant = chant
+							break
+				else:
+					if abjad(chant, 1, 1) < abjad(letter, 1, 1): 
+						subject = huddam(abjad(letter, 1, 1) - abjad(chant, 1, 1), '', 'recursive')
+						points = 0
+						ses = seda
+						for harf in subject:
+							if is_sesli(harf) is True and is_ses(harf, ses) is True:
+								points += 1
+								if ses > 3: ses = unlu_uydur(harf)
+							elif is_sesli(harf) is False:
+								points += 1
+							else:
+								points -= 1
+						if points == len(subject): 
+							nicechant = chant
+							break
 		return nicechant
 	except:	return ''
 		
 def unlu_uydur(hece):
 	try:
 		for sonses in range(len(hece)-1, -1, -1):
-			if is_sesli(gh[sonses]) is True:
+			if is_sesli(hece[sonses]) is True:
 				if hece[sonses] in ['A', 'I']:
 					ses = 0
 					break
@@ -1532,13 +1551,13 @@ def huddam(num, htype='ulvi', method=1):
 						elif method in[7, 12]: h = 'غ'
 						elif method in [0, 'recursive']: thyletter = 'Y'
 					else: thyletter = h = ''
-				if method == 0:
+				if method in [0, 'recursive']:
 					if counting in [0, 2] and counts > 1 and counting <= len(str(hpart[counter])) - 1:
 						try: thyletter
 						except NameError: thyletter = None
-						if thyletter is not None:
+						if thyletter is not None and coupler == '':
 							coupler = thyletter
-							h = ''
+							thyletter = h = ''
 					try: coupler
 					except NameError: coupler = ''
 					try: thyletter
@@ -1546,87 +1565,10 @@ def huddam(num, htype='ulvi', method=1):
 					try: ses #Küçük ünlü uyumu temelli çünkü bu (Henüz düzgün çalışmıyor)
 					except NameError: ses = unlu_uydur(gh)
 					if ses not in [0, 1, 2, 3] and len(gh) > 0: ses = unlu_uydur(gh)
-					if ses is None and thyletter != '':
-						if is_sesli(thyletter) is False:
-							if is_sesli(coupler) is False:
-								if abjad(thyletter, 1, 1) >= abjad(coupler, 1, 1): h = str(huddam(abjad(thyletter, 1, 1), sesver(thyletter, 4), 'recursive')) + coupler
-								else: h = str(huddam(abjad(coupler, 1, 1), sesver(coupler, 4), 'recursive')) + thyletter
-							elif is_sesli(coupler) is True: h = thyletter + coupler
-						elif is_sesli(thyletter) is True:
-							if is_sesli(coupler) is False: h = coupler + thyletter
-							elif is_sesli(coupler) is True:	
-								if abjad(thyletter, 1, 1) >= abjad(coupler, 1, 1): h = str(huddam(abjad(thyletter, 1, 1), sesver(thyletter, 5), 'recursive')) + coupler
-								else: h = str(huddam(abjad(coupler, 1, 1), sesver(coupler, 5), 'recursive')) + thyletter
-						if h != '':
-							thyletter = coupler = ''
-							if len(h) == 3:
-								if is_sesli(h[0]) is False:
-									if is_sesli(h[1]) is False:
-										if is_sesli(h[2]) is False: h = str(huddam(abjad(h, 1, 1), sesver(h, 4), 'recursive'))
-										elif is_sesli(h[2]) is True: h = h[0] + h[2] + h[1]
-									elif is_sesli(h[1]) is True:
-										if is_sesli(h[2]) is True: h = h[1] + h[0] + h[2]
-								elif is_sesli(h[0]) is True:
-									if is_sesli(h[1]) is False:
-										if is_sesli(h[2]) is False: h = h[1] + h[0] + h[2]
-									elif is_sesli(h[1]) is True:
-										if is_sesli(h[2]) is False: h = h[0] + h[2] + h[1]
-										elif is_sesli(h[2]) is True: h = str(huddam(abjad(h, 1, 1), sesver(h, 5), 'recursive'))
-							try: ses #Küçük ünlü uyumu temelli çünkü bu (Henüz düzgün çalışmıyor)
-							except NameError: ses = unlu_uydur(h)
-							if ses not in [0, 1, 2, 3] and len(h) > 0: ses = unlu_uydur(h)
-						else: ses = None
-					elif ses is not None and method in [0, 'recursive']:
-						if is_sesli(thyletter) is False:
-							if is_sesli(coupler) is False: 
-								if abjad(thyletter, 1, 1) >= abjad(coupler, 1, 1): h = str(huddam(abjad(thyletter, 1, 1), sesver(thyletter, ses), 'recursive' + str(ses))) + coupler
-								else: h = str(huddam(abjad(coupler, 1, 1), sesver(coupler, ses), 'recursive' + str(ses))) + thyletter
-							elif is_sesli(coupler) is True: 
-								if is_ses(coupler, ses) is False: h = str(huddam(abjad(coupler + thyletter, 1, 1), sesver(coupler + thyletter, ses), 'recursive' + str(ses)))
-								elif is_ses(coupler, ses) is True: h = thyletter + coupler
-						elif is_sesli(thyletter) is True:
-							if is_ses(thyletter, ses) is True:
-								if is_sesli(coupler) is False: h = coupler + thyletter
-								elif is_sesli(coupler) is True:	h = str(huddam(abjad(coupler + thyletter, 1, 1), sesver(coupler + thyletter, ses), 'recursive' + str(ses)))
-						if h != '':
-							thyletter = coupler = ''
-							if len(h) == 3:
-								if is_sesli(h[0]) is False:
-									if is_sesli(h[1]) is False:
-										if is_sesli(h[2]) is False: h = str(huddam(abjad(h, 1, 1), sesver(h, ses), 'recursive' + str(ses)))
-										elif is_sesli(h[2]) is True: h = h[0] + h[2] + h[1]									
-									elif is_sesli(h[1]) is True:
-										if is_sesli(h[2]) is True: h = h[1] + h[0] + h[2]
-								elif is_sesli(h[0]) is True:
-									if is_sesli(h[1]) is False:
-										if is_sesli(h[2]) is False: h = h[1] + h[0] + h[2]
-								elif is_sesli(h[1]) is True:
-										if is_sesli(h[2]) is False: h = h[0] + h[2] + h[1]
-										elif is_sesli(h[2]) is True: h = str(huddam(abjad(h, 1, 1), sesver(h, ses), 'recursive' + str(ses)))
-				elif method == 'recursive':
-					try: coupler
-					except NameError: coupler = ''
-					try: thyletter
-					except NameError: thyletter = h = ''
-					h = coupler + thyletter
-				if h is not None and h != '': gh += h
-			if hpart[counter] is not None:
-				for counted in range(1, counter):
-					if method == 1:	gh += 'غ'
-					elif method == 7: gh += 'ش'
-					elif method == 12: gh += 'ظ'
-					elif method == 0:
-						thyletter = 'Z'
-						try: coupler
-						except NameError: coupler = ''
-						try: thyletter
-						except NameError: thyletter = h = ''
-						try: ses #Küçük ünlü uyumu temelli çünkü bu
-						except NameError: ses = unlu_uydur(gh)
-						if ses not in [0, 1, 2, 3] and len(gh) > 0: ses = unlu_uydur(gh)
+					if method == 0:
 						if ses is None and thyletter != '':
 							if is_sesli(thyletter) is False:
-								if is_sesli(coupler) is False: 
+								if is_sesli(coupler) is False:
 									if abjad(thyletter, 1, 1) >= abjad(coupler, 1, 1): h = str(huddam(abjad(thyletter, 1, 1), sesver(thyletter, 4), 'recursive')) + coupler
 									else: h = str(huddam(abjad(coupler, 1, 1), sesver(coupler, 4), 'recursive')) + thyletter
 								elif is_sesli(coupler) is True: h = thyletter + coupler
@@ -1634,8 +1576,8 @@ def huddam(num, htype='ulvi', method=1):
 								if is_sesli(coupler) is False: h = coupler + thyletter
 								elif is_sesli(coupler) is True:	
 									if abjad(thyletter, 1, 1) >= abjad(coupler, 1, 1): h = str(huddam(abjad(thyletter, 1, 1), sesver(thyletter, 5), 'recursive')) + coupler
-									else: h = str(huddam(abjad(coupler + thyletter, 1, 1), sesver(coupler + thyletter, 5), 'recursive'))
-							if h != '':
+									else: h = str(huddam(abjad(coupler, 1, 1), sesver(coupler, 5), 'recursive')) + thyletter
+							if h != '':	
 								thyletter = coupler = ''
 								if len(h) == 3:
 									if is_sesli(h[0]) is False:
@@ -1650,15 +1592,10 @@ def huddam(num, htype='ulvi', method=1):
 										elif is_sesli(h[1]) is True:
 											if is_sesli(h[2]) is False: h = h[0] + h[2] + h[1]
 											elif is_sesli(h[2]) is True: h = str(huddam(abjad(h, 1, 1), sesver(h, 5), 'recursive'))
-								for sonses in range(len(h)-1, -1, -1):
-									if is_sesli(h[sonses]) is True:
-										if h[sonses] in ['A', 'I']: ses = 0
-										elif h[sonses] in ['E', 'İ']: ses = 1
-										elif h[sonses] in ['O', 'U']: ses = 2
-										elif h[sonses] in ['Ö', 'Ü']: ses = 3
-										break
-							else: ses = None
-						elif ses is not None and method in [0, 'recursive']:
+								try: ses #Küçük ünlü uyumu temelli çünkü bu (Henüz düzgün çalışmıyor)
+								except NameError: ses = unlu_uydur(h)
+								if ses not in [0, 1, 2, 3] and len(h) > 0: ses = unlu_uydur(h)
+						elif ses is not None:
 							if is_sesli(thyletter) is False:
 								if is_sesli(coupler) is False: 
 									if abjad(thyletter, 1, 1) >= abjad(coupler, 1, 1): h = str(huddam(abjad(thyletter, 1, 1), sesver(thyletter, ses), 'recursive' + str(ses))) + coupler
@@ -1676,23 +1613,92 @@ def huddam(num, htype='ulvi', method=1):
 									if is_sesli(h[0]) is False:
 										if is_sesli(h[1]) is False:
 											if is_sesli(h[2]) is False: h = str(huddam(abjad(h, 1, 1), sesver(h, ses), 'recursive' + str(ses)))
-											elif is_sesli(h[2]) is True: h = h[0] + h[2] + h[1]
+											elif is_sesli(h[2]) is True: h = h[0] + h[2] + h[1]									
 										elif is_sesli(h[1]) is True:
 											if is_sesli(h[2]) is True: h = h[1] + h[0] + h[2]
 									elif is_sesli(h[0]) is True:
 										if is_sesli(h[1]) is False:
 											if is_sesli(h[2]) is False: h = h[1] + h[0] + h[2]
-										elif is_sesli(h[1]) is True:
+									elif is_sesli(h[1]) is True:
 											if is_sesli(h[2]) is False: h = h[0] + h[2] + h[1]
 											elif is_sesli(h[2]) is True: h = str(huddam(abjad(h, 1, 1), sesver(h, ses), 'recursive' + str(ses)))
 					elif method == 'recursive':
+						h = coupler + thyletter
+						thyletter = coupler = ''
+				if h is not None and h != '': gh += h
+			if hpart[counter] is not None:
+				for counted in range(1, counter):
+					if method == 1:	gh += 'غ'
+					elif method == 7: gh += 'ش'
+					elif method == 12: gh += 'ظ'
+					elif method in [0, 'recursive']:
+						thyletter = 'Z'
 						try: coupler
 						except NameError: coupler = ''
 						try: thyletter
 						except NameError: thyletter = h = ''
-						h = coupler + thyletter
+						try: ses #Küçük ünlü uyumu temelli çünkü bu
+						except NameError: ses = unlu_uydur(gh)
+						if ses not in [0, 1, 2, 3] and len(gh) > 0: ses = unlu_uydur(gh)
+						if method == 0:
+							if ses is None and thyletter != '':
+								if is_sesli(thyletter) is False:
+									if is_sesli(coupler) is False: 
+										if abjad(thyletter, 1, 1) >= abjad(coupler, 1, 1): h = str(huddam(abjad(thyletter, 1, 1), sesver(thyletter, 4), 'recursive')) + coupler
+										else: h = str(huddam(abjad(coupler, 1, 1), sesver(coupler, 4), 'recursive')) + thyletter
+									elif is_sesli(coupler) is True: h = thyletter + coupler
+								elif is_sesli(thyletter) is True:
+									if is_sesli(coupler) is False: h = coupler + thyletter
+									elif is_sesli(coupler) is True:	
+										if abjad(thyletter, 1, 1) >= abjad(coupler, 1, 1): h = str(huddam(abjad(thyletter, 1, 1), sesver(thyletter, 5), 'recursive')) + coupler
+										else: h = str(huddam(abjad(coupler + thyletter, 1, 1), sesver(coupler + thyletter, 5), 'recursive'))
+								if h != '':
+									thyletter = coupler = ''
+									if len(h) == 3:
+										if is_sesli(h[0]) is False:
+											if is_sesli(h[1]) is False:
+												if is_sesli(h[2]) is False: h = str(huddam(abjad(h, 1, 1), sesver(h, 4), 'recursive'))
+												elif is_sesli(h[2]) is True: h = h[0] + h[2] + h[1]
+											elif is_sesli(h[1]) is True:
+												if is_sesli(h[2]) is True: h = h[1] + h[0] + h[2]
+										elif is_sesli(h[0]) is True:
+											if is_sesli(h[1]) is False:
+												if is_sesli(h[2]) is False: h = h[1] + h[0] + h[2]
+											elif is_sesli(h[1]) is True:
+												if is_sesli(h[2]) is False: h = h[0] + h[2] + h[1]
+												elif is_sesli(h[2]) is True: h = str(huddam(abjad(h, 1, 1), sesver(h, 5), 'recursive'))
+									if ses not in [0, 1, 2, 3] and len(h) > 0: ses = unlu_uydur(h)
+							elif ses is not None:
+								if is_sesli(thyletter) is False:
+									if is_sesli(coupler) is False: 
+										if abjad(thyletter, 1, 1) >= abjad(coupler, 1, 1): h = str(huddam(abjad(thyletter, 1, 1), sesver(thyletter, ses), 'recursive' + str(ses))) + coupler
+										else: h = str(huddam(abjad(coupler, 1, 1), sesver(coupler, ses), 'recursive' + str(ses))) + thyletter
+									elif is_sesli(coupler) is True: 
+										if is_ses(coupler, ses) is False: h = str(huddam(abjad(coupler + thyletter, 1, 1), sesver(coupler + thyletter, ses), 'recursive' + str(ses)))
+										elif is_ses(coupler, ses) is True: h = thyletter + coupler
+								elif is_sesli(thyletter) is True:
+									if is_ses(thyletter, ses) is True:
+										if is_sesli(coupler) is False: h = coupler + thyletter
+										elif is_sesli(coupler) is True:	h = str(huddam(abjad(coupler + thyletter, 1, 1), sesver(coupler + thyletter, ses), 'recursive' + str(ses)))
+								if h != '':
+									thyletter = coupler = ''
+									if len(h) == 3:
+										if is_sesli(h[0]) is False:
+											if is_sesli(h[1]) is False:
+												if is_sesli(h[2]) is False: h = str(huddam(abjad(h, 1, 1), sesver(h, ses), 'recursive' + str(ses)))
+												elif is_sesli(h[2]) is True: h = h[0] + h[2] + h[1]
+											elif is_sesli(h[1]) is True:
+												if is_sesli(h[2]) is True: h = h[1] + h[0] + h[2]
+										elif is_sesli(h[0]) is True:
+											if is_sesli(h[1]) is False:
+												if is_sesli(h[2]) is False: h = h[1] + h[0] + h[2]
+											elif is_sesli(h[1]) is True:
+												if is_sesli(h[2]) is False: h = h[0] + h[2] + h[1]
+												elif is_sesli(h[2]) is True: h = str(huddam(abjad(h, 1, 1), sesver(h, ses), 'recursive' + str(ses)))
+						elif method == 'recursive':
+							h = coupler + thyletter
+							thyletter = coupler = ''
 					if h is not None and h != '': gh += h
-			thyletter = h = ''
 		if method in [0, 'recursive'] and gh is not None and gh != '': gh += htype
 		elif method in [1, 7, 12]:
 			if htype in ['ULVI', 'ULVİ']: gh += 'ئيل'
@@ -1712,7 +1718,7 @@ def huddam(num, htype='ulvi', method=1):
 print('test kodu yürütülüyor') #Foksiyonları konsolda deneyebilirsin. Bu kodların amacı, eğer fonksiyonel hale gelirse ADD-IN 
 # içinde kullanmaktır. (LibreOffice Add-in) Henüz kodlar tamamlanmadı, imkanın varsa katkı sağlamak için konsepti anlamaya çalış.
 start = time.time()
-a = random.randrange(71, 3000)
+a = random.randrange(71, 1070)
 b = a + 10
 saglam = 0
 for i in range(a, b):
