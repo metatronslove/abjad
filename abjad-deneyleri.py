@@ -756,7 +756,7 @@ def sesver(letter, seda):
 		if letter is not None or letter != '':
 			for chant in kume:
 				if seda in range(0, 4):
-					if abjad(chant, 1, 1) < abjad(letter, 1, 1):
+					if abjad(chant, 1, 1) < abjad(letter, 1, 1) and abjad(letter, 1, 1) / abjad(chant, 1, 1) != 2:
 						subject = huddam(abjad(letter, 1, 1) - abjad(chant, 1, 1), '', 'recursive' + str(seda))
 						points = 0
 						for harf in subject:
@@ -770,7 +770,7 @@ def sesver(letter, seda):
 							nicechant = chant
 							break
 				else:
-					if abjad(chant, 1, 1) < abjad(letter, 1, 1): 
+					if abjad(chant, 1, 1) < abjad(letter, 1, 1) and abjad(letter, 1, 1) / abjad(chant, 1, 1) != 2: 
 						subject = huddam(abjad(letter, 1, 1) - abjad(chant, 1, 1), '', 'recursive')
 						points = 0
 						ses = seda
