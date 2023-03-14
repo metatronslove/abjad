@@ -700,18 +700,14 @@ def abjad(metin, tablo=1, shadda=1, detail=0):
 def wordbyword(metin, tablo=1, shadda=1, detail=0):
 	try:
 		content = word = ''
+		metin += ' '
 		for counter in metin:
 			word += counter
-			if counter == ' ':
-				calculation =  '('  + str(abjad(word, tablo, shadda, detail)) + ') '
+			if counter in [' ', '\n']:
+				calculation =  '('  + str(abjad(word, tablo, shadda, detail)) + ')' + counter
 				content = content + word + altayaz(calculation)
 				word = ''
-				calculation = '' 
-		else:
-			calculation =  '('  + str(abjad(word, tablo, shadda, detail)) + ') '
-			content = content + word + altayaz(calculation)
-			word = ''
-			calculation = ''
+				calculation = ''
 	except Exception:
 		traceback.print_exc()
 	except: content = 'Error?'
