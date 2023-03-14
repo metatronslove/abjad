@@ -886,23 +886,17 @@ Sub WORDBYWORD(Optional klmmetin As String, Optional tablo As Variant, Optional 
     Dim content, word As String
     content = ""
     word = ""
-    For counter = 1 To LEN(klmmetin)
+    klmmetin = klmmetin & " "
+    For counter = 1 To LEN(klmmetin + 1)
         klmchoosen = MID(klmmetin, counter, 1)
         word = word + klmchoosen
         Select Case klmchoosen
-            Case " "
-                calculation =  "("  & ABJAD(word, tablo, shadda, detail) & ") "
+            Case " ", Chr(10)
+                calculation =  "("  & ABJAD(word, tablo, shadda, detail) & ")" & klmchoosen
                 content = content & word & ALTAYAZ(calculation)
                 word = ""
                 calculation = ""
             Case Else
-                If counter = LEN(klmmetin) Then
-                    calculation =  "("  & ABJAD(word, tablo, shadda, detail) & ") "
-                    content = content & word & ALTAYAZ(calculation)
-                    word = ""
-                    calculation = ""
-                Else
-                End If
         End Select
     Next
     ReDim word, calculation, content
@@ -1109,7 +1103,7 @@ Sub BASTET(Optional metin As String, Optional MT As Variant, Optional tablo As V
                             Case 6
                                 Select Case CInt(choosen)
                                     Case 0 : If LEN(Baster) > 7 Then NS = NS & " milyon"
-                                    Case 1 : NS = NS & " milyon"
+                                    Case 1 : NS = NS & " birmilyon"
                                     Case 2 : NS = NS & " ikimilyon"
                                     Case 3 : NS = NS & " üçmilyon"
                                     Case 4 : NS = NS & " dörtmilyon"
@@ -2465,12 +2459,12 @@ Sub HEPART(Optional npotent As Long, Optional memec As Integer) As Double
         Loop Until 1 <= R
     Else
         result = npotent
-	EndIf
+	End If
     ReDim result
 	If memec = 1 Then
 		HEPART = kat - 1
 	Else
 		HEPART = result
-	EndIf
+	End If
 726 If result = 0 Then MsgBox "HEPART() için değişken seçimlik değil; fakat, makrolar harika çalışıyorlar"
 End Sub
