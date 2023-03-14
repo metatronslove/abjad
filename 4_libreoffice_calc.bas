@@ -1072,6 +1072,7 @@ Sub BASTET(Optional metin As String, Optional MT As Variant, Optional tablo As V
                                         NS = NS & " bir bin"
                                     Else
                                         NS = NS & " bin"
+                                    EndIf
                                     Case 2 : NS = NS & " ikibin"
                                     Case 3 : NS = NS & " üçbin"
                                     Case 4 : NS = NS & " dörtbin"
