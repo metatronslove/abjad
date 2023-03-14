@@ -736,256 +736,256 @@ def bastet(metin, mt, tablo=1, shadda=1, language='ARABIC', detail=0):
 				choosen = int(str(baster)[turn])
 				if language == 'ARABIC':
 					if bc == 0:
-						if choosen == 1: ns += ' احد'
-						elif choosen == 2: ns += ' اثنان'
-						elif choosen == 3: ns += ' ثلاثة'
-						elif choosen == 4: ns += ' أربعة'
-						elif choosen == 5: ns += ' خمسة'
-						elif choosen == 6: ns += ' ستة'
-						elif choosen == 7: ns += ' سبعة'
-						elif choosen == 8: ns += ' ثمانية'
-						elif choosen == 9: ns += ' تسعة'
+						if choosen == 1: ns = ' احد' + ns
+						elif choosen == 2: ns = ' اثنان' + ns
+						elif choosen == 3: ns = ' ثلاثة' + ns
+						elif choosen == 4: ns = ' أربعة' + ns
+						elif choosen == 5: ns = ' خمسة' + ns
+						elif choosen == 6: ns = ' ستة' + ns
+						elif choosen == 7: ns = ' سبعة' + ns
+						elif choosen == 8: ns = ' ثمانية' + ns
+						elif choosen == 9: ns = ' تسعة' + ns
 					elif bc == 1:
-						if choosen == 1: ns += ' عشرة'
-						elif choosen == 2: ns += ' عشرين'
-						elif choosen == 3: ns += ' ثلاثين'
-						elif choosen == 4: ns += ' أربعين'
-						elif choosen == 5: ns += ' خمسين'
-						elif choosen == 6: ns += ' ستين'
-						elif choosen == 7: ns += ' سبعين'
-						elif choosen == 8: ns += ' ثمانين'
-						elif choosen == 9: ns += ' تسعين'
+						if choosen == 1: ns = ' عشرة' + ns
+						elif choosen == 2: ns = ' عشرين' + ns
+						elif choosen == 3: ns = ' ثلاثين' + ns
+						elif choosen == 4: ns = ' أربعين' + ns
+						elif choosen == 5: ns = ' خمسين' + ns
+						elif choosen == 6: ns = ' ستين' + ns
+						elif choosen == 7: ns = ' سبعين' + ns
+						elif choosen == 8: ns = ' ثمانين' + ns
+						elif choosen == 9: ns = ' تسعين' + ns
 					elif bc == 2:
-						if choosen == 1: ns += ' مائة'
-						elif choosen == 2: ns += ' مائتان'
-						elif choosen == 3: ns += ' ثلثمائة'
-						elif choosen == 4: ns += ' أربعمائة'
-						elif choosen == 5: ns += ' خمسمائة'
-						elif choosen == 6: ns += ' ستمائة'
-						elif choosen == 7: ns += ' سبعمائة'
-						elif choosen == 8: ns += ' ثمانمائة'
-						elif choosen == 9: ns += ' تسعمائة'
+						if choosen == 1: ns = ' مائة' + ns
+						elif choosen == 2: ns = ' مائتان' + ns
+						elif choosen == 3: ns = ' ثلثمائة' + ns
+						elif choosen == 4: ns = ' أربعمائة' + ns
+						elif choosen == 5: ns = ' خمسمائة' + ns
+						elif choosen == 6: ns = ' ستمائة' + ns
+						elif choosen == 7: ns = ' سبعمائة' + ns
+						elif choosen == 8: ns = ' ثمانمائة' + ns
+						elif choosen == 9: ns = ' تسعمائة' + ns
 					elif bc == 3:
-						if choosen == 0 and len(str(baster)) > 4: ns += ' ألأف'
-						elif choosen == 1: ns += ' ألف'
-						elif choosen == 2: ns += ' ألفان'
-						elif choosen == 3: ns += ' ثلاثة آلاف'
-						elif choosen == 4: ns += ' أربعة آلاف'
-						elif choosen == 5: ns += ' خمسة آلاف'
-						elif choosen == 6: ns += ' ستة آلاف'
-						elif choosen == 7: ns += ' سبعة آلاف'
-						elif choosen == 8: ns += ' ثمانية آلاف'
-						elif choosen == 9: ns += ' تسعة آلاف'
+						if choosen == 0 and len(str(baster)) > 4: ns = ' ألأف' + ns
+						elif choosen == 1: ns = ' ألف' + ns
+						elif choosen == 2: ns = ' ألفان' + ns
+						elif choosen == 3: ns = ' ثلاثة آلاف' + ns
+						elif choosen == 4: ns = ' أربعة آلاف' + ns
+						elif choosen == 5: ns = ' خمسة آلاف' + ns
+						elif choosen == 6: ns = ' ستة آلاف' + ns
+						elif choosen == 7: ns = ' سبعة آلاف' + ns
+						elif choosen == 8: ns = ' ثمانية آلاف' + ns
+						elif choosen == 9: ns = ' تسعة آلاف' + ns
 					elif bc == 4:
-						if choosen == 1: ns += ' عشرة '
-						elif choosen == 2: ns += ' عشرين '
-						elif choosen == 3: ns += ' ثلاثون '
-						elif choosen == 4: ns += ' أربعين '
-						elif choosen == 5: ns += ' خمسون '
-						elif choosen == 6: ns += ' ستين '
-						elif choosen == 7: ns += ' سبعين '
-						elif choosen == 8: ns += ' ثمانين '
-						elif choosen == 9: ns += ' تسعين '
+						if choosen == 1: ns = ' عشرة ' + ns
+						elif choosen == 2: ns = ' عشرين ' + ns
+						elif choosen == 3: ns = ' ثلاثون ' + ns
+						elif choosen == 4: ns = ' أربعين ' + ns
+						elif choosen == 5: ns = ' خمسون ' + ns
+						elif choosen == 6: ns = ' ستين ' + ns
+						elif choosen == 7: ns = ' سبعين ' + ns
+						elif choosen == 8: ns = ' ثمانين ' + ns
+						elif choosen == 9: ns = ' تسعين ' + ns
 					elif bc == 5:
-						if choosen == 1: ns += ' مائة '
-						elif choosen == 2: ns += ' مائتان '
-						elif choosen == 3: ns += ' ثلاثمائة '
-						elif choosen == 4: ns += ' أربعمائة '
-						elif choosen == 5: ns += ' خمسمائة '
-						elif choosen == 6: ns += ' ستمائة '
-						elif choosen == 7: ns += ' سبعمائة '
-						elif choosen == 8: ns += ' ثمانمائة '
-						elif choosen == 9: ns += ' تسعمائة '
+						if choosen == 1: ns = ' مائة ' + ns
+						elif choosen == 2: ns = ' مائتان ' + ns
+						elif choosen == 3: ns = ' ثلاثمائة ' + ns
+						elif choosen == 4: ns = ' أربعمائة ' + ns
+						elif choosen == 5: ns = ' خمسمائة ' + ns
+						elif choosen == 6: ns = ' ستمائة ' + ns
+						elif choosen == 7: ns = ' سبعمائة ' + ns
+						elif choosen == 8: ns = ' ثمانمائة ' + ns
+						elif choosen == 9: ns = ' تسعمائة ' + ns
 					elif bc == 6:
-						if choosen == 0 and len(str(baster)) > 7: ns += ' مليون'
-						elif choosen == 1: ns += ' مليون'
-						elif choosen == 2: ns += ' مليونان'
-						elif choosen == 3: ns += ' ثلاثة مليون'
-						elif choosen == 4: ns += ' أربعة مليون'
-						elif choosen == 5: ns += ' خمسة مليون'
-						elif choosen == 6: ns += ' ستة مليون'
-						elif choosen == 7: ns += ' سبعة مليون'
-						elif choosen == 8: ns += ' ثمانية مليون'
-						elif choosen == 9: ns += ' تسعة مليون'
+						if choosen == 0 and len(str(baster)) > 7: ns = ' مليون' + ns
+						elif choosen == 1: ns = ' مليون' + ns
+						elif choosen == 2: ns = ' مليونان' + ns
+						elif choosen == 3: ns = ' ثلاثة مليون' + ns
+						elif choosen == 4: ns = ' أربعة مليون' + ns
+						elif choosen == 5: ns = ' خمسة مليون' + ns
+						elif choosen == 6: ns = ' ستة مليون' + ns
+						elif choosen == 7: ns = ' سبعة مليون' + ns
+						elif choosen == 8: ns = ' ثمانية مليون' + ns
+						elif choosen == 9: ns = ' تسعة مليون' + ns
 					elif bc == 7:
-						if choosen == 1: ns += ' عشرة '
-						elif choosen == 2: ns += ' عشرين '
-						elif choosen == 3: ns += ' ثلاثين '
-						elif choosen == 4: ns += ' أربعين '
-						elif choosen == 5: ns += ' خمسين '
-						elif choosen == 6: ns += ' ستين '
-						elif choosen == 7: ns += ' سبعون '
-						elif choosen == 8: ns += ' ثمانون '
-						elif choosen == 9: ns += ' تسعين '
+						if choosen == 1: ns = ' عشرة ' + ns
+						elif choosen == 2: ns = ' عشرين ' + ns
+						elif choosen == 3: ns = ' ثلاثين ' + ns
+						elif choosen == 4: ns = ' أربعين ' + ns
+						elif choosen == 5: ns = ' خمسين ' + ns
+						elif choosen == 6: ns = ' ستين ' + ns
+						elif choosen == 7: ns = ' سبعون ' + ns
+						elif choosen == 8: ns = ' ثمانون ' + ns
+						elif choosen == 9: ns = ' تسعين '
 				elif language == 'HEBREW':
 					if bc == 0:
-						if choosen == 1: ns += ' אחת'
-						elif choosen == 2: ns += ' שתים'
-						elif choosen == 3: ns += ' שלש'
-						elif choosen == 4: ns += ' ארבע'
-						elif choosen == 5: ns += ' חמש'
-						elif choosen == 6: ns += ' שש'
-						elif choosen == 7: ns += ' שבע'
-						elif choosen == 8: ns += ' שמונה'
-						elif choosen == 9: ns += ' תשע'
+						if choosen == 1: ns = ' אחת' + ns
+						elif choosen == 2: ns = ' שתים' + ns
+						elif choosen == 3: ns = ' שלש' + ns
+						elif choosen == 4: ns = ' ארבע' + ns
+						elif choosen == 5: ns = ' חמש' + ns
+						elif choosen == 6: ns = ' שש' + ns
+						elif choosen == 7: ns = ' שבע' + ns
+						elif choosen == 8: ns = ' שמונה' + ns
+						elif choosen == 9: ns = ' תשע' + ns
 					elif bc == 1:
-						if choosen == 1: ns += ' עשר'
-						elif choosen == 2: ns += ' עשרים'
-						elif choosen == 3: ns += ' שלושים'
-						elif choosen == 4: ns += ' ארבעים'
-						elif choosen == 5: ns += ' חמישים'
-						elif choosen == 6: ns += ' ששים'
-						elif choosen == 7: ns += ' שבעים'
-						elif choosen == 8: ns += ' שמונים'
-						elif choosen == 9: ns += ' תשעים'
+						if choosen == 1: ns = ' עשר' + ns
+						elif choosen == 2: ns = ' עשרים' + ns
+						elif choosen == 3: ns = ' שלושים' + ns
+						elif choosen == 4: ns = ' ארבעים' + ns
+						elif choosen == 5: ns = ' חמישים' + ns
+						elif choosen == 6: ns = ' ששים' + ns
+						elif choosen == 7: ns = ' שבעים' + ns
+						elif choosen == 8: ns = ' שמונים' + ns
+						elif choosen == 9: ns = ' תשעים' + ns
 					elif bc == 2:
-						if choosen == 1: ns += ' מאה'
-						elif choosen == 2: ns += ' מָאתַיִם'
-						elif choosen == 3: ns += ' שְׁלוֹשׁ מֵאוֹת'
-						elif choosen == 4: ns += ' אַרְבַּע מֵאוֹת'
-						elif choosen == 5: ns += ' חֲמֵשׁ מֵאוֹת'
-						elif choosen == 6: ns += ' שֵׁשׁ מֵאוֹת'
-						elif choosen == 7: ns += ' שְׁבַע מֵאוֹת'
-						elif choosen == 8: ns += ' שְׁמוֹנֶה מֵאוֹת'
-						elif choosen == 9: ns += ' תְּשַׁע מֵאוֹת'
+						if choosen == 1: ns = ' מאה' + ns
+						elif choosen == 2: ns = ' מָאתַיִם' + ns
+						elif choosen == 3: ns = ' שְׁלוֹשׁ מֵאוֹת' + ns
+						elif choosen == 4: ns = ' אַרְבַּע מֵאוֹת' + ns
+						elif choosen == 5: ns = ' חֲמֵשׁ מֵאוֹת' + ns
+						elif choosen == 6: ns = ' שֵׁשׁ מֵאוֹת' + ns
+						elif choosen == 7: ns = ' שְׁבַע מֵאוֹת' + ns
+						elif choosen == 8: ns = ' שְׁמוֹנֶה מֵאוֹת' + ns
+						elif choosen == 9: ns = ' תְּשַׁע מֵאוֹת' + ns
 					elif bc == 3:
-						if choosen == 0 and len(str(baster)) > 4: ns += ' אלף'
-						elif choosen == 1: ns += ' אלף'
-						elif choosen == 2: ns += ' אלפיים'
-						elif choosen == 3: ns += ' שלושה אלף'
-						elif choosen == 4: ns += ' ארבעת אלפים'
-						elif choosen == 5: ns += ' חמשת אלפים'
-						elif choosen == 6: ns += ' ששת אלפים'
-						elif choosen == 7: ns += ' שבעת אלפים'
-						elif choosen == 8: ns += ' שמונת אלפים'
-						elif choosen == 9: ns += ' תשעת אלפים'
+						if choosen == 0 and len(str(baster)) > 4: ns = ' אלף' + ns
+						elif choosen == 1: ns = ' אלף' + ns
+						elif choosen == 2: ns = ' אלפיים' + ns
+						elif choosen == 3: ns = ' שלושה אלף' + ns
+						elif choosen == 4: ns = ' ארבעת אלפים' + ns
+						elif choosen == 5: ns = ' חמשת אלפים' + ns
+						elif choosen == 6: ns = ' ששת אלפים' + ns
+						elif choosen == 7: ns = ' שבעת אלפים' + ns
+						elif choosen == 8: ns = ' שמונת אלפים' + ns
+						elif choosen == 9: ns = ' תשעת אלפים' + ns
 					elif bc == 4:
-						if choosen == 1: ns += ' עשרתים'
-						elif choosen == 2: ns += ' עשרים '
-						elif choosen == 3: ns += ' שלושים '
-						elif choosen == 4: ns += ' ארבעים '
-						elif choosen == 5: ns += ' חמישים '
-						elif choosen == 6: ns += ' שישים '
-						elif choosen == 7: ns += ' שבעים '
-						elif choosen == 8: ns += ' שמונים '
-						elif choosen == 9: ns += ' תשעים '
+						if choosen == 1: ns = ' עשרתים' + ns
+						elif choosen == 2: ns = ' עשרים ' + ns
+						elif choosen == 3: ns = ' שלושים ' + ns
+						elif choosen == 4: ns = ' ארבעים ' + ns
+						elif choosen == 5: ns = ' חמישים ' + ns
+						elif choosen == 6: ns = ' שישים ' + ns
+						elif choosen == 7: ns = ' שבעים ' + ns
+						elif choosen == 8: ns = ' שמונים ' + ns
+						elif choosen == 9: ns = ' תשעים ' + ns
 					elif bc == 5:
-						if choosen == 1: ns += ' מאה '
-						elif choosen == 2: ns += ' מאתיים '
-						elif choosen == 3: ns += ' שלוש מאות '
-						elif choosen == 4: ns += ' ארבע מאות '
-						elif choosen == 5: ns += ' חמש מאות '
-						elif choosen == 6: ns += ' שש מאות '
-						elif choosen == 7: ns += ' שבע מאות '
-						elif choosen == 8: ns += ' שמונה מאות '
-						elif choosen == 9: ns += ' תשע מאות '
+						if choosen == 1: ns = ' מאה ' + ns
+						elif choosen == 2: ns = ' מאתיים ' + ns
+						elif choosen == 3: ns = ' שלוש מאות ' + ns
+						elif choosen == 4: ns = ' ארבע מאות ' + ns
+						elif choosen == 5: ns = ' חמש מאות ' + ns
+						elif choosen == 6: ns = ' שש מאות ' + ns
+						elif choosen == 7: ns = ' שבע מאות ' + ns
+						elif choosen == 8: ns = ' שמונה מאות ' + ns
+						elif choosen == 9: ns = ' תשע מאות ' + ns
 					elif bc == 6:
-						if choosen == 0 and len(str(baster)) > 7: ns += ' מיליון'
-						elif choosen == 1: ns += ' מיליון'
-						elif choosen == 2: ns += ' שני מיליון'
-						elif choosen == 3: ns += ' שלושה מיליון'
-						elif choosen == 4: ns += ' ארבע מיליון'
-						elif choosen == 5: ns += ' חמישה מיליון'
-						elif choosen == 6: ns += ' שישה מיליון'
-						elif choosen == 7: ns += ' שבעה מיליון'
-						elif choosen == 8: ns += ' שמונה מליון'
-						elif choosen == 9: ns += ' תשעה מיליון'
+						if choosen == 0 and len(str(baster)) > 7: ns = ' מיליון' + ns
+						elif choosen == 1: ns = ' מיליון' + ns
+						elif choosen == 2: ns = ' שני מיליון' + ns
+						elif choosen == 3: ns = ' שלושה מיליון' + ns
+						elif choosen == 4: ns = ' ארבע מיליון' + ns
+						elif choosen == 5: ns = ' חמישה מיליון' + ns
+						elif choosen == 6: ns = ' שישה מיליון' + ns
+						elif choosen == 7: ns = ' שבעה מיליון' + ns
+						elif choosen == 8: ns = ' שמונה מליון' + ns
+						elif choosen == 9: ns = ' תשעה מיליון' + ns
 					elif bc == 7:
-						if choosen == 1: ns += ' עשר '
-						elif choosen == 2: ns += ' עשרים '
-						elif choosen == 3: ns += ' שלושים '
-						elif choosen == 4: ns += ' ארבעים '
-						elif choosen == 5: ns += ' חמישים '
-						elif choosen == 6: ns += ' שישים '
-						elif choosen == 7: ns += ' שבעים '
-						elif choosen == 8: ns += ' שמונים '
-						elif choosen == 9: ns += ' תשעים '
+						if choosen == 1: ns = ' עשר ' + ns
+						elif choosen == 2: ns = ' עשרים ' + ns
+						elif choosen == 3: ns = ' שלושים ' + ns
+						elif choosen == 4: ns = ' ארבעים ' + ns
+						elif choosen == 5: ns = ' חמישים ' + ns
+						elif choosen == 6: ns = ' שישים ' + ns
+						elif choosen == 7: ns = ' שבעים ' + ns
+						elif choosen == 8: ns = ' שמונים ' + ns
+						elif choosen == 9: ns = ' תשעים '
 				if language == 'TURKCE':
 					if bc == 0:
-						if choosen == 1: ns += ' bir'
-						elif choosen == 2: ns += ' iki'
-						elif choosen == 3: ns += ' üç'
-						elif choosen == 4: ns += ' dört'
-						elif choosen == 5: ns += ' beş'
-						elif choosen == 6: ns += ' altı'
-						elif choosen == 7: ns += ' yedi'
-						elif choosen == 8: ns += ' sekiz'
-						elif choosen == 9: ns += ' dokuz'
+						if choosen == 1: ns = ' bir' + ns
+						elif choosen == 2: ns = ' iki' + ns
+						elif choosen == 3: ns = ' üç' + ns
+						elif choosen == 4: ns = ' dört' + ns
+						elif choosen == 5: ns = ' beş' + ns
+						elif choosen == 6: ns = ' altı' + ns
+						elif choosen == 7: ns = ' yedi' + ns
+						elif choosen == 8: ns = ' sekiz' + ns
+						elif choosen == 9: ns = ' dokuz' + ns
 					elif bc == 1:
-						if choosen == 1: ns += ' on'
-						elif choosen == 2: ns += ' yirmi'
-						elif choosen == 3: ns += ' otuz'
-						elif choosen == 4: ns += ' kırk'
-						elif choosen == 5: ns += ' elli'
-						elif choosen == 6: ns += ' altmış'
-						elif choosen == 7: ns += ' yetmiş'
-						elif choosen == 8: ns += ' seksen'
-						elif choosen == 9: ns += ' doksan'
+						if choosen == 1: ns = ' on' + ns
+						elif choosen == 2: ns = ' yirmi' + ns
+						elif choosen == 3: ns = ' otuz' + ns
+						elif choosen == 4: ns = ' kırk' + ns
+						elif choosen == 5: ns = ' elli' + ns
+						elif choosen == 6: ns = ' altmış' + ns
+						elif choosen == 7: ns = ' yetmiş' + ns
+						elif choosen == 8: ns = ' seksen' + ns
+						elif choosen == 9: ns = ' doksan' + ns
 					elif bc == 2:
-						if choosen == 1: ns += ' yüz'
-						elif choosen == 2: ns += ' ikiyüz'
-						elif choosen == 3: ns += ' üçyüz'
-						elif choosen == 4: ns += ' dörtyüz'
-						elif choosen == 5: ns += ' beşyüz'
-						elif choosen == 6: ns += ' altıyüz'
-						elif choosen == 7: ns += ' yediyüz'
-						elif choosen == 8: ns += ' sekizyüz'
-						elif choosen == 9: ns += ' dokuzyüz'
+						if choosen == 1: ns = ' yüz' + ns
+						elif choosen == 2: ns = ' iki yüz' + ns
+						elif choosen == 3: ns = ' üç yüz' + ns
+						elif choosen == 4: ns = ' dört yüz' + ns
+						elif choosen == 5: ns = ' beş yüz' + ns
+						elif choosen == 6: ns = ' altı yüz' + ns
+						elif choosen == 7: ns = ' yedi yüz' + ns
+						elif choosen == 8: ns = ' sekiz yüz' + ns
+						elif choosen == 9: ns = ' dokuz yüz' + ns
 					elif bc == 3:
 						if choosen == 0 and len(str(baster)) > 4:
-								ns += ' bin'
+								ns = ' bin' + ns
 						elif choosen == 1:
-							if len(str(baster)) > 4: ns += ' bir bin'
-							else: ns += ' bin'
-						elif choosen == 2: ns += ' ikibin'
-						elif choosen == 3: ns += ' üçbin'
-						elif choosen == 4: ns += ' dörtbin'
-						elif choosen == 5: ns += ' beşbin'
-						elif choosen == 6: ns += ' altıbin'
-						elif choosen == 7: ns += ' yedibin'
-						elif choosen == 8: ns += ' sekizbin'
-						elif choosen == 9: ns += ' dokuzbin'
+							if len(str(baster)) > 4: ns = ' bir bin' + ns
+							else: ns = ' bin' + ns
+						elif choosen == 2: ns = ' iki bin' + ns
+						elif choosen == 3: ns = ' üç bin' + ns
+						elif choosen == 4: ns = ' dört bin' + ns
+						elif choosen == 5: ns = ' beş bin' + ns
+						elif choosen == 6: ns = ' altı bin' + ns
+						elif choosen == 7: ns = ' yedi bin' + ns
+						elif choosen == 8: ns = ' sekiz bin' + ns
+						elif choosen == 9: ns = ' dokuz bin' + ns
 					elif bc == 4:
-						if choosen == 1: ns += ' on'
-						elif choosen == 2: ns += ' yirmi'
-						elif choosen == 3: ns += ' otuz'
-						elif choosen == 4: ns += ' kırk'
-						elif choosen == 5: ns += ' elli'
-						elif choosen == 6: ns += ' altmıi'
-						elif choosen == 7: ns += ' yetmiş'
-						elif choosen == 8: ns += ' seksen'
-						elif choosen == 9: ns += ' doksan'
+						if choosen == 1: ns = ' on' + ns
+						elif choosen == 2: ns = ' yirmi' + ns
+						elif choosen == 3: ns = ' otuz' + ns
+						elif choosen == 4: ns = ' kırk' + ns
+						elif choosen == 5: ns = ' elli' + ns
+						elif choosen == 6: ns = ' altmıi' + ns
+						elif choosen == 7: ns = ' yetmiş' + ns
+						elif choosen == 8: ns = ' seksen' + ns
+						elif choosen == 9: ns = ' doksan' + ns
 					elif bc == 5:
-						if choosen == 1: ns += ' yüz'
-						elif choosen == 2: ns += 'ikiyüz'
-						elif choosen == 3: ns += ' üçyüz'
-						elif choosen == 4: ns += ' dörtyüz'
-						elif choosen == 5: ns += ' beşyüz'
-						elif choosen == 6: ns += ' altıyüz'
-						elif choosen == 7: ns += ' yediyüz'
-						elif choosen == 8: ns += ' sekizyüz'
-						elif choosen == 9: ns += ' dokuzyüz'
+						if choosen == 1: ns = ' yüz' + ns
+						elif choosen == 2: ns = 'iki yüz' + ns
+						elif choosen == 3: ns = ' üç yüz' + ns
+						elif choosen == 4: ns = ' dört yüz' + ns
+						elif choosen == 5: ns = ' beş yüz' + ns
+						elif choosen == 6: ns = ' altı yüz' + ns
+						elif choosen == 7: ns = ' yedi yüz' + ns
+						elif choosen == 8: ns = ' sekiz yüz' + ns
+						elif choosen == 9: ns = ' dokuz yüz' + ns
 					elif bc == 6:
-						if choosen == 0 and len(str(baster)) > 7: ns += ' milyon'
-						elif choosen == 1: ns += ' bir milyon'
-						elif choosen == 2: ns += ' iki milyon'
-						elif choosen == 3: ns += ' üç milyon'
-						elif choosen == 4: ns += ' dört milyon'
-						elif choosen == 5: ns += ' beş milyon'
-						elif choosen == 6: ns += ' altı milyon'
-						elif choosen == 7: ns += ' yedi milyon'
-						elif choosen == 8: ns += ' sekiz milyon'
-						elif choosen == 9: ns += ' dokuz milyon'
+						if choosen == 0 and len(str(baster)) > 7: ns = ' milyon' + ns
+						elif choosen == 1: ns = ' bir milyon' + ns
+						elif choosen == 2: ns = ' iki milyon' + ns
+						elif choosen == 3: ns = ' üç milyon' + ns
+						elif choosen == 4: ns = ' dört milyon' + ns
+						elif choosen == 5: ns = ' beş milyon' + ns
+						elif choosen == 6: ns = ' altı milyon' + ns
+						elif choosen == 7: ns = ' yedi milyon' + ns
+						elif choosen == 8: ns = ' sekiz milyon' + ns
+						elif choosen == 9: ns = ' dokuz milyon' + ns
 					elif bc == 7:
-						if choosen == 1: ns += ' on'
-						elif choosen == 2: ns += ' yirmi'
-						elif choosen == 3: ns += ' otuz'
-						elif choosen == 4: ns += ' kırk'
-						elif choosen == 5: ns += ' elli'
-						elif choosen == 6: ns += ' altmış'
-						elif choosen == 7: ns += ' yetmiş'
-						elif choosen == 8: ns += ' seksen'
-						elif choosen == 9: ns += ' doksan'
+						if choosen == 1: ns = ' on' + ns
+						elif choosen == 2: ns = ' yirmi' + ns
+						elif choosen == 3: ns = ' otuz' + ns
+						elif choosen == 4: ns = ' kırk' + ns
+						elif choosen == 5: ns = ' elli' + ns
+						elif choosen == 6: ns = ' altmış' + ns
+						elif choosen == 7: ns = ' yetmiş' + ns
+						elif choosen == 8: ns = ' seksen' + ns
+						elif choosen == 9: ns = ' doksan' + ns
 				else: err = 1
 			baster = 0
 			if tablo in range(0, 16): baster = abjad(ns, tablo, 1) + abjad(ns, 5, 1)
@@ -1456,20 +1456,12 @@ def huddam(num, htype='ulvi', method=1):
 print('test kodu yürütülüyor') #Foksiyonları konsolda deneyebilirsin. Bu kodların amacı, eğer fonksiyonel hale gelirse ADD-IN 
 # içinde kullanmaktır. (LibreOffice Add-in) Henüz kodlar tamamlanmadı, imkanın varsa katkı sağlamak için konsepti anlamaya çalış.
 start = time.time()
-order = 0
-fire = air = water = earth = ''
-for k in ['A', 'B', 'C', 'Ç', 'D', 'E', 'F', 'G', 'Ğ', 'H', 'I', 'İ', 'J', 'K', 'L', 'M', 'N', 'O', 'Ö', 'P', 'R', 'S', 'Ş', 'T', 'U', 'Ü', 'V', 'Y', 'Z']:
-	if order == 0: 
-		fire += '\'' + k + '\', '
-		order += 1
-	elif order == 1: 
-		air += '\'' + k + '\', '
-		order += 1
-	elif order == 2: 
-		water += '\'' + k + '\', '
-		order += 1
-	elif order == 3: 
-		earth += '\'' + k + '\', '
-		order = 0
+start = time.time()
+a = random.randrange(71, 1070)
+b = a + 10
+saglam = 0
+for i in range(a, b):
+	t = bastet(i, 1, 1, 1, 'TURKCE')
+	print('\033[1;32m'+str(t)+'\033[1;m', bastet(i, 1, 1, 1, 'TURKCE', 1), i)
 end = time.time()
-print(end - start, '\n fire', '\033[1;32m' + fire + '\033[1;m\n', 'air', '\033[1;32m' + air + '\033[1;m\n', 'water', '\033[1;32m' + water + '\033[1;m\n', 'earth', '\033[1;32m' + earth + '\033[1;m\n')
+print(end - start, '\033[1;32m'+str(saglam)+'\033[1;m')
