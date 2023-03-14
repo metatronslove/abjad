@@ -1060,7 +1060,7 @@ Sub BASTET(Optional metin As String, Optional MT As Variant, Optional tablo As V
                             End Select
                         Case 3
                             Select Case CInt(choosen)
-								Case 0 : If LEN(Baster) > 4 Then NS = " אלף" & NS
+				Case 0 : If LEN(Baster) > 4 Then NS = " אלף" & NS
                                 Case 1 : NS = " אלף" & NS
                                 Case 2 : NS = " אלפיים" & NS
                                 Case 3 : NS = " שלושה אלף" & NS
@@ -1097,7 +1097,7 @@ Sub BASTET(Optional metin As String, Optional MT As Variant, Optional tablo As V
                             End Select
                         Case 6
                             Select Case CInt(choosen)
-								Case 0 : If LEN(Baster) > 7 Then NS = " מיליון" & NS
+				Case 0 : If LEN(Baster) > 7 Then NS = " מיליון" & NS
                                 Case 1 : NS = " מיליון" & NS
                                 Case 2 : NS = " שני מיליון" & NS
                                 Case 3 : NS = " שלושה מיליון" & NS
@@ -1120,7 +1120,7 @@ Sub BASTET(Optional metin As String, Optional MT As Variant, Optional tablo As V
                                 Case 8 : NS = " שמונים " & NS
                                 Case 9 : NS = " תשעים " & NS
                             End Select
-						End Select
+			End Select
                 Case "TURKCE"
                     Select Case BC
                         Case 0
