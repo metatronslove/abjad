@@ -965,6 +965,7 @@ Sub BASTET(Optional metin As String, Optional MT As Variant, Optional tablo As V
 				NS = " ألف" & NS
 			Else
 				NS = " ألأف" & NS
+			End IF
                     Case 2 : NS = " ألفان" & NS
                     Case 3 : NS = " ثلاثة آلاف" & NS
                     Case 4 : NS = " أربعة آلاف" & NS
@@ -1033,6 +1034,7 @@ Sub BASTET(Optional metin As String, Optional MT As Variant, Optional tablo As V
 				NS = " אלף" & NS
 			Else
 				NS = " אלפים" & NS
+			End If
                     Case 2 : NS = " אלפיים" & NS
                     Case 3 : NS = " שלושה אלפים" & NS
                     Case 4 : NS = " ארבעת אלפים" & NS
