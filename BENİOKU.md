@@ -1,8 +1,10 @@
 # abjad https://github.com/metatronslove/abjad
-Google E-tablolar ve LibreOffice Hesap Tablosu için Ebced Hesaplama fonksiyonları
+Google E-tablolar, LibreOffice Hesap Tablosu ve Web Sayfaları için Ebced
+Hesaplama fonksiyonları
 
-HİÇ BİR KESİN TUTARLI YA DA DOĞRU HESAPLANMIŞ SONUÇ VAADETMİYORUM; KODLARI GÖZDEN GEÇİRİN VE 
-İHTİYAÇLARINIZA GÖRE YENİDEN DÜZENLEYİN Kİ ARADIĞINIZ KESİNLİĞE ULAŞABİLESİNİZ.
+KESİN TUTARLI YA DA DOĞRU HESAPLANMIŞ SONUÇ VAAT EDİLMİYOR; KODLARI 
+GÖZDEN GEÇİRİN VE İHTİYAÇLARINIZA GÖRE YENİDEN DÜZENLEYİN Kİ ARADIĞINIZ 
+KESİNLİĞE ULAŞABİLESİNİZ.
 
 [![wordbyword() function](https://i.ytimg.com/vi/FWqtQP_V5u4/maxresdefault.jpg)](https://youtu.be/FWqtQP_V5u4 "wordbyword() function")
 
@@ -13,11 +15,11 @@ Fonksiyon-fonksiyon kullanıcı tanımlı fonksiyonların açıklaması.
 ***
 >#### "ebced değeri bulunacak metin"
 
-Arapça ya da İbranice bir metin ya da metnin bulunduğu hücre.
+Türkçe, Arapça ya da İbranice bir metin ya da metnin bulunduğu hücre.
 
 >#### ebced tablosu kodu
 
-0 - 5 tablo kodları Arapça ve İbranice için
+0 - 5 tablo kodları Arapça, İbranice ve Türkçe için
 
 * 0 Asgari Ebced
 * 1 Sağir Ebced (Cümel-i Kebir)
@@ -28,11 +30,12 @@ Arapça ya da İbranice bir metin ya da metnin bulunduğu hücre.
 
 6 - 16 tablo kodları sadece Arapça için
 
-* 6 Asgari Frekans Sırası 
-* 7 Sağir Frekans Sırası
-* 8 Kebir Frekans Sırası
-* 9 Ekber Frekans Sırası
-* 10 Sağir Frekans Sırası + Harf Miktarı
+* 6 Asgari Mağribi Ebced 
+* 7 Sağir Mağribi Ebced
+* 8 Kebir Mağribi Ebced
+* 9 Ekber Mağribi Ebced
+* 10 Sağir Mağribi Ebced + Harf Miktarı
+
 * 11 Asgari Frekans Ebcedi
 * 12 Sağir Frekans Ebcedi
 * 13 Kebir Frekans Ebcedi
@@ -41,51 +44,60 @@ Arapça ya da İbranice bir metin ya da metnin bulunduğu hücre.
 
 >#### şedde seçeneği
 
-Şeddeli harf  içermeyen metinler  hesaplanırken formulde verilmesi gerekmez. Şeddeli 
-harfler çift hesaplanacaksa 2, tek hesaplanacaksa 1 girin.
+Şeddeli harf  içermeyen metinler  hesaplanırken formulde verilmesi 
+gerekmez. Şeddeli harfler çift hesaplanacaksa 2, tek hesaplanacaksa 1 
+girin.
 
 >#### ayrıntı seçeneği
 
-bu seçeneği girmek seçimliktir, eğer 1 olarak girerseniz her harf için verilmiş olan
-tablo koduna göre değerleriyle beraber listeler.
+Bu seçeneği girmek seçimliktir, eğer 1 olarak girerseniz her harf için 
+verilmiş olan tablo koduna göre değerleriyle beraber listeler.
 
 [![https://tinyurl.com/t3stc0d3](https://i.ibb.co/Jp19XXS/Ekran-g-r-nt-s-2021-10-08-14-47-23.png)](https://tinyurl.com/t3stc0d3)
 
 ***
-### bastet(“metin veya sayı”; bast tekrar adedi; tablo kodu; şedde seçeneği; "dil seçeneği")
+### bastet(“metin veya sayı”; bast tekrar adedi; tablo kodu; şedde seçeneği; "dil seçeneği"; ayrıntı ayarı)
 ***
 >#### "metin veya sayı"
 
-eğer  Arapça  ya da  İbranice  bir  metin girerseniz tablo koduna göre ebced değerini
-kullanır, doğrudan sayı verirseniz de işlem yapar.
+Eğer  Arapça  ya da  İbranice  bir  metin girerseniz tablo koduna göre 
+ebced değerini kullanır, doğrudan sayı verirseniz de işlem yapar.
 
 >#### bast tekrar adedi
 
-usul-ul bast yöntemi açısından ebced değerine uygulanacak yayma işlemini kaç kez
-tekrar edeceğini belirtmelisiniz.
+Usul-ul bast yöntemi açısından ebced değerine uygulanacak yayma işlemini
+kaç kez tekrar edeceğini belirtmelisiniz.
 
 >#### tablo kodu
 
-usul-ul bast yöntemini hangi ebced tablosuna göre uygulayacağını belirtmelisiniz, bu
-tablo kodları abjad() fonksiyonundaki  tablo kodlarını  içerir,  abjad() fonksiyonundaki
-kodlara ek  olarak  yayma  işlemlerinin  sonundaki harf miktarını ekleme  işlemini
-yapmaması  için  negatif ebced tablosu kodları kullanabilirsiniz, bu negatif kodların
-akılda kalması  için  pozitif ebced kodlarını  -1  ile çarpıp  -1 ekleyerek bulunabildiğini
-söyleyebiliriz,  mesela  ebced  tablosu  kodu 1  olan  sağir  ebced  için  harf  miktarı
-eklenmeyecekse tablo kodu olarak -2 girerseniz.
+Usul-ul bast yöntemini hangi ebced tablosuna göre uygulayacağını 
+belirtmelisiniz, bu tablo kodları abjad() fonksiyonundaki  tablo 
+kodlarını  içerir,  abjad() fonksiyonundaki kodlara ek  olarak  yayma  
+işlemlerinin  sonundaki harf miktarını ekleme  işlemini yapmaması  için
+negatif ebced tablosu kodları kullanabilirsiniz, bu negatif kodların 
+akılda kalması  için  pozitif ebced kodlarını  -1  ile çarpıp  -1 
+ekleyerek bulunabildiğini söyleyebiliriz,  mesela  ebced  tablosu  kodu
+1  olan  sağir  ebced  için  harf  miktarı eklenmeyecekse tablo kodu 
+olarak -2 girerseniz.
 
 >#### şedde seçeneği
 
-şeddeli harfleri çift hesaplatmak için 2, tek hesaplatmak için 1 girilebilir, şedde yoksa
-girilmesi gerekmez, seçimliktir.
+Şeddeli harfleri çift hesaplatmak için 2, tek hesaplatmak için 1 
+girilebilir, şedde yoksa girilmesi gerekmez, seçimliktir.
 
 >#### "dil seçeneği"
 
-bast etme işlemleri  Arapça sayı okunuşlarına göre yapılacaksa "ARABIC", İbranice
-okunuşlara göre yapılacaksa "HEBREW" olarak girilir.
+bast etme işlemleri  Arapça sayı okunuşlarına göre yapılacaksa "ARABIC",
+İbranice okunuşlara göre yapılacaksa "HEBREW" olarak girilir. Türkçe 
+için "TURKCE"
+
+>#### "ayrıntı ayarı"
+
+ebcedini hesaplayıp, harf miktarını ekleyerek vermek yerine hesapladığı 
+sayının istintakını yani okunuşunu döndürür.
 
 ***
-### unsur(metin; çıktı türü kodu; unsur kodu; şedde seçeneği)
+### unsur(metin; çıktı türü kodu; unsur kodu; şedde seçeneği, hoca seçeneği)
 ***
 
 >#### metin
@@ -109,22 +121,36 @@ harfleri elementlere göre tasnif edilecek olan Arapça veya İbranice metin
 * 1 şeddeli harfler tek sefer hesaba katılır
 * 2 şeddeli harfler iki kez hesaba katılır
 
+>#### hoca seçeneği
+
+* 0 "TURKCE" Türk alfabesinin unsurları
+* 1 "ARABI" Muhiyyiddin İbn Arabi
+* 2 "BUNI" Ahmed El Buni
+* 3 "HUSEYNI" Süleyman El Huseyni
+* 4 "HEBREW" İbrani alfabesi için unsurlar
+* girilmemesi ya da 0-4 dışında girilmesi halinde de yanıt verdiği bir 
+seçenek mevcuttur.
+
 ***
-### saf(metin; ayraç)
+### saf(metin; ayraç; şedde seçeneği)
 ***
 
 >#### metin
 
-ebced incelemesine katkısı olmayan karakterlerden ve şeddeler dahil harekelerden
-arındırılacak Arapça veya İbranice metin
+Ebced incelemesine katkısı olmayan karakterlerden ve şeddeler dahil 
+harekelerden arındırılacak Arapça veya İbranice metin
 
 >#### ayraç
 
 * 0  girilirse metni arındırır ve boşluklar orjinaldeki yerlerinde kalır
-* " "  girilirse incelemeye dahil olabilecek harfleri aralarında boşluklar olduğu halde
-  listeler
+* " "  girilirse incelemeye dahil olabilecek harfleri aralarında 
+boşluklar olduğu halde listeler
 
 ihtiyaç varsa boşluk yerine başka karakterler de girilebilir.
+
+>#### şedde seçeneği
+
+2 girilirse, şeddeli harfleri iki kez döndürür
 
 ***
 ### numbers2arab(rakamları dönüştürülecek hücre)
@@ -132,8 +158,8 @@ ihtiyaç varsa boşluk yerine başka karakterler de girilebilir.
 
 >#### rakamları dönüştürülecek hücre
 
-Arap rakamlarından [0-9] oluşan sayılar girilmiş hücrededir, bunlar Hint rakamlarına
-dönüşür. Formul yayarken oldukça kullanışlıdır.
+Arap rakamlarından [0-9] oluşan sayılar girilmiş hücrededir, bunlar Hint
+rakamlarına dönüşür. Formul yayarken oldukça kullanışlıdır.
 
 [![https://tinyurl.com/1v3fk](https://i.ibb.co/bK80X5H/Ekran-g-r-nt-s-2021-10-11-19-55-02.png)](https://tinyurl.com/1v3fk)
 
@@ -143,7 +169,8 @@ dönüşür. Formul yayarken oldukça kullanışlıdır.
 
 >#### hesaplanmış sayı
 
-sihirli kare çalışmak için gereken vazifeli ruhsal varlık için hesaplanan sayıdır
+sihirli kare çalışmak için gereken vazifeli ruhsal varlık için 
+hesaplanan sayıdır
 
 >#### vazifeli türü belirteci
 
@@ -153,17 +180,20 @@ sihirli kare çalışmak için gereken vazifeli ruhsal varlık için hesaplanan 
 * "SUFLI" girilirse, son ek yuş olur.
 * "ŞER" girilirse, son ek tıyş olur.
 
-bu belirteç için çift tırnak işareti arasına arap harfleriyle istenen herhangi bir başka ek de
-girilebiliyor. Ebced hesaplama yöntemimizden kaynaklanan bir sebeple "ULVI" türü için
-verilen ayil son ekinin ebced değeri 51 olarak hesaplandı, kitaplarda verilen 41 tutarını
-hedefliyorsanız, "ULVI" yazmaktansa hemze ye maksura harfi yerine hemze ya da elif harfi
-kullanarak kendi tür belirtecinizi girin.
+Bu belirteç için çift tırnak işareti arasına arap harfleriyle istenen 
+herhangi bir başka ek de girilebiliyor. Ebced hesaplama yöntemimizden 
+kaynaklanan bir sebeple "ULVI" türü için verilen ayil son ekinin ebced 
+değeri 51 olarak hesaplandı, kitaplarda verilen 41 tutarını 
+hedefliyorsanız, "ULVI" yazmaktansa hemze ye maksura harfi yerine hemze
+ya da elif harfi kullanarak kendi tür belirtecinizi girin.
 
 >#### yöntem seçeneği
 
-Cümel-i Kebir tablosuna uyan bir ebced tekniği ile isim üretmek istiyorsanız seçimlik olan
-bu yöntem seçeneğini girmeyin. Bu seçenek için 1 girdiğinizde Cümel-i Kebir tablosu yerine
-Deneysel Frekans Ebced tablosuna uyan isimler üretmeye başlar.
+Yöntem seçebeği, abjad() fonksiyonundaki Sağir ebced tablosu kodları 
+olan 1, 7, 12'dir. Cümel-i Kebir tablosuna uyan bir ebced tekniği ile 
+isim üretmek istiyorsanız seçimlik olan bu yöntem seçeneğini girmeyin.
+Bu seçenek için 12 girdiğinizde Cümel-i Kebir tablosu yerine Deneysel 
+Frekans Ebced tablosuna uyan isimler üretmeye başlar. 
 
 ***
 ### rakamtopla(indirgenecek sayı; basamak miktarı)
@@ -175,25 +205,30 @@ herhangi bir sayı
 
 >#### basamak miktarı
 
-* 3 girilirse, indirgenecek sayının basamaklarını toplayarak 3 basamaklı bir sayıya ulaşanadek
-toplamayı sürdürür.
+* 3 girilirse, indirgenecek sayının basamaklarını toplayarak 3 basamaklı
+bir sayıya ulaşanadek toplamayı sürdürür.
 * 2 girilirse 2 basamağa,
 * 1 girilirse tek basamağa kadar indirger!
 * 0 girilirse indirgeme işlemlerinde karşılaştığı tüm aşamaları listeler.
 
 ***
-### teksir("çoğaltılacak metin"; "ayraç")
+### teksir("çoğaltılacak metin"; "ayraç"; şedde seçeneği)
 ***
 
 >#### "çoğaltılacak metin"
 
-buraya gireceğiniz Arapça ya da İbranice metin için harfleri önce sondan sonra baştan tüm harfleri
-alana kadar alarak metindeki harflerin farklı sıralamalarıyla çoğaltılasına yarar.
+buraya gireceğiniz Arapça ya da İbranice metin için harfleri önce sondan
+sonra baştan tüm harfleri alana kadar alarak metindeki harflerin farklı 
+sıralamalarıyla çoğaltılasına yarar.
 
 >#### "ayraç"
 
-çoğaltma işlemi sırasında görsellik açısından " " boşluğun ayraç olarak kullanılmasını öneririm,
-başka karakterler de seçilebilir.
+çoğaltma işlemi sırasında görsellik açısından " " boşluğun ayraç olarak 
+kullanılmasını öneririm, başka karakterler de seçilebilir.
+
+>#### şedde seçeneği
+
+2 girilirse, şeddeli harfleri iki kez döndürür
 
 ***
 ### tesbeh(hedef sayı; minimum değer; tesbih tane adedi; tesbih bölümleri)
@@ -201,19 +236,22 @@ başka karakterler de seçilebilir.
 
 >#### hedef sayı
 
-boncuklu tesbih kullanırken ebced hesabıyla belirlenmiş bir sayıya ulaşılacaksa buraya girilir
+boncuklu tesbih kullanırken ebced hesabıyla belirlenmiş bir sayıya 
+ulaşılacaksa buraya girilir
  
 >#### minimum değer
 
-hesaplanacak değer sözün gelimi 25 minimum değeri girildiğinde 25'ten küçük girilen hedef sayılar
-için hedef sayının KARESİ'ne hedef sayı muamelesi yapar.
+hesaplanacak değer sözün gelimi 25 minimum değeri girildiğinde 25'ten 
+küçük girilen hedef sayılar için hedef sayının KARESİ'ne hedef sayı 
+muamelesi yapar.
  
 >#### tesbih tane adedi
 
-tesbihin kullanım önerisini verebilmek için kullanılacak tesbihin özelliklerini vermemiz gerekiyor
-99'luk tesbih için 99 girmek gibi...
+Tesbihin kullanım önerisini verebilmek için kullanılacak tesbihin 
+özelliklerini vermemiz gerekiyor 99'luk tesbih için 99 girmek gibi...
 
 >#### tesbih bölümleri
 
-tesbihin kullanım önerisini verebilmek için kullanılacak tesbihin özelliklerini vermemiz gerekiyor,
-99'luk tesbih için 33'lü bölümler olması gibi.
+tesbihin kullanım önerisini verebilmek için kullanılacak tesbihin 
+özelliklerini vermemiz gerekiyor, 99'luk tesbih için 33'lü bölümler 
+olması gibi.
