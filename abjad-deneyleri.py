@@ -1154,7 +1154,6 @@ def saf(metin, ayrac=' ', shadda=1):
 	try:
 		T = 0; result = ''
 		if ayrac == 0: irun = ''
-		elif ayrac == ' ': irun = ' '
 		else: irun = ayrac
 		for selectable in metin:
 			if selectable == ' ':
