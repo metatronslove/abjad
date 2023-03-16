@@ -2473,7 +2473,7 @@ function wordbyword(klmmetin, tablow, shaddaw, detailw) {
           switch (klmchoosen) {
             case " ":
             case "\n":
-            word = word.substr(0, word.length - 1);
+            word = word.substring(0, word.length - 1);
             calculation = abjad(word, tablow, shaddaw, detailw).toString();
             content += word + altayaz(calculation) + klmchoosen;
             word = "";
@@ -3873,12 +3873,12 @@ function huddam(num, htype, method) {
             preffix = (num - suffix).toString();
             if (preffix.length > 3) {
                 for (departs = preffix.length; departs > preffix.length - Math.floor(preffix.length / 3) * 3; departs -= 3) {
-                    hpart[counts] = preffix.substr(departs - 3, 3);
+                    hpart[counts] = preffix.substring(departs - 3, 3);
                     counts += 1;
                 }
                 rest = preffix.length - ((counts - 1) * 3);
                 if (rest > 0) {
-                    hpart[counts] = preffix.substr(0, rest);
+                    hpart[counts] = preffix.substring(0, rest);
                 } else {
                     counts -= 1;
                 }
@@ -3888,7 +3888,7 @@ function huddam(num, htype, method) {
             for (counter = counts; counter > 0; counter -= 1) {
                 if (hpart[counter] !== undefined) {
                     for (counting = 0; counting < hpart[counter].length; counting++) {
-                        choosenduty = parseFloat(hpart[counter].substr(counting, 1));
+                        choosenduty = parseFloat(hpart[counter].substring(counting, 1));
                         turn = (4 - hpart[counter].length) + counting;
                         h = "";
                         switch (turn) {
@@ -4196,7 +4196,7 @@ function rakamtopla(urval, d1g1tamount) {
         do {
             newsum = 0;
             for (counter = 0; counter < myval.length; counter++) {
-                choosen = parseFloat(myval.substr(counter, 1));
+                choosen = parseFloat(myval.substring(counter, 1));
                 newsum = newsum + choosen;
             }
             myval = "" + newsum + "";
@@ -4207,7 +4207,7 @@ function rakamtopla(urval, d1g1tamount) {
         do {
             newsum = 0;
             for (counter = 0; counter < myval.length; counter++) {
-                choosen = parseFloat(myval.substr(counter, 1));
+                choosen = parseFloat(myval.substring(counter, 1));
                 newsum = newsum + choosen;
             }
             myval = "" + newsum + "";
