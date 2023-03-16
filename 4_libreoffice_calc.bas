@@ -887,7 +887,7 @@ Sub WORDBYWORD(Optional klmmetin As String, Optional tablo As Variant, Optional 
     content = ""
     word = ""
     klmmetin = klmmetin & " "
-    For counter = 1 To LEN(klmmetin + 1)
+    For counter = 1 To LEN(klmmetin)
         klmchoosen = MID(klmmetin, counter, 1)
         word = word + klmchoosen
         Select Case klmchoosen
@@ -959,8 +959,12 @@ Sub BASTET(Optional metin As String, Optional MT As Variant, Optional tablo As V
                     End Select
                 Case 3
                     Select Case CInt(choosen)
-                    Case 0 : If LEN(Baster) > 4 Then NS = " ألأف" & NS
-                    Case 1 : NS = " ألف" & NS
+                    Case 0 : NS = " ألأف" & NS
+                    Case 1
+						If LEN(Baster) < 5 Then 
+							NS = " ألف" & NS
+						Else
+							NS = " ألأف" & NS
                     Case 2 : NS = " ألفان" & NS
                     Case 3 : NS = " ثلاثة آلاف" & NS
                     Case 4 : NS = " أربعة آلاف" & NS
@@ -972,8 +976,7 @@ Sub BASTET(Optional metin As String, Optional MT As Variant, Optional tablo As V
                     End Select
                 Case 6
                     Select Case CInt(choosen)
-                    Case 0 : If LEN(Baster) > 7 Then NS = " مليون" & NS
-                    Case 1 : NS = " مليون" & NS
+                    Case 0, 1 : NS = " مليون" & NS
                     Case 2 : NS = " مليونان" & NS
                     Case 3 : NS = " ثلاثة مليون" & NS
                     Case 4 : NS = " أربعة مليون" & NS
@@ -1024,10 +1027,14 @@ Sub BASTET(Optional metin As String, Optional MT As Variant, Optional tablo As V
                     End Select
                 Case 3
                     Select Case CInt(choosen)
-                    Case 0 : If LEN(Baster) > 4 Then NS = " אלף" & NS
-                    Case 1 : NS = " אלף" & NS
+                    Case 0 : NS = " אלפים" & NS
+                    Case 1 
+						If LEN(Baster) < 5 Then 
+							NS = " אלף" & NS
+						Else
+							NS = " אלפים" & NS
                     Case 2 : NS = " אלפיים" & NS
-                    Case 3 : NS = " שלושה אלף" & NS
+                    Case 3 : NS = " שלושה אלפים" & NS
                     Case 4 : NS = " ארבעת אלפים" & NS
                     Case 5 : NS = " חמשת אלפים" & NS
                     Case 6 : NS = " ששת אלפים" & NS
@@ -1037,7 +1044,7 @@ Sub BASTET(Optional metin As String, Optional MT As Variant, Optional tablo As V
                     End Select
                 Case 6
                     Select Case CInt(choosen)
-                    Case 0 : If LEN(Baster) > 7 Then NS = " מיליון" & NS
+                    Case 0 : NS = " מיליון" & NS
                     Case 1 : NS = " מיליון" & NS
                     Case 2 : NS = " שני מיליון" & NS
                     Case 3 : NS = " שלושה מיליון" & NS
@@ -1089,7 +1096,7 @@ Sub BASTET(Optional metin As String, Optional MT As Variant, Optional tablo As V
                     End Select
                 Case 3
                     Select Case CInt(choosen)
-                    Case 0 : If LEN(Baster) > 4 Then NS = " bin" & NS
+                    Case 0 : NS = " bin" & NS
                     Case 1
                         If LEN(Baster) > 4 Then
                             NS = " bir bin" & NS
@@ -1107,7 +1114,7 @@ Sub BASTET(Optional metin As String, Optional MT As Variant, Optional tablo As V
                         End Select
                     Case 6
                         Select Case CInt(choosen)
-                        Case 0 : If LEN(Baster) > 7 Then NS = " milyon" & NS
+                        Case 0 : NS = " milyon" & NS
                         Case 1 : NS = " bir milyon" & NS
                         Case 2 : NS = " iki milyon" & NS
                         Case 3 : NS = " üç milyon" & NS
@@ -1139,12 +1146,11 @@ Sub BASTET(Optional metin As String, Optional MT As Variant, Optional tablo As V
         End Select
     End Sub
 Sub UNSUR(Optional metin, Optional otabiat As Variant, Optional otype As Variant, Optional shadda As Integer, Optional guide As Variant) As String
-    Dim counter, adet, err As Integer : err = 0
+    Dim counter, adet As Integer
     Dim choosen, liste As String
     For counter = 1 To LEN(metin)
         choosen = MID(metin, counter, 1)
-        Select Case shadda
-        Case 2
+        If shadda = 2 Then
             C = 1
             If choosen = "ّ" Then
                 Do
@@ -1153,9 +1159,7 @@ Sub UNSUR(Optional metin, Optional otabiat As Variant, Optional otype As Variant
                 Loop Until SAF(choosen, "") <> ""
             Else
             End If
-        Case 1
-        Case Else : err = 1
-        End Select
+        End If
         Select Case UCase(choosen)
         Case "ا", "ب", "ج", "س", "ص", "ر", "خ", "ه", "ز", "ح", "ط", "ي", "ی", "ل", "ة", "ث", "د", "ك", "ع", "ف", "ق", "ش", "ض", "و", "م", "ن", "ت", "ذ", "ظ", "غ" : selected = selected & choosen
         Case "أ", "إ", "آ", "ء", "ى" : selected = selected & "ا"
@@ -1426,13 +1430,9 @@ Sub UNSUR(Optional metin, Optional otabiat As Variant, Optional otype As Variant
             Next counter
         End Select
     End Select
-    Select Case err
-    Case 0
-        Select Case otabiat
+    Select Case otabiat
         Case "liste", "list", 1 : UNSUR = liste
         Case "adet", "amount", 0 : UNSUR = adet
-        End Select
-    Case 1 : UNSUR = "Şedde Ayarı?"
     End Select
 End Sub
 Sub SAY(Optional metin As String, Optional met As String, Optional stype As Variant, Optional fastmode As Variant) As Integer
@@ -1480,7 +1480,6 @@ Sub SAF(Optional metin As String, Optional ayrac As Variant, Optional shadda As 
     Dim choosen, S, irun As String : SAF = ""
     Select Case ayrac
     Case 0 : irun = ""
-    Case " " : irun = " "
     Case Else : irun = ayrac
     End Select
     For counter = 1 To LEN(metin)
@@ -2402,10 +2401,7 @@ Sub NEWLINE(Optional amount As Long) As String
 End Sub
 Function ASGAR(Optional harf As String, Optional level As Integer) As String
     Dim C           As Long
-    Select Case level
-    Case > 1 : C = ABJAD(harf, level, 1)
-    Case Else : C = ABJAD(harf, 1, 1)
-    End Select
+    C = ABJAD(harf, level, 1)
     If C > 12 Then
         ASGAR = C - (12 * DUZLE(C / 12))
     Else
