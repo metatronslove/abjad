@@ -3237,7 +3237,7 @@ function unsur(metin, otabiat, otype, shadda, guide) {
 						case 0:
 							for (counter = 0; counter < metin.length; counter++) {
 								choosen = metin[counter];
-								swtich (choosen) {
+								switch (choosen) {
 									case "A": 
 									case "D": 
 									case "Ğ": 
@@ -3257,7 +3257,7 @@ function unsur(metin, otabiat, otype, shadda, guide) {
 						case 1:
 							for (counter = 0; counter < metin.length; counter++) {
 								choosen = metin[counter];
-								swtich (choosen) {
+								switch (choosen) {
 									case "B": 
 									case "E": 
 									case "H": 
@@ -3276,7 +3276,7 @@ function unsur(metin, otabiat, otype, shadda, guide) {
 						case 2:
 							for (counter = 0; counter < metin.length; counter++) {
 								choosen = metin[counter];
-								swtich (choosen) {
+								switch (choosen) {
 									case "C": 
 									case "F": 
 									case "I": 
@@ -3295,7 +3295,7 @@ function unsur(metin, otabiat, otype, shadda, guide) {
 						case 3:
 							for (counter = 0; counter < metin.length; counter++) {
 								choosen = metin[counter];
-								swtich (choosen) {
+								switch (choosen) {
 									case "Ç": 
 									case "G": 
 									case "İ": 
@@ -3319,7 +3319,7 @@ function unsur(metin, otabiat, otype, shadda, guide) {
 						case 0:
 							for (counter = 0; counter < metin.length; counter++) {
 								choosen = metin[counter];
-								swtich (choosen) {
+								switch (choosen) {
 									case "ا": 
 									case "ه": 
 									case "ط": 
@@ -3338,7 +3338,7 @@ function unsur(metin, otabiat, otype, shadda, guide) {
 						case 1:
 							for (counter = 0; counter < metin.length; counter++) {
 								choosen = metin[counter];
-								swtich (choosen) {
+								switch (choosen) {
 									case "د": 
 									case "ح": 
 									case "ل": 
@@ -3357,7 +3357,7 @@ function unsur(metin, otabiat, otype, shadda, guide) {
 									case 2:
 							for (counter = 0; counter < metin.length; counter++) {
 								choosen = metin[counter];
-								swtich (choosen) {
+								switch (choosen) {
 									case "ب": 
 									case "و": 
 									case "ن": 
@@ -3377,7 +3377,7 @@ function unsur(metin, otabiat, otype, shadda, guide) {
 						case 3:
 							for (counter = 0; counter < metin.length; counter++) {
 								choosen = metin[counter];
-								swtich (choosen) {
+								switch (choosen) {
 									case "ج": 
 									case "ز": 
 									case "ك": 
@@ -3401,7 +3401,7 @@ function unsur(metin, otabiat, otype, shadda, guide) {
 						case 0:
 							for (counter = 0; counter < metin.length; counter++) {
 								choosen = metin[counter];
-								swtich (choosen) {
+								switch (choosen) {
 									case "ا": 
 									case "ه": 
 									case "ط": 
@@ -3420,7 +3420,7 @@ function unsur(metin, otabiat, otype, shadda, guide) {
 						case 1:
 							for (counter = 0; counter < metin.length; counter++) {
 								choosen = metin[counter];
-								swtich (choosen) {
+								switch (choosen) {
 									case "ب": 
 									case "و": 
 									case "ن": 
@@ -3440,7 +3440,7 @@ function unsur(metin, otabiat, otype, shadda, guide) {
 						case 2:
 							for (counter = 0; counter < metin.length; counter++) {
 								choosen = metin[counter];
-								swtich (choosen) {
+								switch (choosen) {
 									case "د": 
 									case "ح": 
 									case "ل": 
@@ -3459,7 +3459,7 @@ function unsur(metin, otabiat, otype, shadda, guide) {
 						case 3:
 							for (counter = 0; counter < metin.length; counter++) {
 								choosen = metin[counter];
-								swtich (choosen) {
+								switch (choosen) {
 									case "ج": 
 									case "ز": 
 									case "ك": 
@@ -3483,7 +3483,7 @@ function unsur(metin, otabiat, otype, shadda, guide) {
 						case 0:
 							for (counter = 0; counter < metin.length; counter++) {
 								choosen = metin[counter];
-								swtich (choosen) {
+								switch (choosen) {
 									case "ا": 
 									case "ه": 
 									case "ط": 
@@ -3502,7 +3502,7 @@ function unsur(metin, otabiat, otype, shadda, guide) {
 						case 1:
 							for (counter = 0; counter < metin.length; counter++) {
 								choosen = metin[counter];
-								swtich (choosen) {
+								switch (choosen) {
 									case "ج": 
 									case "ز": 
 									case "ك": 
@@ -3521,7 +3521,7 @@ function unsur(metin, otabiat, otype, shadda, guide) {
 						case 2:
 							for (counter = 0; counter < metin.length; counter++) {
 								choosen = metin[counter];
-								swtich (choosen) {
+								switch (choosen) {
 									case "د": 
 									case "ح": 
 									case "ل": 
@@ -3540,7 +3540,7 @@ function unsur(metin, otabiat, otype, shadda, guide) {
 						case 3:
 							for (counter = 0; counter < metin.length; counter++) {
 								choosen = metin[counter];
-								swtich (choosen) {
+								switch (choosen) {
 									case "ب": 
 									case "و": 
 									case "ي": 
@@ -3565,7 +3565,7 @@ function unsur(metin, otabiat, otype, shadda, guide) {
 						case 0:
 							for (counter = 0; counter < metin.length; counter++) {
 								choosen = metin[counter];
-								swtich (choosen) {
+								switch (choosen) {
 									case "א": 
 									case "ה": 
 									case "ט": 
@@ -3584,7 +3584,7 @@ function unsur(metin, otabiat, otype, shadda, guide) {
 						case 1:
 							for (counter = 0; counter < metin.length; counter++) {
 								choosen = metin[counter];
-								swtich (choosen) {
+								switch (choosen) {
 									case "ב": 
 									case "ו": 
 									case "י": 
@@ -3603,7 +3603,7 @@ function unsur(metin, otabiat, otype, shadda, guide) {
 						case 2:
 							for (counter = 0; counter < metin.length; counter++) {
 								choosen = metin[counter];
-								swtich (choosen) {
+								switch (choosen) {
 									case "ג": 
 									case "ז": 
 									case "כ": 
@@ -3622,7 +3622,7 @@ function unsur(metin, otabiat, otype, shadda, guide) {
 						case 3:
 							for (counter = 0; counter < metin.length; counter++) {
 								choosen = metin[counter];
-								swtich (choosen) {
+								switch (choosen) {
 									case "ד": 
 									case "ח": 
 									case "ל": 
@@ -3644,7 +3644,7 @@ function unsur(metin, otabiat, otype, shadda, guide) {
 						case 0:
 							for (counter = 0; counter < metin.length; counter++) {
 								choosen = metin[counter];
-								swtich (choosen) {
+								switch (choosen) {
 									case "ا": 
 									case "ب": 
 									case "ج": 
@@ -3663,7 +3663,7 @@ function unsur(metin, otabiat, otype, shadda, guide) {
 						case 1:
 							for (counter = 0; counter < metin.length; counter++) {
 								choosen = metin[counter];
-								swtich (choosen) {
+								switch (choosen) {
 									case "ه": 
 									case "ز": 
 									case "ح": 
@@ -3684,7 +3684,7 @@ function unsur(metin, otabiat, otype, shadda, guide) {
 						case 2:
 							for (counter = 0; counter < metin.length; counter++) {
 								choosen = metin[counter];
-								swtich (choosen) {
+								switch (choosen) {
 									case "د": 
 									case "ك": 
 									case "ع": 
@@ -3703,7 +3703,7 @@ function unsur(metin, otabiat, otype, shadda, guide) {
 						case 3:
 							for (counter = 0; counter < metin.length; counter++) {
 								choosen = metin[counter];
-								swtich (choosen) {
+								switch (choosen) {
 									case "و": 
 									case "م": 
 									case "ن": 
