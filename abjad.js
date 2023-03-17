@@ -3116,8 +3116,11 @@ function bastet(metin, mt, tablo, shadda, language, detail) {
 }
 
 function unsur(metin, otabiat, otype, shadda, guide) {
-	var counter, adet, choosen, liste;
-	if (unsurmetin !== undefined) {
+	var counter, adet, choosen, liste, selected;
+	selected = "";
+	liste = "";
+	adet = 0;
+	if (metin !== undefined) {
 		for (counter = 0; counter < metin.length; counter++) {
 			choosen = metin[counter];
 			if (choosen == "ّ" && shadda == 2) {
@@ -3127,7 +3130,7 @@ function unsur(metin, otabiat, otype, shadda, guide) {
 					c = c + 1;
 				} while (saf(choosen, "") == "");
 			}
-			switch (choosen.toUppercase()) {
+			switch (choosen.toUpperCase()) {
 				case "ا":
 				case "ب":
 				case "ج":
@@ -3234,11 +3237,11 @@ function unsur(metin, otabiat, otype, shadda, guide) {
 				case "V":
 				case "Y":
 				case "Z":
-					selected += choosen.toUppercase();
+					selected += choosen.toUpperCase();
 					break;
 			}
 		}
-		switch (guide.toUppercase()) {
+		switch (guide.toUpperCase()) {
 			case "TURKCE":
 			case 0:
 				switch (otype) {
