@@ -882,7 +882,7 @@ Sub ABJAD(Optional metin As String, Optional tablo As Variant, Optional shadda A
     ReDim S, SM, N
 End Sub
 Sub WORDBYWORD(Optional klmmetin As String, Optional tablo As Variant, Optional shadda As Variant, Optional detail As Variant) As String
-    'Bu fonksiyonu kullandığınız hücreler için Metin Kaydır seçeneğini etkinleştirirseniz daha düzgün çalışıyor, parametreleri ABJAD() fonksiyonuyla aynı'
+    'Bu fonksiyonu kullandığınız hücreler için metin Kaydır seçeneğini etkinleştirirseniz daha düzgün çalışıyor, parametreleri ABJAD() fonksiyonuyla aynı'
     Dim content, word As String
     content = ""
     word = ""
@@ -1100,11 +1100,19 @@ Sub BASTET(Optional metin As String, Optional MT As Variant, Optional tablo As V
                     Select Case CInt(choosen)
                     Case 0 : NS = " bin" & NS
                     Case 1
-                        If LEN(Baster) > 4 Then
-                            NS = " bir bin" & NS
-                        Else
+                        If LEN(Baster) < 5 Then
                             NS = " bin" & NS
-                            EndIf
+                        Else
+                        	If LEN(Baster) > 6 Then
+                        		If CInt(MID(Baster, LEN(Baster) - 5, 2)) = 0 Then
+									NS = " bin" & NS
+								Else
+									NS = " bir bin" & NS
+								EndIf
+							Else
+								NS = " bir bin" & NS
+							EndIf
+                        EndIf
                         Case 2 : NS = " iki bin" & NS
                         Case 3 : NS = " üç bin" & NS
                         Case 4 : NS = " dört bin" & NS
