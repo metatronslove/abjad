@@ -969,208 +969,208 @@ Sub BASTET(Optional metin As String, Optional MT As Variant, Optional tablo As V
                                     NS = " ألف" & NS
                                 Else
                                     NS = " ألأف" & NS
-                                    EndIf
-                                Else
-                                    NS = " ألأف" & NS
-                                    EndIf
                                 End If
-                            Case 2 : NS = " ألفان" & NS
-                            Case 3 : NS = " ثلاثة آلاف" & NS
-                            Case 4 : NS = " أربعة آلاف" & NS
-                            Case 5 : NS = " خمسة آلاف" & NS
-                            Case 6 : NS = " ستة آلاف" & NS
-                            Case 7 : NS = " سبعة آلاف" & NS
-                            Case 8 : NS = " ثمانية آلاف" & NS
-                            Case 9 : NS = " تسعة آلاف" & NS
-                            End Select
-                        Case 6
-                            Select Case CInt(choosen)
-                            Case 0, 1 : NS = " مليون" & NS
-                            Case 2 : NS = " مليونان" & NS
-                            Case 3 : NS = " ثلاثة مليون" & NS
-                            Case 4 : NS = " أربعة مليون" & NS
-                            Case 5 : NS = " خمسة مليون" & NS
-                            Case 6 : NS = " ستة مليون" & NS
-                            Case 7 : NS = " سبعة مليون" & NS
-                            Case 8 : NS = " ثمانية مليون" & NS
-                            Case 9 : NS = " تسعة مليون" & NS
-                            End Select
-                        End Select
-                    Case "HEBREW"
-                        Select Case BC
-                        Case 0
-                            Select Case CInt(choosen)
-                            Case 1 : NS = " אחת" & NS
-                            Case 2 : NS = " שתים" & NS
-                            Case 3 : NS = " שלש" & NS
-                            Case 4 : NS = " ארבע" & NS
-                            Case 5 : NS = " חמש" & NS
-                            Case 6 : NS = " שש" & NS
-                            Case 7 : NS = " שבע" & NS
-                            Case 8 : NS = " שמונה" & NS
-                            Case 9 : NS = " תשע" & NS
-                            End Select
-                        Case 1, 4, 7
-                            Select Case CInt(choosen)
-                            Case 1 : NS = " עשרת " & NS
-                            Case 2 : NS = " עשרים " & NS
-                            Case 3 : NS = " שלושים " & NS
-                            Case 4 : NS = " ארבעים " & NS
-                            Case 5 : NS = " חמישים " & NS
-                            Case 6 : NS = " שישים " & NS
-                            Case 7 : NS = " שבעים " & NS
-                            Case 8 : NS = " שמונים " & NS
-                            Case 9 : NS = " תשעים " & NS
-                            End Select
-                        Case 2, 5, 8
-                            Select Case CInt(choosen)
-                            Case 1 : NS = " מאה" & NS
-                            Case 2 : NS = " מָאתַיִם" & NS
-                            Case 3 : NS = " שְׁלוֹשׁ מֵאוֹת" & NS
-                            Case 4 : NS = " אַרְבַּע מֵאוֹת" & NS
-                            Case 5 : NS = " חֲמֵשׁ מֵאוֹת" & NS
-                            Case 6 : NS = " שֵׁשׁ מֵאוֹת" & NS
-                            Case 7 : NS = " שְׁבַע מֵאוֹת" & NS
-                            Case 8 : NS = " שְׁמוֹנֶה מֵאוֹת" & NS
-                            Case 9 : NS = " תְּשַׁע מֵאוֹת" & NS
-                            End Select
-                        Case 3
-                            Select Case CInt(choosen)
-                            Case 0 : NS = " אלפים" & NS
-                            Case 1
-                                If LEN(Baster) < 5 Then
+                            Else
+                                NS = " ألأف" & NS
+                            End If
+                        End If
+                    Case 2 : NS = " ألفان" & NS
+                    Case 3 : NS = " ثلاثة آلاف" & NS
+                    Case 4 : NS = " أربعة آلاف" & NS
+                    Case 5 : NS = " خمسة آلاف" & NS
+                    Case 6 : NS = " ستة آلاف" & NS
+                    Case 7 : NS = " سبعة آلاف" & NS
+                    Case 8 : NS = " ثمانية آلاف" & NS
+                    Case 9 : NS = " تسعة آلاف" & NS
+                    End Select
+                Case 6
+                    Select Case CInt(choosen)
+                    Case 0, 1 : NS = " مليون" & NS
+                    Case 2 : NS = " مليونان" & NS
+                    Case 3 : NS = " ثلاثة مليون" & NS
+                    Case 4 : NS = " أربعة مليون" & NS
+                    Case 5 : NS = " خمسة مليون" & NS
+                    Case 6 : NS = " ستة مليون" & NS
+                    Case 7 : NS = " سبعة مليون" & NS
+                    Case 8 : NS = " ثمانية مليون" & NS
+                    Case 9 : NS = " تسعة مليون" & NS
+                    End Select
+                End Select
+            Case "HEBREW"
+                Select Case BC
+                Case 0
+                    Select Case CInt(choosen)
+                    Case 1 : NS = " אחת" & NS
+                    Case 2 : NS = " שתים" & NS
+                    Case 3 : NS = " שלש" & NS
+                    Case 4 : NS = " ארבע" & NS
+                    Case 5 : NS = " חמש" & NS
+                    Case 6 : NS = " שש" & NS
+                    Case 7 : NS = " שבע" & NS
+                    Case 8 : NS = " שמונה" & NS
+                    Case 9 : NS = " תשע" & NS
+                    End Select
+                Case 1, 4, 7
+                    Select Case CInt(choosen)
+                    Case 1 : NS = " עשרת " & NS
+                    Case 2 : NS = " עשרים " & NS
+                    Case 3 : NS = " שלושים " & NS
+                    Case 4 : NS = " ארבעים " & NS
+                    Case 5 : NS = " חמישים " & NS
+                    Case 6 : NS = " שישים " & NS
+                    Case 7 : NS = " שבעים " & NS
+                    Case 8 : NS = " שמונים " & NS
+                    Case 9 : NS = " תשעים " & NS
+                    End Select
+                Case 2, 5, 8
+                    Select Case CInt(choosen)
+                    Case 1 : NS = " מאה" & NS
+                    Case 2 : NS = " מָאתַיִם" & NS
+                    Case 3 : NS = " שְׁלוֹשׁ מֵאוֹת" & NS
+                    Case 4 : NS = " אַרְבַּע מֵאוֹת" & NS
+                    Case 5 : NS = " חֲמֵשׁ מֵאוֹת" & NS
+                    Case 6 : NS = " שֵׁשׁ מֵאוֹת" & NS
+                    Case 7 : NS = " שְׁבַע מֵאוֹת" & NS
+                    Case 8 : NS = " שְׁמוֹנֶה מֵאוֹת" & NS
+                    Case 9 : NS = " תְּשַׁע מֵאוֹת" & NS
+                    End Select
+                Case 3
+                    Select Case CInt(choosen)
+                    Case 0 : NS = " אלפים" & NS
+                    Case 1
+                        If LEN(Baster) < 5 Then
+                            NS = " אלף" & NS
+                        Else
+                            If LEN(Baster) > 6 Then
+                                If CInt(MID(Baster, LEN(Baster) - 5, 2)) = 0 Then
                                     NS = " אלף" & NS
                                 Else
-                                    If LEN(Baster) > 6 Then
-                                        If CInt(MID(Baster, LEN(Baster) - 5, 2)) = 0 Then
-                                            NS = " אלף" & NS
-                                        Else
-                                            NS = " אלפים" & NS
-                                            EndIf
-                                        Else
-                                            NS = " אלפים" & NS
-                                            EndIf
-                                        End If
-                                    Case 2 : NS = " אלפיים" & NS
-                                    Case 3 : NS = " שלושה אלפים" & NS
-                                    Case 4 : NS = " ארבעת אלפים" & NS
-                                    Case 5 : NS = " חמשת אלפים" & NS
-                                    Case 6 : NS = " ששת אלפים" & NS
-                                    Case 7 : NS = " שבעת אלפים" & NS
-                                    Case 8 : NS = " שמונת אלפים" & NS
-                                    Case 9 : NS = " תשעת אלפים" & NS
-                                    End Select
-                                Case 6
-                                    Select Case CInt(choosen)
-                                    Case 0 : NS = " מיליון" & NS
-                                    Case 1 : NS = " מיליון" & NS
-                                    Case 2 : NS = " שני מיליון" & NS
-                                    Case 3 : NS = " שלושה מיליון" & NS
-                                    Case 4 : NS = " ארבע מיליון" & NS
-                                    Case 5 : NS = " חמישה מיליון" & NS
-                                    Case 6 : NS = " שישה מיליון" & NS
-                                    Case 7 : NS = " שבעה מיליון" & NS
-                                    Case 8 : NS = " שמונה מליון" & NS
-                                    Case 9 : NS = " תשעה מיליון" & NS
-                                    End Select
-                                End Select
-                            Case "TURKCE"
-                                Select Case BC
-                                Case 0
-                                    Select Case CInt(choosen)
-                                    Case 1 : NS = " bir" & NS
-                                    Case 2 : NS = " iki" & NS
-                                    Case 3 : NS = " üç" & NS
-                                    Case 4 : NS = " dört" & NS
-                                    Case 5 : NS = " beş" & NS
-                                    Case 6 : NS = " altı" & NS
-                                    Case 7 : NS = " yedi" & NS
-                                    Case 8 : NS = " sekiz" & NS
-                                    Case 9 : NS = " dokuz" & NS
-                                    End Select
-                                Case 1, 4, 7
-                                    Select Case CInt(choosen)
-                                    Case 1 : NS = " on" & NS
-                                    Case 2 : NS = " yirmi" & NS
-                                    Case 3 : NS = " otuz" & NS
-                                    Case 4 : NS = " kırk" & NS
-                                    Case 5 : NS = " elli" & NS
-                                    Case 6 : NS = " altmış" & NS
-                                    Case 7 : NS = " yetmiş" & NS
-                                    Case 8 : NS = " seksen" & NS
-                                    Case 9 : NS = " doksan" & NS
-                                    End Select
-                                Case 2, 5 ,8
-                                    Select Case CInt(choosen)
-                                    Case 1 : NS = " yüz" & NS
-                                    Case 2 : NS = " iki yüz" & NS
-                                    Case 3 : NS = " üç yüz" & NS
-                                    Case 4 : NS = " dört yüz" & NS
-                                    Case 5 : NS = " beş yüz" & NS
-                                    Case 6 : NS = " altı yüz" & NS
-                                    Case 7 : NS = " yedi yüz" & NS
-                                    Case 8 : NS = " sekiz yüz" & NS
-                                    Case 9 : NS = " dokuz yüz" & NS
-                                    End Select
-                                Case 3
-                                    Select Case CInt(choosen)
-                                    Case 0 : NS = " bin" & NS
-                                    Case 1
-                                        If LEN(Baster) < 5 Then
-                                            NS = " bin" & NS
-                                        Else
-                                            If LEN(Baster) > 6 Then
-                                                If CInt(MID(Baster, LEN(Baster) - 5, 2)) = 0 Then
-                                                    NS = " bin" & NS
-                                                Else
-                                                    NS = " bir bin" & NS
-                                                    EndIf
-                                                Else
-                                                    NS = " bir bin" & NS
-                                                    EndIf
-                                                    EndIf
-                                                Case 2 : NS = " iki bin" & NS
-                                                Case 3 : NS = " üç bin" & NS
-                                                Case 4 : NS = " dört bin" & NS
-                                                Case 5 : NS = " beş bin" & NS
-                                                Case 6 : NS = " altı bin" & NS
-                                                Case 7 : NS = " yedi bin" & NS
-                                                Case 8 : NS = " sekiz bin" & NS
-                                                Case 9 : NS = " dokuz bin" & NS
-                                                End Select
-                                            Case 6
-                                                Select Case CInt(choosen)
-                                                Case 0 : NS = " milyon" & NS
-                                                Case 1 : NS = " bir milyon" & NS
-                                                Case 2 : NS = " iki milyon" & NS
-                                                Case 3 : NS = " üç milyon" & NS
-                                                Case 4 : NS = " dört milyon" & NS
-                                                Case 5 : NS = " beş milyon" & NS
-                                                Case 6 : NS = " altı milyon" & NS
-                                                Case 7 : NS = " yedi milyon" & NS
-                                                Case 8 : NS = " sekiz milyon" & NS
-                                                Case 9 : NS = " dokuz milyon" & NS
-                                                End Select
-                                            End Select
-                                        End Select
-                                    Next BC
-                                    Baster = 0
-                                    Select Case tablo
-                                    Case 0 To 15 : Baster = CLng(ABJAD(NS, tablo, 1)) + CLng(ABJAD(NS, 5, 1))
-                                    Case -16 To -1 : invertablo = (-1 * tablo) - 1 : Baster = CLng(ABJAD(NS, invertablo, 1))
-                                    Case Else : Baster = "Tablo Kodu?"
-                                    End Select
-                                Next HM
-                                Select Case err
-                                Case 0
-                                    Select Case detail
-                                    Case 1 : BASTET =  NS
-                                    Case Else : BASTET = Baster
-                                    End Select
-                                Case 1 : BASTET = "Dil Tanımı?"
-                                Case Else
-                                End Select
-                            End Sub
+                                    NS = " אלפים" & NS
+                                End If
+                            Else
+                                NS = " אלפים" & NS
+                            End If
+                        End If
+                    Case 2 : NS = " אלפיים" & NS
+                    Case 3 : NS = " שלושה אלפים" & NS
+                    Case 4 : NS = " ארבעת אלפים" & NS
+                    Case 5 : NS = " חמשת אלפים" & NS
+                    Case 6 : NS = " ששת אלפים" & NS
+                    Case 7 : NS = " שבעת אלפים" & NS
+                    Case 8 : NS = " שמונת אלפים" & NS
+                    Case 9 : NS = " תשעת אלפים" & NS
+                    End Select
+                Case 6
+                    Select Case CInt(choosen)
+                    Case 0 : NS = " מיליון" & NS
+                    Case 1 : NS = " מיליון" & NS
+                    Case 2 : NS = " שני מיליון" & NS
+                    Case 3 : NS = " שלושה מיליון" & NS
+                    Case 4 : NS = " ארבע מיליון" & NS
+                    Case 5 : NS = " חמישה מיליון" & NS
+                    Case 6 : NS = " שישה מיליון" & NS
+                    Case 7 : NS = " שבעה מיליון" & NS
+                    Case 8 : NS = " שמונה מליון" & NS
+                    Case 9 : NS = " תשעה מיליון" & NS
+                    End Select
+                End Select
+            Case "TURKCE"
+                Select Case BC
+                Case 0
+                    Select Case CInt(choosen)
+                    Case 1 : NS = " bir" & NS
+                    Case 2 : NS = " iki" & NS
+                    Case 3 : NS = " üç" & NS
+                    Case 4 : NS = " dört" & NS
+                    Case 5 : NS = " beş" & NS
+                    Case 6 : NS = " altı" & NS
+                    Case 7 : NS = " yedi" & NS
+                    Case 8 : NS = " sekiz" & NS
+                    Case 9 : NS = " dokuz" & NS
+                    End Select
+                Case 1, 4, 7
+                    Select Case CInt(choosen)
+                    Case 1 : NS = " on" & NS
+                    Case 2 : NS = " yirmi" & NS
+                    Case 3 : NS = " otuz" & NS
+                    Case 4 : NS = " kırk" & NS
+                    Case 5 : NS = " elli" & NS
+                    Case 6 : NS = " altmış" & NS
+                    Case 7 : NS = " yetmiş" & NS
+                    Case 8 : NS = " seksen" & NS
+                    Case 9 : NS = " doksan" & NS
+                    End Select
+                Case 2, 5 ,8
+                    Select Case CInt(choosen)
+                    Case 1 : NS = " yüz" & NS
+                    Case 2 : NS = " iki yüz" & NS
+                    Case 3 : NS = " üç yüz" & NS
+                    Case 4 : NS = " dört yüz" & NS
+                    Case 5 : NS = " beş yüz" & NS
+                    Case 6 : NS = " altı yüz" & NS
+                    Case 7 : NS = " yedi yüz" & NS
+                    Case 8 : NS = " sekiz yüz" & NS
+                    Case 9 : NS = " dokuz yüz" & NS
+                    End Select
+                Case 3
+                    Select Case CInt(choosen)
+                    Case 0 : NS = " bin" & NS
+                    Case 1
+                        If LEN(Baster) < 5 Then
+                            NS = " bin" & NS
+                        Else
+                            If LEN(Baster) > 6 Then
+                                If CInt(MID(Baster, LEN(Baster) - 5, 2)) = 0 Then
+                                    NS = " bin" & NS
+                                Else
+                                    NS = " bir bin" & NS
+                                End If
+                            Else
+                                NS = " bir bin" & NS
+                            End If
+                        End If
+                    Case 2 : NS = " iki bin" & NS
+                    Case 3 : NS = " üç bin" & NS
+                    Case 4 : NS = " dört bin" & NS
+                    Case 5 : NS = " beş bin" & NS
+                    Case 6 : NS = " altı bin" & NS
+                    Case 7 : NS = " yedi bin" & NS
+                    Case 8 : NS = " sekiz bin" & NS
+                    Case 9 : NS = " dokuz bin" & NS
+                    End Select
+                Case 6
+                    Select Case CInt(choosen)
+                    Case 0 : NS = " milyon" & NS
+                    Case 1 : NS = " bir milyon" & NS
+                    Case 2 : NS = " iki milyon" & NS
+                    Case 3 : NS = " üç milyon" & NS
+                    Case 4 : NS = " dört milyon" & NS
+                    Case 5 : NS = " beş milyon" & NS
+                    Case 6 : NS = " altı milyon" & NS
+                    Case 7 : NS = " yedi milyon" & NS
+                    Case 8 : NS = " sekiz milyon" & NS
+                    Case 9 : NS = " dokuz milyon" & NS
+                    End Select
+                End Select
+            End Select
+        Next BC
+        Baster = 0
+        Select Case tablo
+        Case 0 To 15 : Baster = CLng(ABJAD(NS, tablo, 1)) + CLng(ABJAD(NS, 5, 1))
+        Case -16 To -1 : invertablo = (-1 * tablo) - 1 : Baster = CLng(ABJAD(NS, invertablo, 1))
+        Case Else : Baster = "Tablo Kodu?"
+        End Select
+    Next HM
+    Select Case err
+    Case 0
+        Select Case detail
+        Case 1 : BASTET =  NS
+        Case Else : BASTET = Baster
+        End Select
+    Case 1 : BASTET = "Dil Tanımı?"
+    Case Else
+    End Select
+End Sub
 Sub UNSUR(Optional metin, Optional otabiat As Variant, Optional otype As Variant, Optional shadda As Integer, Optional guide As Variant) As String
     Dim counter, adet As Integer
     Dim choosen, liste As String
