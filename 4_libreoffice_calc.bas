@@ -961,11 +961,19 @@ Sub BASTET(Optional metin As String, Optional MT As Variant, Optional tablo As V
                     Select Case CInt(choosen)
                     Case 0 : NS = " ألأف" & NS
                     Case 1
-			If LEN(Baster) < 5 Then 
-				NS = " ألف" & NS
-			Else
-				NS = " ألأف" & NS
-			End IF
+						If LEN(Baster) < 5 Then 
+							NS = " ألف" & NS
+						Else
+							If LEN(Baster) > 6 Then
+								If CInt(MID(Baster, LEN(Baster) - 5, 2)) = 0 Then
+									NS = " ألف" & NS
+								Else
+									NS = " ألأف" & NS
+								EndIf
+							Else
+								NS = " ألأف" & NS
+							EndIf
+						End IF
                     Case 2 : NS = " ألفان" & NS
                     Case 3 : NS = " ثلاثة آلاف" & NS
                     Case 4 : NS = " أربعة آلاف" & NS
@@ -1030,11 +1038,19 @@ Sub BASTET(Optional metin As String, Optional MT As Variant, Optional tablo As V
                     Select Case CInt(choosen)
                     Case 0 : NS = " אלפים" & NS
                     Case 1 
-			If LEN(Baster) < 5 Then 
-				NS = " אלף" & NS
-			Else
-				NS = " אלפים" & NS
-			End If
+						If LEN(Baster) < 5 Then 
+							NS = " אלף" & NS
+						Else
+							If LEN(Baster) > 6 Then
+								If CInt(MID(Baster, LEN(Baster) - 5, 2)) = 0 Then
+									NS = " אלף" & NS
+								Else
+									NS = " אלפים" & NS
+								EndIf
+							Else
+								NS = " אלפים" & NS
+							EndIf
+						End If
                     Case 2 : NS = " אלפיים" & NS
                     Case 3 : NS = " שלושה אלפים" & NS
                     Case 4 : NS = " ארבעת אלפים" & NS

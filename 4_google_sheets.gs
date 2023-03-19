@@ -2650,7 +2650,15 @@ function bastet(metin, mt, tablo, shadda, language, detail) {
 									if (baster.length < 5) {
 										ns = " ألف" + ns;
 									} else {
+										if (baster.length > 6) {
+											if(parseFloat(baster.substring((baster.length - 6), (baster.length - 4))) == 0) {
+												ns = " ألف" + ns;
+												} else {
+												ns = "ألأف" + ns;
+												}
+											} else {
 										ns = "ألأف" + ns;
+										}
 									}
 									break;
 								case 2:
@@ -2821,7 +2829,15 @@ function bastet(metin, mt, tablo, shadda, language, detail) {
 									if (baster.length < 5) {
 										ns = " אלף" + ns;
 									} else {
+										if (baster.length > 6) {
+											if(parseFloat(baster.substring((baster.length - 6), (baster.length - 4))) == 0) {
+												ns = " אלף" + ns;
+												} else {
+												ns = " אלפים" + ns;
+												}
+											} else {
 										ns = " אלפים" + ns;
+										}
 									}
 									break;
 								case 2:
