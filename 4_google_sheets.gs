@@ -3889,12 +3889,12 @@ function huddam(num, htype, method) {
 			preffix = (num - suffix).toString();
 			if (preffix.length > 3) {
 				for (departs = preffix.length; departs > preffix.length - Math.floor(preffix.length / 3) * 3; departs -= 3) {
-					hpart[counts] = preffix.substring(departs - 3, 3);
+					hpart[counts] = preffix.substr(departs - 3, 3);
 					counts += 1;
 				}
 				rest = preffix.length - ((counts - 1) * 3);
 				if (rest > 0) {
-					hpart[counts] = preffix.substring(0, rest);
+					hpart[counts] = preffix.substr(0, rest);
 				} else {
 					counts -= 1;
 				}
@@ -3904,7 +3904,7 @@ function huddam(num, htype, method) {
 			for (counter = counts; counter > 0; counter -= 1) {
 				if (hpart[counter] !== undefined) {
 					for (counting = 0; counting < hpart[counter].length; counting++) {
-						choosenduty = parseFloat(hpart[counter].substring(counting, 1));
+						choosenduty = parseFloat(hpart[counter].substr(counting, 1));
 						turn = (4 - hpart[counter].length) + counting;
 						h = "";
 						switch (turn) {
@@ -3922,6 +3922,8 @@ function huddam(num, htype, method) {
 											case 12:
 												h = "ل";
 												break;
+											case 1:
+											case 7:
 											default:
 												h = "ب";
 										}
@@ -3931,6 +3933,8 @@ function huddam(num, htype, method) {
 											case 12:
 												h = "ن";
 												break;
+											case 1:
+											case 7:
 											default:
 												h = "ج";
 										}
@@ -3940,6 +3944,8 @@ function huddam(num, htype, method) {
 											case 12:
 												h = "م";
 												break;
+											case 1:
+											case 7:
 											default:
 												h = "د";
 										}
@@ -3949,6 +3955,8 @@ function huddam(num, htype, method) {
 											case 12:
 												h = "و";
 												break;
+											case 1:
+											case 7:
 											default:
 												h = "ه";
 										}
@@ -3958,6 +3966,8 @@ function huddam(num, htype, method) {
 											case 12:
 												h = "ي";
 												break;
+											case 1:
+											case 7:
 											default:
 												h = "و";
 										}
@@ -3967,6 +3977,8 @@ function huddam(num, htype, method) {
 											case 12:
 												h = "ه";
 												break;
+											case 1:
+											case 7:
 											default:
 												h = "ز";
 										}
@@ -3976,6 +3988,8 @@ function huddam(num, htype, method) {
 											case 12:
 												h = "ر";
 												break;
+											case 1:
+											case 7:
 											default:
 												h = "ح";
 										}
@@ -3985,6 +3999,8 @@ function huddam(num, htype, method) {
 											case 12:
 												h = "ب";
 												break;
+											case 1:
+											case 7:
 											default:
 												h = "ط";
 										}
@@ -3998,6 +4014,8 @@ function huddam(num, htype, method) {
 											case 12:
 												h = "ت";
 												break;
+											case 1:
+											case 7:
 											default:
 												h = "ي";
 										}
@@ -4010,6 +4028,8 @@ function huddam(num, htype, method) {
 											case 12:
 												h = "ع";
 												break;
+											case 1:
+											case 7:
 											default:
 												h = "ل";
 										}
@@ -4019,6 +4039,8 @@ function huddam(num, htype, method) {
 											case 12:
 												h = "ف";
 												break;
+											case 1:
+											case 7:
 											default:
 												h = "م";
 										}
@@ -4028,6 +4050,8 @@ function huddam(num, htype, method) {
 											case 12:
 												h = "ق";
 												break;
+											case 1:
+											case 7:
 											default:
 												h = "ن";
 										}
@@ -4037,6 +4061,8 @@ function huddam(num, htype, method) {
 											case 7:
 												h = "ص";
 												break;
+											case 1:
+											case 12:
 											default:
 												h = "س";
 										}
@@ -4046,6 +4072,8 @@ function huddam(num, htype, method) {
 											case 12:
 												h = "د";
 												break;
+											case 1:
+											case 7:
 											default:
 												h = "ع";
 										}
@@ -4055,6 +4083,8 @@ function huddam(num, htype, method) {
 											case 12:
 												h = "ذ";
 												break;
+											case 1:
+											case 7:
 											default:
 												h = "ف";
 										}
@@ -4067,6 +4097,7 @@ function huddam(num, htype, method) {
 											case 12:
 												h = "ح";
 												break;
+											case 1:
 											default:
 												h = "ص";
 										}
@@ -4080,6 +4111,8 @@ function huddam(num, htype, method) {
 											case 12:
 												h = "ج";
 												break;
+											case 1:
+											case 7:
 											default:
 												h = "ق";
 										}
@@ -4089,6 +4122,8 @@ function huddam(num, htype, method) {
 											case 12:
 												h = "خ";
 												break;
+											case 1:
+											case 7:
 											default:
 												h = "ر";
 										}
@@ -4098,6 +4133,8 @@ function huddam(num, htype, method) {
 											case 7:
 												h = "س";
 												break;
+											case 1:
+											case 12:
 											default:
 												h = "ش";
 										}
@@ -4107,6 +4144,8 @@ function huddam(num, htype, method) {
 											case 12:
 												h = "ص";
 												break;
+											case 1:
+											case 7:
 											default:
 												h = "ت";
 										}
@@ -4116,6 +4155,8 @@ function huddam(num, htype, method) {
 											case 12:
 												h = "ض";
 												break;
+											case 1:
+											case 7:
 											default:
 												h = "ث";
 										}
@@ -4125,6 +4166,8 @@ function huddam(num, htype, method) {
 											case 12:
 												h = "ز";
 												break;
+											case 1:
+											case 7:
 											default:
 												h = "خ";
 										}
@@ -4134,6 +4177,8 @@ function huddam(num, htype, method) {
 											case 12:
 												h = "ث";
 												break;
+											case 1:
+											case 7:
 											default:
 												h = "ذ";
 										}
@@ -4146,6 +4191,7 @@ function huddam(num, htype, method) {
 											case 12:
 												h = "ط";
 												break;
+											case 1:
 											default:
 												h = "ض";
 										}
@@ -4156,6 +4202,7 @@ function huddam(num, htype, method) {
 											case 12:
 												h = "غ";
 												break;
+											case 1:
 											default:
 												h = "ظ";
 										}
@@ -4177,6 +4224,7 @@ function huddam(num, htype, method) {
 							case 12:
 								gh += "ظ";
 								break;
+							case 1:
 							default:
 								gh += "غ";
 						}
