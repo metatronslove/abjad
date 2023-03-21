@@ -2407,30 +2407,28 @@ function abjad(metin, tablo, shadda, detail) {
 							case "ْ":
 							case "ٌ":
 							case "ـ":
-								hrk = hrk + 1;
+								hrk += 1;
 								break;
 							default:
-								nitem = nitem + choosen;
+								nitem += choosen;
 								err = 2;
 						}
 				}
-
 				if (detail == 1) {
 					switch (saf(choosen, "")) {
 						case " ":
 							break;
 						case "ا":
-							sn = sn + "ا=" + s + " / ";
+							sn += "ا=" + s + " / ";
 							break;
 						case choosen:
-							sn = sn + "" + choosen + "=" + s + " / ";
+							sn += "" + choosen + "=" + s + " / ";
 							break;
 					}
 				} else {
-					sm = sm + s;
+					sm +=  s;
 				}
 			}
-
 			switch (tablo) {
 				case 4:
 				case 10:
@@ -2461,7 +2459,6 @@ function abjad(metin, tablo, shadda, detail) {
 			return "\ " + "Şedde Ayarı?" + "\ ";
 	}
 }
-
 function wordbyword(klmmetin, tablow, shaddaw, detailw) {
 	if (klmmetin !== undefined) {
 		klmmetin += " ";
@@ -2487,7 +2484,6 @@ function wordbyword(klmmetin, tablow, shaddaw, detailw) {
 	}
 	return content;
 }
-
 function bastet(metin, mt, tablo, shadda, language, detail) {
 	var err, baster, invertablo, hm, ns, bc, turn, choosen;
 	err = 0;
@@ -2652,12 +2648,12 @@ function bastet(metin, mt, tablo, shadda, language, detail) {
 									} else {
 										if (baster.length > 6) {
 											if(parseFloat(baster.substring((baster.length - 6), (baster.length - 4))) == 0) {
-												ns = " ألف" + ns;
-												} else {
-												ns = "ألأف" + ns;
-												}
+											ns = " ألف" + ns;
 											} else {
-										ns = "ألأف" + ns;
+											ns = " احد ألأف" + ns;
+											}
+										} else {
+										ns = " احد ألأف" + ns;
 										}
 									}
 									break;
@@ -2831,12 +2827,12 @@ function bastet(metin, mt, tablo, shadda, language, detail) {
 									} else {
 										if (baster.length > 6) {
 											if(parseFloat(baster.substring((baster.length - 6), (baster.length - 4))) == 0) {
-												ns = " אלף" + ns;
-												} else {
-												ns = " אלפים" + ns;
-												}
+											ns = " אלף" + ns;
 											} else {
-										ns = " אלפים" + ns;
+											ns = " אחת אלפים" + ns;
+											}
+										} else {
+										ns = " אחת אלפים" + ns;
 										}
 									}
 									break;
@@ -3009,11 +3005,11 @@ function bastet(metin, mt, tablo, shadda, language, detail) {
 									} else {
 										if (baster.length > 6) {
 											if(parseFloat(baster.substring((baster.length - 6), (baster.length - 4))) == 0) {
-												ns = " bin" + ns;
-												} else {
-												ns = " bir bin" + ns;	
-												}
+											ns = " bin" + ns;
 											} else {
+											ns = " bir bin" + ns;
+											}
+										} else {
 										ns = " bir bin" + ns;
 										}
 									}
@@ -3138,7 +3134,6 @@ function bastet(metin, mt, tablo, shadda, language, detail) {
 		default:
 	}
 }
-
 function unsur(metin, otabiat, otype, shadda, guide) {
 	var counter, adet, choosen, liste, selected;
 	selected = "";
@@ -3768,7 +3763,6 @@ function unsur(metin, otabiat, otype, shadda, guide) {
 		}
 	}
 }
-
 function teksir(teksirmetin, teksirayrac, shadda) {
 	var iksir, result, inversed, newmetin, lengthdouble, produce, counter, teksired;
 	lengthdouble = 0;
@@ -3798,7 +3792,6 @@ function teksir(teksirmetin, teksirayrac, shadda) {
 	}
 	return result;
 }
-
 function numbers2arab(indians) {
 	var na, counter, choosenarab;
 	indians = indians.toString();
@@ -3847,7 +3840,6 @@ function numbers2arab(indians) {
 	}
 	return na;
 }
-
 function huddam(num, htype, method) {
 	var suffix, preffix, h, gh, counts, departs, rest, counter, counting, choosenduty, turn, counted;
 	var hpart = new Array();
@@ -3858,52 +3850,18 @@ function huddam(num, htype, method) {
 	h = "";
 	if (num !== undefined && num !== null) {
 		if (htype !== undefined) {
-			switch (method) {
-				case 7:
-					switch (htype.toUpperCase()) {
-						case "ULVI":
-							suffix = parseFloat(abjad("ئيل", 7, 1));
-							break;
-						case "SUFLI":
-							suffix = parseFloat(abjad("يوش", 7, 1));
-							break;
-						case "ŞER":
-							suffix = parseFloat(abjad("طيش", 7, 1));
-							break;
-						default:
-							suffix = parseFloat(abjad(htype, 7, 1));
-					}
+			switch (htype.toUpperCase()) {
+				case "ULVI":
+					suffix = parseFloat(abjad("ئيل", method, 1));
 					break;
-				case 12:
-					switch (htype.toUpperCase()) {
-						case "ULVI":
-							suffix = parseFloat(abjad("ئيل", 12, 1));
-							break;
-						case "SUFLI":
-							suffix = parseFloat(abjad("يوش", 12, 1));
-							break;
-						case "ŞER":
-							suffix = parseFloat(abjad("طيش", 12, 1));
-							break;
-						default:
-							suffix = parseFloat(abjad(htype, 12, 1));
-					}
+				case "SUFLI":
+					suffix = parseFloat(abjad("يوش", method, 1));
+					break;
+				case "ŞER":
+					suffix = parseFloat(abjad("طيش", method, 1));
 					break;
 				default:
-					method = 1;
-					switch (htype.toUpperCase()) {
-						case "ULVI":
-							suffix = parseFloat(abjad("ئيل", 1, 1));
-							break;
-						case "SUFLI":
-							suffix = parseFloat(abjad("يوش", 1, 1));
-							break;
-						case "ŞER":
-							suffix = parseFloat(abjad("طيش", 1, 1));
-							break;
-						default:
-							suffix = parseFloat(abjad(htype, 1, 1));
-					}
+					suffix = parseFloat(abjad(htype, method, 1));
 			}
 			if (suffix > num) {
 				do {
@@ -4276,7 +4234,6 @@ function huddam(num, htype, method) {
 		return "";
 	}
 }
-
 function rakamtopla(urval, d1g1tamount) {
 	var choosen, newsum, hepsi, myval, counter, showvar;
 	myval = "" + urval + "";
@@ -4305,7 +4262,6 @@ function rakamtopla(urval, d1g1tamount) {
 	}
 	return showvar;
 }
-
 function tesbeh(zkr, minimum, boncuk, bolum) {
 	var turn, part, rest, outp;
 	outp = "";
@@ -4317,17 +4273,16 @@ function tesbeh(zkr, minimum, boncuk, bolum) {
 	part = Math.floor((zkr - (turn * boncuk)) / bolum);
 	rest = ((zkr - (turn * boncuk)) - (part * bolum));
 	if (turn > 0 && turn !== undefined) {
-		outp = "[" + turn + " tur]";
+		outp += "[" + turn + " tur]";
 	}
 	if (part > 0 && part !== undefined) {
-		outp = outp + "[" + part + "X" + bolum + "]";
+		outp += "[" + part + "X" + bolum + "]";
 	}
 	if (rest > 0 && rest !== undefined) {
-		outp = outp + "[" + rest + " kalan]";
+		outp += "[" + rest + " kalan]";
 	}
 	return outp;
 }
-
 function altayaz(girdi) {
 	var ss, counter, choosenalta;
 	girdi = girdi.toString();
@@ -4336,68 +4291,67 @@ function altayaz(girdi) {
 		choosenalta = girdi[counter];
 		switch (choosenalta) {
 			case "1":
-				ss = ss + "₁";
+				ss += "₁";
 				break;
 			case "2":
-				ss = ss + "₂";
+				ss += "₂";
 				break;
 			case "3":
-				ss = ss + "₃";
+				ss += "₃";
 				break;
 			case "4":
-				ss = ss + "₄";
+				ss += "₄";
 				break;
 			case "5":
-				ss = ss + "₅";
+				ss += "₅";
 				break;
 			case "6":
-				ss = ss + "₆";
+				ss += "₆";
 				break;
 			case "7":
-				ss = ss + "₇";
+				ss += "₇";
 				break;
 			case "8":
-				ss = ss + "₈";
+				ss += "₈";
 				break;
 			case "9":
-				ss = ss + "₉";
+				ss += "₉";
 				break;
 			case "0":
-				ss = ss + "₀";
+				ss += "₀";
 				break;
 			case " ":
-				ss = ss + " ";
+				ss += " ";
 				break;
 			case "+":
-				ss = ss + "₊";
+				ss += "₊";
 				break;
 			case "-":
-				ss = ss + "₋";
+				ss += "₋";
 				break;
 			case "=":
-				ss = ss + "₌";
+				ss += "₌";
 				break;
 			case "(":
-				ss = ss + "₍";
+				ss += "₍";
 				break;
 			case "[":
-				ss = ss + "₍";
+				ss += "₍";
 				break;
 			case ")":
-				ss = ss + "₎";
+				ss += "₎";
 				break;
 			case "]":
-				ss = ss + "₎";
+				ss += "₎";
 				break;
 			case undefined:
 				break;
 			default:
-				ss = ss + choosenalta;
+				ss += choosenalta;
 		}
 	}
 	return ss;
 }
-
 function saf(metinsaf, ayrac, shadda) {
 	var safmetin, irun, choosen, counter, s;
 	safmetin = "";
@@ -4574,7 +4528,6 @@ function saf(metinsaf, ayrac, shadda) {
 	}
 	return safmetin;
 }
-
 function asgar(harf, level) {
 	var c = parseFloat(abjad(harf, level, 1));
 	if (c > 12) {
@@ -4583,7 +4536,6 @@ function asgar(harf, level) {
 		return c;
 	}
 }
-
 function newline(amount) {
 	var nl = "";
 	for (var rows = 1; rows < amount; rows += 1) {
@@ -4591,7 +4543,6 @@ function newline(amount) {
 	}
 	return nl;
 }
-
 function hepart(npotent, mimic) {
 	var kat = 2;
 	var result, sum, rsum;

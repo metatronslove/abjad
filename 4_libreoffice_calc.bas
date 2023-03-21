@@ -968,10 +968,10 @@ Sub BASTET(Optional metin As String, Optional MT As Variant, Optional tablo As V
                                 If CInt(MID(Baster, LEN(Baster) - 5, 2)) = 0 Then
                                     NS = " ألف" & NS
                                 Else
-                                    NS = " ألأف" & NS
+                                    NS = " احد ألأف" & NS
                                 End If
                             Else
-                                NS = " ألأف" & NS
+                                NS = " احد ألأف" & NS
                             End If
                         End If
                     Case 2 : NS = " ألفان" & NS
@@ -1045,10 +1045,10 @@ Sub BASTET(Optional metin As String, Optional MT As Variant, Optional tablo As V
                                 If CInt(MID(Baster, LEN(Baster) - 5, 2)) = 0 Then
                                     NS = " אלף" & NS
                                 Else
-                                    NS = " אלפים" & NS
+                                    NS = " אחת אלפים" & NS
                                 End If
                             Else
-                                NS = " אלפים" & NS
+                                NS = " אחת אלפים" & NS
                             End If
                         End If
                     Case 2 : NS = " אלפיים" & NS
@@ -1602,29 +1602,11 @@ Sub HUDDAM(Optional num As LONG, Optional htype As Variant, Optional method As V
     Dim hpart(19), rest, counts, counting, counted, counter, part, preffixdepart As Integer : counts = 1
     Dim suffix, preffix As Long
     Dim GH, H       As String : GH = ""
-    Select Case method
-    Case 7
-        Select Case UCase(htype)
-        Case "ULVI" : suffix = CLng(ABJAD("ئيل", 7, 1))
-        Case "SUFLI" : suffix = CLng(ABJAD("يوش", 7, 1))
-        Case "ŞER" : suffix = CLng(ABJAD("طيش", 7, 1))
-        Case Else : suffix = CLng(ABJAD(htype, 7, 1))
-        End Select
-    Case 12
-        Select Case UCase(htype)
-        Case "ULVI" : suffix = CLng(ABJAD("ئيل", 12, 1))
-        Case "SUFLI" : suffix = CLng(ABJAD("يوش", 12, 1))
-        Case "ŞER" : suffix = CLng(ABJAD("طيش", 12, 1))
-        Case Else : suffix = CLng(ABJAD(htype, 12, 1))
-        End Select
-    Case Else
-        method = 1
-        Select Case UCase(htype)
-        Case "ULVI" : suffix = CLng(ABJAD("ئيل", 1, 1))
-        Case "SUFLI" : suffix = CLng(ABJAD("يوش", 1, 1))
-        Case "ŞER" : suffix = CLng(ABJAD("طيش", 1, 1))
-        Case Else : suffix = CLng(ABJAD(htype, 1, 1))
-        End Select
+    Select Case UCase(htype)
+    Case "ULVI" : suffix = CLng(ABJAD("ئيل", method, 1))
+    Case "SUFLI" : suffix = CLng(ABJAD("يوش", method, 1))
+    Case "ŞER" : suffix = CLng(ABJAD("طيش", method, 1))
+    Case Else : suffix = CLng(ABJAD(htype, method, 1))
     End Select
     If suffix > num Then
         Do
