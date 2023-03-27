@@ -1602,6 +1602,11 @@ Sub HUDDAM(Optional num As LONG, Optional htype As Variant, Optional method As V
     Dim hpart(19), rest, counts, counting, counted, counter, part, preffixdepart As Integer : counts = 1
     Dim suffix, preffix As Long
     Dim GH, H       As String : GH = ""
+    Select Case method
+    Case 7
+    Case 12
+    Case Else: method = 1
+    End Select
     Select Case UCase(htype)
     Case "ULVI" : suffix = CLng(ABJAD("ئيل", method, 1))
     Case "SUFLI" : suffix = CLng(ABJAD("يوش", method, 1))

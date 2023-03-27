@@ -3850,6 +3850,15 @@ function huddam(num, htype, method) {
 	h = "";
 	if (num !== undefined && num !== null) {
 		if (htype !== undefined) {
+			switch (method) {
+				case 7:
+					break;
+				case 12:
+					break;
+				case 1:
+				default:
+					method = 1;
+				}
 			switch (htype.toUpperCase()) {
 				case "ULVI":
 					suffix = parseFloat(abjad("ئيل", method, 1));
@@ -4366,6 +4375,13 @@ function saf(metinsaf, ayrac, shadda) {
 		for (counter = 0; counter < metinsaf.length; counter++) {
 			choosen = metinsaf[counter];
 			s = "";
+			if (choosen == "ّ" && shadda == 2) {
+				c = 1;
+				do {
+					choosen = metin[counter - c];
+					c = c + 1;
+				} while (saf(choosen, "") == "");
+			}
 			switch (choosen) {
 				case "ا":
 				case "ء":
