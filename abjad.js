@@ -2375,9 +2375,9 @@ function abjad(metin, tablo, shadda, detail) {
 									do {
 										choosen = metin[counter - 1 - c];
 										s = parseFloat(abjad(choosen, tablo, 1));
-										c = c + 1;
+										c += 1;
 										shaddie = shaddie + 1;
-									} while (saf(choosen, "") == "");
+									} while (saf(choosen, "", 1) == "");
 								} else if (shadda == undefined && detail == undefined || shadda == undefined && detail !== undefined) {
 									err = 3;
 								}
@@ -2390,8 +2390,8 @@ function abjad(metin, tablo, shadda, detail) {
 									if (choosen == "ـ") {
 										s = parseFloat(abjad("ا", tablo, 1));
 									}
-									c = c + 1;
-								} while (saf(choosen, "") == "" || choosen !== "ـ");
+									c += 1;
+								} while (saf(choosen, "", 1) == "" || choosen !== "ـ");
 								break;
 							case " ":
 								space = space + 1;
@@ -2415,7 +2415,7 @@ function abjad(metin, tablo, shadda, detail) {
 						}
 				}
 				if (detail == 1) {
-					switch (saf(choosen, "")) {
+					switch (saf(choosen, "", 1)) {
 						case " ":
 							break;
 						case "ا":
@@ -3146,8 +3146,8 @@ function unsur(metin, otabiat, otype, shadda, guide) {
 				c = 1;
 				do {
 					choosen = metin[counter - c];
-					c = c + 1;
-				} while (saf(choosen, "") == "");
+					c += 1;
+				} while (saf(choosen, "", 1) == "");
 			}
 			switch (choosen.toUpperCase()) {
 				case "ا":
@@ -3258,6 +3258,8 @@ function unsur(metin, otabiat, otype, shadda, guide) {
 				case "Z":
 					selected += choosen.toUpperCase();
 					break;
+				default:
+					selected += "";
 			}
 		}
 		switch (guide.toUpperCase()) {
@@ -3281,6 +3283,7 @@ function unsur(metin, otabiat, otype, shadda, guide) {
 									liste += choosen + " "
 									adet += 1
 									break;
+								default:
 							}
 						}
 						break;
@@ -3300,6 +3303,7 @@ function unsur(metin, otabiat, otype, shadda, guide) {
 									liste += choosen + " "
 									adet += 1
 									break;
+								default:
 							}
 						}
 						break;
@@ -3319,6 +3323,7 @@ function unsur(metin, otabiat, otype, shadda, guide) {
 									liste += choosen + " "
 									adet += 1
 									break;
+								default:
 							}
 						}
 						break;
@@ -3338,6 +3343,7 @@ function unsur(metin, otabiat, otype, shadda, guide) {
 									liste += choosen + " "
 									adet += 1
 									break;
+								default:
 							}
 						}
 						break;
@@ -3362,6 +3368,7 @@ function unsur(metin, otabiat, otype, shadda, guide) {
 									liste += choosen + " "
 									adet += 1
 									break;
+								default:
 							}
 						}
 						break;
@@ -3381,6 +3388,7 @@ function unsur(metin, otabiat, otype, shadda, guide) {
 									liste += choosen + " "
 									adet += 1
 									break;
+								default:
 							}
 						}
 						break;
@@ -3401,6 +3409,7 @@ function unsur(metin, otabiat, otype, shadda, guide) {
 									liste += choosen + " "
 									adet += 1
 									break;
+								default:
 							}
 						}
 						break;
@@ -3420,6 +3429,7 @@ function unsur(metin, otabiat, otype, shadda, guide) {
 									liste += choosen + " "
 									adet += 1
 									break;
+								default:
 							}
 						}
 						break;
@@ -3444,6 +3454,7 @@ function unsur(metin, otabiat, otype, shadda, guide) {
 									liste += choosen + " "
 									adet += 1
 									break;
+								default:
 							}
 						}
 						break;
@@ -3464,6 +3475,7 @@ function unsur(metin, otabiat, otype, shadda, guide) {
 									liste += choosen + " "
 									adet += 1
 									break;
+								default:
 							}
 						}
 						break;
@@ -3483,6 +3495,7 @@ function unsur(metin, otabiat, otype, shadda, guide) {
 									liste += choosen + " "
 									adet += 1
 									break;
+								default:
 							}
 						}
 						break;
@@ -3502,6 +3515,7 @@ function unsur(metin, otabiat, otype, shadda, guide) {
 									liste += choosen + " "
 									adet += 1
 									break;
+								default:
 							}
 						}
 						break;
@@ -3526,6 +3540,7 @@ function unsur(metin, otabiat, otype, shadda, guide) {
 									liste += choosen + " "
 									adet += 1
 									break;
+								default:
 							}
 						}
 						break;
@@ -3545,6 +3560,7 @@ function unsur(metin, otabiat, otype, shadda, guide) {
 									liste += choosen + " "
 									adet += 1
 									break;
+								default:
 							}
 						}
 						break;
@@ -3564,6 +3580,7 @@ function unsur(metin, otabiat, otype, shadda, guide) {
 									liste += choosen + " "
 									adet += 1
 									break;
+								default:
 							}
 						}
 						break;
@@ -3584,6 +3601,7 @@ function unsur(metin, otabiat, otype, shadda, guide) {
 									liste += choosen + " "
 									adet += 1
 									break;
+								default:
 							}
 						}
 						break;
@@ -3608,6 +3626,7 @@ function unsur(metin, otabiat, otype, shadda, guide) {
 									liste += choosen + " "
 									adet += 1
 									break;
+								default:
 							}
 						}
 						break;
@@ -3627,6 +3646,7 @@ function unsur(metin, otabiat, otype, shadda, guide) {
 									liste += choosen + " "
 									adet += 1
 									break;
+								default:
 							}
 						}
 						break;
@@ -3646,6 +3666,7 @@ function unsur(metin, otabiat, otype, shadda, guide) {
 									liste += choosen + " "
 									adet += 1
 									break;
+								default:
 							}
 						}
 						break;
@@ -3664,6 +3685,7 @@ function unsur(metin, otabiat, otype, shadda, guide) {
 									liste += choosen + " "
 									adet += 1
 									break;
+								default:
 							}
 						}
 						break;
@@ -3687,6 +3709,7 @@ function unsur(metin, otabiat, otype, shadda, guide) {
 									liste += choosen + " "
 									adet += 1
 									break;
+								default:
 							}
 						}
 						break;
@@ -3708,6 +3731,7 @@ function unsur(metin, otabiat, otype, shadda, guide) {
 									liste += choosen + " "
 									adet += 1
 									break;
+								default:
 							}
 						}
 						break;
@@ -3727,6 +3751,7 @@ function unsur(metin, otabiat, otype, shadda, guide) {
 									liste += choosen + " "
 									adet += 1
 									break;
+								default:
 							}
 						}
 						break;
@@ -3746,6 +3771,7 @@ function unsur(metin, otabiat, otype, shadda, guide) {
 									liste += choosen + " "
 									adet += 1
 									break;
+								default:
 							}
 						}
 						break;
@@ -3769,9 +3795,9 @@ function teksir(teksirmetin, teksirayrac, shadda) {
 	if (shadda = 2) {
 		newmetin = saf(teksirmetin, 0, 2);
 	} else {
-		newmetin = saf(teksirmetin, 0);
+		newmetin = saf(teksirmetin, 0, 1);
 	}
-	result = saf(newmetin, teksirayrac) + String.fromCharCode(10) + String.fromCharCode(13);
+	result = saf(newmetin, teksirayrac, 1) + String.fromCharCode(10) + String.fromCharCode(13);
 	iksir = newmetin;
 	for (produce = 0; produce < newmetin.length - 1; produce++) {
 		if (newmetin.length / 2 == Math.floor(newmetin.length / 2)) {
@@ -3786,9 +3812,9 @@ function teksir(teksirmetin, teksirayrac, shadda) {
 		if (lengthdouble !== 1) {
 			iksir += newmetin[Math.floor(newmetin.length / 2)];
 		}
-		teksired = result + saf(iksir, teksirayrac) + String.fromCharCode(10) + String.fromCharCode(13);
+		teksired = result + saf(iksir, teksirayrac, 1) + String.fromCharCode(10) + String.fromCharCode(13);
 		result = teksired;
-		newmetin = saf(iksir, 0);
+		newmetin = saf(iksir, 0, 1);
 	}
 	return result;
 }
@@ -4378,9 +4404,9 @@ function saf(metinsaf, ayrac, shadda) {
 			if (choosen == "ّ" && shadda == 2) {
 				c = 1;
 				do {
-					choosen = metin[counter - c];
-					c = c + 1;
-				} while (saf(choosen, "") == "");
+					choosen = metinsaf[counter - c];
+					c += 1;
+				} while (saf(choosen, "", 1) == "");
 			}
 			switch (choosen) {
 				case "ا":
