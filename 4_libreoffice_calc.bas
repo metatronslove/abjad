@@ -2403,7 +2403,7 @@ Function GetHundreds(ByVal MyNumber, Lang, Optional Count, Optional Spell)
     Case "ARABIC"
         If Cdbl(Mid(MyNumber, 1, 1)) > 0 Then
             If Cdbl(Right(MyNumber, 2)) = 0 And Cdbl(Mid(MyNumber, 1, 1)) = 2 Then
-                If Count = 0 Then
+                If Count = 1 Then
                     Result = "مئتان "
                 Else
                     Result = "مئتا "
@@ -2432,26 +2432,18 @@ Function GetHundreds(ByVal MyNumber, Lang, Optional Count, Optional Spell)
         End If
     Case "HEBREW"
         If Cdbl(Mid(MyNumber, 1, 1)) > 0 Then
-            If Cdbl(Right(MyNumber, 2)) = 0 And Cdbl(Mid(MyNumber, 1, 1)) = 2 Then
-                If Count = 0 Then
-                    Result = "מאתיים "
-                Else
-                    Result = "מאתיים "
-                End If
-            Else
-                Select Case CDbl(Mid(MyNumber, 1, 1))
-                Case 1 : Result = "מאה "
-                Case 2 : Result = "מאתיים "
-                Case 3 : Result = "שלוש מאות "
-                Case 4 : Result = "ארבע מאות "
-                Case 5 : Result = "חמש מאות "
-                Case 6 : Result = "שש מאות "
-                Case 7 : Result = "שבע מאות "
-                Case 8 : Result = "שמונה מאות "
-                Case 9 : Result = "תשע מאות "
-                Case Else
-                End Select
-            End If
+            Select Case CDbl(Mid(MyNumber, 1, 1))
+            Case 1 : Result = "מאה "
+            Case 2 : Result = "מאתיים "
+            Case 3 : Result = "שלוש מאות "
+            Case 4 : Result = "ארבע מאות "
+            Case 5 : Result = "חמש מאות "
+            Case 6 : Result = "שש מאות "
+            Case 7 : Result = "שבע מאות "
+            Case 8 : Result = "שמונה מאות "
+            Case 9 : Result = "תשע מאות "
+            Case Else
+            End Select
         Else
         End If
         If LEN(Result) > 0  And CDbl(Right(MyNumber, 2)) <> 0 Then Result = Result & " ו "
