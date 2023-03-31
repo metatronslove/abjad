@@ -905,7 +905,7 @@ End Sub
 Sub BASTET(Optional metin As String, Optional MT As Variant, Optional tablo As Variant, Optional shadda As Variant, Optional language As Variant, Optional  detail As Variant) As String
     Dim HM, invertablo, BC, Turn, err As Integer : err = 0
     Dim Baster, choosen, NS As String
-    Select Case CStr(CLng(metin))
+    Select Case CStr(CDbl(metin))
     Case metin
         Baster = metin
     Case Else
@@ -916,244 +916,7 @@ Sub BASTET(Optional metin As String, Optional MT As Variant, Optional tablo As V
     End Select
     For HM = 1 To MT
         NS = ""
-        For BC = 0 To LEN(Baster) - 1
-            Turn = LEN(Baster) - BC : Baster = CStr(Baster) : choosen = MID(Baster, Turn, 1)
-            Select Case Ucase(language)
-            Case "ARABIC"
-                Select Case BC
-                Case 0
-                    Select Case CInt(choosen)
-                    Case 1 : NS = " احد" & NS
-                    Case 2 : NS = " اثنان" & NS
-                    Case 3 : NS = " ثلاثة" & NS
-                    Case 4 : NS = " أربعة" & NS
-                    Case 5 : NS = " خمسة" & NS
-                    Case 6 : NS = " ستة" & NS
-                    Case 7 : NS = " سبعة" & NS
-                    Case 8 : NS = " ثمانية" & NS
-                    Case 9 : NS = " تسعة" & NS
-                    End Select
-                Case 1, 4, 7
-                    Select Case CInt(choosen)
-                    Case 1 : NS = " عشرة" & NS
-                    Case 2 : NS = " عشرين" & NS
-                    Case 3 : NS = " ثلاثين" & NS
-                    Case 4 : NS = " أربعين" & NS
-                    Case 5 : NS = " خمسين" & NS
-                    Case 6 : NS = " ستين" & NS
-                    Case 7 : NS = " سبعين" & NS
-                    Case 8 : NS = " ثمانين" & NS
-                    Case 9 : NS = " تسعين" & NS
-                    End Select
-                Case 2, 5, 8
-                    Select Case CInt(choosen)
-                    Case 1 : NS = " مائة" & NS
-                    Case 2 : NS = " مائتان" & NS
-                    Case 3 : NS = " ثلثمائة" & NS
-                    Case 4 : NS = " أربعمائة" & NS
-                    Case 5 : NS = " خمسمائة" & NS
-                    Case 6 : NS = " ستمائة" & NS
-                    Case 7 : NS = " سبعمائة" & NS
-                    Case 8 : NS = " ثمانمائة" & NS
-                    Case 9 : NS = " تسعمائة" & NS
-                    End Select
-                Case 3
-                    Select Case CInt(choosen)
-                    Case 0 : NS = " ألأف" & NS
-                    Case 1
-                        If LEN(Baster) < 5 Then
-                            NS = " ألف" & NS
-                        Else
-                            If LEN(Baster) > 6 Then
-                                If CInt(MID(Baster, LEN(Baster) - 5, 2)) = 0 Then
-                                    NS = " ألف" & NS
-                                Else
-                                    NS = " احد ألأف" & NS
-                                End If
-                            Else
-                                NS = " احد ألأف" & NS
-                            End If
-                        End If
-                    Case 2 : NS = " ألفان" & NS
-                    Case 3 : NS = " ثلاثة آلاف" & NS
-                    Case 4 : NS = " أربعة آلاف" & NS
-                    Case 5 : NS = " خمسة آلاف" & NS
-                    Case 6 : NS = " ستة آلاف" & NS
-                    Case 7 : NS = " سبعة آلاف" & NS
-                    Case 8 : NS = " ثمانية آلاف" & NS
-                    Case 9 : NS = " تسعة آلاف" & NS
-                    End Select
-                Case 6
-                    Select Case CInt(choosen)
-                    Case 0, 1 : NS = " مليون" & NS
-                    Case 2 : NS = " مليونان" & NS
-                    Case 3 : NS = " ثلاثة مليون" & NS
-                    Case 4 : NS = " أربعة مليون" & NS
-                    Case 5 : NS = " خمسة مليون" & NS
-                    Case 6 : NS = " ستة مليون" & NS
-                    Case 7 : NS = " سبعة مليون" & NS
-                    Case 8 : NS = " ثمانية مليون" & NS
-                    Case 9 : NS = " تسعة مليون" & NS
-                    End Select
-                End Select
-            Case "HEBREW"
-                Select Case BC
-                Case 0
-                    Select Case CInt(choosen)
-                    Case 1 : NS = " אחת" & NS
-                    Case 2 : NS = " שתים" & NS
-                    Case 3 : NS = " שלש" & NS
-                    Case 4 : NS = " ארבע" & NS
-                    Case 5 : NS = " חמש" & NS
-                    Case 6 : NS = " שש" & NS
-                    Case 7 : NS = " שבע" & NS
-                    Case 8 : NS = " שמונה" & NS
-                    Case 9 : NS = " תשע" & NS
-                    End Select
-                Case 1, 4, 7
-                    Select Case CInt(choosen)
-                    Case 1 : NS = " עשרת " & NS
-                    Case 2 : NS = " עשרים " & NS
-                    Case 3 : NS = " שלושים " & NS
-                    Case 4 : NS = " ארבעים " & NS
-                    Case 5 : NS = " חמישים " & NS
-                    Case 6 : NS = " שישים " & NS
-                    Case 7 : NS = " שבעים " & NS
-                    Case 8 : NS = " שמונים " & NS
-                    Case 9 : NS = " תשעים " & NS
-                    End Select
-                Case 2, 5, 8
-                    Select Case CInt(choosen)
-                    Case 1 : NS = " מאה" & NS
-                    Case 2 : NS = " מָאתַיִם" & NS
-                    Case 3 : NS = " שְׁלוֹשׁ מֵאוֹת" & NS
-                    Case 4 : NS = " אַרְבַּע מֵאוֹת" & NS
-                    Case 5 : NS = " חֲמֵשׁ מֵאוֹת" & NS
-                    Case 6 : NS = " שֵׁשׁ מֵאוֹת" & NS
-                    Case 7 : NS = " שְׁבַע מֵאוֹת" & NS
-                    Case 8 : NS = " שְׁמוֹנֶה מֵאוֹת" & NS
-                    Case 9 : NS = " תְּשַׁע מֵאוֹת" & NS
-                    End Select
-                Case 3
-                    Select Case CInt(choosen)
-                    Case 0 : NS = " אלפים" & NS
-                    Case 1
-                        If LEN(Baster) < 5 Then
-                            NS = " אלף" & NS
-                        Else
-                            If LEN(Baster) > 6 Then
-                                If CInt(MID(Baster, LEN(Baster) - 5, 2)) = 0 Then
-                                    NS = " אלף" & NS
-                                Else
-                                    NS = " אחת אלפים" & NS
-                                End If
-                            Else
-                                NS = " אחת אלפים" & NS
-                            End If
-                        End If
-                    Case 2 : NS = " אלפיים" & NS
-                    Case 3 : NS = " שלושה אלפים" & NS
-                    Case 4 : NS = " ארבעת אלפים" & NS
-                    Case 5 : NS = " חמשת אלפים" & NS
-                    Case 6 : NS = " ששת אלפים" & NS
-                    Case 7 : NS = " שבעת אלפים" & NS
-                    Case 8 : NS = " שמונת אלפים" & NS
-                    Case 9 : NS = " תשעת אלפים" & NS
-                    End Select
-                Case 6
-                    Select Case CInt(choosen)
-                    Case 0 : NS = " מיליון" & NS
-                    Case 1 : NS = " מיליון" & NS
-                    Case 2 : NS = " שני מיליון" & NS
-                    Case 3 : NS = " שלושה מיליון" & NS
-                    Case 4 : NS = " ארבע מיליון" & NS
-                    Case 5 : NS = " חמישה מיליון" & NS
-                    Case 6 : NS = " שישה מיליון" & NS
-                    Case 7 : NS = " שבעה מיליון" & NS
-                    Case 8 : NS = " שמונה מליון" & NS
-                    Case 9 : NS = " תשעה מיליון" & NS
-                    End Select
-                End Select
-            Case "TURKCE"
-                Select Case BC
-                Case 0
-                    Select Case CInt(choosen)
-                    Case 1 : NS = " bir" & NS
-                    Case 2 : NS = " iki" & NS
-                    Case 3 : NS = " üç" & NS
-                    Case 4 : NS = " dört" & NS
-                    Case 5 : NS = " beş" & NS
-                    Case 6 : NS = " altı" & NS
-                    Case 7 : NS = " yedi" & NS
-                    Case 8 : NS = " sekiz" & NS
-                    Case 9 : NS = " dokuz" & NS
-                    End Select
-                Case 1, 4, 7
-                    Select Case CInt(choosen)
-                    Case 1 : NS = " on" & NS
-                    Case 2 : NS = " yirmi" & NS
-                    Case 3 : NS = " otuz" & NS
-                    Case 4 : NS = " kırk" & NS
-                    Case 5 : NS = " elli" & NS
-                    Case 6 : NS = " altmış" & NS
-                    Case 7 : NS = " yetmiş" & NS
-                    Case 8 : NS = " seksen" & NS
-                    Case 9 : NS = " doksan" & NS
-                    End Select
-                Case 2, 5 ,8
-                    Select Case CInt(choosen)
-                    Case 1 : NS = " yüz" & NS
-                    Case 2 : NS = " iki yüz" & NS
-                    Case 3 : NS = " üç yüz" & NS
-                    Case 4 : NS = " dört yüz" & NS
-                    Case 5 : NS = " beş yüz" & NS
-                    Case 6 : NS = " altı yüz" & NS
-                    Case 7 : NS = " yedi yüz" & NS
-                    Case 8 : NS = " sekiz yüz" & NS
-                    Case 9 : NS = " dokuz yüz" & NS
-                    End Select
-                Case 3
-                    Select Case CInt(choosen)
-                    Case 0 : NS = " bin" & NS
-                    Case 1
-                        If LEN(Baster) < 5 Then
-                            NS = " bin" & NS
-                        Else
-                            If LEN(Baster) > 6 Then
-                                If CInt(MID(Baster, LEN(Baster) - 5, 2)) = 0 Then
-                                    NS = " bin" & NS
-                                Else
-                                    NS = " bir bin" & NS
-                                End If
-                            Else
-                                NS = " bir bin" & NS
-                            End If
-                        End If
-                    Case 2 : NS = " iki bin" & NS
-                    Case 3 : NS = " üç bin" & NS
-                    Case 4 : NS = " dört bin" & NS
-                    Case 5 : NS = " beş bin" & NS
-                    Case 6 : NS = " altı bin" & NS
-                    Case 7 : NS = " yedi bin" & NS
-                    Case 8 : NS = " sekiz bin" & NS
-                    Case 9 : NS = " dokuz bin" & NS
-                    End Select
-                Case 6
-                    Select Case CInt(choosen)
-                    Case 0 : NS = " milyon" & NS
-                    Case 1 : NS = " bir milyon" & NS
-                    Case 2 : NS = " iki milyon" & NS
-                    Case 3 : NS = " üç milyon" & NS
-                    Case 4 : NS = " dört milyon" & NS
-                    Case 5 : NS = " beş milyon" & NS
-                    Case 6 : NS = " altı milyon" & NS
-                    Case 7 : NS = " yedi milyon" & NS
-                    Case 8 : NS = " sekiz milyon" & NS
-                    Case 9 : NS = " dokuz milyon" & NS
-                    End Select
-                End Select
-            End Select
-        Next BC
+        NS = SPELLNUMBER(Baster, UCase(language))
         Baster = 0
         Select Case tablo
         Case 0 To 15 : Baster = CLng(ABJAD(NS, tablo, 1)) + CLng(ABJAD(NS, 5, 1))
@@ -1605,7 +1368,7 @@ Sub HUDDAM(Optional num As LONG, Optional htype As Variant, Optional method As V
     Select Case method
     Case 7
     Case 12
-    Case Else: method = 1
+    Case Else : method = 1
     End Select
     Select Case UCase(htype)
     Case "ULVI" : suffix = CLng(ABJAD("ئيل", method, 1))
@@ -2447,6 +2210,433 @@ Function TUMLE(range)
     Next
     276 If result = "" Then MsgBox "TUMLE() için girilen aralıktaki tüm hücreler zaten boş; makrolar harika çalışıyorlar"
     TUMLE = result
+End Function
+Function SPELLNUMBER(ByVal MyNumber, Lang)
+    Dim Temp, Spell, AddPlus
+    Dim Count
+    Count = 1    
+    ReDim Place(9), PlaceOnes(9), PlaceAppent(9), PlacePlural(9) As String
+    Select Case UCase(Lang)
+    Case "ARABIC"
+    	If Val(MyNumber) = 0 And Count = 1 Then 
+			SPELLNUMBER = "صفر" 
+			Exit Function
+		Else
+		End If
+		EventHappenned = 0
+        PlaceOnes(2) = "ألف"
+        PlaceOnes(3) = "مليون"
+        PlaceOnes(4) = "مليار"
+        PlaceOnes(5) = "تريليون"
+        PlaceAppent(2) = "ألفاً"
+        PlaceAppent(3) = "مليوناً"
+        PlaceAppent(4) = "ملياراً"
+        PlaceAppent(5) = "تريليوناً"
+        PlacePlural(2) = "آلاف"
+        PlacePlural(3) = "ملايين"
+        PlacePlural(4) = "مليارات"
+        PlacePlural(5) = "تريليونات"
+        Do While MyNumber <> ""
+        If Count = 2 And CDbl(Right(MyNumber, 3)) = 1 Then
+            Temp = ""
+            If LEN(Spell) > 0 Then
+            	Spell = PlaceOnes(Count) & " و " & Spell
+            Else
+            	Spell = PlaceOnes(Count) & " " & Spell
+            End If
+        Else
+            Temp = GetHundreds(Right(MyNumber, 3), Lang, Count, Spell)
+        End If
+        If Temp <> "" Then
+			If Count > 1 Then
+				If LEN(Spell) > 0 Then Spell = " و " & Spell
+				If CDbl(Right(MyNumber, 3)) <> 2 Then
+					If DUZLE(CDbl(Right(MyNumber, 3)) / 100) <> 1 Then
+						If CDbl(Right(MyNumber, 3)) >= 3 And CDbl(Right(MyNumber, 3)) <= 10 Then
+							Spell =  " " & PlacePlural(Count) & Spell
+							EventHappenned = 1
+						Else
+						End If
+					Else
+					End If
+				Else
+				End If
+			Else
+			End If
+			If EventHappenned = 0 Then
+				If LEN(Spell) > 0 Then 
+					Spell =  " " & PlaceAppent(Count) & Spell
+				Else
+					Spell =  " " & PlaceOnes(Count) & Spell
+				End If
+			Else
+			End If
+			Spell = Temp & Spell
+		Else
+		End If
+        If Len(MyNumber) > 3 Then
+            MyNumber = Left(MyNumber, Len(MyNumber) - 3)
+        Else
+            MyNumber = ""
+        End If
+       	Count = Count + 1
+		Loop
+    Case "HEBREW"
+    	If Val(MyNumber) = 0 Then 
+			SPELLNUMBER = "אֶפֶס" 
+			Exit Function
+		Else
+		End If
+        EventHappenned = 0
+        PlaceOnes(2) = "אלף"
+        PlaceOnes(3) = "מיליון"
+        PlaceOnes(4) = "מיליארד"
+        PlaceOnes(5) = "טריליון"
+        PlaceAppent(2) = "אלפא"
+        PlaceAppent(3) = "מיליון"
+        PlaceAppent(4) = "מיליארד"
+        PlaceAppent(5) = "טריליון"
+        PlacePlural(2) = "אלפים"
+        PlacePlural(3) = "מיליונים"
+        PlacePlural(4) = "מיליארדים"
+        PlacePlural(5) = "טריליונים"
+        Do While MyNumber <> ""
+        If Count = 2 And CDbl(Right(MyNumber, 3)) = 1 Then
+            Temp = ""
+            If LEN(Spell) > 0 Then
+            	Spell = PlaceOnes(Count) & " ו " & Spell
+            Else
+            	Spell = PlaceOnes(Count) & " " & Spell
+            End If
+        Else
+            Temp = GetHundreds(Right(MyNumber, 3), Lang, Count, Spell)
+        End If
+        If Temp <> "" Then
+			If Count > 1 Then
+				If LEN(Spell) > 0 Then Spell = " ו " & Spell
+				If CDbl(Right(MyNumber, 3)) <> 2 Then
+					If DUZLE(CDbl(Right(MyNumber, 3)) / 100) <> 1 Then
+						If CDbl(Right(MyNumber, 3)) >= 3 And CDbl(Right(MyNumber, 3)) <= 10 Then
+							Spell =  " " & PlacePlural(Count) & Spell
+							EventHappenned = 1
+						Else
+						End If
+					Else
+					End If
+				Else
+				End If
+			Else
+			End If
+			If EventHappenned = 0 Then
+				If LEN(Spell) > 0 Then 
+					Spell =  " " & PlaceAppent(Count) & Spell
+				Else
+					Spell =  " " & PlaceOnes(Count) & Spell
+				End If
+			Else
+			End If
+			Spell = Temp & Spell
+		Else
+		End If
+        If Len(MyNumber) > 3 Then
+            MyNumber = Left(MyNumber, Len(MyNumber) - 3)
+        Else
+            MyNumber = ""
+        End If
+       	Count = Count + 1
+		Loop
+    Case "TURKCE"
+    	If Val(MyNumber) = 0 Then 
+			SPELLNUMBER = "sıfır" 
+			Exit Function
+		Else
+		End If
+        Place(2) = "bin "
+        Place(3) = "milyon "
+        Place(4) = "milyar "
+        Place(5) = "trilyon "
+        Do While MyNumber <> ""
+        If Count = 2 And CLng(Right(MyNumber, 3)) = 1 Then
+            Temp = ""
+            Spell = Place(Count) & Spell
+        Else
+            Temp = GetHundreds(Right(MyNumber, 3), Lang)
+        End If
+        If Temp <> "" Then Spell = Temp & " " & Place(Count) & Spell
+        If Len(MyNumber) > 3 Then
+            MyNumber = Left(MyNumber, Len(MyNumber) - 3)
+        Else
+            MyNumber = ""
+        End If
+        Count = Count + 1
+		Loop
+    Case Else
+    End Select
+    SPELLNUMBER = Trim(Spell)
+End Function
+Function GetHundreds(ByVal MyNumber, Lang, Optional Count, Optional Spell)
+    Dim Result As String
+    MyNumber = Right("000" & MyNumber, 3)
+    Select Case UCase(Lang)
+    Case "ARABIC"
+        If Cdbl(Mid(MyNumber, 1, 1)) > 0 Then
+			If Cdbl(Right(MyNumber, 2)) = 0 And Cdbl(Mid(MyNumber, 1, 1)) = 2 Then
+				If Count = 0 Then
+					Result = "مئتان "
+				Else
+					Result = "مئتا "
+				End If
+			Else
+				Select Case CDbl(Mid(MyNumber, 1, 1))
+				Case 1 : Result = "مائة "
+				Case 2 : Result = "مئتان "
+				Case 3 : Result = "ثلاثمائة "
+				Case 4 : Result = "أربعمائة "
+				Case 5 : Result = "خمسمائة "
+				Case 6 : Result = "ستمائة "
+				Case 7 : Result = "سبعمائة "
+				Case 8 : Result = "ثمانمائة "
+				Case 9 : Result = "تسعمائة "
+				Case Else
+				End Select
+            End If
+        Else
+        End If
+        If LEN(Result) > 0  And CDbl(Right(MyNumber, 2)) <> 0 Then Result = Result & " و "
+        If Mid(MyNumber, 2, 1) <> "0" Then
+            Result = Result & GetTens(Right(MyNumber, 2), Lang, Count, Cdbl(Mid(MyNumber, 1, 1)), Result & Spell)
+        Else
+            Result = Result & GetDigit(Mid(MyNumber, 3), Lang, Count, Result & Spell)
+        End If
+    Case "HEBREW"
+        If Cdbl(Mid(MyNumber, 1, 1)) > 0 Then
+			If Cdbl(Right(MyNumber, 2)) = 0 And Cdbl(Mid(MyNumber, 1, 1)) = 2 Then
+				If Count = 0 Then
+					Result = "מאתיים "
+				Else
+					Result = "מאתיים "
+				End If
+			Else
+				Select Case CDbl(Mid(MyNumber, 1, 1))
+				Case 1 : Result = "מאה "
+				Case 2 : Result = "מאתיים "
+				Case 3 : Result = "שלוש מאות "
+				Case 4 : Result = "ארבע מאות "
+				Case 5 : Result = "חמש מאות "
+				Case 6 : Result = "שש מאות "
+				Case 7 : Result = "שבע מאות "
+				Case 8 : Result = "שמונה מאות "
+				Case 9 : Result = "תשע מאות "
+				Case Else
+				End Select
+            End If
+        Else
+        End If
+        If LEN(Result) > 0  And CDbl(Right(MyNumber, 2)) <> 0 Then Result = Result & " ו "
+        If Mid(MyNumber, 2, 1) <> "0" Then
+            Result = Result & GetTens(Right(MyNumber, 2), Lang, Count, Cdbl(Mid(MyNumber, 1, 1)), Result & Spell)
+        Else
+            Result = Result & GetDigit(Mid(MyNumber, 3), Lang, Count, Result & Spell)
+        End If
+    Case "TURKCE"
+        If Mid(MyNumber, 1, 1) <> "0" Then
+            If CLng(Mid(MyNumber, 1, 1)) > 1 Then
+                Result = GetDigit(Mid(MyNumber, 1, 1), Lang) & " yüz "
+            Else
+                Result = "yüz "
+            End If
+        End If
+        If Mid(MyNumber, 2, 1) <> "0" Then
+            Result = Result & GetTens(Mid(MyNumber, 2), Lang)
+        Else
+            Result = Result & GetDigit(Mid(MyNumber, 3), Lang)
+        End If
+    Case Else
+    End Select
+    GetHundreds = Result
+End Function
+Function GetTens(TensText, Lang, Optional Count, Optional Hundreds, Optional Spell)
+    Dim Result As String
+    ReDim PlaceOnes(9), PlaceTwos(9) As String
+    Result = ""
+    Select Case UCase(Lang)
+    Case "ARABIC"
+        PlaceOnes(2) = "ألف "
+        PlaceOnes(3) = "مليون "
+        PlaceOnes(4) = "مليار "
+        PlaceOnes(5) = "تريليون "
+        PlaceTwos(2) = "ألفان "
+        PlaceTwos(3) = "مليونان "
+        PlaceTwos(4) = "ملياران "
+        PlaceTwos(5) = "تريليونان "
+        If CDbl(Left(TensText, 1)) = 1 Then
+            Select Case Val(TensText)
+            Case 10: Result = "عشرة"
+            Case 11: Result = "إحدى عشرة"
+            Case 12: Result = "اثنتا عشرة"
+            Case 13: Result = "ثلاث عشرة"
+            Case 14: Result = "أربع عشرة"
+            Case 15: Result = "خمس عشرة"
+            Case 16: Result = "ست عشرة"
+            Case 17: Result = "سبع عشرة"
+            Case 18: Result = "ثماني عشرة"
+            Case 19: Result = "تسع عشرة"
+            Case Else
+            End Select
+        Else
+			If CDbl(Left(TensText, 1)) = 2 And Hundreds = 0 And Count > 1 Then
+				Result = PlaceTwos(Count) & Result
+			Else
+				If CDbl(Left(TensText, 1)) = 1 And Count > 1 Then 
+					Result = PlaceOnes(Count) & Result
+				ElseIf CDbl(Left(TensText, 1)) = 1 Or CDbl(Left(TensText, 1)) = 2 Then
+					If Count = 1 And Hundreds = 0 And CDbl(Left(TensText, 2)) = 0 Then Result = Result & ""
+				Else
+				End If
+			End If
+			If CDbl(Right(TensText, 2)) > 0 Then 
+				If CDbl(Left(TensText, 1)) > 1 Then	Result = Result & GetTensStatus(CDbl(Left(TensText, 1)), Lang)
+				If LEN(Result) > 0 And CDbl(Right(TensText, 1)) <> 0 Then 	Result = Result & "و "
+				Result = Result & GetDigit(Right(TensText, 1), Lang, Count)
+			Else
+				If LEN(Spell) > 0  And CDbl(Left(TensText, 1)) <> 0 Or LEN(Result) > 0 And CDbl(Left(TensText, 1)) <> 0 Then Result = Result & "و "
+				Result = Result & GetTensStatus(CDbl(Left(TensText, 1)), Lang)
+			End If
+        End If
+    Case "HEBREW"
+        PlaceOnes(2) = "אלפים "
+        PlaceOnes(3) = "מיליון "
+        PlaceOnes(4) = "מיליארד "
+        PlaceOnes(5) = "טריליון "
+        PlaceTwos(2) = "אלפיים "
+        PlaceTwos(3) = "שני מיליון "
+        PlaceTwos(4) = "שני מיליארד "
+        PlaceTwos(5) = "שני טריליון "
+        If CDbl(Left(TensText, 1)) = 1 Then
+            Select Case Val(TensText)
+            Case 10: Result = "עשר "
+            Case 11: Result = "אחת עשרה "
+            Case 12: Result = "שתים עשרה "
+            Case 13: Result = "שלוש עשרה "
+            Case 14: Result = "ארבע עשרה "
+            Case 15: Result = "חמש עשרה "
+            Case 16: Result = "שש עשרה "
+            Case 17: Result = "שבע עשרה "
+            Case 18: Result = "שמונה עשרה "
+            Case 19: Result = "תשע עשרה "
+            Case Else
+            End Select
+        Else
+			If CDbl(Left(TensText, 1)) = 2 And Hundreds = 0 And Count > 1 Then
+				Result = PlaceTwos(Count) & Result
+			Else
+				If CDbl(Left(TensText, 1)) = 1 And Count > 1 Then 
+					Result = PlaceOnes(Count) & Result
+				ElseIf CDbl(Left(TensText, 1)) = 1 Or CDbl(Left(TensText, 1)) = 2 Then
+					If Count = 1 And Hundreds = 0 And CDbl(Left(TensText, 2)) = 0 Then Result = Result & ""
+				Else
+				End If
+			End If
+			If CDbl(Right(TensText, 2)) > 0 Then 
+				If CDbl(Left(TensText, 1)) > 1 Then	Result = Result & GetTensStatus(CDbl(Left(TensText, 1)), Lang)
+				If LEN(Result) > 0 And CDbl(Right(TensText, 1)) <> 0 Then 	Result = Result & "ו "
+				Result = Result & GetDigit(Right(TensText, 1), Lang, Count)
+			Else
+				If LEN(Spell) > 0  And CDbl(Left(TensText, 1)) <> 0 Or LEN(Result) > 0 And CDbl(Left(TensText, 1)) <> 0 Then Result = Result & "ו "
+				Result = Result & GetTensStatus(CDbl(Left(TensText, 1)), Lang)
+			End If
+        End If
+    Case "TURKCE"
+        Select Case Val(Left(TensText, 1))
+        Case 1: Result = "on "
+        Case 2: Result = "yirmi "
+        Case 3: Result = "otuz "
+        Case 4: Result = "kırk "
+        Case 5: Result = "elli "
+        Case 6: Result = "altmış "
+        Case 7: Result = "yetmiş "
+        Case 8: Result = "seksen "
+        Case 9: Result = "doksan "
+        Case Else
+        End Select
+        Result = Result & GetDigit(Right(TensText, 1), Lang)
+    Case Else
+    End Select
+    GetTens = Result
+End Function
+Function GetTensStatus(Tens, Lang)
+	Select Case UCase(Lang)
+	Case "ARABIC"
+		Select Case Tens
+		Case 2: Result = "عشرين "
+		Case 3: Result = "ثلاثين "
+		Case 4: Result = "أربعين "
+		Case 5: Result = "خمسين "
+		Case 6: Result = "ستين "
+		Case 7: Result = "سبعين "
+		Case 8: Result = "ثمانين "
+		Case 9: Result = "تسعين "
+		Case Else
+		End Select
+	Case "HEBREW"
+		Select Case Tens
+		Case 2: Result = "עשרים "
+		Case 3: Result = "שלושים "
+		Case 4: Result = "ארבעים "
+		Case 5: Result = "חמישים "
+		Case 6: Result = "שישים "
+		Case 7: Result = "שבעים "
+		Case 8: Result = "שמונים "
+		Case 9: Result = "תשעים "
+		Case Else
+		End Select
+	Case Else
+	End Select
+	GetTensStatus = Result
+End Function
+Function GetDigit(Digit, Lang, Optional Count)
+    Select Case UCase(Lang)
+    Case "ARABIC"
+        Select Case Val(Digit)
+        Case 1: GetDigit = "احد"
+        Case 2: GetDigit = "اثنان"
+        Case 3: GetDigit = "ثلاثة"
+        Case 4: GetDigit = "أربعة"
+        Case 5: GetDigit = "خمسة"
+        Case 6: GetDigit = "ستة"
+        Case 7: GetDigit = "سبعة"
+        Case 8: GetDigit = "ثمانية"
+        Case 9: GetDigit = "تسعة"
+        Case Else: GetDigit = ""
+        End Select
+    Case "HEBREW"
+        Select Case Val(Digit)
+        Case 1: GetDigit = "אחת"
+        Case 2: GetDigit = "שניים"
+        Case 3: GetDigit = "שלושה"
+        Case 4: GetDigit = "ארבעה"
+        Case 5: GetDigit = "חמש"
+        Case 6: GetDigit = "שישה"
+        Case 7: GetDigit = "שבע"
+        Case 8: GetDigit = "שמונה"
+        Case 9: GetDigit = "תשע"
+        Case Else: GetDigit = ""
+        End Select
+    Case "TURKCE"
+        Select Case Val(Digit)
+        Case 1: GetDigit = "bir"
+        Case 2: GetDigit = "iki"
+        Case 3: GetDigit = "üç"
+        Case 4: GetDigit = "dört"
+        Case 5: GetDigit = "beş"
+        Case 6: GetDigit = "altı"
+        Case 7: GetDigit = "yedi"
+        Case 8: GetDigit = "sekiz"
+        Case 9: GetDigit = "dokuz"
+        Case Else: GetDigit = ""
+        End Select
+    Case Else
+    End Select
 End Function
 Sub HEPART(Optional npotent As Long, Optional memec As Integer) As Double
     Dim result      As Double
