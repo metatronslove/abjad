@@ -2215,7 +2215,7 @@ Function SPELLNUMBER(ByVal MyNumber, Lang)
     Dim Temp, Spell, AddPlus
     Dim Count
     Count = 1
-    ReDim Place(9), PlaceOnes(9), PlaceAppent(9), PlacePlural(9) As String
+    ReDim Place(9), PlaceOnes(9), PlaceTwos(9), PlaceAppent(9), PlacePlural(9) As String
     Select Case UCase(Lang)
     Case "ARABIC"
         If Val(MyNumber) = 0 And Count = 1 Then
@@ -2228,6 +2228,10 @@ Function SPELLNUMBER(ByVal MyNumber, Lang)
         PlaceOnes(3) = "مليون"
         PlaceOnes(4) = "مليار"
         PlaceOnes(5) = "تريليون"
+        PlaceTwos(2) = "ألفان "
+        PlaceTwos(3) = "مليونان "
+        PlaceTwos(4) = "ملياران "
+        PlaceTwos(5) = "تريليونان "
         PlaceAppent(2) = "ألفاً"
         PlaceAppent(3) = "مليوناً"
         PlaceAppent(4) = "ملياراً"
@@ -2237,12 +2241,19 @@ Function SPELLNUMBER(ByVal MyNumber, Lang)
         PlacePlural(4) = "مليارات"
         PlacePlural(5) = "تريليونات"
         Do While MyNumber <> ""
-            If Count = 2 And CDbl(Right(MyNumber, 3)) = 1 Then
+            If Count > 1 And CDbl(Right(MyNumber, 3)) = 1 Then
                 Temp = ""
                 If LEN(Spell) > 0 Then
                     Spell = PlaceOnes(Count) & " و " & Spell
                 Else
                     Spell = PlaceOnes(Count) & " " & Spell
+                End If
+            ElseIf Count > 1 And CDbl(Right(MyNumber, 3)) = 2 Then
+                Temp = ""
+                If LEN(Spell) > 0 Then
+                    Spell = PlaceTwos(Count) & " و " & Spell
+                Else
+                    Spell = PlaceTwos(Count) & " " & Spell
                 End If
             Else
                 Temp = GetHundreds(Right(MyNumber, 3), Lang, Count, Spell)
@@ -2301,12 +2312,19 @@ Function SPELLNUMBER(ByVal MyNumber, Lang)
         PlacePlural(4) = "מיליארדים"
         PlacePlural(5) = "טריליונים"
         Do While MyNumber <> ""
-            If Count = 2 And CDbl(Right(MyNumber, 3)) = 1 Then
+            If Count > 1 And CDbl(Right(MyNumber, 3)) = 1 Then
                 Temp = ""
                 If LEN(Spell) > 0 Then
                     Spell = PlaceOnes(Count) & " ו " & Spell
                 Else
                     Spell = PlaceOnes(Count) & " " & Spell
+                End If
+            ElseIf Count > 1 And CDbl(Right(MyNumber, 3)) = 2 Then
+                Temp = ""
+                If LEN(Spell) > 0 Then
+                    Spell = PlaceTwos(Count) & " ו " & Spell
+                Else
+                    Spell = PlaceTwos(Count) & " " & Spell
                 End If
             Else
                 Temp = GetHundreds(Right(MyNumber, 3), Lang, Count, Spell)
