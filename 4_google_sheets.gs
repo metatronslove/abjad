@@ -2426,7 +2426,7 @@ function abjad(metin, tablo, shadda, detail) {
 							break;
 					}
 				} else {
-					sm +=  s;
+					sm += s;
 				}
 			}
 			switch (tablo) {
@@ -2459,6 +2459,7 @@ function abjad(metin, tablo, shadda, detail) {
 			return "\ " + "Şedde Ayarı?" + "\ ";
 	}
 }
+
 function wordbyword(klmmetin, tablow, shaddaw, detailw) {
 	if (klmmetin !== undefined) {
 		klmmetin += " ";
@@ -2484,6 +2485,7 @@ function wordbyword(klmmetin, tablow, shaddaw, detailw) {
 	}
 	return content;
 }
+
 function bastet(metin, mt, tablo, shadda, language, detail) {
 	var err, baster, invertablo, hm, ns, bc, turn, choosen;
 	err = 0;
@@ -2534,550 +2536,7 @@ function bastet(metin, mt, tablo, shadda, language, detail) {
 	}
 	for (hm = 0; hm < mt; hm++) {
 		ns = "";
-		baster = baster.toString();
-		for (bc = 0; bc < baster.length; bc++) {
-			turn = baster.length - bc - 1;
-			choosen = parseFloat(baster[turn]);
-			switch (language.toUpperCase()) {
-				case "ARABIC":
-					switch (bc) {
-						case 0:
-							switch (choosen) {
-								case 1:
-									ns = " احد" + ns;
-									break;
-								case 2:
-									ns = " اثنان" + ns;
-									break;
-								case 3:
-									ns = " ثلاثة" + ns;
-									break;
-								case 4:
-									ns = " أربعة" + ns;
-									break;
-								case 5:
-									ns = " خمسة" + ns;
-									break;
-								case 6:
-									ns = " ستة" + ns;
-									break;
-								case 7:
-									ns = " سبعة" + ns;
-									break;
-								case 8:
-									ns = " ثمانية" + ns;
-									break;
-								case 9:
-									ns = " تسعة" + ns;
-									break;
-							}
-							break;
-						case 1:
-						case 4:
-						case 7:
-							switch (choosen) {
-								case 1:
-									ns = " عشرة" + ns;
-									break;
-								case 2:
-									ns = " عشرين" + ns;
-									break;
-								case 3:
-									ns = " ثلاثين" + ns;
-									break;
-								case 4:
-									ns = " أربعين" + ns;
-									break;
-								case 5:
-									ns = " خمسين" + ns;
-									break;
-								case 6:
-									ns = " ستين" + ns;
-									break;
-								case 7:
-									ns = " سبعين" + ns;
-									break;
-								case 8:
-									ns = " ثمانين" + ns;
-									break;
-								case 9:
-									ns = " تسعين" + ns;
-									break;
-							}
-							break;
-						case 2:
-						case 5:
-						case 8:
-							switch (choosen) {
-								case 1:
-									ns = " مائة" + ns;
-									break;
-								case 2:
-									ns = " مائتان" + ns;
-									break;
-								case 3:
-									ns = " ثلثمائة" + ns;
-									break;
-								case 4:
-									ns = " أربعمائة" + ns;
-									break;
-								case 5:
-									ns = " خمسمائة" + ns;
-									break;
-								case 6:
-									ns = " ستمائة" + ns;
-									break;
-								case 7:
-									ns = " سبعمائة" + ns;
-									break;
-								case 8:
-									ns = " ثمانمائة" + ns;
-									break;
-								case 9:
-									ns = " تسعمائة" + ns;
-									break;
-							}
-							break;
-						case 3:
-							switch (choosen) {
-								case 0:
-									ns = "ألأف" + ns;
-								case 1:
-									if (baster.length < 5) {
-										ns = " ألف" + ns;
-									} else {
-										if (baster.length > 6) {
-											if(parseFloat(baster.substring((baster.length - 6), (baster.length - 4))) == 0) {
-											ns = " ألف" + ns;
-											} else {
-											ns = " احد ألأف" + ns;
-											}
-										} else {
-										ns = " احد ألأف" + ns;
-										}
-									}
-									break;
-								case 2:
-									ns = " ألفان" + ns;
-									break;
-								case 3:
-									ns = " ثلاثة آلاف" + ns;
-									break;
-								case 4:
-									ns = " أربعة آلاف" + ns;
-									break;
-								case 5:
-									ns = " خمسة آلاف" + ns;
-									break;
-								case 6:
-									ns = " ستة آلاف" + ns;
-									break;
-								case 7:
-									ns = " سبعة آلاف" + ns;
-									break;
-								case 8:
-									ns = " ثمانية آلاف" + ns;
-									break;
-								case 9:
-									ns = " تسعة آلاف" + ns;
-									break;
-							}
-							break;
-						case 6:
-							switch (choosen) {
-								case 0:
-								case 1:
-									ns = " مليون" + ns;
-									break;
-								case 2:
-									ns = " مليونان" + ns;
-									break;
-								case 3:
-									ns = " ثلاثة مليون" + ns;
-									break;
-								case 4:
-									ns = " أربعة مليون" + ns;
-									break;
-								case 5:
-									ns = " خمسة مليون" + ns;
-									break;
-								case 6:
-									ns = " ستة مليون" + ns;
-									break;
-								case 7:
-									ns = " سبعة مليون" + ns;
-									break;
-								case 8:
-									ns = " ثمانية مليون" + ns;
-									break;
-								case 9:
-									ns = " تسعة مليون" + ns;
-									break;
-							}
-							break;
-					}
-					break;
-				case "HEBREW":
-					switch (bc) {
-						case 0:
-							switch (choosen) {
-								case 1:
-									ns = " אחת" + ns;
-									break;
-								case 2:
-									ns = " שתים" + ns;
-									break;
-								case 3:
-									ns = " שלש" + ns;
-									break;
-								case 4:
-									ns = " ארבע" + ns;
-									break;
-								case 5:
-									ns = " חמש" + ns;
-									break;
-								case 6:
-									ns = " שש" + ns;
-									break;
-								case 7:
-									ns = " שבע" + ns;
-									break;
-								case 8:
-									ns = " שמונה" + ns;
-									break;
-								case 9:
-									ns = " תשע" + ns;
-									break;
-							}
-							break;
-						case 1:
-						case 4:
-						case 7:
-							switch (choosen) {
-								case 1:
-									ns = " עשרת " + ns;
-									break;
-								case 2:
-									ns = " עשרים" + ns;
-									break;
-								case 3:
-									ns = " שלושים" + ns;
-									break;
-								case 4:
-									ns = " ארבעים" + ns;
-									break;
-								case 5:
-									ns = " חמישים" + ns;
-									break;
-								case 6:
-									ns = " ששים" + ns;
-									break;
-								case 7:
-									ns = " שבעים" + ns;
-									break;
-								case 8:
-									ns = " שמונים" + ns;
-									break;
-								case 9:
-									ns = " תשעים" + ns;
-									break;
-							}
-							break;
-						case 2:
-						case 5:
-						case 8:
-							switch (choosen) {
-								case 1:
-									ns = " מאה" + ns;
-									break;
-								case 2:
-									ns = " מָאתַיִם" + ns;
-									break;
-								case 3:
-									ns = " שְׁלוֹשׁ מֵאוֹת" + ns;
-									break;
-								case 4:
-									ns = " אַרְבַּע מֵאוֹת" + ns;
-									break;
-								case 5:
-									ns = " חֲמֵשׁ מֵאוֹת" + ns;
-									break;
-								case 6:
-									ns = " שֵׁשׁ מֵאוֹת" + ns;
-									break;
-								case 7:
-									ns = " שְׁבַע מֵאוֹת" + ns;
-									break;
-								case 8:
-									ns = " שְׁמוֹנֶה מֵאוֹת" + ns;
-									break;
-								case 9:
-									ns = " תְּשַׁע מֵאוֹת" + ns;
-									break;
-							}
-							break;
-						case 3:
-							switch (choosen) {
-								case 0:
-									ns = " אלפים" + ns;
-									break;
-								case 1:
-									if (baster.length < 5) {
-										ns = " אלף" + ns;
-									} else {
-										if (baster.length > 6) {
-											if(parseFloat(baster.substring((baster.length - 6), (baster.length - 4))) == 0) {
-											ns = " אלף" + ns;
-											} else {
-											ns = " אחת אלפים" + ns;
-											}
-										} else {
-										ns = " אחת אלפים" + ns;
-										}
-									}
-									break;
-								case 2:
-									ns = " אלפיים" + ns;
-									break;
-								case 3:
-									ns = " שלושה  אלפים" + ns;
-									break;
-								case 4:
-									ns = " ארבעת אלפים" + ns;
-									break;
-								case 5:
-									ns = " חמשת אלפים" + ns;
-									break;
-								case 6:
-									ns = " ששת אלפים" + ns;
-									break;
-								case 7:
-									ns = " שבעת אלפים" + ns;
-									break;
-								case 8:
-									ns = " שמונת אלפים" + ns;
-									break;
-								case 9:
-									ns = " תשעת אלפים" + ns;
-									break;
-							}
-							break;
-						case 6:
-							switch (choosen) {
-								case 1:
-									ns = " מיליון" + ns;
-									break;
-								case 2:
-									ns = " שני מיליון" + ns;
-									break;
-								case 3:
-									ns = " שלושה מיליון" + ns;
-									break;
-								case 4:
-									ns = " ארבע מיליון" + ns;
-									break;
-								case 5:
-									ns = " חמישה מיליון" + ns;
-									break;
-								case 6:
-									ns = " שישה מיליון" + ns;
-									break;
-								case 7:
-									ns = " שבעה מיליון" + ns;
-									break;
-								case 8:
-									ns = " שמונה מליון" + ns;
-									break;
-								case 9:
-									ns = " תשעה מיליון" + ns;
-									break;
-							}
-							break;
-					}
-					break;
-				case "TURKCE":
-					switch (bc) {
-						case 0:
-							switch (choosen) {
-								case 1:
-									ns = " bir" + ns;
-									break;
-								case 2:
-									ns = " iki" + ns;
-									break;
-								case 3:
-									ns = " üç" + ns;
-									break;
-								case 4:
-									ns = " dört" + ns;
-									break;
-								case 5:
-									ns = " beş" + ns;
-									break;
-								case 6:
-									ns = " altı" + ns;
-									break;
-								case 7:
-									ns = " yedi" + ns;
-									break;
-								case 8:
-									ns = " sekiz" + ns;
-									break;
-								case 9:
-									ns = " dokuz" + ns;
-									break;
-							}
-							break;
-						case 1:
-						case 4:
-						case 7:
-							switch (choosen) {
-								case 1:
-									ns = " on" + ns;
-									break;
-								case 2:
-									ns = " yirmi" + ns;
-									break;
-								case 3:
-									ns = " otuz" + ns;
-									break;
-								case 4:
-									ns = " kırk" + ns;
-									break;
-								case 5:
-									ns = " elli" + ns;
-									break;
-								case 6:
-									ns = " altmış" + ns;
-									break;
-								case 7:
-									ns = " yetmiş" + ns;
-									break;
-								case 8:
-									ns = " seksen" + ns;
-									break;
-								case 9:
-									ns = " doksan" + ns;
-									break;
-							}
-							break;
-						case 2:
-						case 5:
-						case 8:
-							switch (choosen) {
-								case 1:
-									ns = " yüz" + ns;
-									break;
-								case 2:
-									ns = " iki yüz" + ns;
-									break;
-								case 3:
-									ns = " üç yüz" + ns;
-									break;
-								case 4:
-									ns = " dört yüz" + ns;
-									break;
-								case 5:
-									ns = " beş yüz" + ns;
-									break;
-								case 6:
-									ns = " altı yüz" + ns;
-									break;
-								case 7:
-									ns = " yedi yüz" + ns;
-									break;
-								case 8:
-									ns = " sekiz yüz" + ns;
-									break;
-								case 9:
-									ns = " dokuz yüz" + ns;
-									break;
-							}
-							break;
-						case 3:
-							switch (choosen) {
-								case 0:
-									ns = " bin" + ns;
-									break;
-								case 1:
-									if (baster.length < 5) {
-										ns = " bin" + ns;
-									} else {
-										if (baster.length > 6) {
-											if(parseFloat(baster.substring((baster.length - 6), (baster.length - 4))) == 0) {
-											ns = " bin" + ns;
-											} else {
-											ns = " bir bin" + ns;
-											}
-										} else {
-										ns = " bir bin" + ns;
-										}
-									}
-									break;
-								case 2:
-									ns = " iki bin" + ns;
-									break;
-								case 3:
-									ns = " üç bin" + ns;
-									break;
-								case 4:
-									ns = " dört bin" + ns;
-									break;
-								case 5:
-									ns = " beş bin" + ns;
-									break;
-								case 6:
-									ns = " altı bin" + ns;
-									break;
-								case 7:
-									ns = " yedi bin" + ns;
-									break;
-								case 8:
-									ns = " sekiz bin" + ns;
-									break;
-								case 9:
-									ns = " dokuz bin" + ns;
-									break;
-							}
-							break;
-						case 6:
-							switch (choosen) {
-								case 0:
-									ns = " milyon" + ns;
-									break;
-								case 1:
-									ns = " bir milyon" + ns;
-									break;
-								case 2:
-									ns = " iki milyon" + ns;
-									break;
-								case 3:
-									ns = " üç milyon" + ns;
-									break;
-								case 4:
-									ns = " dört milyon" + ns;
-									break;
-								case 5:
-									ns = " beş milyon" + ns;
-									break;
-								case 6:
-									ns = " altı milyon" + ns;
-									break;
-								case 7:
-									ns = " yedi milyon" + ns;
-									break;
-								case 8:
-									ns = " sekiz milyon" + ns;
-									break;
-								case 9:
-									ns = " dokuz milyon" + ns;
-									break;
-							}
-							break;
-					}
-					break;
-			}
-		}
+		ns = nutket(baster, language.toUpperCase());
 		baster = 0;
 		switch (tablo) {
 			case 0:
@@ -3134,6 +2593,7 @@ function bastet(metin, mt, tablo, shadda, language, detail) {
 		default:
 	}
 }
+
 function unsur(metin, otabiat, otype, shadda, guide) {
 	var counter, adet, choosen, liste, selected;
 	selected = "";
@@ -3789,6 +3249,7 @@ function unsur(metin, otabiat, otype, shadda, guide) {
 		}
 	}
 }
+
 function teksir(teksirmetin, teksirayrac, shadda) {
 	var iksir, result, inversed, newmetin, lengthdouble, produce, counter, teksired;
 	lengthdouble = 0;
@@ -3818,6 +3279,7 @@ function teksir(teksirmetin, teksirayrac, shadda) {
 	}
 	return result;
 }
+
 function numbers2arab(indians) {
 	var na, counter, choosenarab;
 	indians = indians.toString();
@@ -3866,6 +3328,7 @@ function numbers2arab(indians) {
 	}
 	return na;
 }
+
 function huddam(num, htype, method) {
 	var suffix, preffix, h, gh, counts, departs, rest, counter, counting, choosenduty, turn, counted;
 	var hpart = new Array();
@@ -3884,7 +3347,7 @@ function huddam(num, htype, method) {
 				case 1:
 				default:
 					method = 1;
-				}
+			}
 			switch (htype.toUpperCase()) {
 				case "ULVI":
 					suffix = parseFloat(abjad("ئيل", method, 1));
@@ -4269,6 +3732,7 @@ function huddam(num, htype, method) {
 		return "";
 	}
 }
+
 function rakamtopla(urval, d1g1tamount) {
 	var choosen, newsum, hepsi, myval, counter, showvar;
 	myval = "" + urval + "";
@@ -4297,6 +3761,7 @@ function rakamtopla(urval, d1g1tamount) {
 	}
 	return showvar;
 }
+
 function tesbeh(zkr, minimum, boncuk, bolum) {
 	var turn, part, rest, outp;
 	outp = "";
@@ -4318,6 +3783,7 @@ function tesbeh(zkr, minimum, boncuk, bolum) {
 	}
 	return outp;
 }
+
 function altayaz(girdi) {
 	var ss, counter, choosenalta;
 	girdi = girdi.toString();
@@ -4387,6 +3853,7 @@ function altayaz(girdi) {
 	}
 	return ss;
 }
+
 function saf(metinsaf, ayrac, shadda) {
 	var safmetin, irun, choosen, counter, s;
 	safmetin = "";
@@ -4570,6 +4037,7 @@ function saf(metinsaf, ayrac, shadda) {
 	}
 	return safmetin;
 }
+
 function asgar(harf, level) {
 	var c = parseFloat(abjad(harf, level, 1));
 	if (c > 12) {
@@ -4578,6 +4046,7 @@ function asgar(harf, level) {
 		return c;
 	}
 }
+
 function newline(amount) {
 	var nl = "";
 	for (var rows = 1; rows < amount; rows += 1) {
@@ -4585,6 +4054,669 @@ function newline(amount) {
 	}
 	return nl;
 }
+
+function nutket(MyNumber, language) {
+	var temp = "";
+	var nutuk = "";
+	var counter = 0;
+	if (language == undefined) {
+		language = "ARABIC";
+	}
+	if (MyNumber == undefined) {
+		MyNumber = 0;
+	}
+	language = language.toUpperCase();
+	switch (language) {
+		case "ARABIC":
+			if (MyNumber == 0 && counter == 0) {
+				return "صفر";
+			}
+			var PlaceOnes = ["", "ألف", "مليون", "مليار", "تريليون"];
+			var PlaceTwos = ["", "ألفان", "مليونان", "ملياران", "تريليونان"];
+			var PlaceAppent = ["", "ألفاً", "مليوناً", "ملياراً", "تريليوناً"];
+			var PlacePlural = ["", "آلاف", "ملايين", "مليارات", "تريليونات"];
+			MyNumber = MyNumber.toString().trim();
+			do {
+				var EventHappenned = 0;
+				if (counter > 0 && parseFloat(Right(MyNumber, 3)) == 1) {
+					temp = "";
+					if (nutuk.length > 0) {
+						nutuk = PlaceOnes[counter] + " و " + nutuk;
+					} else {
+						nutuk = PlaceOnes[counter] + " " + nutuk;
+					}
+				} else if (counter > 0 && parseFloat(Right(MyNumber, 3)) == 2) {
+					temp = "";
+					if (nutuk.length > 0) {
+						nutuk = PlaceTwos[counter] + " و " + nutuk;
+					} else {
+						nutuk = PlaceTwos[counter] + " " + nutuk;
+					}
+				} else {
+					temp = GetHundreds(Right(MyNumber, 3), language, counter, nutuk);
+				}
+				if (temp != "") {
+					if (counter > 0) {
+						if (nutuk.length > 0) {
+							nutuk = " و " + nutuk;
+						}
+						if (parseFloat(Right(MyNumber, 3)) != 2) {
+							if (Math.floor(parseFloat(Right(MyNumber, 3)) / 100) != 1) {
+								if (parseFloat(Right(MyNumber, 3)) >= 3 && parseFloat(Right(MyNumber, 3)) <= 10) {
+									nutuk = " " + PlacePlural[counter] + nutuk;
+									EventHappenned = 1;
+								}
+							}
+						}
+					}
+					if (EventHappenned == 0) {
+						if (nutuk.length > 0) {
+							nutuk = " " + PlaceAppent[counter] + nutuk;
+						} else {
+							nutuk = " " + PlaceOnes[counter] + nutuk;
+							EventHappenned = 0;
+						}
+					}
+					nutuk = temp + nutuk;
+					temp = "";
+				}
+				if (MyNumber.length > 3) {
+					MyNumber = Left(MyNumber, MyNumber.length - 3);
+				} else {
+					MyNumber = "";
+				}
+				counter += 1;
+			} while (MyNumber != "");
+			break;
+		case "HEBREW":
+			if (MyNumber == 0 && counter == 0) {
+				return "אֶפֶס";
+			}
+			var PlaceOnes = ["", "אלף", "מיליון", "מיליארד", "טריליון"];
+			var PlaceTwos = ["", "אלפיים ", "שני מיליון ", "שני מיליארד ", "שני טריליון "];
+			var PlaceAppent = ["", "אלפא", "מיליון", "מיליארד", "טריליון"];
+			var PlacePlural = ["", "אלפים", "מיליונים", "מיליארדים", "טריליונים"];
+			MyNumber = MyNumber.toString().trim();
+			do {
+				var EventHappenned = 0;
+				if (counter > 0 && parseFloat(Right(MyNumber, 3)) == 1) {
+					temp = "";
+					if (nutuk.length > 0) {
+						nutuk = PlaceOnes[counter] + " ו " + nutuk;
+					} else {
+						nutuk = PlaceOnes[counter] + " " + nutuk;
+					}
+				} else if (counter > 0 && parseFloat(Right(MyNumber, 3)) == 2) {
+					temp = "";
+					if (nutuk.length > 0) {
+						nutuk = PlaceTwos[counter] + " ו " + nutuk;
+					} else {
+						nutuk = PlaceTwos[counter] + " " + nutuk;
+					}
+				} else {
+					temp = GetHundreds(Right(MyNumber, 3), language, counter, nutuk);
+				}
+				if (temp != "") {
+					if (counter > 0) {
+						if (nutuk.length > 0) {
+							nutuk = " ו " + nutuk;
+						}
+						if (parseFloat(Right(MyNumber, 3)) != 2) {
+							if (Math.floor(parseFloat(Right(MyNumber, 3)) / 100) != 1) {
+								if (parseFloat(Right(MyNumber, 3)) >= 3 && parseFloat(Right(MyNumber, 3)) <= 10) {
+									nutuk = " " + PlacePlural[counter] + nutuk;
+									EventHappenned = 1;
+								}
+							}
+						}
+					}
+					if (EventHappenned == 0) {
+						if (nutuk.length > 0) {
+							nutuk = " " + PlaceAppent[counter] + nutuk;
+						} else {
+							nutuk = " " + PlaceOnes[counter] + nutuk;
+							EventHappenned = 0;
+						}
+					}
+					nutuk = temp + nutuk;
+					temp = "";
+				}
+				if (MyNumber.length > 3) {
+					MyNumber = Left(MyNumber, MyNumber.length - 3);
+				} else {
+					MyNumber = "";
+				}
+				counter += 1;
+			} while (MyNumber != "");
+			break;
+		case "TURKCE":
+			var dongu = 0;
+			if (MyNumber == 0 && dongu == 0) {
+				return "sıfır";
+			}
+			MyNumber = MyNumber.toString().trim();
+			do {
+				switch (dongu) {
+					case 0:
+						place = "";
+						break;
+					case 1:
+						place = "bin ";
+						break;
+					case 2:
+						place = "milyon ";
+						break;
+					case 3:
+						place = "milyar ";
+						break;
+					case 4:
+						place = "trilyon ";
+						break;
+					default:
+				}
+				if (dongu = 1 && parseFloat(Right(MyNumber, 3)) == 1) {
+					temp = "";
+					nutuk = place + nutuk;
+				} else {
+					temp = GetHundreds(Right(MyNumber, 3), language, dongu, nutuk);
+				}
+				if (temp != "") {
+					nutuk = temp + " " + place + nutuk;
+					temp = "";
+				}
+				if (MyNumber.length > 3) {
+					MyNumber = Left(MyNumber, MyNumber.length - 3);
+				} else {
+					MyNumber = "";
+				}
+				dongu += 1;
+			} while (MyNumber != "");
+			break;
+		default:
+	}
+	counter = 0;
+	return nutuk.trim();
+}
+
+function GetHundreds(MyNumber, language, counter, nutuk) {
+	var result = "";
+	MyNumber = Right("000" + MyNumber, 3);
+	switch (language) {
+		case "ARABIC":
+			if (parseFloat(Left(MyNumber, 1)) > 0) {
+				if (parseFloat(Right(MyNumber, 2)) == 0 && parseFloat(Left(MyNumber, 1)) == 2) {
+					if (counter == 0) {
+						result = "مئتان ";
+					} else {
+						result = "مئتا ";
+					}
+				} else {
+					switch (parseFloat(Left(MyNumber, 1))) {
+						case 1:
+							result = "مائة ";
+							break;
+						case 2:
+							result = "مئتان ";
+							break;
+						case 3:
+							result = "ثلاثمائة ";
+							break;
+						case 4:
+							result = "أربعمائة ";
+							break;
+						case 5:
+							result = "خمسمائة ";
+							break;
+						case 6:
+							result = "ستمائة ";
+							break;
+						case 7:
+							result = "سبعمائة ";
+							break;
+						case 8:
+							result = "ثمانمائة ";
+							break;
+						case 9:
+							result = "تسعمائة ";
+							break;
+						default:
+					}
+				}
+			}
+			if (result.length > 0 && parseFloat(Right(MyNumber, 2)) != 0) {
+				result += " و ";
+			}
+			if (MyNumber.substring(1, 2) != "0") {
+				result += GetTens(MyNumber.substring(1), language, counter, parseFloat(Left(MyNumber, 1)), result + nutuk);
+			} else {
+				result += GetDigit(parseFloat(Right(MyNumber, 1)), language);
+			}
+			break;
+		case "HEBREW":
+			if (parseFloat(Left(MyNumber, 1)) > 0) {
+				switch (parseFloat(Left(MyNumber, 1))) {
+					case 1:
+						result = "מאה ";
+						break;
+					case 2:
+						result = "מאתיים ";
+						break;
+					case 3:
+						result = "שלוש מאות ";
+						break;
+					case 4:
+						result = "ארבע מאות ";
+						break;
+					case 5:
+						result = "חמש מאות ";
+						break;
+					case 6:
+						result = "שש מאות ";
+						break;
+					case 7:
+						result = "שבע מאות ";
+						break;
+					case 8:
+						result = "שמונה מאות ";
+						break;
+					case 9:
+						result = "תשע מאות ";
+						break;
+					default:
+				}
+			}
+			if (result.length > 0 && parseFloat(Right(MyNumber, 2)) != 0) {
+				result += " ו ";
+			}
+			if (MyNumber.substring(1, 2) != "0") {
+				result += GetTens(MyNumber.substring(1), language, counter, parseFloat(Left(MyNumber, 1)), result + nutuk);
+			} else {
+				result += GetDigit(parseFloat(Right(MyNumber, 1)), language);
+			}
+			break;
+		case "TURKCE":
+			if (parseFloat(Left(MyNumber, 1)) > 0) {
+				if (parseFloat(Left(MyNumber, 1)) > 1) {
+					result = GetDigit(parseFloat(Left(MyNumber, 1)), language) + " yüz ";
+				} else {
+					result = "yüz ";
+				}
+			}
+			if (MyNumber.substring(1, 2) != "0") {
+				result += GetTens(MyNumber.substring(1), language);
+			} else {
+				result += GetDigit(parseFloat(Right(MyNumber, 1)), language);
+			}
+			break;
+		default:
+	}
+	return result;
+}
+
+function GetTens(TensText, language, counter, Hundreds, nutuk) {
+	var result = "";
+	switch (language) {
+		case "ARABIC":
+			var PlaceOnes = ["", "ألف ", "مليون ", "مليار ", "تريليون "];
+			var PlaceTwos = ["", "ألفان ", "مليونان ", "ملياران ", "تريليونان "];
+			if (parseFloat(Left(TensText, 1)) == 1) {
+				switch (parseFloat(TensText)) {
+					case 10:
+						result = "عشرة";
+						break;
+					case 11:
+						result = "إحدى عشرة";
+						break;
+					case 12:
+						result = "اثنتا عشرة";
+						break;
+					case 13:
+						result = "ثلاث عشرة";
+						break;
+					case 14:
+						result = "أربع عشرة";
+						break;
+					case 15:
+						result = "خمس عشرة";
+						break;
+					case 16:
+						result = "ست عشرة";
+						break;
+					case 17:
+						result = "سبع عشرة";
+						break;
+					case 18:
+						result = "ثماني عشرة";
+						break;
+					case 19:
+						result = "تسع عشرة";
+						break;
+					default:
+				}
+			} else {
+				if (parseFloat(Left(TensText, 1)) == 2 && Hundreds == 0 && counter > 0) {
+					result = PlaceTwos[counter] + result;
+				} else {
+					if (parseFloat(Left(TensText, 1)) == 1 && counter > 0) {
+						result = PlaceOnes[counter] + result;
+					} else if (parseFloat(Left(TensText, 1)) == 1 || parseFloat(Left(TensText, 1)) == 2) {
+						if (counter == 0 && Hundreds == 0 && parseFloat(Left(TensText, 2)) == 0) {
+							result += "";
+						}
+					}
+				}
+				if (parseFloat(TensText) > 0) {
+					if (parseFloat(Left(TensText, 1)) > 1) {
+						result += GetTensStatus(parseFloat(Left(TensText, 1)), language);
+					}
+					if (result.length > 0 && parseFloat(Right(TensText, 1)) != 0) {
+						result += "و ";
+					}
+					result += GetDigit(parseFloat(Right(TensText, 1)), language);
+				} else {
+					if (nutuk.length > 0 && parseFloat(Left(TensText, 1)) != 0 || result.length > 0 && parseFloat(Left(TensText, 1)) != 0) {
+						result += "و ";
+					}
+					result += GetTensStatus(parseFloat(Left(TensText, 1)), language);
+				}
+			}
+			break;
+		case "HEBREW":
+			var PlaceOnes = ["", "אלפים ", "מיליון ", "מיליארד ", "טריליון "];
+			var PlaceTwos = ["", "אלפיים ", "שני מיליון ", "שני מיליארד ", "שני טריליון "];
+			if (parseFloat(Left(TensText, 1)) == 1) {
+				switch (parseFloat(TensText)) {
+					case 10:
+						result = "עשר ";
+						break;
+					case 11:
+						result = "אחת עשרה ";
+						break;
+					case 12:
+						result = "שתים עשרה ";
+						break;
+					case 13:
+						result = "שלוש עשרה ";
+						break;
+					case 14:
+						result = "ארבע עשרה ";
+						break;
+					case 15:
+						result = "חמש עשרה ";
+						break;
+					case 16:
+						result = "שש עשרה ";
+						break;
+					case 17:
+						result = "שבע עשרה ";
+						break;
+					case 18:
+						result = "שמונה עשרה ";
+						break;
+					case 19:
+						result = "תשע עשרה ";
+						break;
+					default:
+				}
+			} else {
+				if (parseFloat(Left(TensText, 1)) == 2 && Hundreds == 0 && counter > 0) {
+					result = PlaceTwos[counter] + result;
+				} else {
+					if (parseFloat(Left(TensText, 1)) == 1 && counter > 0) {
+						result = PlaceOnes[counter] + result;
+					} else if (parseFloat(Left(TensText, 1)) == 1 || parseFloat(Left(TensText, 1)) == 2) {
+						if (counter == 0 && Hundreds == 0 && parseFloat(Left(TensText, 2)) == 0) {
+							result += "";
+						}
+					}
+				}
+				if (parseFloat(TensText) > 0) {
+					if (parseFloat(Left(TensText, 1)) > 1) {
+						result += GetTensStatus(parseFloat(Left(TensText, 1)), language);
+					}
+					if (result.length > 0 && parseFloat(Right(TensText, 1)) != 0) {
+						result += "ו ";
+					}
+					result += GetDigit(parseFloat(Right(TensText, 1)), language);
+				} else {
+					if (nutuk.length > 0 && parseFloat(Left(TensText, 1)) != 0 || result.length > 0 && parseFloat(Left(TensText, 1)) != 0) {
+						result += "ו ";
+					}
+					result += GetTensStatus(parseFloat(Left(TensText, 1)), language);
+				}
+			}
+			break;
+		case "TURKCE":
+			switch (parseFloat(Left(TensText, 1))) {
+				case 1:
+					result = "on ";
+					break;
+				case 2:
+					result = "yirmi ";
+					break;
+				case 3:
+					result = "otuz ";
+					break;
+				case 4:
+					result = "kırk ";
+					break;
+				case 5:
+					result = "elli ";
+					break;
+				case 6:
+					result = "altmış ";
+					break;
+				case 7:
+					result = "yetmiş ";
+					break;
+				case 8:
+					result = "seksen ";
+					break;
+				case 9:
+					result = "doksan ";
+					break;
+				default:
+			}
+			result += GetDigit(parseFloat(Right(TensText, 1)), language);
+			break;
+		default:
+	}
+	return result;
+}
+
+function GetTensStatus(Tens, language) {
+	var result = "";
+	switch (language) {
+		case "ARABIC":
+			switch (Tens) {
+				case 2:
+					result = "عشرين ";
+					break;
+				case 3:
+					result = "ثلاثين ";
+					break;
+				case 4:
+					result = "أربعين ";
+					break;
+				case 5:
+					result = "خمسين ";
+					break;
+				case 6:
+					result = "ستين ";
+					break;
+				case 7:
+					result = "سبعين ";
+					break;
+				case 8:
+					result = "ثمانين ";
+					break;
+				case 9:
+					result = "تسعين ";
+					break;
+				default:
+			}
+			break;
+		case "HEBREW":
+			switch (Tens) {
+				case 2:
+					result = "עשרים ";
+					break;
+				case 3:
+					result = "שלושים ";
+					break;
+				case 4:
+					result = "ארבעים ";
+					break;
+				case 5:
+					result = "חמישים ";
+					break;
+				case 6:
+					result = "שישים ";
+					break;
+				case 7:
+					result = "שבעים ";
+					break;
+				case 8:
+					result = "שמונים ";
+					break;
+				case 9:
+					result = "תשעים ";
+					break;
+				default:
+			}
+			break;
+		default:
+	}
+	return result;
+}
+
+function GetDigit(Digit, language) {
+	var result = "";
+	switch (language) {
+		case "ARABIC":
+			switch (Digit) {
+				case 1:
+					result = "احد";
+					break;
+				case 2:
+					result = "اثنان";
+					break;
+				case 3:
+					result = "ثلاثة";
+					break;
+				case 4:
+					result = "أربعة";
+					break;
+				case 5:
+					result = "خمسة";
+					break;
+				case 6:
+					result = "ستة";
+					break;
+				case 7:
+					result = "سبعة";
+					break;
+				case 8:
+					result = "ثمانية";
+					break;
+				case 9:
+					result = "تسعة";
+					break;
+				default:
+					result = "";
+			}
+			break;
+		case "HEBREW":
+			switch (Digit) {
+				case 1:
+					result = "אחת";
+					break;
+				case 2:
+					result = "שניים";
+					break;
+				case 3:
+					result = "שלושה";
+					break;
+				case 4:
+					result = "ארבעה";
+					break;
+				case 5:
+					result = "חמש";
+					break;
+				case 6:
+					result = "שישה";
+					break;
+				case 7:
+					result = "שבע";
+					break;
+				case 8:
+					result = "שמונה";
+					break;
+				case 9:
+					result = "תשע";
+					break;
+				default:
+					result = "";
+			}
+			break;
+		case "TURKCE":
+			switch (Digit) {
+				case 1:
+					result = "bir";
+					break;
+				case 2:
+					result = "iki";
+					break;
+				case 3:
+					result = "üç";
+					break;
+				case 4:
+					result = "dört";
+					break;
+				case 5:
+					result = "beş";
+					break;
+				case 6:
+					result = "altı";
+					break;
+				case 7:
+					result = "yedi";
+					break;
+				case 8:
+					result = "sekiz";
+					break;
+				case 9:
+					result = "dokuz";
+					break;
+				default:
+					result = "";
+			}
+			break;
+		default:
+	}
+	return result;
+}
+
+function Left(str, n) {
+	if (n <= 0)
+		return "";
+	else if (n > String(str).length)
+		return str;
+	else
+		return String(str).substring(0, n);
+}
+
+function Right(str, n) {
+	if (n <= 0)
+		return "";
+	else if (n > String(str).length)
+		return str;
+	else {
+		var iLen = String(str).length;
+		return String(str).substring(iLen, iLen - n);
+	}
+}
+
 function hepart(npotent, mimic) {
 	var kat = 2;
 	var result, sum, rsum;

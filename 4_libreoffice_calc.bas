@@ -916,7 +916,7 @@ Sub BASTET(Optional metin As String, Optional MT As Variant, Optional tablo As V
     End Select
     For HM = 1 To MT
         NS = ""
-        NS = SPELLNUMBER(Baster, UCase(language))
+        NS = NUTKET(Baster, UCase(language))
         Baster = 0
         Select Case tablo
         Case 0 To 15 : Baster = CLng(ABJAD(NS, tablo, 1)) + CLng(ABJAD(NS, 5, 1))
@@ -2211,19 +2211,18 @@ Function TUMLE(range)
     276 If result = "" Then MsgBox "TUMLE() için girilen aralıktaki tüm hücreler zaten boş; makrolar harika çalışıyorlar"
     TUMLE = result
 End Function
-Function SPELLNUMBER(ByVal MyNumber, Lang)
-    Dim Temp, Spell, AddPlus
+Function NUTKET(ByVal MyNumber, Lang)
+    Dim Temp, Spell
     Dim Count
     Count = 1
     ReDim Place(9), PlaceOnes(9), PlaceTwos(9), PlaceAppent(9), PlacePlural(9) As String
     Select Case UCase(Lang)
     Case "ARABIC"
         If Val(MyNumber) = 0 And Count = 1 Then
-            SPELLNUMBER = "صفر"
+            NUTKET = "صفر"
             Exit Function
         Else
-        End If
-        EventHappenned = 0
+        End If       
         PlaceOnes(2) = "ألف"
         PlaceOnes(3) = "مليون"
         PlaceOnes(4) = "مليار"
@@ -2241,6 +2240,7 @@ Function SPELLNUMBER(ByVal MyNumber, Lang)
         PlacePlural(4) = "مليارات"
         PlacePlural(5) = "تريليونات"
         Do While MyNumber <> ""
+			EventHappenned = 0
             If Count > 1 And CDbl(Right(MyNumber, 3)) = 1 Then
                 Temp = ""
                 If LEN(Spell) > 0 Then
@@ -2279,10 +2279,12 @@ Function SPELLNUMBER(ByVal MyNumber, Lang)
                         Spell =  " " & PlaceAppent(Count) & Spell
                     Else
                         Spell =  " " & PlaceOnes(Count) & Spell
+                        EventHappenned = 0
                     End If
                 Else
                 End If
                 Spell = Temp & Spell
+                Temp = ""
             Else
             End If
             If Len(MyNumber) > 3 Then
@@ -2294,11 +2296,10 @@ Function SPELLNUMBER(ByVal MyNumber, Lang)
         Loop
     Case "HEBREW"
         If Val(MyNumber) = 0 Then
-            SPELLNUMBER = "אֶפֶס"
+            NUTKET = "אֶפֶס"
             Exit Function
         Else
-        End If
-        EventHappenned = 0
+        End If        
         PlaceOnes(2) = "אלף"
         PlaceOnes(3) = "מיליון"
         PlaceOnes(4) = "מיליארד"
@@ -2316,6 +2317,7 @@ Function SPELLNUMBER(ByVal MyNumber, Lang)
         PlacePlural(4) = "מיליארדים"
         PlacePlural(5) = "טריליונים"
         Do While MyNumber <> ""
+			EventHappenned = 0
             If Count > 1 And CDbl(Right(MyNumber, 3)) = 1 Then
                 Temp = ""
                 If LEN(Spell) > 0 Then
@@ -2354,10 +2356,12 @@ Function SPELLNUMBER(ByVal MyNumber, Lang)
                         Spell =  " " & PlaceAppent(Count) & Spell
                     Else
                         Spell =  " " & PlaceOnes(Count) & Spell
+                        EventHappenned = 0
                     End If
                 Else
                 End If
                 Spell = Temp & Spell
+                Temp = ""
             Else
             End If
             If Len(MyNumber) > 3 Then
@@ -2369,7 +2373,7 @@ Function SPELLNUMBER(ByVal MyNumber, Lang)
         Loop
     Case "TURKCE"
         If Val(MyNumber) = 0 Then
-            SPELLNUMBER = "sıfır"
+            NUTKET = "sıfır"
             Exit Function
         Else
         End If
@@ -2384,7 +2388,11 @@ Function SPELLNUMBER(ByVal MyNumber, Lang)
             Else
                 Temp = GetHundreds(Right(MyNumber, 3), Lang)
             End If
-            If Temp <> "" Then Spell = Temp & " " & Place(Count) & Spell
+            If Temp <> "" Then 
+				Spell = Temp & " " & Place(Count) & Spell
+				Temp = ""
+			Else
+			End If
             If Len(MyNumber) > 3 Then
                 MyNumber = Left(MyNumber, Len(MyNumber) - 3)
             Else
@@ -2394,7 +2402,7 @@ Function SPELLNUMBER(ByVal MyNumber, Lang)
         Loop
     Case Else
     End Select
-    SPELLNUMBER = Trim(Spell)
+    NUTKET = Trim(Spell)
 End Function
 Function GetHundreds(ByVal MyNumber, Lang, Optional Count, Optional Spell)
     Dim Result As String
@@ -2471,18 +2479,9 @@ Function GetHundreds(ByVal MyNumber, Lang, Optional Count, Optional Spell)
 End Function
 Function GetTens(TensText, Lang, Optional Count, Optional Hundreds, Optional Spell)
     Dim Result As String
-    ReDim PlaceOnes(9), PlaceTwos(9) As String
     Result = ""
     Select Case UCase(Lang)
     Case "ARABIC"
-        PlaceOnes(2) = "ألف "
-        PlaceOnes(3) = "مليون "
-        PlaceOnes(4) = "مليار "
-        PlaceOnes(5) = "تريليون "
-        PlaceTwos(2) = "ألفان "
-        PlaceTwos(3) = "مليونان "
-        PlaceTwos(4) = "ملياران "
-        PlaceTwos(5) = "تريليونان "
         If CDbl(Left(TensText, 1)) = 1 Then
             Select Case Val(TensText)
             Case 10: Result = "عشرة"
@@ -2498,7 +2497,7 @@ Function GetTens(TensText, Lang, Optional Count, Optional Hundreds, Optional Spe
             Case Else
             End Select
         Else
-            If CDbl(Left(TensText, 1)) = 2 And Hundreds = 0 And Count > 1 Then
+			If CDbl(Left(TensText, 1)) = 2 And Hundreds = 0 And Count > 1 Then
                 Result = PlaceTwos(Count) & Result
             Else
                 If CDbl(Left(TensText, 1)) = 1 And Count > 1 Then
@@ -2508,7 +2507,7 @@ Function GetTens(TensText, Lang, Optional Count, Optional Hundreds, Optional Spe
                 Else
                 End If
             End If
-            If CDbl(Right(TensText, 2)) > 0 Then
+            If CDbl(TensText) > 0 Then
                 If CDbl(Left(TensText, 1)) > 1 Then	Result = Result & GetTensStatus(CDbl(Left(TensText, 1)), Lang)
                 If LEN(Result) > 0 And CDbl(Right(TensText, 1)) <> 0 Then 	Result = Result & "و "
                 Result = Result & GetDigit(Right(TensText, 1), Lang, Count)
@@ -2551,7 +2550,7 @@ Function GetTens(TensText, Lang, Optional Count, Optional Hundreds, Optional Spe
                 Else
                 End If
             End If
-            If CDbl(Right(TensText, 2)) > 0 Then
+            If CDbl(TensText) > 0 Then
                 If CDbl(Left(TensText, 1)) > 1 Then	Result = Result & GetTensStatus(CDbl(Left(TensText, 1)), Lang)
                 If LEN(Result) > 0 And CDbl(Right(TensText, 1)) <> 0 Then 	Result = Result & "ו "
                 Result = Result & GetDigit(Right(TensText, 1), Lang, Count)
@@ -2608,7 +2607,7 @@ Function GetTensStatus(Tens, Lang)
     End Select
     GetTensStatus = Result
 End Function
-Function GetDigit(Digit, Lang, Optional Count)
+Function GetDigit(Digit, Lang)
     Select Case UCase(Lang)
     Case "ARABIC"
         Select Case Val(Digit)
