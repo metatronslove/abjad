@@ -97,6 +97,20 @@ ebcedini hesaplayıp, harf miktarını ekleyerek vermek yerine hesapladığı
 sayının istintakını yani okunuşunu döndürür.
 
 ***
+### nutket(sayı; dil)
+***
+
+>#### sayı
+
+0 - 999999999999999 arasındaki sayılar.
+
+>#### dil 
+
+"ARABIC" Arapça
+"HEBREW" İbranice
+"TURKCE" Türkçe
+
+***
 ### unsur(metin; çıktı türü kodu; unsur kodu; şedde seçeneği, hoca seçeneği)
 ***
 
