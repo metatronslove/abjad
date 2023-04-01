@@ -95,6 +95,20 @@ numeral readings. If it is to be made according to Hebrew the readings,
 it is entered as "HEBREW". If Turkish it is "TURKCE".
  
 ***
+### nutket(number; language)
+***
+
+>#### number
+
+Numbers between 0 - 999999999999999.
+
+>#### language
+
+"ARABIC" for arabic
+"HEBREW" for hebrew
+"TURKCE" for turkish
+
+***
 ### unsur(text; output type code; element code; shadda option; guide option)
 ***
 
