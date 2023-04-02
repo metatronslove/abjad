@@ -4191,37 +4191,21 @@ function nutket(MyNumber, language) {
 			break;
 		case "TURKCE":
 			var dongu = 0;
+			var place = "";
 			if (MyNumber == 0 && dongu == 0) {
 				return "sıfır";
 			}
+			var place = ["", "bin ", "milyon ", "milyar ", "trilyon "];
 			MyNumber = MyNumber.toString().trim();
-			do {
-				switch (dongu) {
-					case 0:
-						place = "";
-						break;
-					case 1:
-						place = "bin ";
-						break;
-					case 2:
-						place = "milyon ";
-						break;
-					case 3:
-						place = "milyar ";
-						break;
-					case 4:
-						place = "trilyon ";
-						break;
-					default:
-				}
-				if (dongu = 1 && parseFloat(Right(MyNumber, 3)) == 1) {
+			while (MyNumber != "") {
+				if (dongu == 1 && parseFloat(Right(MyNumber, 3)) == 1) {
 					temp = "";
-					nutuk = place + nutuk;
+					nutuk = place[dongu] + nutuk;
 				} else {
 					temp = GetHundreds(Right(MyNumber, 3), language, dongu, nutuk);
 				}
 				if (temp != "") {
-					nutuk = temp + " " + place + nutuk;
+					nutuk = temp + " " + place[dongu] + nutuk;
 					temp = "";
 				}
 				if (MyNumber.length > 3) {
@@ -4229,8 +4213,8 @@ function nutket(MyNumber, language) {
 				} else {
 					MyNumber = "";
 				}
-				dongu += 1;
-			} while (MyNumber != "");
+				dongu += 1;				
+			}
 			break;
 		default:
 	}
