@@ -2222,7 +2222,7 @@ Function NUTKET(ByVal MyNumber, Lang)
             NUTKET = "صفر"
             Exit Function
         Else
-        End If       
+        End If
         PlaceOnes(2) = "ألف"
         PlaceOnes(3) = "مليون"
         PlaceOnes(4) = "مليار"
@@ -2240,7 +2240,7 @@ Function NUTKET(ByVal MyNumber, Lang)
         PlacePlural(4) = "مليارات"
         PlacePlural(5) = "تريليونات"
         Do While MyNumber <> ""
-			EventHappenned = 0
+            EventHappenned = 0
             If Count > 1 And CDbl(Right(MyNumber, 3)) = 1 Then
                 Temp = ""
                 If LEN(Spell) > 0 Then
@@ -2299,7 +2299,7 @@ Function NUTKET(ByVal MyNumber, Lang)
             NUTKET = "אֶפֶס"
             Exit Function
         Else
-        End If        
+        End If
         PlaceOnes(2) = "אלף"
         PlaceOnes(3) = "מיליון"
         PlaceOnes(4) = "מיליארד"
@@ -2317,7 +2317,7 @@ Function NUTKET(ByVal MyNumber, Lang)
         PlacePlural(4) = "מיליארדים"
         PlacePlural(5) = "טריליונים"
         Do While MyNumber <> ""
-			EventHappenned = 0
+            EventHappenned = 0
             If Count > 1 And CDbl(Right(MyNumber, 3)) = 1 Then
                 Temp = ""
                 If LEN(Spell) > 0 Then
@@ -2388,11 +2388,11 @@ Function NUTKET(ByVal MyNumber, Lang)
             Else
                 Temp = GetHundreds(Right(MyNumber, 3), Lang)
             End If
-            If Temp <> "" Then 
-				Spell = Temp & " " & Place(Count) & Spell
-				Temp = ""
-			Else
-			End If
+            If Temp <> "" Then
+                Spell = Temp & " " & Place(Count) & Spell
+                Temp = ""
+            Else
+            End If
             If Len(MyNumber) > 3 Then
                 MyNumber = Left(MyNumber, Len(MyNumber) - 3)
             Else
@@ -2497,7 +2497,7 @@ Function GetTens(TensText, Lang, Optional Count, Optional Hundreds, Optional Spe
             Case Else
             End Select
         Else
-			If CDbl(Left(TensText, 1)) = 2 And Hundreds = 0 And Count > 1 Then
+            If CDbl(Left(TensText, 1)) = 2 And Hundreds = 0 And Count > 1 Then
                 Result = PlaceTwos(Count) & Result
             Else
                 If CDbl(Left(TensText, 1)) = 1 And Count > 1 Then
