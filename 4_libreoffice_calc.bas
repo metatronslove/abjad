@@ -905,7 +905,7 @@ End Sub
 Sub BASTET(Optional metin As String, Optional MT As Variant, Optional tablo As Variant, Optional shadda As Variant, Optional language As Variant, Optional  detail As Variant) As String
     Dim HM, invertablo, BC, Turn, err As Integer : err = 0
     Dim Baster, choosen, NS As String
-    Select Case CStr(CDbl(metin))
+    Select Case CStr(CLng(metin))
     Case metin
         Baster = metin
     Case Else
