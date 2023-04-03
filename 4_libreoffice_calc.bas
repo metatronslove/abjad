@@ -903,8 +903,8 @@ Sub WORDBYWORD(Optional klmmetin As String, Optional tablo As Variant, Optional 
     WORDBYWORD = content
 End Sub
 Sub BASTET(Optional metin As String, Optional MT As Variant, Optional tablo As Variant, Optional shadda As Variant, Optional language As Variant, Optional  detail As Variant) As String
-    Dim HM, invertablo, BC, Turn, err As Integer : err = 0
-    Dim Baster, choosen, NS As String
+    Dim HM, invertablo, err As Integer : err = 0
+    Dim Baster, NS As String
     Select Case CStr(CLng(metin))
     Case metin
         Baster = metin
@@ -2479,9 +2479,18 @@ Function GetHundreds(ByVal MyNumber, Lang, Optional Count, Optional Spell)
 End Function
 Function GetTens(TensText, Lang, Optional Count, Optional Hundreds, Optional Spell)
     Dim Result As String
+    ReDim PlaceOnes(9), PlaceTwos(9) As String
     Result = ""
     Select Case UCase(Lang)
     Case "ARABIC"
+        PlaceOnes(2) = "ألف "
+        PlaceOnes(3) = "مليون "
+        PlaceOnes(4) = "مليار "
+        PlaceOnes(5) = "تريليون "
+        PlaceTwos(2) = "ألفان "
+        PlaceTwos(3) = "مليونان "
+        PlaceTwos(4) = "ملياران "
+        PlaceTwos(5) = "تريليونان "
         If CDbl(Left(TensText, 1)) = 1 Then
             Select Case Val(TensText)
             Case 10: Result = "عشرة"
