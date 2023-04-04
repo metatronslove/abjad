@@ -2279,8 +2279,8 @@ Function NUTKET(ByVal MyNumber, Lang)
                         Spell =  " " & PlaceAppent(Count) & Spell
                     Else
                         Spell =  " " & PlaceOnes(Count) & Spell
-                        EventHappenned = 0
                     End If
+                    EventHappenned = 0
                 Else
                 End If
                 Spell = Temp & Spell
@@ -2356,8 +2356,8 @@ Function NUTKET(ByVal MyNumber, Lang)
                         Spell =  " " & PlaceAppent(Count) & Spell
                     Else
                         Spell =  " " & PlaceOnes(Count) & Spell
-                        EventHappenned = 0
                     End If
+                    EventHappenned = 0
                 Else
                 End If
                 Spell = Temp & Spell
