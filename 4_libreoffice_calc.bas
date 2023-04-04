@@ -1,5 +1,5 @@
-Sub ABJAD(Optional metin As String, Optional tablo As Variant, Optional shadda As Variant, Optional detail As Variant) As String
-    Dim SM, S, N    As Long : SM = 0 : N = 0 : S = 0
+Function ABJAD(Optional metin As String, Optional tablo As Variant, Optional shadda As Variant, Optional detail As Variant) As Variant
+    Dim SM, S, N    As Double : SM = 0 : N = 0 : S = 0
     Dim SH, counter, err, space, hrk As Integer : SH = 0 : err = 0 : space = 0 : hrk = 0
     Dim SN, choosen, nitem As String : nitem = "" : SN = ""
     For counter = 1 To LEN(metin)
@@ -8,18 +8,18 @@ Sub ABJAD(Optional metin As String, Optional tablo As Variant, Optional shadda A
         Case "ا", "أ", "إ", "آ", "ء", "ى"
             Select Case tablo
             Case 1, 4, 5, 7, 10, 12, 15 : S = 1
-            Case 0, 6, 11 : S = CLng(ASGAR(choosen, tablo + 1))
-            Case 2, 8, 13 : S = CLng(ABJAD("الف", tablo - 1, 1))
-            Case 3, 9, 14 : S = CLng(BASTET(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"))
+            Case 0, 6, 11 : S = CDbl(ASGAR(choosen, tablo + 1))
+            Case 2, 8, 13 : S = CDbl(ABJAD("الف", tablo - 1, 1))
+            Case 3, 9, 14 : S = CDbl(BASTET(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"))
             Case Else : err = 1
             End Select
         Case "ؤ"
             Select Case tablo
             Case 1, 4, 7, 10 : S = 7
             Case 12, 15 : S = 6
-            Case 0, 6, 11 : S = CLng(ASGAR("و", tablo + 1)) + CLng(ASGAR("ا", tablo + 1))
-            Case 2, 8, 13 : S = CLng(ABJAD("الف", tablo - 1, 1)) + CLng(ABJAD("واو", tablo - 1, 1))
-            Case 3, 9, 14 : S = CLng(BASTET("و", 1, -1 - (tablo - 2), 1, "ARABIC")) + CLng(BASTET("ا", 1, -1 - (tablo - 2), 1, "ARABIC"))
+            Case 0, 6, 11 : S = CDbl(ASGAR("و", tablo + 1)) + CDbl(ASGAR("ا", tablo + 1))
+            Case 2, 8, 13 : S = CDbl(ABJAD("الف", tablo - 1, 1)) + CDbl(ABJAD("واو", tablo - 1, 1))
+            Case 3, 9, 14 : S = CDbl(BASTET("و", 1, -1 - (tablo - 2), 1, "ARABIC")) + CDbl(BASTET("ا", 1, -1 - (tablo - 2), 1, "ARABIC"))
             Case 5 : S = 1
             Case Else : err = 1
             End Select
@@ -27,9 +27,9 @@ Sub ABJAD(Optional metin As String, Optional tablo As Variant, Optional shadda A
             Select Case tablo
             Case 1, 4, 7, 10 : S = 11
             Case 12, 15 : S = 7
-            Case 0, 6, 11 : S = CLng(ASGAR("ي", tablo + 1)) + CLng(ASGAR("ا", tablo + 1))
-            Case 2, 8, 13 : S = CLng(ABJAD("الف", tablo - 1, 1)) + CLng(ABJAD("يا", tablo - 1, 1))
-            Case 3, 9, 14 : S = CLng(BASTET("ي", 1, -1 - (tablo - 2), 1, "ARABIC")) + CLng(BASTET("ا", 1, -1 - (tablo - 2), 1, "ARABIC"))
+            Case 0, 6, 11 : S = CDbl(ASGAR("ي", tablo + 1)) + CDbl(ASGAR("ا", tablo + 1))
+            Case 2, 8, 13 : S = CDbl(ABJAD("الف", tablo - 1, 1)) + CDbl(ABJAD("يا", tablo - 1, 1))
+            Case 3, 9, 14 : S = CDbl(BASTET("ي", 1, -1 - (tablo - 2), 1, "ARABIC")) + CDbl(BASTET("ا", 1, -1 - (tablo - 2), 1, "ARABIC"))
             Case 5 : S = 1
             Case Else : err = 1
             End Select
@@ -37,9 +37,9 @@ Sub ABJAD(Optional metin As String, Optional tablo As Variant, Optional shadda A
             Select Case tablo
             Case 1, 4, 7, 10 : S = 15
             Case 12, 15 : S = 13
-            Case 0, 6, 11 : S = CLng(ASGAR("ي", tablo + 1)) + CLng(ASGAR("ه", tablo + 1))
-            Case 2, 8, 13 : S = CLng(ABJAD("يا", tablo - 1, 1)) + CLng(ABJAD("ها", tablo - 1, 1))
-            Case 3, 9, 14 : S = CLng(BASTET("ي", 1, -1 - (tablo - 2), 1, "ARABIC")) + CLng(BASTET("ه", 1, -1 - (tablo - 2), 1, "ARABIC"))
+            Case 0, 6, 11 : S = CDbl(ASGAR("ي", tablo + 1)) + CDbl(ASGAR("ه", tablo + 1))
+            Case 2, 8, 13 : S = CDbl(ABJAD("يا", tablo - 1, 1)) + CDbl(ABJAD("ها", tablo - 1, 1))
+            Case 3, 9, 14 : S = CDbl(BASTET("ي", 1, -1 - (tablo - 2), 1, "ARABIC")) + CDbl(BASTET("ه", 1, -1 - (tablo - 2), 1, "ARABIC"))
             Case 5 : S = 1
             Case Else : err = 1
             End Select
@@ -47,9 +47,9 @@ Sub ABJAD(Optional metin As String, Optional tablo As Variant, Optional shadda A
             Select Case tablo
             Case 1, 4, 7, 10 : S = 2
             Case 12, 15 : S = 9
-            Case 0, 6, 11 : S = CLng(ASGAR(choosen, tablo + 1))
-            Case 2, 8, 13 : S = CLng(ABJAD("با", tablo - 1, 1))
-            Case 3, 9, 14 : S = CLng(BASTET(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"))
+            Case 0, 6, 11 : S = CDbl(ASGAR(choosen, tablo + 1))
+            Case 2, 8, 13 : S = CDbl(ABJAD("با", tablo - 1, 1))
+            Case 3, 9, 14 : S = CDbl(BASTET(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"))
             Case 5 : S = 1
             Case Else : err = 1
             End Select
@@ -57,9 +57,9 @@ Sub ABJAD(Optional metin As String, Optional tablo As Variant, Optional shadda A
             Select Case tablo
             Case 1, 4, 7, 10 : S = 3
             Case 12, 15 : S = 100
-            Case 0, 6, 11 : S = CLng(ASGAR(choosen, tablo + 1))
-            Case 2, 8, 13 : S = CLng(ABJAD("جيم", tablo - 1, 1))
-            Case 3, 9, 14 : S = CLng(BASTET(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"))
+            Case 0, 6, 11 : S = CDbl(ASGAR(choosen, tablo + 1))
+            Case 2, 8, 13 : S = CDbl(ABJAD("جيم", tablo - 1, 1))
+            Case 3, 9, 14 : S = CDbl(BASTET(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"))
             Case 5 : S = 1
             Case Else : err = 1
             End Select
@@ -67,9 +67,9 @@ Sub ABJAD(Optional metin As String, Optional tablo As Variant, Optional shadda A
             Select Case tablo
             Case 1, 4, 7, 10 : S = 4
             Case 12, 15 : S = 70
-            Case 0, 6, 11 : S = CLng(ASGAR(choosen, tablo + 1))
-            Case 2, 8, 13 : S = CLng(ABJAD("دال", tablo - 1, 1))
-            Case 3, 9, 14 : S = CLng(BASTET(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"))
+            Case 0, 6, 11 : S = CDbl(ASGAR(choosen, tablo + 1))
+            Case 2, 8, 13 : S = CDbl(ABJAD("دال", tablo - 1, 1))
+            Case 3, 9, 14 : S = CDbl(BASTET(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"))
             Case 5 : S = 1
             Case Else : err = 1
             End Select
@@ -77,9 +77,9 @@ Sub ABJAD(Optional metin As String, Optional tablo As Variant, Optional shadda A
             Select Case tablo
             Case 1, 4, 7, 10 : S = 5
             Case 12, 15 : S = 7
-            Case 0, 6, 11 : S = CLng(ASGAR(choosen, tablo + 1))
-            Case 2, 8, 13 : S = CLng(ABJAD("ها", tablo - 1, 1))
-            Case 3, 9, 14 : S = CLng(BASTET(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"))
+            Case 0, 6, 11 : S = CDbl(ASGAR(choosen, tablo + 1))
+            Case 2, 8, 13 : S = CDbl(ABJAD("ها", tablo - 1, 1))
+            Case 3, 9, 14 : S = CDbl(BASTET(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"))
             Case 5 : S = 1
             Case Else : err = 1
             End Select
@@ -87,9 +87,9 @@ Sub ABJAD(Optional metin As String, Optional tablo As Variant, Optional shadda A
             Select Case tablo
             Case 1, 4, 7, 10 : S = 6
             Case 12, 15 : S = 5
-            Case 0, 6, 11 : S = CLng(ASGAR(choosen, tablo + 1))
-            Case 2, 8, 13 : S = CLng(ABJAD("واو", tablo - 1, 1))
-            Case 3, 9, 14 : S = CLng(BASTET(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"))
+            Case 0, 6, 11 : S = CDbl(ASGAR(choosen, tablo + 1))
+            Case 2, 8, 13 : S = CDbl(ABJAD("واو", tablo - 1, 1))
+            Case 3, 9, 14 : S = CDbl(BASTET(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"))
             Case 5 : S = 1
             Case Else : err = 1
             End Select
@@ -97,9 +97,9 @@ Sub ABJAD(Optional metin As String, Optional tablo As Variant, Optional shadda A
             Select Case tablo
             Case 1, 4, 7, 10 : S = 7
             Case 12, 15 : S = 600
-            Case 0, 6, 11 : S = CLng(ASGAR(choosen, tablo + 1))
-            Case 2, 8, 13 : S = CLng(ABJAD("زا", tablo - 1, 1))
-            Case 3, 9, 14 : S = CLng(BASTET(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"))
+            Case 0, 6, 11 : S = CDbl(ASGAR(choosen, tablo + 1))
+            Case 2, 8, 13 : S = CDbl(ABJAD("زا", tablo - 1, 1))
+            Case 3, 9, 14 : S = CDbl(BASTET(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"))
             Case 5 : S = 1
             Case Else : err = 1
             End Select
@@ -107,9 +107,9 @@ Sub ABJAD(Optional metin As String, Optional tablo As Variant, Optional shadda A
             Select Case tablo
             Case 1, 4, 7, 10 : S = 8
             Case 12, 15 : S = 90
-            Case 0, 6, 11 : S = CLng(ASGAR(choosen, tablo + 1))
-            Case 2, 8, 13 : S = CLng(ABJAD("حا", tablo - 1, 1))
-            Case 3, 9, 14 : S = CLng(BASTET(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"))
+            Case 0, 6, 11 : S = CDbl(ASGAR(choosen, tablo + 1))
+            Case 2, 8, 13 : S = CDbl(ABJAD("حا", tablo - 1, 1))
+            Case 3, 9, 14 : S = CDbl(BASTET(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"))
             Case 5 : S = 1
             Case Else : err = 1
             End Select
@@ -117,9 +117,9 @@ Sub ABJAD(Optional metin As String, Optional tablo As Variant, Optional shadda A
             Select Case tablo
             Case 1, 4, 7, 10 : S = 9
             Case 12, 15 : S = 800
-            Case 0, 6, 11 : S = CLng(ASGAR(choosen, tablo + 1))
-            Case 2, 8, 13 : S = CLng(ABJAD("طا", tablo - 1, 1))
-            Case 3, 9, 14 : S = CLng(BASTET(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"))
+            Case 0, 6, 11 : S = CDbl(ASGAR(choosen, tablo + 1))
+            Case 2, 8, 13 : S = CDbl(ABJAD("طا", tablo - 1, 1))
+            Case 3, 9, 14 : S = CDbl(BASTET(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"))
             Case 5 : S = 1
             Case Else : err = 1
             End Select
@@ -127,18 +127,18 @@ Sub ABJAD(Optional metin As String, Optional tablo As Variant, Optional shadda A
             Select Case tablo
             Case 1, 4, 7, 10 : S = 10
             Case 12, 15 : S = 6
-            Case 0, 6, 11 : S = CLng(ASGAR(choosen, tablo + 1))
-            Case 2, 8, 13 : S = CLng(ABJAD("يا", tablo - 1, 1))
-            Case 3, 9, 14 : S = CLng(BASTET(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"))
+            Case 0, 6, 11 : S = CDbl(ASGAR(choosen, tablo + 1))
+            Case 2, 8, 13 : S = CDbl(ABJAD("يا", tablo - 1, 1))
+            Case 3, 9, 14 : S = CDbl(BASTET(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"))
             Case 5 : S = 1
             Case Else : err = 1
             End Select
         Case "ك", "ﮒ", "ک"
             Select Case tablo
             Case 1, 4, 7, 10, 12, 15 : S = 20
-            Case 0, 6, 11 : S = CLng(ASGAR(choosen, tablo + 1))
-            Case 2, 8, 13 : S = CLng(ABJAD("كاف", tablo - 1, 1))
-            Case 3, 9, 14 : S = CLng(BASTET(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"))
+            Case 0, 6, 11 : S = CDbl(ASGAR(choosen, tablo + 1))
+            Case 2, 8, 13 : S = CDbl(ABJAD("كاف", tablo - 1, 1))
+            Case 3, 9, 14 : S = CDbl(BASTET(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"))
             Case 5 : S = 1
             Case Else : err = 1
             End Select
@@ -146,9 +146,9 @@ Sub ABJAD(Optional metin As String, Optional tablo As Variant, Optional shadda A
             Select Case tablo
             Case 1, 4, 7, 10 : S = 30
             Case 12, 15 : S = 2
-            Case 0, 6, 11 : S = CLng(ASGAR(choosen, tablo + 1))
-            Case 2, 8, 13 : S = CLng(ABJAD("لام", tablo - 1, 1))
-            Case 3, 9, 14 : S = CLng(BASTET(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"))
+            Case 0, 6, 11 : S = CDbl(ASGAR(choosen, tablo + 1))
+            Case 2, 8, 13 : S = CDbl(ABJAD("لام", tablo - 1, 1))
+            Case 3, 9, 14 : S = CDbl(BASTET(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"))
             Case 5 : S = 1
             Case Else : err = 1
             End Select
@@ -156,9 +156,9 @@ Sub ABJAD(Optional metin As String, Optional tablo As Variant, Optional shadda A
             Select Case tablo
             Case 1, 4, 7, 10 : S = 31
             Case 12, 15 : S = 3
-            Case 0, 6, 11 : S = CLng(ASGAR("ا", tablo + 1)) + CLng(ASGAR("ل", tablo + 1))
-            Case 2, 8, 13 : S = CLng(ABJAD("لام الف", tablo - 1, 1))
-            Case 3, 9, 14 : S = CLng(BASTET("لا", 1, -1 - (tablo - 2), 1, "ARABIC"))
+            Case 0, 6, 11 : S = CDbl(ASGAR("ا", tablo + 1)) + CDbl(ASGAR("ل", tablo + 1))
+            Case 2, 8, 13 : S = CDbl(ABJAD("لام الف", tablo - 1, 1))
+            Case 3, 9, 14 : S = CDbl(BASTET("لا", 1, -1 - (tablo - 2), 1, "ARABIC"))
             Case 5 : S = 2
             Case Else : err = 1
             End Select
@@ -166,9 +166,9 @@ Sub ABJAD(Optional metin As String, Optional tablo As Variant, Optional shadda A
             Select Case tablo
             Case 1, 4, 7, 10 : S = 40
             Case 12, 15 : S = 4
-            Case 0, 6, 11 : S = CLng(ASGAR(choosen, tablo + 1))
-            Case 2, 8, 13 : S = CLng(ABJAD("ميم", tablo - 1, 1))
-            Case 3, 9, 14 : S = CLng(BASTET(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"))
+            Case 0, 6, 11 : S = CDbl(ASGAR(choosen, tablo + 1))
+            Case 2, 8, 13 : S = CDbl(ABJAD("ميم", tablo - 1, 1))
+            Case 3, 9, 14 : S = CDbl(BASTET(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"))
             Case 5 : S = 1
             Case Else : err = 1
             End Select
@@ -176,9 +176,9 @@ Sub ABJAD(Optional metin As String, Optional tablo As Variant, Optional shadda A
             Select Case tablo
             Case 1, 4, 7, 10 : S = 50
             Case 12, 15 : S = 3
-            Case 0, 6, 11 : S = CLng(ASGAR(choosen, tablo + 1))
-            Case 2, 8, 13 : S = CLng(ABJAD("نون", tablo - 1, 1))
-            Case 3, 9, 14 : S = CLng(BASTET(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"))
+            Case 0, 6, 11 : S = CDbl(ASGAR(choosen, tablo + 1))
+            Case 2, 8, 13 : S = CDbl(ABJAD("نون", tablo - 1, 1))
+            Case 3, 9, 14 : S = CDbl(BASTET(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"))
             Case 5 : S = 1
             Case Else : err = 1
             End Select
@@ -186,9 +186,9 @@ Sub ABJAD(Optional metin As String, Optional tablo As Variant, Optional shadda A
             Select Case tablo
             Case 1, 4, 12, 15 : S = 60
             Case 7, 10 : S = 300
-            Case 0, 6, 11 : S = CLng(ASGAR(choosen, tablo + 1))
-            Case 2, 8, 13 : S = CLng(ABJAD("سين", tablo - 1, 1))
-            Case 3, 9, 14 : S = CLng(BASTET(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"))
+            Case 0, 6, 11 : S = CDbl(ASGAR(choosen, tablo + 1))
+            Case 2, 8, 13 : S = CDbl(ABJAD("سين", tablo - 1, 1))
+            Case 3, 9, 14 : S = CDbl(BASTET(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"))
             Case 5 : S = 1
             Case Else : err = 1
             End Select
@@ -196,9 +196,9 @@ Sub ABJAD(Optional metin As String, Optional tablo As Variant, Optional shadda A
             Select Case tablo
             Case 1, 4, 7, 10 : S = 70
             Case 12, 15 : S = 30
-            Case 0, 6, 11 : S = CLng(ASGAR(choosen, tablo + 1))
-            Case 2, 8, 13 : S = CLng(ABJAD("عين", tablo - 1, 1))
-            Case 3, 9, 14 : S = CLng(BASTET(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"))
+            Case 0, 6, 11 : S = CDbl(ASGAR(choosen, tablo + 1))
+            Case 2, 8, 13 : S = CDbl(ABJAD("عين", tablo - 1, 1))
+            Case 3, 9, 14 : S = CDbl(BASTET(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"))
             Case 5 : S = 1
             Case Else : err = 1
             End Select
@@ -206,9 +206,9 @@ Sub ABJAD(Optional metin As String, Optional tablo As Variant, Optional shadda A
             Select Case tablo
             Case 1, 4, 7, 10 : S = 80
             Case 12, 15 : S = 40
-            Case 0, 6, 11 : S = CLng(ASGAR(choosen, tablo + 1))
-            Case 2, 8, 13 : S = CLng(ABJAD("فا", tablo - 1, 1))
-            Case 3, 9, 14 : S = CLng(BASTET(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"))
+            Case 0, 6, 11 : S = CDbl(ASGAR(choosen, tablo + 1))
+            Case 2, 8, 13 : S = CDbl(ABJAD("فا", tablo - 1, 1))
+            Case 3, 9, 14 : S = CDbl(BASTET(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"))
             Case 5 : S = 1
             Case Else : err = 1
             End Select
@@ -217,9 +217,9 @@ Sub ABJAD(Optional metin As String, Optional tablo As Variant, Optional shadda A
             Case 1, 4 : S = 90
             Case 7, 10 : S = 60
             Case 12, 15 : S = 400
-            Case 0, 6, 11 : S = CLng(ASGAR(choosen, tablo + 1))
-            Case 2, 8, 13 : S = CLng(ABJAD("صاد", tablo - 1, 1))
-            Case 3, 9, 14 : S = CLng(BASTET(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"))
+            Case 0, 6, 11 : S = CDbl(ASGAR(choosen, tablo + 1))
+            Case 2, 8, 13 : S = CDbl(ABJAD("صاد", tablo - 1, 1))
+            Case 3, 9, 14 : S = CDbl(BASTET(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"))
             Case 5 : S = 1
             Case Else : err = 1
             End Select
@@ -227,9 +227,9 @@ Sub ABJAD(Optional metin As String, Optional tablo As Variant, Optional shadda A
             Select Case tablo
             Case 1, 4, 7, 10 : S = 100
             Case 12, 15 : S = 50
-            Case 0, 6, 11 : S = CLng(ASGAR(choosen, tablo + 1))
-            Case 2, 8, 13 : S = CLng(ABJAD("قاف", tablo - 1, 1))
-            Case 3, 9, 14 : S = CLng(BASTET(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"))
+            Case 0, 6, 11 : S = CDbl(ASGAR(choosen, tablo + 1))
+            Case 2, 8, 13 : S = CDbl(ABJAD("قاف", tablo - 1, 1))
+            Case 3, 9, 14 : S = CDbl(BASTET(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"))
             Case 5 : S = 1
             Case Else : err = 1
             End Select
@@ -237,9 +237,9 @@ Sub ABJAD(Optional metin As String, Optional tablo As Variant, Optional shadda A
             Select Case tablo
             Case 1, 4, 7, 10 : S = 200
             Case 12, 15 : S = 80
-            Case 0, 6, 11 : S = CLng(ASGAR(choosen, tablo + 1))
-            Case 2, 8, 13 : S = CLng(ABJAD("را", tablo - 1, 1))
-            Case 3, 9, 14 : S = CLng(BASTET(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"))
+            Case 0, 6, 11 : S = CDbl(ASGAR(choosen, tablo + 1))
+            Case 2, 8, 13 : S = CDbl(ABJAD("را", tablo - 1, 1))
+            Case 3, 9, 14 : S = CDbl(BASTET(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"))
             Case 5 : S = 1
             Case Else : err = 1
             End Select
@@ -247,9 +247,9 @@ Sub ABJAD(Optional metin As String, Optional tablo As Variant, Optional shadda A
             Select Case tablo
             Case 1, 4, 12, 15 : S = 300
             Case 7, 10 : S = 1000
-            Case 0, 6, 11 : S = CLng(ASGAR(choosen, tablo + 1))
-            Case 2, 8, 13 : S = CLng(ABJAD("شين", tablo - 1, 1))
-            Case 3, 9, 14 : S = CLng(BASTET(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"))
+            Case 0, 6, 11 : S = CDbl(ASGAR(choosen, tablo + 1))
+            Case 2, 8, 13 : S = CDbl(ABJAD("شين", tablo - 1, 1))
+            Case 3, 9, 14 : S = CDbl(BASTET(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"))
             Case 5 : S = 1
             Case Else : err = 1
             End Select
@@ -257,9 +257,9 @@ Sub ABJAD(Optional metin As String, Optional tablo As Variant, Optional shadda A
             Select Case tablo
             Case 1, 4, 7, 10 : S = 400
             Case 12, 15 : S = 10
-            Case 0, 6, 11 : S = CLng(ASGAR(choosen, tablo + 1))
-            Case 2, 8, 13 : S = CLng(ABJAD("تا", tablo - 1, 1))
-            Case 3, 9, 14 : S = CLng(BASTET(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"))
+            Case 0, 6, 11 : S = CDbl(ASGAR(choosen, tablo + 1))
+            Case 2, 8, 13 : S = CDbl(ABJAD("تا", tablo - 1, 1))
+            Case 3, 9, 14 : S = CDbl(BASTET(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"))
             Case 5 : S = 1
             Case Else : err = 1
             End Select
@@ -267,9 +267,9 @@ Sub ABJAD(Optional metin As String, Optional tablo As Variant, Optional shadda A
             Select Case tablo
             Case 1, 4, 7, 10 : S = 500
             Case 12, 15 : S = 700
-            Case 0, 6, 11 : S = CLng(ASGAR(choosen, tablo + 1))
-            Case 2, 8, 13 : S = CLng(ABJAD("ثا", tablo - 1, 1))
-            Case 3, 9, 14 : S = CLng(BASTET(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"))
+            Case 0, 6, 11 : S = CDbl(ASGAR(choosen, tablo + 1))
+            Case 2, 8, 13 : S = CDbl(ABJAD("ثا", tablo - 1, 1))
+            Case 3, 9, 14 : S = CDbl(BASTET(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"))
             Case 5 : S = 1
             Case Else : err = 1
             End Select
@@ -277,9 +277,9 @@ Sub ABJAD(Optional metin As String, Optional tablo As Variant, Optional shadda A
             Select Case tablo
             Case 1, 4, 7, 10 : S = 600
             Case 12, 15 : S = 200
-            Case 0, 6, 11 : S = CLng(ASGAR(choosen, tablo + 1))
-            Case 2, 8, 13 : S = CLng(ABJAD("خا", tablo - 1, 1))
-            Case 3, 9, 14 : S = CLng(BASTET(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"))
+            Case 0, 6, 11 : S = CDbl(ASGAR(choosen, tablo + 1))
+            Case 2, 8, 13 : S = CDbl(ABJAD("خا", tablo - 1, 1))
+            Case 3, 9, 14 : S = CDbl(BASTET(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"))
             Case 5 : S = 1
             Case Else : err = 1
             End Select
@@ -287,9 +287,9 @@ Sub ABJAD(Optional metin As String, Optional tablo As Variant, Optional shadda A
             Select Case tablo
             Case 1, 4, 7, 10 : S = 700
             Case 12, 15 : S = 80
-            Case 0, 6, 11 : S = CLng(ASGAR(choosen, tablo + 1))
-            Case 2, 8, 13 : S = CLng(ABJAD("ذال", tablo - 1, 1))
-            Case 3, 9, 14 : S = CLng(BASTET(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"))
+            Case 0, 6, 11 : S = CDbl(ASGAR(choosen, tablo + 1))
+            Case 2, 8, 13 : S = CDbl(ABJAD("ذال", tablo - 1, 1))
+            Case 3, 9, 14 : S = CDbl(BASTET(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"))
             Case 5 : S = 1
             Case Else : err = 1
             End Select
@@ -298,9 +298,9 @@ Sub ABJAD(Optional metin As String, Optional tablo As Variant, Optional shadda A
             Case 1, 4 : S = 800
             Case 7, 10 : S = 90
             Case 12, 15 : S = 500
-            Case 0, 6, 11 : S = CLng(ASGAR(choosen, tablo + 1))
-            Case 2, 8, 13 : S = CLng(ABJAD("ضاد", tablo - 1, 1))
-            Case 3, 9, 14 : S = CLng(BASTET(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"))
+            Case 0, 6, 11 : S = CDbl(ASGAR(choosen, tablo + 1))
+            Case 2, 8, 13 : S = CDbl(ABJAD("ضاد", tablo - 1, 1))
+            Case 3, 9, 14 : S = CDbl(BASTET(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"))
             Case 5 : S = 1
             Case Else : err = 1
             End Select
@@ -309,9 +309,9 @@ Sub ABJAD(Optional metin As String, Optional tablo As Variant, Optional shadda A
             Case 1, 4 : S = 900
             Case 7, 10 : S = 800
             Case 12, 15 : S = 1000
-            Case 0, 6, 11 : S = CLng(ASGAR(choosen, tablo + 1))
-            Case 2, 8, 13 : S = CLng(ABJAD("ظا", tablo - 1, 1))
-            Case 3, 9, 14 : S = CLng(BASTET(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"))
+            Case 0, 6, 11 : S = CDbl(ASGAR(choosen, tablo + 1))
+            Case 2, 8, 13 : S = CDbl(ABJAD("ظا", tablo - 1, 1))
+            Case 3, 9, 14 : S = CDbl(BASTET(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"))
             Case 5 : S = 1
             Case Else : err = 1
             End Select
@@ -319,504 +319,504 @@ Sub ABJAD(Optional metin As String, Optional tablo As Variant, Optional shadda A
             Select Case tablo
             Case 1, 4 : S = 1000
             Case 7, 10, 12, 15 : S = 900
-            Case 0, 6, 11 : S = CLng(ASGAR(choosen, tablo + 1))
-            Case 2, 8, 13 : S = CLng(ABJAD("غين", tablo - 1, 1))
-            Case 3, 9, 14 : S = CLng(BASTET(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"))
+            Case 0, 6, 11 : S = CDbl(ASGAR(choosen, tablo + 1))
+            Case 2, 8, 13 : S = CDbl(ABJAD("غين", tablo - 1, 1))
+            Case 3, 9, 14 : S = CDbl(BASTET(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"))
             Case 5 : S = 1
             Case Else : err = 1
             End Select
         Case "א"
             Select Case tablo
             Case 1, 4 : S = 1
-            Case 0 : S = CLng(ASGAR(choosen, 1))
-            Case 2 : S = CLng(ABJAD("אלף", 1, 1))
-            Case 3 : S = CLng(BASTET(choosen, 1, -2, 1, "HEBREW"))
+            Case 0 : S = CDbl(ASGAR(choosen, 1))
+            Case 2 : S = CDbl(ABJAD("אלף", 1, 1))
+            Case 3 : S = CDbl(BASTET(choosen, 1, -2, 1, "HEBREW"))
             Case 5 : S = 1
             Case Else : err = 1
             End Select
         Case "ב"
             Select Case tablo
             Case 1, 4 : S = 2
-            Case 0 : S = CLng(ASGAR(choosen, 1))
-            Case 2 : S = CLng(ABJAD("בית", 1, 1))
-            Case 3 : S = CLng(BASTET(choosen, 1, -2, 1, "HEBREW"))
+            Case 0 : S = CDbl(ASGAR(choosen, 1))
+            Case 2 : S = CDbl(ABJAD("בית", 1, 1))
+            Case 3 : S = CDbl(BASTET(choosen, 1, -2, 1, "HEBREW"))
             Case 5 : S = 1
             Case Else : err = 1
             End Select
         Case "ג"
             Select Case tablo
             Case 1, 4 : S = 3
-            Case 0 : S = CLng(ASGAR(choosen, 1))
-            Case 2 : S = CLng(ABJAD("גימל", 1, 1))
-            Case 3 : S = CLng(BASTET(choosen, 1, -2, 1, "HEBREW"))
+            Case 0 : S = CDbl(ASGAR(choosen, 1))
+            Case 2 : S = CDbl(ABJAD("גימל", 1, 1))
+            Case 3 : S = CDbl(BASTET(choosen, 1, -2, 1, "HEBREW"))
             Case 5 : S = 1
             Case Else : err = 1
             End Select
         Case "ד"
             Select Case tablo
             Case 1, 4 : S = 4
-            Case 0 : S = CLng(ASGAR(choosen, 1))
-            Case 2 : S = CLng(ABJAD("דלת", 1, 1))
-            Case 3 : S = CLng(BASTET(choosen, 1, -2, 1, "HEBREW"))
+            Case 0 : S = CDbl(ASGAR(choosen, 1))
+            Case 2 : S = CDbl(ABJAD("דלת", 1, 1))
+            Case 3 : S = CDbl(BASTET(choosen, 1, -2, 1, "HEBREW"))
             Case 5 : S = 1
             Case Else : err = 1
             End Select
         Case "ה"
             Select Case tablo
             Case 1, 4 : S = 5
-            Case 0 : S = CLng(ASGAR(choosen, 1))
-            Case 2 : S = CLng(ABJAD("הא", 1, 1))
-            Case 3 : S = CLng(BASTET(choosen, 1, -2, 1, "HEBREW"))
+            Case 0 : S = CDbl(ASGAR(choosen, 1))
+            Case 2 : S = CDbl(ABJAD("הא", 1, 1))
+            Case 3 : S = CDbl(BASTET(choosen, 1, -2, 1, "HEBREW"))
             Case 5 : S = 1
             Case Else : err = 1
             End Select
         Case "ו"
             Select Case tablo
             Case 1, 4 : S = 6
-            Case 0 : S = CLng(ASGAR(choosen, 1))
-            Case 2 : S = CLng(ABJAD("וו", 1, 1))
-            Case 3 : S = CLng(BASTET(choosen, 1, -2, 1, "HEBREW"))
+            Case 0 : S = CDbl(ASGAR(choosen, 1))
+            Case 2 : S = CDbl(ABJAD("וו", 1, 1))
+            Case 3 : S = CDbl(BASTET(choosen, 1, -2, 1, "HEBREW"))
             Case 5 : S = 1
             Case Else : err = 1
             End Select
         Case "ז"
             Select Case tablo
             Case 1, 4 : S = 7
-            Case 0 : S = CLng(ASGAR(choosen, 1))
-            Case 2 : S = CLng(ABJAD("זין", 1, 1))
-            Case 3 : S = CLng(BASTET(choosen, 1, -2, 1, "HEBREW"))
+            Case 0 : S = CDbl(ASGAR(choosen, 1))
+            Case 2 : S = CDbl(ABJAD("זין", 1, 1))
+            Case 3 : S = CDbl(BASTET(choosen, 1, -2, 1, "HEBREW"))
             Case 5 : S = 1
             Case Else : err = 1
             End Select
         Case "ח"
             Select Case tablo
             Case 1, 4 : S = 8
-            Case 0 : S = CLng(ASGAR(choosen, 1))
-            Case 2 : S = CLng(ABJAD("חית", 1, 1))
-            Case 3 : S = CLng(BASTET(choosen, 1, -2, 1, "HEBREW"))
+            Case 0 : S = CDbl(ASGAR(choosen, 1))
+            Case 2 : S = CDbl(ABJAD("חית", 1, 1))
+            Case 3 : S = CDbl(BASTET(choosen, 1, -2, 1, "HEBREW"))
             Case 5 : S = 1
             Case Else : err = 1
             End Select
         Case "ט"
             Select Case tablo
             Case 1, 4 : S = 9
-            Case 0 : S = CLng(ASGAR(choosen, 1))
-            Case 2 : S = CLng(ABJAD("טיח", 1, 1))
-            Case 3 : S = CLng(BASTET(choosen, 1, -2, 1, "HEBREW"))
+            Case 0 : S = CDbl(ASGAR(choosen, 1))
+            Case 2 : S = CDbl(ABJAD("טיח", 1, 1))
+            Case 3 : S = CDbl(BASTET(choosen, 1, -2, 1, "HEBREW"))
             Case 5 : S = 1
             Case Else : err = 1
             End Select
         Case "י"
             Select Case tablo
             Case 1, 4 : S = 10
-            Case 0 : S = CLng(ASGAR(choosen, 1))
-            Case 2 : S = CLng(ABJAD("יוד", 1, 1))
-            Case 3 : S = CLng(BASTET(choosen, 1, -2, 1, "HEBREW"))
+            Case 0 : S = CDbl(ASGAR(choosen, 1))
+            Case 2 : S = CDbl(ABJAD("יוד", 1, 1))
+            Case 3 : S = CDbl(BASTET(choosen, 1, -2, 1, "HEBREW"))
             Case 5 : S = 1
             Case Else : err = 1
             End Select
         Case "כ"
             Select Case tablo
             Case 1, 4 : S = 20
-            Case 0 : S = CLng(ASGAR(choosen, 1))
-            Case 2 : S = CLng(ABJAD("כף", 1, 1))
-            Case 3 : S = CLng(BASTET(choosen, 1, -2, 1, "HEBREW"))
+            Case 0 : S = CDbl(ASGAR(choosen, 1))
+            Case 2 : S = CDbl(ABJAD("כף", 1, 1))
+            Case 3 : S = CDbl(BASTET(choosen, 1, -2, 1, "HEBREW"))
             Case 5 : S = 1
             Case Else : err = 1
             End Select
         Case "ל"
             Select Case tablo
             Case 1, 4 : S = 30
-            Case 0 : S = CLng(ASGAR(choosen, 1))
-            Case 2 : S = CLng(ABJAD("למד", 1, 1))
-            Case 3 : S = CLng(BASTET(choosen, 1, -2, 1, "HEBREW"))
+            Case 0 : S = CDbl(ASGAR(choosen, 1))
+            Case 2 : S = CDbl(ABJAD("למד", 1, 1))
+            Case 3 : S = CDbl(BASTET(choosen, 1, -2, 1, "HEBREW"))
             Case 5 : S = 1
             Case Else : err = 1
             End Select
         Case "מ"
             Select Case tablo
             Case 1, 4 : S = 40
-            Case 0 : S = CLng(ASGAR(choosen, 1))
-            Case 2 : S = CLng(ABJAD("מם", 1, 1))
-            Case 3 : S = CLng(BASTET(choosen, 1, -2, 1, "HEBREW"))
+            Case 0 : S = CDbl(ASGAR(choosen, 1))
+            Case 2 : S = CDbl(ABJAD("מם", 1, 1))
+            Case 3 : S = CDbl(BASTET(choosen, 1, -2, 1, "HEBREW"))
             Case 5 : S = 1
             Case Else : err = 1
             End Select
         Case "נ"
             Select Case tablo
             Case 1, 4 : S = 50
-            Case 0 : S = CLng(ASGAR(choosen, 1))
-            Case 2 : S = CLng(ABJAD("נון", 1, 1))
-            Case 3 : S = CLng(BASTET(choosen, 1, -2, 1, "HEBREW"))
+            Case 0 : S = CDbl(ASGAR(choosen, 1))
+            Case 2 : S = CDbl(ABJAD("נון", 1, 1))
+            Case 3 : S = CDbl(BASTET(choosen, 1, -2, 1, "HEBREW"))
             Case 5 : S = 1
             Case Else : err = 1
             End Select
         Case "ס"
             Select Case tablo
             Case 1, 4 : S = 60
-            Case 0 : S = CLng(ASGAR(choosen, 1))
-            Case 2 : S = CLng(ABJAD("סמך", 1, 1))
-            Case 3 : S = CLng(BASTET(choosen, 1, -2, 1, "HEBREW"))
+            Case 0 : S = CDbl(ASGAR(choosen, 1))
+            Case 2 : S = CDbl(ABJAD("סמך", 1, 1))
+            Case 3 : S = CDbl(BASTET(choosen, 1, -2, 1, "HEBREW"))
             Case 5 : S = 1
             Case Else : err = 1
             End Select
         Case "ע"
             Select Case tablo
             Case 1, 4 : S = 70
-            Case 0 : S = CLng(ASGAR(choosen, 1))
-            Case 2 : S = CLng(ABJAD("עין", 1, 1))
-            Case 3 : S = CLng(BASTET(choosen, 1, -2, 1, "HEBREW"))
+            Case 0 : S = CDbl(ASGAR(choosen, 1))
+            Case 2 : S = CDbl(ABJAD("עין", 1, 1))
+            Case 3 : S = CDbl(BASTET(choosen, 1, -2, 1, "HEBREW"))
             Case 5 : S = 1
             Case Else : err = 1
             End Select
         Case "פ"
             Select Case tablo
             Case 1, 4 : S = 80
-            Case 0 : S = CLng(ASGAR(choosen, 1))
-            Case 2 : S = CLng(ABJAD("פא", 1, 1))
-            Case 3 : S = CLng(BASTET(choosen, 1, -2, 1, "HEBREW"))
+            Case 0 : S = CDbl(ASGAR(choosen, 1))
+            Case 2 : S = CDbl(ABJAD("פא", 1, 1))
+            Case 3 : S = CDbl(BASTET(choosen, 1, -2, 1, "HEBREW"))
             Case 5 : S = 1
             Case Else : err = 1
             End Select
         Case "צ"
             Select Case tablo
             Case 1, 4 : S = 90
-            Case 0 : S = CLng(ASGAR(choosen, 1))
-            Case 2 : S = CLng(ABJAD("צדי", 1, 1))
-            Case 3 : S = CLng(BASTET(choosen, 1, -2, 1, "HEBREW"))
+            Case 0 : S = CDbl(ASGAR(choosen, 1))
+            Case 2 : S = CDbl(ABJAD("צדי", 1, 1))
+            Case 3 : S = CDbl(BASTET(choosen, 1, -2, 1, "HEBREW"))
             Case 5 : S = 1
             Case Else : err = 1
             End Select
         Case "ק"
             Select Case tablo
             Case 1, 4 : S = 100
-            Case 0 : S = CLng(ASGAR(choosen, 1))
-            Case 2 : S = CLng(ABJAD("קוף", 1, 1))
-            Case 3 : S = CLng(BASTET(choosen, 1, -2, 1, "HEBREW"))
+            Case 0 : S = CDbl(ASGAR(choosen, 1))
+            Case 2 : S = CDbl(ABJAD("קוף", 1, 1))
+            Case 3 : S = CDbl(BASTET(choosen, 1, -2, 1, "HEBREW"))
             Case 5 : S = 1
             Case Else : err = 1
             End Select
         Case "ר"
             Select Case tablo
             Case 1, 4 : S = 200
-            Case 0 : S = CLng(ASGAR(choosen, 1))
-            Case 2 : S = CLng(ABJAD("ריש", 1, 1))
-            Case 3 : S = CLng(BASTET(choosen, 1, -2, 1, "HEBREW"))
+            Case 0 : S = CDbl(ASGAR(choosen, 1))
+            Case 2 : S = CDbl(ABJAD("ריש", 1, 1))
+            Case 3 : S = CDbl(BASTET(choosen, 1, -2, 1, "HEBREW"))
             Case 5 : S = 1
             Case Else : err = 1
             End Select
         Case "ש"
             Select Case tablo
             Case 1, 4 : S = 300
-            Case 0 : S = CLng(ASGAR(choosen, 1))
-            Case 2 : S = CLng(ABJAD("שין", 1, 1))
-            Case 3 : S = CLng(BASTET(choosen, 1, -2, 1, "HEBREW"))
+            Case 0 : S = CDbl(ASGAR(choosen, 1))
+            Case 2 : S = CDbl(ABJAD("שין", 1, 1))
+            Case 3 : S = CDbl(BASTET(choosen, 1, -2, 1, "HEBREW"))
             Case 5 : S = 1
             Case Else : err = 1
             End Select
         Case "ת"
             Select Case tablo
             Case 1, 4 : S = 400
-            Case 0 : S = CLng(ASGAR(choosen, 1))
-            Case 2 : S = CLng(ABJAD("תו", 1, 1))
-            Case 3 : S = CLng(BASTET(choosen, 1, -2, 1, "HEBREW"))
+            Case 0 : S = CDbl(ASGAR(choosen, 1))
+            Case 2 : S = CDbl(ABJAD("תו", 1, 1))
+            Case 3 : S = CDbl(BASTET(choosen, 1, -2, 1, "HEBREW"))
             Case 5 : S = 1
             Case Else : err = 1
             End Select
         Case "ך"
             Select Case tablo
             Case 1, 4 : S = 500
-            Case 0 : S = CLng(ASGAR(choosen, 1))
-            Case 2 : S = CLng(ABJAD("ךף", 1, 1))
-            Case 3 : S = CLng(BASTET(choosen, 1, -2, 1, "HEBREW"))
+            Case 0 : S = CDbl(ASGAR(choosen, 1))
+            Case 2 : S = CDbl(ABJAD("ךף", 1, 1))
+            Case 3 : S = CDbl(BASTET(choosen, 1, -2, 1, "HEBREW"))
             Case 5 : S = 1
             Case Else : err = 1
             End Select
         Case "ם"
             Select Case tablo
             Case 1, 4 : S = 600
-            Case 0 : S = CLng(ASGAR(choosen, 1))
-            Case 2 : S = CLng(ABJAD("םם", 1, 1))
-            Case 3 : S = CLng(BASTET(choosen, 1, -2, 1, "HEBREW"))
+            Case 0 : S = CDbl(ASGAR(choosen, 1))
+            Case 2 : S = CDbl(ABJAD("םם", 1, 1))
+            Case 3 : S = CDbl(BASTET(choosen, 1, -2, 1, "HEBREW"))
             Case 5 : S = 1
             Case Else : err = 1
             End Select
         Case "ן"
             Select Case tablo
             Case 1, 4 : S = 700
-            Case 0 : S = CLng(ASGAR(choosen, 1))
-            Case 2 : S = CLng(ABJAD("וןן", 1, 1))
-            Case 3 : S = CLng(BASTET(choosen, 1, -2, 1, "HEBREW"))
+            Case 0 : S = CDbl(ASGAR(choosen, 1))
+            Case 2 : S = CDbl(ABJAD("וןן", 1, 1))
+            Case 3 : S = CDbl(BASTET(choosen, 1, -2, 1, "HEBREW"))
             Case 5 : S = 1
             Case Else : err = 1
             End Select
         Case "ף"
             Select Case tablo
             Case 1, 4 : S = 800
-            Case 0 : S = CLng(ASGAR(choosen, 1))
-            Case 2 : S = CLng(ABJAD("ףא", 1, 1))
-            Case 3 : S = CLng(BASTET(choosen, 1, -2, 1, "HEBREW"))
+            Case 0 : S = CDbl(ASGAR(choosen, 1))
+            Case 2 : S = CDbl(ABJAD("ףא", 1, 1))
+            Case 3 : S = CDbl(BASTET(choosen, 1, -2, 1, "HEBREW"))
             Case 5 : S = 1
             Case Else : err = 1
             End Select
         Case "ץ"
             Select Case tablo
             Case 1, 4 : S = 900
-            Case 0 : S = CLng(ASGAR(choosen, 1))
-            Case 2 : S = CLng(ABJAD("ץדי", 1, 1))
-            Case 3 : S = CLng(BASTET(choosen, 1, -2, 1, "HEBREW"))
+            Case 0 : S = CDbl(ASGAR(choosen, 1))
+            Case 2 : S = CDbl(ABJAD("ץדי", 1, 1))
+            Case 3 : S = CDbl(BASTET(choosen, 1, -2, 1, "HEBREW"))
             Case 5 : S = 1
             Case Else : err = 1
             End Select
         Case "A", "a"
             Select Case tablo
             Case 1, 4 : S = 1
-            Case 0 : S = CLng(ASGAR(choosen, 1))
-            Case 2 : S = CLng(ABJAD("aa", 1, 1))
-            Case 3 : S = CLng(BASTET(choosen, 1, -2, 1, "TURKCE"))
+            Case 0 : S = CDbl(ASGAR(choosen, 1))
+            Case 2 : S = CDbl(ABJAD("aa", 1, 1))
+            Case 3 : S = CDbl(BASTET(choosen, 1, -2, 1, "TURKCE"))
             Case 5 : S = 1
             Case Else : err = 1
             End Select
         Case "B", "b"
             Select Case tablo
             Case 1, 4 : S = 2
-            Case 0 : S = CLng(ASGAR(choosen, 1))
-            Case 2 : S = CLng(ABJAD("be", 1, 1))
-            Case 3 : S = CLng(BASTET(choosen, 1, -2, 1, "TURKCE"))
+            Case 0 : S = CDbl(ASGAR(choosen, 1))
+            Case 2 : S = CDbl(ABJAD("be", 1, 1))
+            Case 3 : S = CDbl(BASTET(choosen, 1, -2, 1, "TURKCE"))
             Case 5 : S = 1
             Case Else : err = 1
             End Select
         Case "C", "c", "Ç", "ç"
             Select Case tablo
             Case 1, 4 : S = 3
-            Case 0 : S = CLng(ASGAR(choosen, 1))
-            Case 2 : S = CLng(ABJAD("ce", 1, 1))
-            Case 3 : S = CLng(BASTET(choosen, 1, -2, 1, "TURKCE"))
+            Case 0 : S = CDbl(ASGAR(choosen, 1))
+            Case 2 : S = CDbl(ABJAD("ce", 1, 1))
+            Case 3 : S = CDbl(BASTET(choosen, 1, -2, 1, "TURKCE"))
             Case 5 : S = 1
             Case Else : err = 1
             End Select
         Case "D", "d"
             Select Case tablo
             Case 1, 4 : S = 4
-            Case 0 : S = CLng(ASGAR(choosen, 1))
-            Case 2 : S = CLng(ABJAD("de", 1, 1))
-            Case 3 : S = CLng(BASTET(choosen, 1, -2, 1, "TURKCE"))
+            Case 0 : S = CDbl(ASGAR(choosen, 1))
+            Case 2 : S = CDbl(ABJAD("de", 1, 1))
+            Case 3 : S = CDbl(BASTET(choosen, 1, -2, 1, "TURKCE"))
             Case 5 : S = 1
             Case Else : err = 1
             End Select
         Case "E", "e"
             Select Case tablo
             Case 1, 4 : S = 5
-            Case 0 : S = CLng(ASGAR(choosen, 1))
-            Case 2 : S = CLng(ABJAD("ee", 1, 1))
-            Case 3 : S = CLng(BASTET(choosen, 1, -2, 1, "TURKCE"))
+            Case 0 : S = CDbl(ASGAR(choosen, 1))
+            Case 2 : S = CDbl(ABJAD("ee", 1, 1))
+            Case 3 : S = CDbl(BASTET(choosen, 1, -2, 1, "TURKCE"))
             Case 5 : S = 1
             Case Else : err = 1
             End Select
         Case "F", "f"
             Select Case tablo
             Case 1, 4 : S = 6
-            Case 0 : S = CLng(ASGAR(choosen, 1))
-            Case 2 : S = CLng(ABJAD("fe", 1, 1))
-            Case 3 : S = CLng(BASTET(choosen, 1, -2, 1, "TURKCE"))
+            Case 0 : S = CDbl(ASGAR(choosen, 1))
+            Case 2 : S = CDbl(ABJAD("fe", 1, 1))
+            Case 3 : S = CDbl(BASTET(choosen, 1, -2, 1, "TURKCE"))
             Case 5 : S = 1
             Case Else : err = 1
             End Select
         Case "G", "g"
             Select Case tablo
             Case 1, 4 : S = 7
-            Case 0 : S = CLng(ASGAR(choosen, 1))
-            Case 2 : S = CLng(ABJAD("ge", 1, 1))
-            Case 3 : S = CLng(BASTET(choosen, 1, -2, 1, "TURKCE"))
+            Case 0 : S = CDbl(ASGAR(choosen, 1))
+            Case 2 : S = CDbl(ABJAD("ge", 1, 1))
+            Case 3 : S = CDbl(BASTET(choosen, 1, -2, 1, "TURKCE"))
             Case 5 : S = 1
             Case Else : err = 1
             End Select
         Case "Ğ", "ğ"
             Select Case tablo
             Case 1, 4 : S = 8
-            Case 0 : S = CLng(ASGAR(choosen, 1))
-            Case 2 : S = CLng(ABJAD("yumuşakge", 1, 1))
-            Case 3 : S = CLng(BASTET(choosen, 1, -2, 1, "TURKCE"))
+            Case 0 : S = CDbl(ASGAR(choosen, 1))
+            Case 2 : S = CDbl(ABJAD("yumuşakge", 1, 1))
+            Case 3 : S = CDbl(BASTET(choosen, 1, -2, 1, "TURKCE"))
             Case 5 : S = 1
             Case Else : err = 1
             End Select
         Case "H", "h"
             Select Case tablo
             Case 1, 4 : S = 9
-            Case 0 : S = CLng(ASGAR(choosen, 1))
-            Case 2 : S = CLng(ABJAD("He", 1, 1))
-            Case 3 : S = CLng(BASTET(choosen, 1, -2, 1, "TURKCE"))
+            Case 0 : S = CDbl(ASGAR(choosen, 1))
+            Case 2 : S = CDbl(ABJAD("He", 1, 1))
+            Case 3 : S = CDbl(BASTET(choosen, 1, -2, 1, "TURKCE"))
             Case 5 : S = 1
             Case Else : err = 1
             End Select
         Case "I", "ı"
             Select Case tablo
             Case 1, 4 : S = 10
-            Case 0 : S = CLng(ASGAR(choosen, 1))
-            Case 2 : S = CLng(ABJAD("ıı", 1, 1))
-            Case 3 : S = CLng(BASTET(choosen, 1, -2, 1, "TURKCE"))
+            Case 0 : S = CDbl(ASGAR(choosen, 1))
+            Case 2 : S = CDbl(ABJAD("ıı", 1, 1))
+            Case 3 : S = CDbl(BASTET(choosen, 1, -2, 1, "TURKCE"))
             Case 5 : S = 1
             Case Else : err = 1
             End Select
         Case "İ", "i"
             Select Case tablo
             Case 1, 4 : S = 20
-            Case 0 : S = CLng(ASGAR(choosen, 1))
-            Case 2 : S = CLng(ABJAD("ii", 1, 1))
-            Case 3 : S = CLng(BASTET(choosen, 1, -2, 1, "TURKCE"))
+            Case 0 : S = CDbl(ASGAR(choosen, 1))
+            Case 2 : S = CDbl(ABJAD("ii", 1, 1))
+            Case 3 : S = CDbl(BASTET(choosen, 1, -2, 1, "TURKCE"))
             Case 5 : S = 1
             Case Else : err = 1
             End Select
         Case "J", "j"
             Select Case tablo
             Case 1, 4 : S = 30
-            Case 0 : S = CLng(ASGAR(choosen, 1))
-            Case 2 : S = CLng(ABJAD("je", 1, 1))
-            Case 3 : S = CLng(BASTET(choosen, 1, -2, 1, "TURKCE"))
+            Case 0 : S = CDbl(ASGAR(choosen, 1))
+            Case 2 : S = CDbl(ABJAD("je", 1, 1))
+            Case 3 : S = CDbl(BASTET(choosen, 1, -2, 1, "TURKCE"))
             Case 5 : S = 1
             Case Else : err = 1
             End Select
         Case "K", "k"
             Select Case tablo
             Case 1, 4 : S = 40
-            Case 0 : S = CLng(ASGAR(choosen, 1))
-            Case 2 : S = CLng(ABJAD("ke", 1, 1))
-            Case 3 : S = CLng(BASTET(choosen, 1, -2, 1, "TURKCE"))
+            Case 0 : S = CDbl(ASGAR(choosen, 1))
+            Case 2 : S = CDbl(ABJAD("ke", 1, 1))
+            Case 3 : S = CDbl(BASTET(choosen, 1, -2, 1, "TURKCE"))
             Case 5 : S = 1
             Case Else : err = 1
             End Select
         Case "L", "l"
             Select Case tablo
             Case 1, 4 : S = 50
-            Case 0 : S = CLng(ASGAR(choosen, 1))
-            Case 2 : S = CLng(ABJAD("le", 1, 1))
-            Case 3 : S = CLng(BASTET(choosen, 1, -2, 1, "TURKCE"))
+            Case 0 : S = CDbl(ASGAR(choosen, 1))
+            Case 2 : S = CDbl(ABJAD("le", 1, 1))
+            Case 3 : S = CDbl(BASTET(choosen, 1, -2, 1, "TURKCE"))
             Case 5 : S = 1
             Case Else : err = 1
             End Select
         Case "M", "m"
             Select Case tablo
             Case 1, 4 : S = 60
-            Case 0 : S = CLng(ASGAR(choosen, 1))
-            Case 2 : S = CLng(ABJAD("me", 1, 1))
-            Case 3 : S = CLng(BASTET(choosen, 1, -2, 1, "TURKCE"))
+            Case 0 : S = CDbl(ASGAR(choosen, 1))
+            Case 2 : S = CDbl(ABJAD("me", 1, 1))
+            Case 3 : S = CDbl(BASTET(choosen, 1, -2, 1, "TURKCE"))
             Case 5 : S = 1
             Case Else : err = 1
             End Select
         Case "N", "n"
             Select Case tablo
             Case 1, 4 : S = 70
-            Case 0 : S = CLng(ASGAR(choosen, 1))
-            Case 2 : S = CLng(ABJAD("ne", 1, 1))
-            Case 3 : S = CLng(BASTET(choosen, 1, -2, 1, "TURKCE"))
+            Case 0 : S = CDbl(ASGAR(choosen, 1))
+            Case 2 : S = CDbl(ABJAD("ne", 1, 1))
+            Case 3 : S = CDbl(BASTET(choosen, 1, -2, 1, "TURKCE"))
             Case 5 : S = 1
             Case Else : err = 1
             End Select
         Case "O", "o"
             Select Case tablo
             Case 1, 4 : S = 80
-            Case 0 : S = CLng(ASGAR(choosen, 1))
-            Case 2 : S = CLng(ABJAD("oo", 1, 1))
-            Case 3 : S = CLng(BASTET(choosen, 1, -2, 1, "TURKCE"))
+            Case 0 : S = CDbl(ASGAR(choosen, 1))
+            Case 2 : S = CDbl(ABJAD("oo", 1, 1))
+            Case 3 : S = CDbl(BASTET(choosen, 1, -2, 1, "TURKCE"))
             Case 5 : S = 1
             Case Else : err = 1
             End Select
         Case "Ö", "ö"
             Select Case tablo
             Case 1, 4 : S = 90
-            Case 0 : S = CLng(ASGAR(choosen, 1))
-            Case 2 : S = CLng(ABJAD("öö", 1, 1))
-            Case 3 : S = CLng(BASTET(choosen, 1, -2, 1, "TURKCE"))
+            Case 0 : S = CDbl(ASGAR(choosen, 1))
+            Case 2 : S = CDbl(ABJAD("öö", 1, 1))
+            Case 3 : S = CDbl(BASTET(choosen, 1, -2, 1, "TURKCE"))
             Case 5 : S = 1
             Case Else : err = 1
             End Select
         Case "P", "p"
             Select Case tablo
             Case 1, 4 : S = 100
-            Case 0 : S = CLng(ASGAR(choosen, 1))
-            Case 2 : S = CLng(ABJAD("pe", 1, 1))
-            Case 3 : S = CLng(BASTET(choosen, 1, -2, 1, "TURKCE"))
+            Case 0 : S = CDbl(ASGAR(choosen, 1))
+            Case 2 : S = CDbl(ABJAD("pe", 1, 1))
+            Case 3 : S = CDbl(BASTET(choosen, 1, -2, 1, "TURKCE"))
             Case 5 : S = 1
             Case Else : err = 1
             End Select
         Case "R", "r"
             Select Case tablo
             Case 1, 4 : S = 200
-            Case 0 : S = CLng(ASGAR(choosen, 1))
-            Case 2 : S = CLng(ABJAD("re", 1, 1))
-            Case 3 : S = CLng(BASTET(choosen, 1, -2, 1, "TURKCE"))
+            Case 0 : S = CDbl(ASGAR(choosen, 1))
+            Case 2 : S = CDbl(ABJAD("re", 1, 1))
+            Case 3 : S = CDbl(BASTET(choosen, 1, -2, 1, "TURKCE"))
             Case 5 : S = 1
             Case Else : err = 1
             End Select
         Case "S", "s"
             Select Case tablo
             Case 1, 4 : S = 300
-            Case 0 : S = CLng(ASGAR(choosen, 1))
-            Case 2 : S = CLng(ABJAD("se", 1, 1))
-            Case 3 : S = CLng(BASTET(choosen, 1, -2, 1, "TURKCE"))
+            Case 0 : S = CDbl(ASGAR(choosen, 1))
+            Case 2 : S = CDbl(ABJAD("se", 1, 1))
+            Case 3 : S = CDbl(BASTET(choosen, 1, -2, 1, "TURKCE"))
             Case 5 : S = 1
             Case Else : err = 1
             End Select
         Case "Ş", "ş"
             Select Case tablo
             Case 1, 4 : S = 400
-            Case 0 : S = CLng(ASGAR(choosen, 1))
-            Case 2 : S = CLng(ABJAD("şe", 1, 1))
-            Case 3 : S = CLng(BASTET(choosen, 1, -2, 1, "TURKCE"))
+            Case 0 : S = CDbl(ASGAR(choosen, 1))
+            Case 2 : S = CDbl(ABJAD("şe", 1, 1))
+            Case 3 : S = CDbl(BASTET(choosen, 1, -2, 1, "TURKCE"))
             Case 5 : S = 1
             Case Else : err = 1
             End Select
         Case "T", "t"
             Select Case tablo
             Case 1, 4 : S = 500
-            Case 0 : S = CLng(ASGAR(choosen, 1))
-            Case 2 : S = CLng(ABJAD("te", 1, 1))
-            Case 3 : S = CLng(BASTET(choosen, 1, -2, 1, "TURKCE"))
+            Case 0 : S = CDbl(ASGAR(choosen, 1))
+            Case 2 : S = CDbl(ABJAD("te", 1, 1))
+            Case 3 : S = CDbl(BASTET(choosen, 1, -2, 1, "TURKCE"))
             Case 5 : S = 1
             Case Else : err = 1
             End Select
         Case "U", "u"
             Select Case tablo
             Case 1, 4 : S = 600
-            Case 0 : S = CLng(ASGAR(choosen, 1))
-            Case 2 : S = CLng(ABJAD("uu", 1, 1))
-            Case 3 : S = CLng(BASTET(choosen, 1, -2, 1, "TURKCE"))
+            Case 0 : S = CDbl(ASGAR(choosen, 1))
+            Case 2 : S = CDbl(ABJAD("uu", 1, 1))
+            Case 3 : S = CDbl(BASTET(choosen, 1, -2, 1, "TURKCE"))
             Case 5 : S = 1
             Case Else : err = 1
             End Select
         Case "Ü", "ü"
             Select Case tablo
             Case 1, 4 : S = 700
-            Case 0 : S = CLng(ASGAR(choosen, 1))
-            Case 2 : S = CLng(ABJAD("üü", 1, 1))
-            Case 3 : S = CLng(BASTET(choosen, 1, -2, 1, "TURKCE"))
+            Case 0 : S = CDbl(ASGAR(choosen, 1))
+            Case 2 : S = CDbl(ABJAD("üü", 1, 1))
+            Case 3 : S = CDbl(BASTET(choosen, 1, -2, 1, "TURKCE"))
             Case 5 : S = 1
             Case Else : err = 1
             End Select
         Case "V", "v"
             Select Case tablo
             Case 1, 4 : S = 800
-            Case 0 : S = CLng(ASGAR(choosen, 1))
-            Case 2 : S = CLng(ABJAD("ve", 1, 1))
-            Case 3 : S = CLng(BASTET(choosen, 1, -2, 1, "TURKCE"))
+            Case 0 : S = CDbl(ASGAR(choosen, 1))
+            Case 2 : S = CDbl(ABJAD("ve", 1, 1))
+            Case 3 : S = CDbl(BASTET(choosen, 1, -2, 1, "TURKCE"))
             Case 5 : S = 1
             Case Else : err = 1
             End Select
         Case "Y", "y"
             Select Case tablo
             Case 1, 4 : S = 900
-            Case 0 : S = CLng(ASGAR(choosen, 1))
-            Case 2 : S = CLng(ABJAD("ye", 1, 1))
-            Case 3 : S = CLng(BASTET(choosen, 1, -2, 1, "TURKCE"))
+            Case 0 : S = CDbl(ASGAR(choosen, 1))
+            Case 2 : S = CDbl(ABJAD("ye", 1, 1))
+            Case 3 : S = CDbl(BASTET(choosen, 1, -2, 1, "TURKCE"))
             Case 5 : S = 1
             Case Else : err = 1
             End Select
         Case "Z", "z"
             Select Case tablo
             Case 1, 4 : S = 1000
-            Case 0 : S = CLng(ASGAR(choosen, 1))
-            Case 2 : S = CLng(ABJAD("ze", 1, 1))
-            Case 3 : S = CLng(BASTET(choosen, 1, -2, 1, "TURKCE"))
+            Case 0 : S = CDbl(ASGAR(choosen, 1))
+            Case 2 : S = CDbl(ABJAD("ze", 1, 1))
+            Case 3 : S = CDbl(BASTET(choosen, 1, -2, 1, "TURKCE"))
             Case 5 : S = 1
             Case Else : err = 1
             End Select
@@ -830,7 +830,7 @@ Sub ABJAD(Optional metin As String, Optional tablo As Variant, Optional shadda A
                     C = 1
                     Do
                         choosen = MID(metin, counter - C, 1)
-                        S = CLng(ABJAD(choosen, tablo, 1))
+                        S = CDbl(ABJAD(choosen, tablo, 1))
                         C = C + 1
                     Loop Until SAF(choosen, "") <> ""
                     SH = SH + 1
@@ -841,7 +841,7 @@ Sub ABJAD(Optional metin As String, Optional tablo As Variant, Optional shadda A
                 C = 1
                 Do
                     choosen = MID(metin, counter - C, 1)
-                    If choosen = "ـ" Then S = CLng(ABJAD("ا", tablo, 1))
+                    If choosen = "ـ" Then S = CDbl(ABJAD("ا", tablo, 1))
                     C = C + 1
                 Loop Until SAF(choosen, "") <> "" Or choosen = "ـ"
             Case " " : space = space + 1
@@ -880,8 +880,8 @@ Sub ABJAD(Optional metin As String, Optional tablo As Variant, Optional shadda A
     Case 3 : ABJAD = "Şedde Ayarı?"
     End Select
     ReDim S, SM, N
-End Sub
-Sub WORDBYWORD(Optional klmmetin As String, Optional tablo As Variant, Optional shadda As Variant, Optional detail As Variant) As String
+End Function
+Function WORDBYWORD(Optional klmmetin As String, Optional tablo As Variant, Optional shadda As Variant, Optional detail As Variant) As String
     'Bu fonksiyonu kullandığınız hücreler için metin Kaydır seçeneğini etkinleştirirseniz daha düzgün çalışıyor, parametreleri ABJAD() fonksiyonuyla aynı'
     Dim content, word As String
     content = ""
@@ -901,11 +901,11 @@ Sub WORDBYWORD(Optional klmmetin As String, Optional tablo As Variant, Optional 
     Next
     ReDim word, calculation, content
     WORDBYWORD = content
-End Sub
-Sub BASTET(Optional metin As String, Optional MT As Variant, Optional tablo As Variant, Optional shadda As Variant, Optional language As Variant, Optional  detail As Variant) As String
+End Function
+Function BASTET(Optional metin As String, Optional MT As Variant, Optional tablo As Variant, Optional shadda As Variant, Optional language As Variant, Optional  detail As Variant) As Variant
     Dim HM, invertablo, err As Integer : err = 0
     Dim Baster, NS As String
-    Select Case CStr(CLng(metin))
+    Select Case CStr(CDbl(metin))
     Case metin
         Baster = metin
     Case Else
@@ -919,8 +919,8 @@ Sub BASTET(Optional metin As String, Optional MT As Variant, Optional tablo As V
         NS = NUTKET(Baster, UCase(language))
         Baster = 0
         Select Case tablo
-        Case 0 To 15 : Baster = CLng(ABJAD(NS, tablo, 1)) + CLng(ABJAD(NS, 5, 1))
-        Case -16 To -1 : invertablo = (-1 * tablo) - 1 : Baster = CLng(ABJAD(NS, invertablo, 1))
+        Case 0 To 15 : Baster = CDbl(ABJAD(NS, tablo, 1)) + CDbl(ABJAD(NS, 5, 1))
+        Case -16 To -1 : invertablo = (-1 * tablo) - 1 : Baster = CDbl(ABJAD(NS, invertablo, 1))
         Case Else : Baster = "Tablo Kodu?"
         End Select
     Next HM
@@ -933,8 +933,8 @@ Sub BASTET(Optional metin As String, Optional MT As Variant, Optional tablo As V
     Case 1 : BASTET = "Dil Tanımı?"
     Case Else
     End Select
-End Sub
-Sub UNSUR(Optional metin, Optional otabiat As Variant, Optional otype As Variant, Optional shadda As Integer, Optional guide As Variant) As String
+End Function
+Function UNSUR(Optional metin, Optional otabiat As Variant, Optional otype As Variant, Optional shadda As Integer, Optional guide As Variant) As String
     Dim counter, adet As Integer
     Dim choosen, liste As String
     For counter = 1 To LEN(metin)
@@ -1223,8 +1223,8 @@ Sub UNSUR(Optional metin, Optional otabiat As Variant, Optional otype As Variant
     Case "liste", "list", 1 : UNSUR = liste
     Case "adet", "amount", 0 : UNSUR = adet
     End Select
-End Sub
-Sub SAY(Optional metin As String, Optional met As String, Optional stype As Variant, Optional fastmode As Variant) As Integer
+End Function
+Function SAY(Optional metin As String, Optional met As String, Optional stype As Variant, Optional fastmode As Variant) As Double
     Dim CA, counter As Integer
     Dim choosen     As String
     If fastmode <> 1 Then metin = SAF(metin, "") : met = SAF(met, "")
@@ -1263,8 +1263,8 @@ Sub SAY(Optional metin As String, Optional met As String, Optional stype As Vari
             End If
         End Select
     Next
-End Sub
-Sub SAF(Optional metin As String, Optional ayrac As Variant, Optional shadda As Integer) As String
+End Function
+Function SAF(Optional metin As String, Optional ayrac As Variant, Optional shadda As Integer) As String
     Dim counter     As Integer
     Dim choosen, S, irun As String : SAF = ""
     Select Case ayrac
@@ -1313,8 +1313,8 @@ Sub SAF(Optional metin As String, Optional ayrac As Variant, Optional shadda As 
         SAF = SAF & S
         ReDim choosen, S
     Next counter
-End Sub
-Sub TEKSIR(Optional metin As String, Optional ayrac As String, Optional shadda As Integer) As String
+End Function
+Function TEKSIR(Optional metin As String, Optional ayrac As String, Optional shadda As Integer) As String
     Dim counter, produce, inverse, LengthDouble As Integer : LengthDouble = 0
     Dim newmetin, IKSIR, turn, result, Nothing As String
     Select Case shadda
@@ -1337,8 +1337,8 @@ Sub TEKSIR(Optional metin As String, Optional ayrac As String, Optional shadda A
         newmetin = SAF(IKSIR, 0)
         ReDim IKSIR, result, inverse, newmetin
     Next produce
-End Sub
-Sub NUMBERS2ARAB(Optional metin As String) As String
+End Function
+Function NUMBERS2ARAB(Optional metin As String) As String
     Dim counter     As Integer
     Dim choosen, NA As String : NA = "" : NUMBERS2ARAB = ""
     For counter = 1 To LEN(metin)
@@ -1360,10 +1360,10 @@ Sub NUMBERS2ARAB(Optional metin As String) As String
     Next
     NUMBERS2ARAB = NA
     ReDim NUMBERS2ARAB, NA
-End Sub
-Sub HUDDAM(Optional num As LONG, Optional htype As Variant, Optional method As Variant) As String
+End Function
+Function HUDDAM(Optional num As Double, Optional htype As Variant, Optional method As Variant) As String
     Dim hpart(19), rest, counts, counting, counted, counter, part, preffixdepart As Integer : counts = 1
-    Dim suffix, preffix As Long
+    Dim suffix, preffix As Double
     Dim GH, H       As String : GH = ""
     Select Case method
     Case 7
@@ -1371,10 +1371,10 @@ Sub HUDDAM(Optional num As LONG, Optional htype As Variant, Optional method As V
     Case Else : method = 1
     End Select
     Select Case UCase(htype)
-    Case "ULVI" : suffix = CLng(ABJAD("ئيل", method, 1))
-    Case "SUFLI" : suffix = CLng(ABJAD("يوش", method, 1))
-    Case "ŞER" : suffix = CLng(ABJAD("طيش", method, 1))
-    Case Else : suffix = CLng(ABJAD(htype, method, 1))
+    Case "ULVI" : suffix = CDbl(ABJAD("ئيل", method, 1))
+    Case "SUFLI" : suffix = CDbl(ABJAD("يوش", method, 1))
+    Case "ŞER" : suffix = CDbl(ABJAD("طيش", method, 1))
+    Case Else : suffix = CDbl(ABJAD(htype, method, 1))
     End Select
     If suffix > num Then
         Do
@@ -1572,13 +1572,13 @@ Sub HUDDAM(Optional num As LONG, Optional htype As Variant, Optional method As V
     End Select
     ReDim suffix, preffix
     HUDDAM = GH
-End Sub
-Sub NUMEROLOG(Optional metin As String, Optional tablo As String, Optional outas As Variant, Optional shadda As Variant) As String
+End Function
+Function NUMEROLOG(Optional metin As String, Optional tablo As String, Optional outas As Variant, Optional shadda As Variant) As String
     Dim SM, S, C, D, N, sesli, sessiz, err, counter, space, hrk As Integer : NUMEROLOG = 0 : S = 0 : N = 0 : sesli = 0 : sessiz = 0
     Dim M, nitem, nesoohc, choosen As String : nitem = "" : err = 0 : tablo = LCase(tablo) : metin = UCase(metin)
     Select Case tablo
     Case "date"
-        S = CLng(CStr(Year(CLng(metin))) & CStr(Month(CLng(metin))) & CStr(Day(CLng(metin))))
+        S = CDbl(CStr(Year(CDbl(metin))) & CStr(Month(CDbl(metin))) & CStr(Day(CDbl(metin))))
     Case Else
         For counter = 1 To LEN(metin)
             choosen = MID(metin, counter, 1)
@@ -2055,7 +2055,7 @@ Sub NUMEROLOG(Optional metin As String, Optional tablo As String, Optional outas
                         C = 1
                         Do
                             M = MID(metin, counter - C, 1)
-                            S = CLng(NUMEROLOG(M, tablo, outas, 1))
+                            S = CDbl(NUMEROLOG(M, tablo, outas, 1))
                             C = C + 1
                         Loop Until S <> 0
                     Case Else : err = 3
@@ -2065,7 +2065,7 @@ Sub NUMEROLOG(Optional metin As String, Optional tablo As String, Optional outas
                     C = 1
                     Do
                         M = MID(metin, counter - C, 1)
-                        If M = "ـ" Then S = CLng(NUMEROLOG("ا", tablo, outas, 1))
+                        If M = "ـ" Then S = CDbl(NUMEROLOG("ا", tablo, outas, 1))
                         C = C + 1
                     Loop Until S <> 0 Or M = "ـ"
                 Case " " : space = space + 1 : S = 0
@@ -2101,8 +2101,8 @@ Sub NUMEROLOG(Optional metin As String, Optional tablo As String, Optional outas
     Case 3 : NUMEROLOG = "Şedde Ayarı?"
     End Select
     ReDim metin, SM, S, sesli, sessiz, N, C, D, M, nitem, tablo, err
-End Sub
-Sub TESBIH(Optional zkr As Variant, Optional minimum As Double, Optional boncuk As Double, Optional bolum As Double) As String
+End Function
+Function TESBIH(Optional zkr As Variant, Optional minimum As Double, Optional boncuk As Double, Optional bolum As Double) As String
     Dim outp        As String
     Dim turn, part, rest(1) As Double
     zkr = CDbl(zkr) : If zkr < minimum Then zkr = zkr * zkr
@@ -2115,8 +2115,8 @@ Sub TESBIH(Optional zkr As Variant, Optional minimum As Double, Optional boncuk 
     If rest(1) > 0 Then outp = outp & "[" & rest(1) & " kalan]"
     ReDim outp
     TESBIH = outp
-End Sub
-Sub ALTAYAZ(Optional girdi As Variant) As String
+End Function
+Function ALTAYAZ(Optional girdi As Variant) As String
     Dim counter     As Integer
     Dim choosen, ss As String : ss = "" : ALTAYAZ = ""
     For counter = 1 To LEN(girdi)
@@ -2143,17 +2143,17 @@ Sub ALTAYAZ(Optional girdi As Variant) As String
     Next
     ALTAYAZ = ss
     ReDim ALTAYAZ, ss
-End Sub
-Sub RAKAMTOPLA(Optional valuez As Long, Optional d1g1tamount As Integer) As String
+End Function
+Function RAKAMTOPLA(Optional valuez As Double, Optional d1g1tamount As Integer) As String
     Dim hepsi       As String
     Dim counter     As Integer
-    Dim NewSum, choosen As Long
+    Dim NewSum, choosen As Double
     If d1g1tamount = 0 Then
         hepsi = CStr(valuez)
         Do Until LEN(CStr(valuez)) = 1
             NewSum = 0
             For counter = 1 To LEN(CStr(valuez))
-                choosen = CLng(MID(CStr(valuez), counter, 1))
+                choosen = CDbl(MID(CStr(valuez), counter, 1))
                 NewSum = NewSum + choosen
             Next : valuez = NewSum : hepsi = hepsi & " ► " & NewSum
         Loop : ReDim hepsi : RAKAMTOPLA = hepsi
@@ -2166,17 +2166,17 @@ Sub RAKAMTOPLA(Optional valuez As Long, Optional d1g1tamount As Integer) As Stri
             Next : valuez = NewSum
         Loop : ReDim d1g1tamount, valuez : RAKAMTOPLA = valuez
     End If
-End Sub
-Sub NEWLINE(Optional amount As Long) As String
-    Dim rows        As Long
+End Function
+Function NEWLINE(Optional amount As Double) As String
+    Dim rows        As Double
     Dim NL          As String : NL = ""
     For rows = 1 To amount
         NL = NL & Chr(10) & Chr(13)
     Next rows
     NEWLINE = NL
-End Sub
+End Function
 Function ASGAR(Optional harf As String, Optional level As Integer) As String
-    Dim C           As Long
+    Dim C           As Double
     C = ABJAD(harf, level, 1)
     If C > 12 Then
         ASGAR = C - (12 * DUZLE(C / 12))
@@ -2184,7 +2184,7 @@ Function ASGAR(Optional harf As String, Optional level As Integer) As String
         ASGAR = C
     End If
 End Function
-Function DUZLE(Optional numbertofloor As Double) As Long
+Function DUZLE(Optional numbertofloor As Double) As Double
     Dim mathfloor   As Object
     Dim P(1)        As Double
     mathfloor = CreateUnoService("com.sun.star.sheet.FunctionAccess")
@@ -2382,7 +2382,7 @@ Function NUTKET(ByVal MyNumber, Lang)
         Place(4) = "milyar "
         Place(5) = "trilyon "
         Do While MyNumber <> ""
-            If Count = 2 And CLng(Right(MyNumber, 3)) = 1 Then
+            If Count = 2 And CDbl(Right(MyNumber, 3)) = 1 Then
                 Temp = ""
                 Spell = Place(Count) & Spell
             Else
@@ -2462,7 +2462,7 @@ Function GetHundreds(ByVal MyNumber, Lang, Optional Count, Optional Spell)
         End If
     Case "TURKCE"
         If Mid(MyNumber, 1, 1) <> "0" Then
-            If CLng(Mid(MyNumber, 1, 1)) > 1 Then
+            If CDbl(Mid(MyNumber, 1, 1)) > 1 Then
                 Result = GetDigit(Mid(MyNumber, 1, 1), Lang) & " yüz "
             Else
                 Result = "yüz "
@@ -2660,7 +2660,7 @@ Function GetDigit(Digit, Lang)
     Case Else
     End Select
 End Function
-Sub HEPART(Optional npotent As Long, Optional memec As Integer) As Double
+Function HEPART(Optional npotent As Double, Optional memec As Integer) As Double
     Dim result      As Double
     Dim R, kat	As Double: kat = 2
     result = 0
@@ -2681,4 +2681,4 @@ Sub HEPART(Optional npotent As Long, Optional memec As Integer) As Double
         HEPART = result
     End If
     726 If result = 0 Then MsgBox "HEPART() için değişken seçimlik değil; fakat, makrolar harika çalışıyorlar"
-End Sub
+End Function
