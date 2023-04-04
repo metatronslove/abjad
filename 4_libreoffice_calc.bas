@@ -1573,7 +1573,7 @@ Function HUDDAM(Optional num As Double, Optional htype As Variant, Optional meth
     ReDim suffix, preffix
     HUDDAM = GH
 End Function
-Function NUMEROLOG(Optional metin As String, Optional tablo As String, Optional outas As Variant, Optional shadda As Variant) As String
+Function NUMEROLOG(Optional metin As String, Optional tablo As String, Optional outas As Variant, Optional shadda As Variant) As Variant
     Dim SM, S, C, D, N, sesli, sessiz, err, counter, space, hrk As Integer : NUMEROLOG = 0 : S = 0 : N = 0 : sesli = 0 : sessiz = 0
     Dim M, nitem, nesoohc, choosen As String : nitem = "" : err = 0 : tablo = LCase(tablo) : metin = UCase(metin)
     Select Case tablo
