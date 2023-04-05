@@ -731,262 +731,7 @@ def bastet(metin, mt, tablo=1, shadda=1, language='ARABIC', detail=0):
 				baster = abjad(metin, invertablo, shadda)
 		for hm in range(1, mt + 1):
 			ns = ''
-			for bc in range(0, len(str(baster))):
-				turn = len(str(baster)) - bc - 1
-				choosen = int(str(baster)[turn])
-				if language == 'ARABIC':
-					if bc == 0:
-						if choosen == 1: ns = ' احد' + ns
-						elif choosen == 2: ns = ' اثنان' + ns
-						elif choosen == 3: ns = ' ثلاثة' + ns
-						elif choosen == 4: ns = ' أربعة' + ns
-						elif choosen == 5: ns = ' خمسة' + ns
-						elif choosen == 6: ns = ' ستة' + ns
-						elif choosen == 7: ns = ' سبعة' + ns
-						elif choosen == 8: ns = ' ثمانية' + ns
-						elif choosen == 9: ns = ' تسعة' + ns
-					elif bc == 1:
-						if choosen == 1: ns = ' عشرة' + ns
-						elif choosen == 2: ns = ' عشرين' + ns
-						elif choosen == 3: ns = ' ثلاثين' + ns
-						elif choosen == 4: ns = ' أربعين' + ns
-						elif choosen == 5: ns = ' خمسين' + ns
-						elif choosen == 6: ns = ' ستين' + ns
-						elif choosen == 7: ns = ' سبعين' + ns
-						elif choosen == 8: ns = ' ثمانين' + ns
-						elif choosen == 9: ns = ' تسعين' + ns
-					elif bc == 2:
-						if choosen == 1: ns = ' مائة' + ns
-						elif choosen == 2: ns = ' مائتان' + ns
-						elif choosen == 3: ns = ' ثلثمائة' + ns
-						elif choosen == 4: ns = ' أربعمائة' + ns
-						elif choosen == 5: ns = ' خمسمائة' + ns
-						elif choosen == 6: ns = ' ستمائة' + ns
-						elif choosen == 7: ns = ' سبعمائة' + ns
-						elif choosen == 8: ns = ' ثمانمائة' + ns
-						elif choosen == 9: ns = ' تسعمائة' + ns
-					elif bc == 3:
-						if choosen == 0 and len(str(baster)) > 4: ns = ' ألأف' + ns
-						elif choosen == 1: ns = ' ألف' + ns
-						elif choosen == 2: ns = ' ألفان' + ns
-						elif choosen == 3: ns = ' ثلاثة آلاف' + ns
-						elif choosen == 4: ns = ' أربعة آلاف' + ns
-						elif choosen == 5: ns = ' خمسة آلاف' + ns
-						elif choosen == 6: ns = ' ستة آلاف' + ns
-						elif choosen == 7: ns = ' سبعة آلاف' + ns
-						elif choosen == 8: ns = ' ثمانية آلاف' + ns
-						elif choosen == 9: ns = ' تسعة آلاف' + ns
-					elif bc == 4:
-						if choosen == 1: ns = ' عشرة ' + ns
-						elif choosen == 2: ns = ' عشرين ' + ns
-						elif choosen == 3: ns = ' ثلاثون ' + ns
-						elif choosen == 4: ns = ' أربعين ' + ns
-						elif choosen == 5: ns = ' خمسون ' + ns
-						elif choosen == 6: ns = ' ستين ' + ns
-						elif choosen == 7: ns = ' سبعين ' + ns
-						elif choosen == 8: ns = ' ثمانين ' + ns
-						elif choosen == 9: ns = ' تسعين ' + ns
-					elif bc == 5:
-						if choosen == 1: ns = ' مائة ' + ns
-						elif choosen == 2: ns = ' مائتان ' + ns
-						elif choosen == 3: ns = ' ثلاثمائة ' + ns
-						elif choosen == 4: ns = ' أربعمائة ' + ns
-						elif choosen == 5: ns = ' خمسمائة ' + ns
-						elif choosen == 6: ns = ' ستمائة ' + ns
-						elif choosen == 7: ns = ' سبعمائة ' + ns
-						elif choosen == 8: ns = ' ثمانمائة ' + ns
-						elif choosen == 9: ns = ' تسعمائة ' + ns
-					elif bc == 6:
-						if choosen == 0 and len(str(baster)) > 7: ns = ' مليون' + ns
-						elif choosen == 1: ns = ' مليون' + ns
-						elif choosen == 2: ns = ' مليونان' + ns
-						elif choosen == 3: ns = ' ثلاثة مليون' + ns
-						elif choosen == 4: ns = ' أربعة مليون' + ns
-						elif choosen == 5: ns = ' خمسة مليون' + ns
-						elif choosen == 6: ns = ' ستة مليون' + ns
-						elif choosen == 7: ns = ' سبعة مليون' + ns
-						elif choosen == 8: ns = ' ثمانية مليون' + ns
-						elif choosen == 9: ns = ' تسعة مليون' + ns
-					elif bc == 7:
-						if choosen == 1: ns = ' عشرة ' + ns
-						elif choosen == 2: ns = ' عشرين ' + ns
-						elif choosen == 3: ns = ' ثلاثين ' + ns
-						elif choosen == 4: ns = ' أربعين ' + ns
-						elif choosen == 5: ns = ' خمسين ' + ns
-						elif choosen == 6: ns = ' ستين ' + ns
-						elif choosen == 7: ns = ' سبعون ' + ns
-						elif choosen == 8: ns = ' ثمانون ' + ns
-						elif choosen == 9: ns = ' تسعين '
-				elif language == 'HEBREW':
-					if bc == 0:
-						if choosen == 1: ns = ' אחת' + ns
-						elif choosen == 2: ns = ' שתים' + ns
-						elif choosen == 3: ns = ' שלש' + ns
-						elif choosen == 4: ns = ' ארבע' + ns
-						elif choosen == 5: ns = ' חמש' + ns
-						elif choosen == 6: ns = ' שש' + ns
-						elif choosen == 7: ns = ' שבע' + ns
-						elif choosen == 8: ns = ' שמונה' + ns
-						elif choosen == 9: ns = ' תשע' + ns
-					elif bc == 1:
-						if choosen == 1: ns = ' עשר' + ns
-						elif choosen == 2: ns = ' עשרים' + ns
-						elif choosen == 3: ns = ' שלושים' + ns
-						elif choosen == 4: ns = ' ארבעים' + ns
-						elif choosen == 5: ns = ' חמישים' + ns
-						elif choosen == 6: ns = ' ששים' + ns
-						elif choosen == 7: ns = ' שבעים' + ns
-						elif choosen == 8: ns = ' שמונים' + ns
-						elif choosen == 9: ns = ' תשעים' + ns
-					elif bc == 2:
-						if choosen == 1: ns = ' מאה' + ns
-						elif choosen == 2: ns = ' מָאתַיִם' + ns
-						elif choosen == 3: ns = ' שְׁלוֹשׁ מֵאוֹת' + ns
-						elif choosen == 4: ns = ' אַרְבַּע מֵאוֹת' + ns
-						elif choosen == 5: ns = ' חֲמֵשׁ מֵאוֹת' + ns
-						elif choosen == 6: ns = ' שֵׁשׁ מֵאוֹת' + ns
-						elif choosen == 7: ns = ' שְׁבַע מֵאוֹת' + ns
-						elif choosen == 8: ns = ' שְׁמוֹנֶה מֵאוֹת' + ns
-						elif choosen == 9: ns = ' תְּשַׁע מֵאוֹת' + ns
-					elif bc == 3:
-						if choosen == 0 and len(str(baster)) > 4: ns = ' אלף' + ns
-						elif choosen == 1: ns = ' אלף' + ns
-						elif choosen == 2: ns = ' אלפיים' + ns
-						elif choosen == 3: ns = ' שלושה אלף' + ns
-						elif choosen == 4: ns = ' ארבעת אלפים' + ns
-						elif choosen == 5: ns = ' חמשת אלפים' + ns
-						elif choosen == 6: ns = ' ששת אלפים' + ns
-						elif choosen == 7: ns = ' שבעת אלפים' + ns
-						elif choosen == 8: ns = ' שמונת אלפים' + ns
-						elif choosen == 9: ns = ' תשעת אלפים' + ns
-					elif bc == 4:
-						if choosen == 1: ns = ' עשרתים' + ns
-						elif choosen == 2: ns = ' עשרים ' + ns
-						elif choosen == 3: ns = ' שלושים ' + ns
-						elif choosen == 4: ns = ' ארבעים ' + ns
-						elif choosen == 5: ns = ' חמישים ' + ns
-						elif choosen == 6: ns = ' שישים ' + ns
-						elif choosen == 7: ns = ' שבעים ' + ns
-						elif choosen == 8: ns = ' שמונים ' + ns
-						elif choosen == 9: ns = ' תשעים ' + ns
-					elif bc == 5:
-						if choosen == 1: ns = ' מאה ' + ns
-						elif choosen == 2: ns = ' מאתיים ' + ns
-						elif choosen == 3: ns = ' שלוש מאות ' + ns
-						elif choosen == 4: ns = ' ארבע מאות ' + ns
-						elif choosen == 5: ns = ' חמש מאות ' + ns
-						elif choosen == 6: ns = ' שש מאות ' + ns
-						elif choosen == 7: ns = ' שבע מאות ' + ns
-						elif choosen == 8: ns = ' שמונה מאות ' + ns
-						elif choosen == 9: ns = ' תשע מאות ' + ns
-					elif bc == 6:
-						if choosen == 0 and len(str(baster)) > 7: ns = ' מיליון' + ns
-						elif choosen == 1: ns = ' מיליון' + ns
-						elif choosen == 2: ns = ' שני מיליון' + ns
-						elif choosen == 3: ns = ' שלושה מיליון' + ns
-						elif choosen == 4: ns = ' ארבע מיליון' + ns
-						elif choosen == 5: ns = ' חמישה מיליון' + ns
-						elif choosen == 6: ns = ' שישה מיליון' + ns
-						elif choosen == 7: ns = ' שבעה מיליון' + ns
-						elif choosen == 8: ns = ' שמונה מליון' + ns
-						elif choosen == 9: ns = ' תשעה מיליון' + ns
-					elif bc == 7:
-						if choosen == 1: ns = ' עשר ' + ns
-						elif choosen == 2: ns = ' עשרים ' + ns
-						elif choosen == 3: ns = ' שלושים ' + ns
-						elif choosen == 4: ns = ' ארבעים ' + ns
-						elif choosen == 5: ns = ' חמישים ' + ns
-						elif choosen == 6: ns = ' שישים ' + ns
-						elif choosen == 7: ns = ' שבעים ' + ns
-						elif choosen == 8: ns = ' שמונים ' + ns
-						elif choosen == 9: ns = ' תשעים '
-				if language == 'TURKCE':
-					if bc == 0:
-						if choosen == 1: ns = ' bir' + ns
-						elif choosen == 2: ns = ' iki' + ns
-						elif choosen == 3: ns = ' üç' + ns
-						elif choosen == 4: ns = ' dört' + ns
-						elif choosen == 5: ns = ' beş' + ns
-						elif choosen == 6: ns = ' altı' + ns
-						elif choosen == 7: ns = ' yedi' + ns
-						elif choosen == 8: ns = ' sekiz' + ns
-						elif choosen == 9: ns = ' dokuz' + ns
-					elif bc == 1:
-						if choosen == 1: ns = ' on' + ns
-						elif choosen == 2: ns = ' yirmi' + ns
-						elif choosen == 3: ns = ' otuz' + ns
-						elif choosen == 4: ns = ' kırk' + ns
-						elif choosen == 5: ns = ' elli' + ns
-						elif choosen == 6: ns = ' altmış' + ns
-						elif choosen == 7: ns = ' yetmiş' + ns
-						elif choosen == 8: ns = ' seksen' + ns
-						elif choosen == 9: ns = ' doksan' + ns
-					elif bc == 2:
-						if choosen == 1: ns = ' yüz' + ns
-						elif choosen == 2: ns = ' iki yüz' + ns
-						elif choosen == 3: ns = ' üç yüz' + ns
-						elif choosen == 4: ns = ' dört yüz' + ns
-						elif choosen == 5: ns = ' beş yüz' + ns
-						elif choosen == 6: ns = ' altı yüz' + ns
-						elif choosen == 7: ns = ' yedi yüz' + ns
-						elif choosen == 8: ns = ' sekiz yüz' + ns
-						elif choosen == 9: ns = ' dokuz yüz' + ns
-					elif bc == 3:
-						if choosen == 0 and len(str(baster)) > 4:
-								ns = ' bin' + ns
-						elif choosen == 1:
-							if len(str(baster)) > 4: ns = ' bir bin' + ns
-							else: ns = ' bin' + ns
-						elif choosen == 2: ns = ' iki bin' + ns
-						elif choosen == 3: ns = ' üç bin' + ns
-						elif choosen == 4: ns = ' dört bin' + ns
-						elif choosen == 5: ns = ' beş bin' + ns
-						elif choosen == 6: ns = ' altı bin' + ns
-						elif choosen == 7: ns = ' yedi bin' + ns
-						elif choosen == 8: ns = ' sekiz bin' + ns
-						elif choosen == 9: ns = ' dokuz bin' + ns
-					elif bc == 4:
-						if choosen == 1: ns = ' on' + ns
-						elif choosen == 2: ns = ' yirmi' + ns
-						elif choosen == 3: ns = ' otuz' + ns
-						elif choosen == 4: ns = ' kırk' + ns
-						elif choosen == 5: ns = ' elli' + ns
-						elif choosen == 6: ns = ' altmıi' + ns
-						elif choosen == 7: ns = ' yetmiş' + ns
-						elif choosen == 8: ns = ' seksen' + ns
-						elif choosen == 9: ns = ' doksan' + ns
-					elif bc == 5:
-						if choosen == 1: ns = ' yüz' + ns
-						elif choosen == 2: ns = 'iki yüz' + ns
-						elif choosen == 3: ns = ' üç yüz' + ns
-						elif choosen == 4: ns = ' dört yüz' + ns
-						elif choosen == 5: ns = ' beş yüz' + ns
-						elif choosen == 6: ns = ' altı yüz' + ns
-						elif choosen == 7: ns = ' yedi yüz' + ns
-						elif choosen == 8: ns = ' sekiz yüz' + ns
-						elif choosen == 9: ns = ' dokuz yüz' + ns
-					elif bc == 6:
-						if choosen == 0 and len(str(baster)) > 7: ns = ' milyon' + ns
-						elif choosen == 1: ns = ' bir milyon' + ns
-						elif choosen == 2: ns = ' iki milyon' + ns
-						elif choosen == 3: ns = ' üç milyon' + ns
-						elif choosen == 4: ns = ' dört milyon' + ns
-						elif choosen == 5: ns = ' beş milyon' + ns
-						elif choosen == 6: ns = ' altı milyon' + ns
-						elif choosen == 7: ns = ' yedi milyon' + ns
-						elif choosen == 8: ns = ' sekiz milyon' + ns
-						elif choosen == 9: ns = ' dokuz milyon' + ns
-					elif bc == 7:
-						if choosen == 1: ns = ' on' + ns
-						elif choosen == 2: ns = ' yirmi' + ns
-						elif choosen == 3: ns = ' otuz' + ns
-						elif choosen == 4: ns = ' kırk' + ns
-						elif choosen == 5: ns = ' elli' + ns
-						elif choosen == 6: ns = ' altmış' + ns
-						elif choosen == 7: ns = ' yetmiş' + ns
-						elif choosen == 8: ns = ' seksen' + ns
-						elif choosen == 9: ns = ' doksan' + ns
-				else: err = 1
+			ns = nutket(baster, language.upper())
 			baster = 0
 			if tablo in range(0, 16): baster = abjad(ns, tablo, 1) + abjad(ns, 5, 1)
 			elif tablo in range(-16, 0): baster = abjad(ns, invertablo, 1)
@@ -1294,6 +1039,289 @@ def asgar(harf, level=1):
 		else: return c
 	except:
 		return 'Error?'
+		
+def nutket(mynumber, language='ARABIC'):
+	try:
+		temp = spell = ''
+		count = 0
+		if language.upper() == 'ARABIC':
+			if mynumber == 0 and count == 0: return 'صفر'
+			mynumber = str(mynumber)
+			PlaceOnes = ['', 'ألف', 'مليون', 'مليار', 'تريليون']
+			PlaceTwos = ['', 'ألفان', 'مليونان', 'ملياران', 'تريليونان']
+			PlaceAppent = ['', 'ألفاً', 'مليوناً', 'ملياراً', 'تريليوناً']
+			PlacePlural = ['', 'آلاف', 'ملايين', 'مليارات', 'تريليونات']
+			while mynumber != '':
+				EventHappenned = 0
+				if count > 0 and float(mynumber[-3:]) == 1:
+					temp = ''
+					if len(spell) > 0: spell = PlaceOnes[count] + ' و ' + spell
+					else: spell = PlaceOnes[count] + ' ' + spell
+				elif count > 0 and float(mynumber[-3:]) == 2:
+					temp = ''
+					if len(spell) > 0: spell = PlaceTwos[count] + ' و ' + spell
+					else: spell = PlaceTwos[count] + ' ' + spell
+				else: temp = GetHundreds(mynumber[-3:], language.upper(), count, spell)
+				if temp != '':
+					if count > 0:
+						if len(spell) > 0: spell = ' و ' + spell
+						if float(mynumber[-3:]) != 2:
+							if math.floor(float(mynumber[-3:]) / 100) != 1:
+								if float(mynumber[-3:]) >= 3 and float(mynumber[-3:]) <= 10:
+									spell =  ' ' + PlacePlural[count] + spell
+									EventHappenned = 1
+					if EventHappenned == 0:
+						if len(spell) > 0: spell =  ' ' + PlaceAppent[count] + spell
+						else: spell =  ' ' + PlaceOnes[count] + spell
+						EventHappenned = 0
+					spell = temp + spell
+					temp = ''
+				if len(mynumber) > 3: mynumber = mynumber[:len(mynumber) - 3]
+				else: mynumber = ''
+				count += 1
+		elif language.upper() == 'HEBREW':
+			if mynumber == 0 and count == 0: return 'אֶפֶס'
+			mynumber = str(mynumber)
+			PlaceOnes = ['', 'אלף', 'מיליון', 'מיליארד', 'טריליון']
+			PlaceTwos = ['', 'אלפיים ', 'שני מיליון ', 'שני מיליארד ', 'שני טריליון ']
+			PlaceAppent = ['', 'אלפא', 'מיליון', 'מיליארד', 'טריליון']
+			PlacePlural = ['', 'אלפים', 'מיליונים', 'מיליארדים', 'טריליונים']
+			while mynumber != '':
+				EventHappenned = 0
+				if count > 0 and float(mynumber[-3:]) == 1:
+					temp = ''
+					if len(spell) > 0: spell = PlaceOnes[count] + ' ו ' + spell
+					else: spell = PlaceOnes[count] + ' ' + spell
+				elif count > 0 and float(mynumber[-3:]) == 2:
+					temp = ''
+					if len(spell) > 0: spell = PlaceTwos[count] + ' ו ' + spell
+					else: spell = PlaceTwos[count] + ' ' + spell
+				else: temp = GetHundreds(mynumber[-3:], language.upper(), count, spell)
+				if temp != '':
+					if count > 0:
+						if len(spell) > 0: spell = ' ו ' + spell
+						if float(mynumber[-3:]) != 2:
+							if math.floor(float(mynumber[-3:]) / 100) != 1:
+								if float(mynumber[-3:]) >= 3 and float(mynumber[-3:]) <= 10:
+									spell =  ' ' + PlacePlural[count] + spell
+									EventHappenned = 1
+					if EventHappenned == 0:
+						if len(spell) > 0: spell =  ' ' + PlaceAppent[count] + spell
+						else: spell =  ' ' + PlaceOnes[count] + spell
+						EventHappenned = 0
+					spell = temp + spell
+					temp = ''
+				if len(mynumber) > 3: mynumber = mynumber[:len(mynumber) - 3]
+				else: mynumber = ''
+				count += 1
+		elif language.upper() == 'TURKCE':
+			if mynumber == 0 and count == 0: return 'sıfır'
+			Place = ['', 'bin ', 'milyon ', 'milyar ', 'trilyon ']
+			mynumber = str(mynumber)
+			while mynumber != '':
+				if count == 1 and float(mynumber[-3:]) == 1:
+					temp = ''
+					spell = Place[count] + spell
+				else: temp = GetHundreds(mynumber[-3:], language.upper())
+				if temp != '':
+					spell = temp + ' ' + Place[count] + spell
+					temp = ''
+				if len(mynumber) > 3: mynumber = mynumber[:len(mynumber) - 3]
+				else: mynumber = ''
+				count += 1
+		return spell.strip()
+	except Exception:
+		traceback.print_exc()
+	except:
+		return 'Error?'
+		
+def GetHundreds(mynumber, language='ARABIC', count=0, spell=''):
+	try:
+		result = ''
+		mynumber = ('000' + mynumber)[-3:]
+		if language.upper() == 'ARABIC':
+			if float(mynumber[0:1]) > 0:
+				if float(mynumber[-2:]) == 0 and float(mynumber[1:2]) == 2:
+					if count == 0: result = 'مئتان '
+					else: result = 'مئتا '
+				else:
+					if float(mynumber[0:1]) == 1: result = 'مائة '
+					elif float(mynumber[0:1]) == 2: result = 'مئتان '
+					elif float(mynumber[0:1]) == 3: result = 'ثلاثمائة '
+					elif float(mynumber[0:1]) == 4: result = 'أربعمائة '
+					elif float(mynumber[0:1]) == 5: result = 'خمسمائة '
+					elif float(mynumber[0:1]) == 6: result = 'ستمائة '
+					elif float(mynumber[0:1]) == 7: result = 'سبعمائة '
+					elif float(mynumber[0:1]) == 8: result = 'ثمانمائة '
+					elif float(mynumber[0:1]) == 9: result = 'تسعمائة '
+			if len(result) > 0 and float(mynumber[-2:]) != 0: result += ' و '
+			if mynumber[1:2] != "0": result += str(GetTens(mynumber[-2:], language, count, float(mynumber[0:1]), result + spell))
+			else: result += str(GetDigit(mynumber[2:3], language, count, result + spell))
+		elif language.upper() == 'HEBREW':
+			if float(mynumber[0:1]) > 0:
+				if float(mynumber[0:1]) == 1: result = 'מאה '
+				elif float(mynumber[0:1]) == 2: result = 'מאתיים '
+				elif float(mynumber[0:1]) == 3: result = 'שלוש מאות '
+				elif float(mynumber[0:1]) == 4: result = 'ארבע מאות '
+				elif float(mynumber[0:1]) == 5: result = 'חמש מאות '
+				elif float(mynumber[0:1]) == 6: result = 'שש מאות '
+				elif float(mynumber[0:1]) == 7: result = 'שבע מאות '
+				elif float(mynumber[0:1]) == 8: result = 'שמונה מאות '
+				elif float(mynumber[0:1]) == 9: result = 'תשע מאות '
+			if len(result) > 0 and float(mynumber[-2:]) != 0: result += ' ו '
+			if mynumber[1:2] != "0": result += str(GetTens(mynumber[-2:], language, count, float(mynumber[0:1]), result + spell))
+			else: result += str(GetDigit(mynumber[2:3], language, count, result + spell))
+		elif language.upper() == 'TURKCE':
+			if mynumber[0:1] != "0":
+				if float(mynumber[0:1]) > 1: result = str(GetDigit(mynumber[0:1], language)) + ' yüz '
+				else: result = 'yüz '
+			if mynumber[1:2] != "0": result += str(GetTens(mynumber[-2:], language, count, float(mynumber[0:1]), result + spell))
+			else: result += str(GetDigit(mynumber[2:3], language, count, result + spell))
+		return result
+	except Exception:
+		traceback.print_exc()
+	except:
+		return 'Error?'
+		
+def GetTens(tenstext, language='ARABIC', count=0, hundreds=0, spell=''):
+	try:
+		result = ''
+		if language.upper() == 'ARABIC':
+			PlaceOnes = ['', 'ألف ', 'مليون ', 'مليار ', 'تريليون ']
+			PlaceTwos = ['', 'ألفان ', 'مليونان ', 'ملياران ', 'تريليونان ']
+			if float(tenstext[:1]) == 1:
+				if float(tenstext) == 10: result = 'عشرة'
+				elif float(tenstext) == 11: result = 'إحدى عشرة'
+				elif float(tenstext) == 12: result = 'اثنتا عشرة'
+				elif float(tenstext) == 13: result = 'ثلاث عشرة'
+				elif float(tenstext) == 14: result = 'أربع عشرة'
+				elif float(tenstext) == 15: result = 'خمس عشرة'
+				elif float(tenstext) == 16: result = 'ست عشرة'
+				elif float(tenstext) == 17: result = 'سبع عشرة'
+				elif float(tenstext) == 18: result = 'ثماني عشرة'
+				elif float(tenstext) == 19: result = 'تسع عشرة'
+			else:
+				if float(tenstext[:1]) == 2 and hundreds == 0 and count > 0: result = PlaceTwos[count] + result
+				else:
+					if float(tenstext[:1]) == 2 and count > 1: result = PlaceOnes[count] + result
+					elif float(tenstext[:1]) == 1 or float(tenstext[:1]) == 2:
+						if count == 1 and hundreds == 0 and float(tenstext) == 0: result = result + ''
+				if float(tenstext) > 0:
+					if float(tenstext[:1]) > 1: result += str(GetTensStatus(float(tenstext[:1]), language))
+					if len(result) > 0 and float(tenstext[-1:]) != 0: result += 'و '
+					result += str(GetDigit(tenstext[-1:], language))
+				else:
+					if len(spell) > 0  and float(tenstext[:1]) != 0 or len(result) > 0 and float(tenstext[:1]) != 0: result += 'و '
+					result += str(GetTensStatus(float(tenstext[:1]), language))
+		elif language.upper() == 'HEBREW':
+			PlaceOnes = ['', 'אלפים ', 'מיליון ', 'מיליארד ', 'טריליון ']
+			PlaceTwos = ['', 'אלפיים ', 'שני מיליון ', 'שני מיליארד ', 'שני טריליון ']
+			if float(tenstext[:1]) == 1:
+				if float(tenstext) == 10: result = 'עשר '
+				elif float(tenstext) == 11: result = 'אחת עשרה '
+				elif float(tenstext) == 12: result = 'שתים עשרה '
+				elif float(tenstext) == 13: result = 'שלוש עשרה '
+				elif float(tenstext) == 14: result = 'ארבע עשרה '
+				elif float(tenstext) == 15: result = 'חמש עשרה '
+				elif float(tenstext) == 16: result = 'שש עשרה '
+				elif float(tenstext) == 17: result = 'שבע עשרה '
+				elif float(tenstext) == 18: result = 'שמונה עשרה '
+				elif float(tenstext) == 19: result = 'תשע עשרה '
+			else:
+				if float(tenstext[:1]) == 2 and hundreds == 0 and count > 0: result = PlaceTwos[count] + result
+				else:
+					if float(tenstext[:1]) == 2 and count > 1: result = PlaceOnes[count] + result
+					elif float(tenstext[:1]) == 1 or float(tenstext[:1]) == 2:
+						if count == 1 and hundreds == 0 and float(tenstext) == 0: result = result + ''
+				if float(tenstext) > 0:
+					if float(tenstext[:1]) > 1: result += str(GetTensStatus(float(tenstext[:1]), language))
+					if len(result) > 0 and float(tenstext[-1:]) != 0: result += 'ו '
+					result += str(GetDigit(tenstext[-1:], language))
+				else:
+					if len(spell) > 0  and float(tenstext[:1]) != 0 or len(result) > 0 and float(tenstext[:1]) != 0: result += 'ו '
+					result += str(GetTensStatus(float(tenstext[:1]), language))
+		elif language.upper() == 'TURKCE':
+			if float(tenstext[:1]) == 1: result = "on "
+			elif float(tenstext[:1]) == 2: result = "yirmi "
+			elif float(tenstext[:1]) == 3: result = "otuz "
+			elif float(tenstext[:1]) == 4: result = "kırk "
+			elif float(tenstext[:1]) == 5: result = "elli "
+			elif float(tenstext[:1]) == 6: result = "altmış "
+			elif float(tenstext[:1]) == 7: result = "yetmiş "
+			elif float(tenstext[:1]) == 8: result = "seksen "
+			elif float(tenstext[:1]) == 9: result = "doksan "
+			result += str(GetDigit(tenstext[-1:], language))
+		return result
+	except Exception:
+		traceback.print_exc()
+	except:
+		return 'Error?'
+		
+def GetTensStatus(tens, language='ARABIC'):
+	try:
+		if language.upper() == 'ARABIC':
+			if tens == 2: result = 'عشرين '
+			elif tens == 3: result = 'ثلاثين '
+			elif tens == 4: result = 'أربعين '
+			elif tens == 5: result = 'خمسين '
+			elif tens == 6: result = 'ستين '
+			elif tens == 7: result = 'سبعين '
+			elif tens == 8: result = 'ثمانين '
+			elif tens == 9: result = 'تسعين '
+		elif language.upper() == 'HEBREW':
+			if tens == 2: result = 'עשרים '
+			elif tens == 3: result = 'שלושים '
+			elif tens == 4: result = 'ארבעים '
+			elif tens == 5: result = 'חמישים '
+			elif tens == 6: result = 'שישים '
+			elif tens == 7: result = 'שבעים '
+			elif tens == 8: result = 'שמונים '
+			elif tens == 9: result = 'תשעים '
+		return result
+	except Exception:
+		traceback.print_exc()
+	except:
+		return 'Error?'
+		
+def GetDigit(digit, language='ARABIC'):
+	try:
+		if language.upper() == 'ARABIC':
+			if float(digit) == 1: return 'احد'
+			elif float(digit) == 2: return 'اثنان'
+			elif float(digit) == 3: return 'ثلاثة'
+			elif float(digit) == 4: return 'أربعة'
+			elif float(digit) == 5: return 'خمسة'
+			elif float(digit) == 6: return 'ستة'
+			elif float(digit) == 7: return 'سبعة'
+			elif float(digit) == 8: return 'ثمانية'
+			elif float(digit) == 9: return 'تسعة'
+			else: return ''
+		elif language.upper() == 'HEBREW':
+			if float(digit) == 1: return 'אחת'
+			elif float(digit) == 2: return 'שניים'
+			elif float(digit) == 3: return 'שלושה'
+			elif float(digit) == 4: return 'ארבעה'
+			elif float(digit) == 5: return 'חמש'
+			elif float(digit) == 6: return 'שישה'
+			elif float(digit) == 7: return 'שבע'
+			elif float(digit) == 8: return 'שמונה'
+			elif float(digit) == 9: return 'תשע'
+			else: return ''
+		elif language.upper() == 'TURKCE':
+			if float(digit) == 1: return 'bir'
+			elif float(digit) == 2: return 'iki'
+			elif float(digit) == 3: return 'üç'
+			elif float(digit) == 4: return 'dört'
+			elif float(digit) == 5: return 'beş'
+			elif float(digit) == 6: return 'altı'
+			elif float(digit) == 7: return 'yedi'
+			elif float(digit) == 8: return 'sekiz'
+			elif float(digit) == 9: return 'dokuz'
+			else: return ''
+	except Exception:
+		traceback.print_exc()
+	except:
+		return 'Error?'
 
 def huddam(num, htype='ulvi', method=1):
 	try:
@@ -1301,22 +1329,12 @@ def huddam(num, htype='ulvi', method=1):
 		counts = 1
 		hpart = ['']
 		htype = htype.upper()
-		if method == 7:
-			if htype in ['ULVI', 'ULVİ']: suffix = abjad('ئيل', 7, 1)
-			elif htype in ['SUFLI', 'SUFLİ']: suffix = abjad('يوش', 7, 1)
-			elif htype in ['ŞER', 'SER']: suffix = abjad('طيش', 7, 1)
-			else: suffix = abjad(htype, 7, 1)
-		elif method == 12:
-			if htype in ['ULVI', 'ULVİ']: suffix = abjad('ئيل', 12, 1)
-			elif htype in ['SUFLI', 'SUFLİ']: suffix = abjad('يوش', 12, 1)
-			elif htype in ['ŞER', 'SER']: suffix = abjad('طيش', 12, 1)
-			else: suffix = abjad(htype, 12, 1)
-		else:
-			method = 1
-			if htype in ['ULVI', 'ULVİ']: suffix = abjad('ئيل', 1, 1)
-			elif htype in ['SUFLI', 'SUFLİ']: suffix = abjad('يوش', 1, 1)
-			elif htype in ['ŞER', 'SER']: suffix = abjad('طيش', 1, 1)
-			else: suffix = abjad(htype, 1, 1)
+		method = 1
+		if method not in [7, 12]: method = 1
+		if htype in ['ULVI', 'ULVİ']: suffix = abjad('ئيل', method, 1)
+		elif htype in ['SUFLI', 'SUFLİ']: suffix = abjad('يوش', method, 1)
+		elif htype in ['ŞER', 'SER']: suffix = abjad('طيش', method, 1)
+		else: suffix = abjad(htype, method, 1)
 		while suffix >= num:
 			num += 361
 		preffix = str(num - suffix)
@@ -1457,10 +1475,10 @@ print('test kodu yürütülüyor') #Foksiyonları konsolda deneyebilirsin. Bu ko
 start = time.time()
 start = time.time()
 a = random.randrange(71, 1070)
-b = a + 10
+b = a + 5
 saglam = 0
 for i in range(a, b):
-	t = bastet(i, 1, 1, 1, 'TURKCE')
-	print('\033[1;32m'+str(t)+'\033[1;m', bastet(i, 1, 1, 1, 'TURKCE', 1), i)
+	t = bastet(i, 1, 1, 1, 'ARABIC')
+	print('\033[1;32m'+str(t)+'\033[1;m', bastet(i, 1, 1, 1, 'ARABIC', 1), i)
 end = time.time()
 print(end - start, '\033[1;32m'+str(saglam)+'\033[1;m')
