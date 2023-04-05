@@ -902,17 +902,17 @@ Function WORDBYWORD(Optional klmmetin As String, Optional tablo As Variant, Opti
     ReDim word, calculation, content
     WORDBYWORD = content
 End Function
-Function BASTET(Optional metin As String, Optional MT As Variant, Optional tablo As Variant, Optional shadda As Variant, Optional language As Variant, Optional  detail As Variant) As Variant
+Function BASTET(Optional metin As Variant, Optional MT As Variant, Optional tablo As Variant, Optional shadda As Variant, Optional language As Variant, Optional  detail As Variant) As Variant
     Dim HM, invertablo, err As Integer : err = 0
-    Dim Baster, NS As String
-    Select Case CStr(CDbl(metin))
-    Case metin
-        Baster = metin
-    Case Else
+    Dim Baster, NS As Variant
+    Select Case metin
+    Case CStr(metin)        
         Select Case tablo
         Case 0 To 15 : Baster = ABJAD(metin, tablo, shadda)
         Case -16 To -1 : invertablo = (-1 * tablo) - 1 : Baster = ABJAD(metin, invertablo, shadda)
         End Select
+    Case Else        
+        Baster = metin
     End Select
     For HM = 1 To MT
         NS = ""
@@ -2509,7 +2509,7 @@ Function GetTens(TensText, Lang, Optional Count, Optional Hundreds, Optional Spe
             If CDbl(Left(TensText, 1)) = 2 And Hundreds = 0 And Count > 1 Then
                 Result = PlaceTwos(Count) & Result
             Else
-                If CDbl(Left(TensText, 1)) = 1 And Count > 1 Then
+				If CDbl(Left(TensText, 1)) = 1 And Count > 1 Then
                     Result = PlaceOnes(Count) & Result
                 ElseIf CDbl(Left(TensText, 1)) = 1 Or CDbl(Left(TensText, 1)) = 2 Then
                     If Count = 1 And Hundreds = 0 And CDbl(Left(TensText, 2)) = 0 Then Result = Result & ""
