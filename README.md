@@ -199,10 +199,11 @@ to our abjad calculation method The abjad value of the given ayil suffix
 was calculated as 51, the amount of 41 given in the books. If you are 
 targeting, instead of typing "ULVI", use the letter "hemze" or "alif" 
 instead of the letter "ulvi". Enter your own type identifier using
+Arabic Letters as string.
 
 >#### method option
 
-Now Method Option is the Saghir Abjad Tablo CODE for abjad() function,
+Now Method Option is the Saghir Abjad Table CODE for abjad() function,
 gives the duty name depending to the table code entered as method.
 
 1, 7 and 12 !
