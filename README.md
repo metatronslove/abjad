@@ -31,11 +31,11 @@ Arabic or Hebrew text or cell including that text.
 
 6 - 15 table codes for Arabic only
 
-* 6 Minimum Magribhi Abjad
-* 7 Small Magribhi Abjad
-* 8 Big Magribhi Abjad
-* 9 Maximum Magribhi Abjad
-* 10 Small Magribhi Abjad + Letter Quantity
+* 6 Minimum Maghribi Abjad
+* 7 Small Maghribi Abjad
+* 8 Big Maghribi Abjad
+* 9 Maximum Maghribi Abjad
+* 10 Small Maghribi Abjad + Letter Quantity
 
 * 11 Minimum Frequency Abjad
 * 12 Small Frequency Abjad
