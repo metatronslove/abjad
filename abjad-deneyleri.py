@@ -1201,10 +1201,10 @@ def GetTens(tenstext, language='ARABIC', count=0, hundreds=0, spell=''):
 				elif float(tenstext) == 18: result = 'ثماني عشرة'
 				elif float(tenstext) == 19: result = 'تسع عشرة'
 			else:
-				if float(tenstext[:1]) == 2 and hundreds == 0 and count > 0: result = PlaceTwos[count] + result
+				if float(tenstext) == 2 and hundreds == 0 and count > 0: result = PlaceTwos[count] + result
 				else:
-					if float(tenstext[:1]) == 2 and count > 1: result = PlaceOnes[count] + result
-					elif float(tenstext[:1]) == 1 or float(tenstext[:1]) == 2:
+					if float(tenstext) == 2 and count > 1: result = PlaceOnes[count] + result
+					elif float(tenstext) == 1 or float(tenstext) == 2:
 						if count == 1 and hundreds == 0 and float(tenstext) == 0: result = result + ''
 				if float(tenstext) > 0:
 					if float(tenstext[:1]) > 1: result += str(GetTensStatus(float(tenstext[:1]), language))
@@ -1228,10 +1228,10 @@ def GetTens(tenstext, language='ARABIC', count=0, hundreds=0, spell=''):
 				elif float(tenstext) == 18: result = 'שמונה עשרה '
 				elif float(tenstext) == 19: result = 'תשע עשרה '
 			else:
-				if float(tenstext[:1]) == 2 and hundreds == 0 and count > 0: result = PlaceTwos[count] + result
+				if float(tenstext) == 2 and hundreds == 0 and count > 0: result = PlaceTwos[count] + result
 				else:
-					if float(tenstext[:1]) == 2 and count > 1: result = PlaceOnes[count] + result
-					elif float(tenstext[:1]) == 1 or float(tenstext[:1]) == 2:
+					if float(tenstext) == 2 and count > 1: result = PlaceOnes[count] + result
+					elif float(tenstext) == 1 or float(tenstext) == 2:
 						if count == 1 and hundreds == 0 and float(tenstext) == 0: result = result + ''
 				if float(tenstext) > 0:
 					if float(tenstext[:1]) > 1: result += str(GetTensStatus(float(tenstext[:1]), language))

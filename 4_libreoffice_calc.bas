@@ -2506,13 +2506,13 @@ Function GetTens(TensText, Lang, Optional Count, Optional Hundreds, Optional Spe
             Case Else
             End Select
         Else
-            If CDbl(Left(TensText, 1)) = 2 And Hundreds = 0 And Count > 1 Then
+            If CDbl(TensText) = 2 And Hundreds = 0 And Count > 1 Then
                 Result = PlaceTwos(Count) & Result
             Else
-				If CDbl(Left(TensText, 1)) = 1 And Count > 1 Then
+				If CDbl(TensText) = 1 And Count > 1 Then
                     Result = PlaceOnes(Count) & Result
-                ElseIf CDbl(Left(TensText, 1)) = 1 Or CDbl(Left(TensText, 1)) = 2 Then
-                    If Count = 1 And Hundreds = 0 And CDbl(Left(TensText, 2)) = 0 Then Result = Result & ""
+                ElseIf CDbl(TensText) = 1 Or CDbl(TensText) = 2 Then
+                    If Count = 1 And Hundreds = 0 And CDbl(TensText) = 0 Then Result = Result & ""
                 Else
                 End If
             End If
@@ -2549,13 +2549,13 @@ Function GetTens(TensText, Lang, Optional Count, Optional Hundreds, Optional Spe
             Case Else
             End Select
         Else
-            If CDbl(Left(TensText, 1)) = 2 And Hundreds = 0 And Count > 1 Then
+            If CDbl(TensText) = 2 And Hundreds = 0 And Count > 1 Then
                 Result = PlaceTwos(Count) & Result
             Else
-                If CDbl(Left(TensText, 1)) = 1 And Count > 1 Then
+				If CDbl(TensText) = 1 And Count > 1 Then
                     Result = PlaceOnes(Count) & Result
-                ElseIf CDbl(Left(TensText, 1)) = 1 Or CDbl(Left(TensText, 1)) = 2 Then
-                    If Count = 1 And Hundreds = 0 And CDbl(Left(TensText, 2)) = 0 Then Result = Result & ""
+                ElseIf CDbl(TensText) = 1 Or CDbl(TensText) = 2 Then
+                    If Count = 1 And Hundreds = 0 And CDbl(TensText) = 0 Then Result = Result & ""
                 Else
                 End If
             End If

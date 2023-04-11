@@ -4378,13 +4378,13 @@ function GetTens(TensText, language, counter, Hundreds, nutuk) {
 					default:
 				}
 			} else {
-				if (parseFloat(Left(TensText, 1)) == 2 && Hundreds == 0 && counter > 0) {
+				if (parseFloat(TensText) == 2 && Hundreds == 0 && counter > 0) {
 					result = PlaceTwos[counter] + result;
 				} else {
-					if (parseFloat(Left(TensText, 1)) == 1 && counter > 0) {
+					if (parseFloat(TensText) == 1 && counter > 0) {
 						result = PlaceOnes[counter] + result;
-					} else if (parseFloat(Left(TensText, 1)) == 1 || parseFloat(Left(TensText, 1)) == 2) {
-						if (counter == 0 && Hundreds == 0 && parseFloat(Left(TensText, 2)) == 0) {
+					} else if (parseFloat(TensText) == 1 || parseFloat(TensText) == 2) {
+						if (counter == 0 && Hundreds == 0 && parseFloat(TensText) == 0) {
 							result += "";
 						}
 					}
@@ -4443,13 +4443,13 @@ function GetTens(TensText, language, counter, Hundreds, nutuk) {
 					default:
 				}
 			} else {
-				if (parseFloat(Left(TensText, 1)) == 2 && Hundreds == 0 && counter > 0) {
+				if (parseFloat(TensText) == 2 && Hundreds == 0 && counter > 0) {
 					result = PlaceTwos[counter] + result;
 				} else {
-					if (parseFloat(Left(TensText, 1)) == 1 && counter > 0) {
+					if (parseFloat(TensText) == 1 && counter > 0) {
 						result = PlaceOnes[counter] + result;
-					} else if (parseFloat(Left(TensText, 1)) == 1 || parseFloat(Left(TensText, 1)) == 2) {
-						if (counter == 0 && Hundreds == 0 && parseFloat(Left(TensText, 2)) == 0) {
+					} else if (parseFloat(TensText) == 1 || parseFloat(TensText) == 2) {
+						if (counter == 0 && Hundreds == 0 && parseFloat(TensText) == 0) {
 							result += "";
 						}
 					}
