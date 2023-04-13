@@ -337,11 +337,11 @@ function abjad(metin, tablo, shadda, detail) {
 							case 4:
 							case 7:
 							case 10:
-								s = 6;
+								s = 7;
 								break;
 							case 12:
 							case 15:
-								s = 5;
+								s = 600;
 								break;
 							case 0:
 							case 6:
