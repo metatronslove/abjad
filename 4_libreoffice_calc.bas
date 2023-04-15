@@ -2280,8 +2280,8 @@ Function NUTKET(ByVal MyNumber, Lang)
                     Else
                         Spell =  " " & PlaceOnes(Count) & Spell
                     End If
-                    EventHappenned = 0
                 Else
+                    EventHappenned = 0
                 End If
                 Spell = Temp & Spell
                 Temp = ""
@@ -2357,8 +2357,8 @@ Function NUTKET(ByVal MyNumber, Lang)
                     Else
                         Spell =  " " & PlaceOnes(Count) & Spell
                     End If
-                    EventHappenned = 0
                 Else
+                    EventHappenned = 0
                 End If
                 Spell = Temp & Spell
                 Temp = ""
@@ -2509,7 +2509,7 @@ Function GetTens(TensText, Lang, Optional Count, Optional Hundreds, Optional Spe
             If CDbl(TensText) = 2 And Hundreds = 0 And Count > 1 Then
                 Result = PlaceTwos(Count) & Result
             Else
-                If CDbl(TensText) = 1 And Count > 1 Then
+				If CDbl(TensText) = 1 And Count > 1 Then
                     Result = PlaceOnes(Count) & Result
                 ElseIf CDbl(TensText) = 1 Or CDbl(TensText) = 2 Then
                     If Count = 1 And Hundreds = 0 And CDbl(TensText) = 0 Then Result = Result & ""
@@ -2552,7 +2552,7 @@ Function GetTens(TensText, Lang, Optional Count, Optional Hundreds, Optional Spe
             If CDbl(TensText) = 2 And Hundreds = 0 And Count > 1 Then
                 Result = PlaceTwos(Count) & Result
             Else
-                If CDbl(TensText) = 1 And Count > 1 Then
+				If CDbl(TensText) = 1 And Count > 1 Then
                     Result = PlaceOnes(Count) & Result
                 ElseIf CDbl(TensText) = 1 Or CDbl(TensText) = 2 Then
                     If Count = 1 And Hundreds = 0 And CDbl(TensText) = 0 Then Result = Result & ""
