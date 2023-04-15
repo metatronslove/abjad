@@ -1073,7 +1073,7 @@ def nutket(mynumber, language='ARABIC'):
 					if EventHappenned == 0:
 						if len(spell) > 0: spell =  ' ' + PlaceAppent[count] + spell
 						else: spell =  ' ' + PlaceOnes[count] + spell
-						EventHappenned = 0
+					else: EventHappenned = 0
 					spell = temp + spell
 					temp = ''
 				if len(mynumber) > 3: mynumber = mynumber[:len(mynumber) - 3]
@@ -1108,7 +1108,7 @@ def nutket(mynumber, language='ARABIC'):
 					if EventHappenned == 0:
 						if len(spell) > 0: spell =  ' ' + PlaceAppent[count] + spell
 						else: spell =  ' ' + PlaceOnes[count] + spell
-						EventHappenned = 0
+					else: EventHappenned = 0
 					spell = temp + spell
 					temp = ''
 				if len(mynumber) > 3: mynumber = mynumber[:len(mynumber) - 3]
