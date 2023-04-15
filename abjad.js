@@ -4114,7 +4114,8 @@ function nutket(MyNumber, language) {
 							nutuk = " " + PlaceAppent[counter] + nutuk;
 						} else {
 							nutuk = " " + PlaceOnes[counter] + nutuk;
-						}					
+						}
+					} else {
 						EventHappenned = 0;
 					}
 					nutuk = temp + nutuk;
@@ -4176,6 +4177,7 @@ function nutket(MyNumber, language) {
 						} else {
 							nutuk = " " + PlaceOnes[counter] + nutuk;
 						}
+					} else {
 						EventHappenned = 0;
 					}
 					nutuk = temp + nutuk;
