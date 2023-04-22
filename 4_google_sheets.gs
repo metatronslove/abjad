@@ -4,12 +4,6 @@
 // sörüne erişebilirsiniz bu kodlar MIT, Creative commons ve GPL gibi 
 // lisanslarla değil; kullanıcılarının vicdanlarıyla korunmaktadır. 
 // Vicdansızları büyük yargı gününde rab hesaba çeker.
-// Merhaba Sahur Özel'in Ebced Hesaplayan Makrolarının LibreOffice Basic
-// dilinden JavaScript diline çevirisidir. Konu hakkında daha geniş bil-
-// gi için go.abdil.one/6 adresinden ilgili Google Drive klasörüne eri-
-// şebilirsiniz bu kodlar MIT, Creative commons ve GPL gibi lisanslarla
-// değil; kullanıcılarının vicdanlarıyla korunmaktadır. Vicdansızları
-// büyük yargı gününde rab hesaba çeker.
 function abjad(metin, tablo, shadda, detail) {
 	var sm, s, n, shaddie, counter, err, space, hrk, sn, choosen, nitem, c;
 	sm = 0;
