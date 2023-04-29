@@ -883,11 +883,11 @@ End Function
 Function ALTAYAZ(ByVal girdi As String) As String
     Dim counter     As Integer
     Dim choosen, ss As String: ss = "": ALTAYAZ = ""
-    For counter = 1 To LEN(girdi)
-        choosen = MID(girdi, counter, 1)
+    For counter = 1 To Len(girdi)
+        choosen = Mid(girdi, counter, 1)
         Select Case choosen
-        Case " " : ss = ss & " "
-        Case Else : ss = ss & choosen
+        Case " ": ss = ss & " "
+        Case Else: ss = ss & choosen
         End Select
     Next
     ALTAYAZ = ss
@@ -2627,7 +2627,7 @@ Function WORDBYWORD(ByVal klmmetin As String, Optional tablo As Integer, Optiona
         Select Case klmchoosen
         Case ChrW(32), ChrW(13)
             calculation = ChrW(40) & ABJAD(word, tablo, shadda, detail) & ChrW(41) & klmchoosen
-            content = content & word & ALTAYAZ(calculation)
+            If calculation <> "(0) " Then content = content & word & ALTAYAZ(calculation)
             word = ""
             calculation = ""
         Case Else
