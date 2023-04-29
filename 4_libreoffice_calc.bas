@@ -1,4 +1,4 @@
-Function ABJAD(Optional metin As String, Optional tablo As Variant, Optional shadda As Variant, Optional detail As Variant) As Variant
+Function ABJAD(ByVal metin As String, tablo As Integer, Optional shadda As Integer, Optional detail As Integer) As Variant
     Dim SM, S, N    As Double : SM = 0 : N = 0 : S = 0
     Dim SH, counter, err, space, hrk As Integer : SH = 0 : err = 0 : space = 0 : hrk = 0
     Dim SN, choosen, nitem As String : nitem = "" : SN = ""
@@ -881,28 +881,44 @@ Function ABJAD(Optional metin As String, Optional tablo As Variant, Optional sha
     End Select
     ReDim S, SM, N
 End Function
-Function WORDBYWORD(Optional klmmetin As String, Optional tablo As Variant, Optional shadda As Variant, Optional detail As Variant) As String
-    'Bu fonksiyonu kullandığınız hücreler için metin Kaydır seçeneğini etkinleştirirseniz daha düzgün çalışıyor, parametreleri ABJAD() fonksiyonuyla aynı'
-    Dim content, word As String
-    content = ""
-    word = ""
-    klmmetin = klmmetin & " "
-    For counter = 1 To LEN(klmmetin)
-        klmchoosen = MID(klmmetin, counter, 1)
-        word = word + klmchoosen
-        Select Case klmchoosen
-        Case " ", Chr(10)
-            calculation =  "("  & ABJAD(word, tablo, shadda, detail) & ")" & klmchoosen
-            content = content & word & ALTAYAZ(calculation)
-            word = ""
-            calculation = ""
-        Case Else
+Function ALTAYAZ(ByVal girdi As String) As String
+    Dim counter     As Integer
+    Dim choosen, ss As String : ss = "" : ALTAYAZ = ""
+    For counter = 1 To LEN(girdi)
+        choosen = MID(girdi, counter, 1)
+        Select Case choosen
+        Case "1" : ss = ss & "₁"
+        Case "2" : ss = ss & "₂"
+        Case "3" : ss = ss & "₃"
+        Case "4" : ss = ss & "₄"
+        Case "5" : ss = ss & "₅"
+        Case "6" : ss = ss & "₆"
+        Case "7" : ss = ss & "₇"
+        Case "8" : ss = ss & "₈"
+        Case "9" : ss = ss & "₉"
+        Case "0" : ss = ss & "₀"
+        Case "+" : ss = ss & "₊"
+        Case "-" : ss = ss & "₋"
+        Case "=" : ss = ss & "₌"
+        Case "(", "[" : ss = ss & "₍"
+        Case ")", "]" : ss = ss & "₎"
+        Case " " : ss = ss & " "
+        Case Else : ss = ss & choosen
         End Select
     Next
-    ReDim word, calculation, content
-    WORDBYWORD = content
+    ALTAYAZ = ss
+    ReDim ALTAYAZ, ss
 End Function
-Function BASTET(Optional metin As Variant, Optional MT As Variant, Optional tablo As Variant, Optional shadda As Variant, Optional language As Variant, Optional  detail As Variant) As Variant
+Function ASGAR(ByVal harf As String, Optional level As Integer) As String
+    Dim C           As Double
+    C = ABJAD(harf, level, 1)
+    If C > 12 Then
+        ASGAR = C - (12 * DUZLE(C / 12))
+    Else
+        ASGAR = C
+    End If
+End Function
+Function BASTET(ByVal metin As Variant, Optional MT As Variant, Optional tablo As Variant, Optional shadda As Integer, Optional language As Variant, Optional detail As Integer) As Variant
     Dim HM, invertablo, err As Integer : err = 0
     Dim Baster, NS As Variant
     Select Case metin
@@ -934,436 +950,296 @@ Function BASTET(Optional metin As Variant, Optional MT As Variant, Optional tabl
     Case Else
     End Select
 End Function
-Function UNSUR(Optional metin, Optional otabiat As Variant, Optional otype As Variant, Optional shadda As Integer, Optional guide As Variant) As String
-    Dim counter, adet As Integer
-    Dim choosen, liste As String
-    For counter = 1 To LEN(metin)
-        choosen = MID(metin, counter, 1)
-        If shadda = 2 Then
-            C = 1
-            If choosen = "ّ" Then
-                Do
-                    choosen = MID(metin, counter - C, 1)
-                    C = C + 1
-                Loop Until SAF(choosen, "") <> ""
-            Else
-            End If
-        End If
-        Select Case UCase(choosen)
-        Case "ا", "ب", "ج", "س", "ص", "ر", "خ", "ه", "ز", "ح", "ط", "ي", "ی", "ل", "ة", "ث", "د", "ك", "ع", "ف", "ق", "ش", "ض", "و", "م", "ن", "ت", "ذ", "ظ", "غ" : selected = selected & choosen
-        Case "أ", "إ", "آ", "ء", "ى" : selected = selected & "ا"
-        Case "ؤ" : selected = selected & "و" & "ا"
-        Case "ۀ" : selected = selected & "ه" & "ي"
-        Case "ئ" : selected = selected & "ي" & "ا"
-        Case "א", "ב", "ג", "ד", "ה", "ו", "ז", "ח", "ט", "י", "כ", "ל", "מ", "נ", "ס", "ע", "פ", "צ", "ק", "ר", "ש", "ת", "ם", "ן", "ף", "ץ", "ך" : selected = selected & choosen
-        Case "A", "B", "C", "Ç", "D", "E", "F", "G", "Ğ", "H", "I", "İ", "J", "K", "L", "M", "N", "O", "Ö", "P", "R", "S", "Ş", "T", "U", "Ü", "V", "Y", "Z" : selected = selected & UCase(choosen)
+Function DUZLE(ByVal numbertofloor As Double) As Double
+    Dim mathfloor   As Object
+    Dim P(1)        As Double
+    mathfloor = CreateUnoService("com.sun.star.sheet.FunctionAccess")
+    P(0) = numbertofloor
+    P(1) = 0
+    DUZLE = mathfloor.callFunction("ROUNDDOWN", P())
+End Function
+Function GetDigit(Digit, Lang)
+    Select Case UCase(Lang)
+    Case "ARABIC"
+        Select Case Val(Digit)
+        Case 1: GetDigit = "احد"
+        Case 2: GetDigit = "اثنان"
+        Case 3: GetDigit = "ثلاثة"
+        Case 4: GetDigit = "أربعة"
+        Case 5: GetDigit = "خمسة"
+        Case 6: GetDigit = "ستة"
+        Case 7: GetDigit = "سبعة"
+        Case 8: GetDigit = "ثمانية"
+        Case 9: GetDigit = "تسعة"
+        Case Else: GetDigit = ""
         End Select
-    Next counter
-    Select Case guide
-    Case "TURKCE", 0
-        Select Case otype
-        Case "fire", "ateş", 0
-            For counter = 1 To LEN(selected)
-                choosen = MID(selected, counter, 1)
-                Select Case choosen
-                Case "A", "D", "Ğ", "J", "N", "R", "U", "Z"
-                    liste = liste & choosen & " "
-                    adet = adet + 1
-                Case Else
-                End Select
-            Next counter
-        Case "air", "hava", 1
-            For counter = 1 To LEN(selected)
-                choosen = MID(selected, counter, 1)
-                Select Case choosen
-                Case "B", "E", "H", "K", "O", "S", "Ü"
-                    liste = liste & choosen & " "
-                    adet = adet + 1
-                Case Else
-                End Select
-            Next counter
-        Case "water", "su", 2
-            For counter = 1 To LEN(selected)
-                choosen = MID(selected, counter, 1)
-                Select Case choosen
-                Case "C", "F", "I", "L", "Ö", "Ş", "V"
-                    liste = liste & choosen & " "
-                    adet = adet + 1
-                Case Else
-                End Select
-            Next counter
-        Case "earth", "toprak", 3
-            For counter = 1 To LEN(selected)
-                choosen = MID(selected, counter, 1)
-                Select Case choosen
-                Case "Ç", "G", "İ", "M", "P", "T", "Y"
-                    liste = liste & choosen & " "
-                    adet = adet + 1
-                Case Else
-                End Select
-            Next counter
+    Case "HEBREW"
+        Select Case Val(Digit)
+        Case 1: GetDigit = "אחת"
+        Case 2: GetDigit = "שניים"
+        Case 3: GetDigit = "שלושה"
+        Case 4: GetDigit = "ארבעה"
+        Case 5: GetDigit = "חמש"
+        Case 6: GetDigit = "שישה"
+        Case 7: GetDigit = "שבע"
+        Case 8: GetDigit = "שמונה"
+        Case 9: GetDigit = "תשע"
+        Case Else: GetDigit = ""
         End Select
-    Case "ARABI", 1
-        Select Case otype
-        Case "fire", "ateş", 0
-            For counter = 1 To LEN(selected)
-                choosen = MID(selected, counter, 1)
-                Select Case choosen
-                Case "ا", "ه", "ط", "م", "ف", "ش", "ذ"
-                    liste = liste & choosen & " "
-                    adet = adet + 1
-                Case Else
-                End Select
-            Next counter
-        Case "air", "hava", 1
-            For counter = 1 To LEN(selected)
-                choosen = MID(selected, counter, 1)
-                Select Case choosen
-                Case "د", "ح", "ل", "ع", "ر", "خ", "غ"
-                    liste = liste & choosen & " "
-                    adet = adet + 1
-                Case Else
-                End Select
-            Next counter
-        Case "water", "su", 2
-            For counter = 1 To LEN(selected)
-                choosen = MID(selected, counter, 1)
-                Select Case choosen
-                Case "ب", "و", "ن", "ي", "ی", "ص", "ت", "ض"
-                    liste = liste & choosen & " "
-                    adet = adet + 1
-                Case Else
-                End Select
-            Next counter
-        Case "earth", "toprak", 3
-            For counter = 1 To LEN(selected)
-                choosen = MID(selected, counter, 1)
-                Select Case choosen
-                Case "ج", "ز", "ك", "س", "ق", "ث", "ظ"
-                    liste = liste & choosen & " "
-                    adet = adet + 1
-                Case Else
-                End Select
-            Next counter
-        End Select
-    Case "BUNI", 2
-        Select Case otype
-        Case "fire", "ateş", 0
-            For counter = 1 To LEN(selected)
-                choosen = MID(selected, counter, 1)
-                Select Case choosen
-                Case "ا", "ه", "ط", "م", "ف", "ش", "ذ"
-                    liste = liste & choosen & " "
-                    adet = adet + 1
-                Case Else
-                End Select
-            Next counter
-        Case "air", "hava", 1
-            For counter = 1 To LEN(selected)
-                choosen = MID(selected, counter, 1)
-                Select Case choosen
-                Case "ب", "و", "ن", "ي", "ی", "ص", "ت", "ض"
-                    liste = liste & choosen & " "
-                    adet = adet + 1
-                Case Else
-                End Select
-            Next counter
-        Case "water", "su", 2
-            For counter = 1 To LEN(selected)
-                choosen = MID(selected, counter, 1)
-                Select Case choosen
-                Case "د", "ح", "ل", "ع", "ر", "خ", "غ"
-                    liste = liste & choosen & " "
-                    adet = adet + 1
-                Case Else
-                End Select
-            Next counter
-        Case "earth", "toprak", 3
-            For counter = 1 To LEN(selected)
-                choosen = MID(selected, counter, 1)
-                Select Case choosen
-                Case "ج", "ز", "ك", "س", "ق", "ث", "ظ"
-                    liste = liste & choosen & " "
-                    adet = adet + 1
-                Case Else
-                End Select
-            Next counter
-        End Select
-    Case "HUSEYNI", 3
-        Select Case otype
-        Case "fire", "ateş", 0
-            For counter = 1 To LEN(selected)
-                choosen = MID(selected, counter, 1)
-                Select Case choosen
-                Case "ا", "ه", "ط", "م", "ف", "ش", "ذ"
-                    liste = liste & choosen & " "
-                    adet = adet + 1
-                Case Else
-                End Select
-            Next counter
-        Case "air", "hava", 1
-            For counter = 1 To LEN(selected)
-                choosen = MID(selected, counter, 1)
-                Select Case choosen
-                Case "ج", "ز", "ك", "س", "ق", "ث", "ظ"
-                    liste = liste & choosen & " "
-                    adet = adet + 1
-                Case Else
-                End Select
-            Next counter
-        Case "water", "su", 2
-            For counter = 1 To LEN(selected)
-                choosen = MID(selected, counter, 1)
-                Select Case choosen
-                Case "د", "ح", "ل", "ع", "ر", "خ", "غ"
-                    liste = liste & choosen & " "
-                    adet = adet + 1
-                Case Else
-                End Select
-            Next counter
-        Case "earth", "toprak", 3
-            For counter = 1 To LEN(selected)
-                choosen = MID(selected, counter, 1)
-                Select Case choosen
-                Case "ب", "و", "ي", "ی", "ن", "ص", "ت", "ض"
-                    liste = liste & choosen & " "
-                    adet = adet + 1
-                Case Else
-                End Select
-            Next counter
-        End Select
-    Case "HEBREW", 4
-        Select Case otype
-        Case "fire", "ateş", 0
-            For counter = 1 To LEN(selected)
-                choosen = MID(selected, counter, 1)
-                Select Case choosen
-                Case "א", "ה", "ט", "מ", "פ", "ש", "ף"
-                    liste = liste & choosen & " "
-                    adet = adet + 1
-                Case Else
-                End Select
-            Next counter
-        Case "air", "hava", 1
-            For counter = 1 To LEN(selected)
-                choosen = MID(selected, counter, 1)
-                Select Case choosen
-                Case "ב", "ו", "י", "נ", "צ", "ת", "ץ"
-                    liste = liste & choosen & " "
-                    adet = adet + 1
-                Case Else
-                End Select
-            Next counter
-        Case "water", "su", 2
-            For counter = 1 To LEN(selected)
-                choosen = MID(selected, counter, 1)
-                Select Case choosen
-                Case "ג", "ז", "כ", "ס", "ק", "ם", "ך"
-                    liste = liste & choosen & " "
-                    adet = adet + 1
-                Case Else
-                End Select
-            Next counter
-        Case "earth", "toprak", 3
-            For counter = 1 To LEN(selected)
-                choosen = MID(selected, counter, 1)
-                Select Case choosen
-                Case "ד", "ח", "ל", "ע", "ר", "ן"
-                    liste = liste & choosen & " "
-                    adet = adet + 1
-                Case Else
-                End Select
-            Next counter
+    Case "TURKCE"
+        Select Case Val(Digit)
+        Case 1: GetDigit = "bir"
+        Case 2: GetDigit = "iki"
+        Case 3: GetDigit = "üç"
+        Case 4: GetDigit = "dört"
+        Case 5: GetDigit = "beş"
+        Case 6: GetDigit = "altı"
+        Case 7: GetDigit = "yedi"
+        Case 8: GetDigit = "sekiz"
+        Case 9: GetDigit = "dokuz"
+        Case Else: GetDigit = ""
         End Select
     Case Else
-        Select Case otype
-        Case "fire", "ateş", 0
-            For counter = 1 To LEN(selected)
-                choosen = MID(selected, counter, 1)
-                Select Case choosen
-                Case "ا", "ب", "ج", "س", "ص", "ر", "خ"
-                    liste = liste & choosen & " "
-                    adet = adet + 1
-                Case Else
-                End Select
-            Next counter
-        Case "air", "hava", 1
-            For counter = 1 To LEN(selected)
-                choosen = MID(selected, counter, 1)
-                Select Case choosen
-                Case "ه", "ز", "ح", "ط", "ي", "ل", "ة", "ث", "ی"
-                    liste = liste & choosen & " "
-                    adet = adet + 1
-                Case Else
-                End Select
-            Next counter
-        Case "water", "su", 2
-            For counter = 1 To LEN(selected)
-                choosen = MID(selected, counter, 1)
-                Select Case choosen
-                Case "د", "ك", "ع", "ف", "ق", "ش", "ض"
-                    liste = liste & choosen & " "
-                    adet = adet + 1
-                Case Else
-                End Select
-            Next counter
-        Case "earth", "toprak", 3
-            For counter = 1 To LEN(selected)
-                choosen = MID(selected, counter, 1)
-                Select Case choosen
-                Case "و", "م", "ن", "ت", "ذ", "ظ", "غ"
-                    liste = liste & choosen & " "
-                    adet = adet + 1
-                Case Else
-                End Select
-            Next counter
-        End Select
-    End Select
-    Select Case otabiat
-    Case "liste", "list", 1 : UNSUR = liste
-    Case "adet", "amount", 0 : UNSUR = adet
     End Select
 End Function
-Function SAY(Optional metin As String, Optional met As String, Optional stype As Variant, Optional fastmode As Variant) As Double
-    Dim CA, counter As Integer
-    Dim choosen     As String
-    If fastmode <> 1 Then metin = SAF(metin, "") : met = SAF(met, "")
-    CA = LEN(metin) - LEN(met) + 1 : SAY = 0
-    For counter = 1 To CA
-        choosen = MID(metin, counter, LEN(met))
-        Select Case stype
-        Case 0
-            If choosen = met Then SAY = SAY + 1
-        Case 1
-            If counter = CA And choosen = met Then
-                If MID(metin, counter - 1, 1) = " " Then  SAY = SAY + 1
-            ElseIf counter < CA Then
-                If MID(metin, counter + LEN(met), 1) = " " And choosen = met Then
-                    If counter = 1 Then
-                        SAY = SAY + 1
-                    ElseIf MID(metin, counter - 1, 1) = " " Then
-                        SAY = SAY + 1
-                    Else
-                    End If
+Function GetHundreds(ByVal MyNumber, Lang, Optional Count, Optional Spell)
+    Dim Result As String
+    MyNumber = Right("000" & MyNumber, 3)
+    Select Case UCase(Lang)
+    Case "ARABIC"
+        If Cdbl(Mid(MyNumber, 1, 1)) > 0 Then
+            If Cdbl(Right(MyNumber, 2)) = 0 And Cdbl(Mid(MyNumber, 1, 1)) = 2 Then
+                If Count = 1 Then
+                    Result = "مئتان "
                 Else
+                    Result = "مئتا "
                 End If
             Else
+                Select Case CDbl(Mid(MyNumber, 1, 1))
+                Case 1 : Result = "مائة "
+                Case 2 : Result = "مئتان "
+                Case 3 : Result = "ثلاثمائة "
+                Case 4 : Result = "أربعمائة "
+                Case 5 : Result = "خمسمائة "
+                Case 6 : Result = "ستمائة "
+                Case 7 : Result = "سبعمائة "
+                Case 8 : Result = "ثمانمائة "
+                Case 9 : Result = "تسعمائة "
+                Case Else
+                End Select
             End If
-        Case 2
-            If counter > 2 Then If choosen = met And MID(metin, counter - 2, 2) = "ال" Then SAY = SAY + 1
-        Case 3
-            If counter = CA And counter > 2  Then
-                If choosen = met And MID(metin, counter - 2, 2) = "ال" Then SAY = SAY + 1
-            ElseIf counter < CA And counter > 3 Then
-                If MID(metin, counter + LEN(met), 1) = " " Then
-                    If MID(metin, counter - 3, 3) = "ال " And choosen = met Then SAY = SAY + 1
-                Else
-                End If
+        Else
+        End If
+        If LEN(Result) > 0  And CDbl(Right(MyNumber, 2)) <> 0 Then Result = Result & " و "
+        If Mid(MyNumber, 2, 1) <> "0" Then
+            Result = Result & GetTens(Right(MyNumber, 2), Lang, Count, Cdbl(Mid(MyNumber, 1, 1)), Result & Spell)
+        Else
+            Result = Result & GetDigit(Mid(MyNumber, 3), Lang)
+        End If
+    Case "HEBREW"
+        If Cdbl(Mid(MyNumber, 1, 1)) > 0 Then
+            Select Case CDbl(Mid(MyNumber, 1, 1))
+            Case 1 : Result = "מאה "
+            Case 2 : Result = "מאתיים "
+            Case 3 : Result = "שלוש מאות "
+            Case 4 : Result = "ארבע מאות "
+            Case 5 : Result = "חמש מאות "
+            Case 6 : Result = "שש מאות "
+            Case 7 : Result = "שבע מאות "
+            Case 8 : Result = "שמונה מאות "
+            Case 9 : Result = "תשע מאות "
+            Case Else
+            End Select
+        Else
+        End If
+        If LEN(Result) > 0  And CDbl(Right(MyNumber, 2)) <> 0 Then Result = Result & " ו "
+        If Mid(MyNumber, 2, 1) <> "0" Then
+            Result = Result & GetTens(Right(MyNumber, 2), Lang, Count, Cdbl(Mid(MyNumber, 1, 1)), Result & Spell)
+        Else
+            Result = Result & GetDigit(Mid(MyNumber, 3), Lang)
+        End If
+    Case "TURKCE"
+        If Mid(MyNumber, 1, 1) <> "0" Then
+            If CDbl(Mid(MyNumber, 1, 1)) > 1 Then
+                Result = GetDigit(Mid(MyNumber, 1, 1), Lang) & " yüz "
             Else
+                Result = "yüz "
             End If
-        End Select
-    Next
-End Function
-Function SAF(Optional metin As String, Optional ayrac As Variant, Optional shadda As Integer) As String
-    Dim counter     As Integer
-    Dim choosen, S, irun As String : SAF = ""
-    Select Case ayrac
-    Case 0 : irun = ""
-    Case Else : irun = ayrac
+        End If
+        If Mid(MyNumber, 2, 1) <> "0" Then
+            Result = Result & GetTens(Mid(MyNumber, 2), Lang)
+        Else
+            Result = Result & GetDigit(Mid(MyNumber, 3), Lang)
+        End If
+    Case Else
     End Select
-    For counter = 1 To LEN(metin)
-        choosen = MID(metin, counter, 1) : S = ""
-        Select Case shadda
-        Case 2
-            C = 1
-            If choosen = "ّ" Then
-                Do
-                    choosen = MID(metin, counter - C, 1)
-                    C = C + 1
-                Loop Until SAF(choosen, "") <> ""
+    GetHundreds = Result
+End Function
+Function GetTens(TensText, Lang, Optional Count, Optional Hundreds, Optional Spell)
+    Dim Result As String
+    ReDim PlaceOnes(9), PlaceTwos(9) As String
+    Result = ""
+    Select Case UCase(Lang)
+    Case "ARABIC"
+        PlaceOnes(2) = "ألف "
+        PlaceOnes(3) = "مليون "
+        PlaceOnes(4) = "مليار "
+        PlaceOnes(5) = "تريليون "
+        PlaceTwos(2) = "ألفان "
+        PlaceTwos(3) = "مليونان "
+        PlaceTwos(4) = "ملياران "
+        PlaceTwos(5) = "تريليونان "
+        If CDbl(Left(TensText, 1)) = 1 Then
+            Select Case Val(TensText)
+            Case 10: Result = "عشرة"
+            Case 11: Result = "إحدى عشرة"
+            Case 12: Result = "اثنتا عشرة"
+            Case 13: Result = "ثلاث عشرة"
+            Case 14: Result = "أربع عشرة"
+            Case 15: Result = "خمس عشرة"
+            Case 16: Result = "ست عشرة"
+            Case 17: Result = "سبع عشرة"
+            Case 18: Result = "ثماني عشرة"
+            Case 19: Result = "تسع عشرة"
+            Case Else
+            End Select
+        Else
+            If CDbl(TensText) = 2 And Hundreds = 0 And Count > 1 Then
+                Result = PlaceTwos(Count) & Result
             Else
+                If CDbl(TensText) = 1 And Count > 1 Then
+                    Result = PlaceOnes(Count) & Result
+                ElseIf CDbl(TensText) = 1 Or CDbl(TensText) = 2 Then
+                    If Count = 1 And Hundreds = 0 And CDbl(TensText) = 0 Then Result = Result & ""
+                Else
+                End If
             End If
+            If CDbl(TensText) > 0 Then
+                If CDbl(Left(TensText, 1)) > 1 Then	Result = Result & GetTensStatus(CDbl(Left(TensText, 1)), Lang)
+                If LEN(Result) > 0 And CDbl(Right(TensText, 1)) <> 0 Then 	Result = Result & "و "
+                Result = Result & GetDigit(Right(TensText, 1), Lang, Count)
+            Else
+                If LEN(Spell) > 0  And CDbl(Left(TensText, 1)) <> 0 Or LEN(Result) > 0 And CDbl(Left(TensText, 1)) <> 0 Then Result = Result & "و "
+                Result = Result & GetTensStatus(CDbl(Left(TensText, 1)), Lang)
+            End If
+        End If
+    Case "HEBREW"
+        PlaceOnes(2) = "אלפים "
+        PlaceOnes(3) = "מיליון "
+        PlaceOnes(4) = "מיליארד "
+        PlaceOnes(5) = "טריליון "
+        PlaceTwos(2) = "אלפיים "
+        PlaceTwos(3) = "שני מיליון "
+        PlaceTwos(4) = "שני מיליארד "
+        PlaceTwos(5) = "שני טריליון "
+        If CDbl(Left(TensText, 1)) = 1 Then
+            Select Case Val(TensText)
+            Case 10: Result = "עשר "
+            Case 11: Result = "אחת עשרה "
+            Case 12: Result = "שתים עשרה "
+            Case 13: Result = "שלוש עשרה "
+            Case 14: Result = "ארבע עשרה "
+            Case 15: Result = "חמש עשרה "
+            Case 16: Result = "שש עשרה "
+            Case 17: Result = "שבע עשרה "
+            Case 18: Result = "שמונה עשרה "
+            Case 19: Result = "תשע עשרה "
+            Case Else
+            End Select
+        Else
+            If CDbl(TensText) = 2 And Hundreds = 0 And Count > 1 Then
+                Result = PlaceTwos(Count) & Result
+            Else
+                If CDbl(TensText) = 1 And Count > 1 Then
+                    Result = PlaceOnes(Count) & Result
+                ElseIf CDbl(TensText) = 1 Or CDbl(TensText) = 2 Then
+                    If Count = 1 And Hundreds = 0 And CDbl(TensText) = 0 Then Result = Result & ""
+                Else
+                End If
+            End If
+            If CDbl(TensText) > 0 Then
+                If CDbl(Left(TensText, 1)) > 1 Then	Result = Result & GetTensStatus(CDbl(Left(TensText, 1)), Lang)
+                If LEN(Result) > 0 And CDbl(Right(TensText, 1)) <> 0 Then 	Result = Result & "ו "
+                Result = Result & GetDigit(Right(TensText, 1), Lang, Count)
+            Else
+                If LEN(Spell) > 0  And CDbl(Left(TensText, 1)) <> 0 Or LEN(Result) > 0 And CDbl(Left(TensText, 1)) <> 0 Then Result = Result & "ו "
+                Result = Result & GetTensStatus(CDbl(Left(TensText, 1)), Lang)
+            End If
+        End If
+    Case "TURKCE"
+        Select Case Val(Left(TensText, 1))
+        Case 1: Result = "on "
+        Case 2: Result = "yirmi "
+        Case 3: Result = "otuz "
+        Case 4: Result = "kırk "
+        Case 5: Result = "elli "
+        Case 6: Result = "altmış "
+        Case 7: Result = "yetmiş "
+        Case 8: Result = "seksen "
+        Case 9: Result = "doksan "
         Case Else
         End Select
-        Select Case UCase(choosen)
-        Case "ا", "ء", "ى", "ب", "ج", "د", "ه", "و", "ؤ", "ز" : S = choosen & irun
-        Case "ح", "ط", "ي", "ك", "ل", "م", "ن", "س", "ع", "ف" : S = choosen & irun
-        Case "ص", "ق", "ر", "ش", "ت", "ض", "ة", "ث", "خ", "ذ" : S = choosen & irun
-        Case "ض", "ظ", "غ", "ئ" : S = choosen & irun
-        Case "أ", "إ", "آ", "ىٰ" : S = "ا" & irun
-        Case "ک" : S = "ک" & irun
-        Case "ﮒ" : S = "ﮒ" & irun
-        Case "ی" : S = "ی" & irun
-        Case "ۀ" : S = "ۀ" & irun
-        Case "א", "ב", "ג", "ד", "ה", "ו", "ז", "ח", "ט", "י" : S = choosen & irun
-        Case "ל", "ס", "ע", "ק", "ר", "ש", "ת" : S = choosen & irun
-        Case "כ", "ך" ,"מ", "ם" , "נ", "ן" ,"פ", "ף", "צ", "ץ" : S = choosen & irun
-        Case "A", "B", "C", "Ç", "D", "E", "F", "G", "Ğ": S = choosen & irun
-        Case "H", "I", "İ", "J", "K", "L", "M", "N", "O": S = choosen & irun
-        Case "Ö", "P", "R", "S", "Ş", "T", "U", "Ü", "V": S = choosen & irun
-        Case "Y", "Z" : S = choosen & irun
-        Case " "
-            Select Case ayrac
-            Case "" : S = choosen
-            Case 0 : S = ""
-            Case Else : S = irun
-            End Select
-        Case Else : S = ""
-        End Select
-        SAF = SAF & S
-        ReDim choosen, S
-    Next counter
-End Function
-Function TEKSIR(Optional metin As String, Optional ayrac As String, Optional shadda As Integer) As String
-    Dim counter, produce, inverse, LengthDouble As Integer : LengthDouble = 0
-    Dim newmetin, IKSIR, turn, result, Nothing As String
-    Select Case shadda
-    Case 2 : newmetin = SAF(metin, 0, 2)
-    Case Else : newmetin = SAF(metin, 0)
+        Result = Result & GetDigit(Right(TensText, 1), Lang)
+    Case Else
     End Select
-    result = SAF(newmetin, ayrac) & Chr(10) & Chr(13)
-    IKSIR = newmetin
-    For produce = 1 To LEN(newmetin) -1
-        If LEN(newmetin) / 2 = DUZLE(LEN(newmetin) / 2) Then LengthDouble = 1
-        IKSIR = ""
-        For counter = 1 To DUZLE(LEN(newmetin) / 2)
-            inverse = LEN(newmetin) + 1 - counter
-            IKSIR = IKSIR & MID(newmetin, inverse, 1)
-            IKSIR = IKSIR & MID(newmetin, counter, 1)
-        Next counter
-        If LengthDouble <> 1 Then IKSIR = IKSIR & MID(newmetin, DUZLE(LEN(newmetin) / 2) + 1, 1)
-        TEKSIR = result & SAF(IKSIR, ayrac) & Chr(10) & Chr(13)
-        result = TEKSIR
-        newmetin = SAF(IKSIR, 0)
-        ReDim IKSIR, result, inverse, newmetin
-    Next produce
+    GetTens = Result
 End Function
-Function NUMBERS2ARAB(Optional metin As String) As String
-    Dim counter     As Integer
-    Dim choosen, NA As String : NA = "" : NUMBERS2ARAB = ""
-    For counter = 1 To LEN(metin)
-        choosen = MID(metin, counter, 1)
-        Select Case choosen
-        Case "1" : NA = NA & "١"
-        Case "2" : NA = NA & "٢"
-        Case "3" : NA = NA & "٣"
-        Case "4" : NA = NA & "٤"
-        Case "5" : NA = NA & "٥"
-        Case "6" : NA = NA & "٦"
-        Case "7" : NA = NA & "٧"
-        Case "8" : NA = NA & "٨"
-        Case "9" : NA = NA & "٩"
-        Case "0" : NA = NA & "٠"
-        Case " " : NA = NA & " "
-        Case Else : NA = NA & choosen
+Function GetTensStatus(Tens, Lang)
+    Select Case UCase(Lang)
+    Case "ARABIC"
+        Select Case Tens
+        Case 2: Result = "عشرين "
+        Case 3: Result = "ثلاثين "
+        Case 4: Result = "أربعين "
+        Case 5: Result = "خمسين "
+        Case 6: Result = "ستين "
+        Case 7: Result = "سبعين "
+        Case 8: Result = "ثمانين "
+        Case 9: Result = "تسعين "
+        Case Else
         End Select
-    Next
-    NUMBERS2ARAB = NA
-    ReDim NUMBERS2ARAB, NA
+    Case "HEBREW"
+        Select Case Tens
+        Case 2: Result = "עשרים "
+        Case 3: Result = "שלושים "
+        Case 4: Result = "ארבעים "
+        Case 5: Result = "חמישים "
+        Case 6: Result = "שישים "
+        Case 7: Result = "שבעים "
+        Case 8: Result = "שמונים "
+        Case 9: Result = "תשעים "
+        Case Else
+        End Select
+    Case Else
+    End Select
+    GetTensStatus = Result
 End Function
-Function HUDDAM(Optional num As Double, Optional htype As Variant, Optional method As Variant) As String
+Function HEPART(Optional npotent As Double, Optional memec As Integer) As Double
+    Dim result      As Double
+    Dim R, kat	As Double: kat = 2
+    result = 0
+    On Error GoTo 726
+    If DUZLE((result - 30) / 4) < 1 Then
+        Do
+            result = npotent * kat
+            R = DUZLE((result - 30) / 4)
+            kat = kat + 1
+        Loop Until 1 <= R
+    Else
+        result = npotent
+    End If
+    ReDim result
+    If memec = 1 Then
+        HEPART = kat - 1
+    Else
+        HEPART = result
+    End If
+    726 If result = 0 Then MsgBox "HEPART() için değişken seçimlik değil; fakat, makrolar harika çalışıyorlar"
+End Function
+Function HUDDAM(ByVal num As Long, Optional htype As String, Optional method As Integer) As String
     Dim hpart(19), rest, counts, counting, counted, counter, part, preffixdepart As Integer : counts = 1
-    Dim suffix, preffix As Double
+    Dim suffix As Double
+    Dim preffix As String
     Dim GH, H       As String : GH = ""
     Select Case method
     Case 7
@@ -1573,7 +1449,38 @@ Function HUDDAM(Optional num As Double, Optional htype As Variant, Optional meth
     ReDim suffix, preffix
     HUDDAM = GH
 End Function
-Function NUMEROLOG(Optional metin As String, Optional tablo As String, Optional outas As Variant, Optional shadda As Variant) As Variant
+Function NEWLINE(Optional amount As Double) As String
+    Dim rows        As Double
+    Dim NL          As String : NL = ""
+    For rows = 1 To amount
+        NL = NL & Chr(10) & Chr(13)
+    Next rows
+    NEWLINE = NL
+End Function
+Function NUMBERS2ARAB(Optional metin As String) As String
+    Dim counter     As Integer
+    Dim choosen, NA As String : NA = "" : NUMBERS2ARAB = ""
+    For counter = 1 To LEN(metin)
+        choosen = MID(metin, counter, 1)
+        Select Case choosen
+        Case "1" : NA = NA & "١"
+        Case "2" : NA = NA & "٢"
+        Case "3" : NA = NA & "٣"
+        Case "4" : NA = NA & "٤"
+        Case "5" : NA = NA & "٥"
+        Case "6" : NA = NA & "٦"
+        Case "7" : NA = NA & "٧"
+        Case "8" : NA = NA & "٨"
+        Case "9" : NA = NA & "٩"
+        Case "0" : NA = NA & "٠"
+        Case " " : NA = NA & " "
+        Case Else : NA = NA & choosen
+        End Select
+    Next
+    NUMBERS2ARAB = NA
+    ReDim NUMBERS2ARAB, NA
+End Function
+Function NUMEROLOG(ByVal metin As String, Optional tablo As String, Optional outas As Variant, Optional shadda As Variant) As Variant
     Dim SM, S, C, D, N, sesli, sessiz, err, counter, space, hrk As Integer : NUMEROLOG = 0 : S = 0 : N = 0 : sesli = 0 : sessiz = 0
     Dim M, nitem, nesoohc, choosen As String : nitem = "" : err = 0 : tablo = LCase(tablo) : metin = UCase(metin)
     Select Case tablo
@@ -2102,115 +2009,6 @@ Function NUMEROLOG(Optional metin As String, Optional tablo As String, Optional 
     End Select
     ReDim metin, SM, S, sesli, sessiz, N, C, D, M, nitem, tablo, err
 End Function
-Function TESBIH(Optional zkr As Variant, Optional minimum As Double, Optional boncuk As Double, Optional bolum As Double) As String
-    Dim outp        As String
-    Dim turn, part, rest(1) As Double
-    zkr = CDbl(zkr) : If zkr < minimum Then zkr = zkr * zkr
-    turn = DUZLE(zkr / boncuk)
-    rest(0) = (zkr - (turn * boncuk))
-    part = DUZLE(rest(0) / bolum)
-    rest(1) = (rest(0) - (part * bolum))
-    If turn > 0 Then outp = "[" & turn & " tur]"
-    If part > 0 Then outp = outp & "[" & part & "X" & bolum & "]"
-    If rest(1) > 0 Then outp = outp & "[" & rest(1) & " kalan]"
-    ReDim outp
-    TESBIH = outp
-End Function
-Function ALTAYAZ(Optional girdi As Variant) As String
-    Dim counter     As Integer
-    Dim choosen, ss As String : ss = "" : ALTAYAZ = ""
-    For counter = 1 To LEN(girdi)
-        choosen = MID(girdi, counter, 1)
-        Select Case choosen
-        Case "1" : ss = ss & "₁"
-        Case "2" : ss = ss & "₂"
-        Case "3" : ss = ss & "₃"
-        Case "4" : ss = ss & "₄"
-        Case "5" : ss = ss & "₅"
-        Case "6" : ss = ss & "₆"
-        Case "7" : ss = ss & "₇"
-        Case "8" : ss = ss & "₈"
-        Case "9" : ss = ss & "₉"
-        Case "0" : ss = ss & "₀"
-        Case "+" : ss = ss & "₊"
-        Case "-" : ss = ss & "₋"
-        Case "=" : ss = ss & "₌"
-        Case "(", "[" : ss = ss & "₍"
-        Case ")", "]" : ss = ss & "₎"
-        Case " " : ss = ss & " "
-        Case Else : ss = ss & choosen
-        End Select
-    Next
-    ALTAYAZ = ss
-    ReDim ALTAYAZ, ss
-End Function
-Function RAKAMTOPLA(Optional valuez As Double, Optional d1g1tamount As Integer) As String
-    Dim hepsi       As String
-    Dim counter     As Integer
-    Dim NewSum, choosen As Double
-    If d1g1tamount = 0 Then
-        hepsi = CStr(valuez)
-        Do Until LEN(CStr(valuez)) = 1
-            NewSum = 0
-            For counter = 1 To LEN(CStr(valuez))
-                choosen = CDbl(MID(CStr(valuez), counter, 1))
-                NewSum = NewSum + choosen
-            Next : valuez = NewSum : hepsi = hepsi & " ► " & NewSum
-        Loop : ReDim hepsi : RAKAMTOPLA = hepsi
-    Else
-        Do Until LEN(CStr(valuez)) <= d1g1tamount
-            NewSum = 0
-            For counter = 1 To LEN(CStr(valuez))
-                choosen = MID(CStr(valuez), counter, 1)
-                NewSum = NewSum + choosen
-            Next : valuez = NewSum
-        Loop : ReDim d1g1tamount, valuez : RAKAMTOPLA = valuez
-    End If
-End Function
-Function NEWLINE(Optional amount As Double) As String
-    Dim rows        As Double
-    Dim NL          As String : NL = ""
-    For rows = 1 To amount
-        NL = NL & Chr(10) & Chr(13)
-    Next rows
-    NEWLINE = NL
-End Function
-Function ASGAR(Optional harf As String, Optional level As Integer) As String
-    Dim C           As Double
-    C = ABJAD(harf, level, 1)
-    If C > 12 Then
-        ASGAR = C - (12 * DUZLE(C / 12))
-    Else
-        ASGAR = C
-    End If
-End Function
-Function DUZLE(Optional numbertofloor As Double) As Double
-    Dim mathfloor   As Object
-    Dim P(1)        As Double
-    mathfloor = CreateUnoService("com.sun.star.sheet.FunctionAccess")
-    P(0) = numbertofloor
-    P(1) = 0
-    DUZLE = mathfloor.callFunction("ROUNDDOWN", P())
-End Function
-Function TUMLE(range)
-    Dim row, col    As Integer
-    Dim result, cell As String
-    result = ""
-    On Error GoTo 276
-    For row = LBound(range, 1) To UBound(range, 1)
-        For col = LBound(range, 2) To UBound(range, 2)
-            cell = range(row, col)
-            If cell <> 0 And Len(Trim(cell)) <> 0 Then
-                If result <> "" Then
-                    result = result & " "
-                End If
-                result = result & range(row, col)
-            End If
-        Next  	REM ** Bu satırda uyarı vermesinin sebebi fonksiyonun kullanıldığı bir aralık girilmemiş olmasıdır.
-    Next
-    276 If result = "" Then MsgBox "TUMLE() için girilen aralıktaki tüm hücreler zaten boş; makrolar harika çalışıyorlar"
-    TUMLE = result
-End Function
 Function NUTKET(ByVal MyNumber, Lang)
     Dim Temp, Spell
     Dim Count
@@ -2404,281 +2202,483 @@ Function NUTKET(ByVal MyNumber, Lang)
     End Select
     NUTKET = Trim(Spell)
 End Function
-Function GetHundreds(ByVal MyNumber, Lang, Optional Count, Optional Spell)
-    Dim Result As String
-    MyNumber = Right("000" & MyNumber, 3)
-    Select Case UCase(Lang)
-    Case "ARABIC"
-        If Cdbl(Mid(MyNumber, 1, 1)) > 0 Then
-            If Cdbl(Right(MyNumber, 2)) = 0 And Cdbl(Mid(MyNumber, 1, 1)) = 2 Then
-                If Count = 1 Then
-                    Result = "مئتان "
+Function RAKAMTOPLA(ByVal valuez As Double, Optional d1g1tamount As Integer) As String
+    Dim hepsi       As String
+    Dim counter     As Integer
+    Dim NewSum, choosen As Double
+    If d1g1tamount = 0 Then
+        hepsi = CStr(valuez)
+        Do Until LEN(CStr(valuez)) = 1
+            NewSum = 0
+            For counter = 1 To LEN(CStr(valuez))
+                choosen = CDbl(MID(CStr(valuez), counter, 1))
+                NewSum = NewSum + choosen
+            Next : valuez = NewSum : hepsi = hepsi & " ► " & NewSum
+        Loop : ReDim hepsi : RAKAMTOPLA = hepsi
+    Else
+        Do Until LEN(CStr(valuez)) <= d1g1tamount
+            NewSum = 0
+            For counter = 1 To LEN(CStr(valuez))
+                choosen = MID(CStr(valuez), counter, 1)
+                NewSum = NewSum + choosen
+            Next : valuez = NewSum
+        Loop : ReDim d1g1tamount, valuez : RAKAMTOPLA = valuez
+    End If
+End Function
+Function SAF(ByVal metin As String, Optional ayrac As Variant, Optional shadda As Integer) As String
+    Dim counter     As Integer
+    Dim choosen, S, irun As String : SAF = ""
+    Select Case ayrac
+    Case 0 : irun = ""
+    Case Else : irun = ayrac
+    End Select
+    For counter = 1 To LEN(metin)
+        choosen = MID(metin, counter, 1) : S = ""
+        Select Case shadda
+        Case 2
+            C = 1
+            If choosen = "ّ" Then
+                Do
+                    choosen = MID(metin, counter - C, 1)
+                    C = C + 1
+                Loop Until SAF(choosen, "") <> ""
+            Else
+            End If
+        Case Else
+        End Select
+        Select Case UCase(choosen)
+        Case "ا", "ء", "ى", "ب", "ج", "د", "ه", "و", "ؤ", "ز" : S = choosen & irun
+        Case "ح", "ط", "ي", "ك", "ل", "م", "ن", "س", "ع", "ف" : S = choosen & irun
+        Case "ص", "ق", "ر", "ش", "ت", "ض", "ة", "ث", "خ", "ذ" : S = choosen & irun
+        Case "ض", "ظ", "غ", "ئ" : S = choosen & irun
+        Case "أ", "إ", "آ", "ىٰ" : S = "ا" & irun
+        Case "ک" : S = "ک" & irun
+        Case "ﮒ" : S = "ﮒ" & irun
+        Case "ی" : S = "ی" & irun
+        Case "ۀ" : S = "ۀ" & irun
+        Case "א", "ב", "ג", "ד", "ה", "ו", "ז", "ח", "ט", "י" : S = choosen & irun
+        Case "ל", "ס", "ע", "ק", "ר", "ש", "ת" : S = choosen & irun
+        Case "כ", "ך" ,"מ", "ם" , "נ", "ן" ,"פ", "ף", "צ", "ץ" : S = choosen & irun
+        Case "A", "B", "C", "Ç", "D", "E", "F", "G", "Ğ": S = choosen & irun
+        Case "H", "I", "İ", "J", "K", "L", "M", "N", "O": S = choosen & irun
+        Case "Ö", "P", "R", "S", "Ş", "T", "U", "Ü", "V": S = choosen & irun
+        Case "Y", "Z" : S = choosen & irun
+        Case " "
+            Select Case ayrac
+            Case "" : S = choosen
+            Case 0 : S = ""
+            Case Else : S = irun
+            End Select
+        Case Else : S = ""
+        End Select
+        SAF = SAF & S
+        ReDim choosen, S
+    Next counter
+End Function
+Function SAY(ByVal metin As String, Optional met As String, Optional stype As Variant, Optional fastmode As Variant) As Double
+    Dim CA, counter As Integer
+    Dim choosen     As String
+    If fastmode <> 1 Then metin = SAF(metin, "") : met = SAF(met, "")
+    CA = LEN(metin) - LEN(met) + 1 : SAY = 0
+    For counter = 1 To CA
+        choosen = MID(metin, counter, LEN(met))
+        Select Case stype
+        Case 0
+            If choosen = met Then SAY = SAY + 1
+        Case 1
+            If counter = CA And choosen = met Then
+                If MID(metin, counter - 1, 1) = " " Then  SAY = SAY + 1
+            ElseIf counter < CA Then
+                If MID(metin, counter + LEN(met), 1) = " " And choosen = met Then
+                    If counter = 1 Then
+                        SAY = SAY + 1
+                    ElseIf MID(metin, counter - 1, 1) = " " Then
+                        SAY = SAY + 1
+                    Else
+                    End If
                 Else
-                    Result = "مئتا "
                 End If
             Else
-                Select Case CDbl(Mid(MyNumber, 1, 1))
-                Case 1 : Result = "مائة "
-                Case 2 : Result = "مئتان "
-                Case 3 : Result = "ثلاثمائة "
-                Case 4 : Result = "أربعمائة "
-                Case 5 : Result = "خمسمائة "
-                Case 6 : Result = "ستمائة "
-                Case 7 : Result = "سبعمائة "
-                Case 8 : Result = "ثمانمائة "
-                Case 9 : Result = "تسعمائة "
+            End If
+        Case 2
+            If counter > 2 Then If choosen = met And MID(metin, counter - 2, 2) = "ال" Then SAY = SAY + 1
+        Case 3
+            If counter = CA And counter > 2  Then
+                If choosen = met And MID(metin, counter - 2, 2) = "ال" Then SAY = SAY + 1
+            ElseIf counter < CA And counter > 3 Then
+                If MID(metin, counter + LEN(met), 1) = " " Then
+                    If MID(metin, counter - 3, 3) = "ال " And choosen = met Then SAY = SAY + 1
+                Else
+                End If
+            Else
+            End If
+        End Select
+    Next
+End Function
+Function TEKSIR(ByVal metin As String, Optional ayrac As String, Optional shadda As Integer) As String
+    Dim counter, produce, inverse, LengthDouble As Integer : LengthDouble = 0
+    Dim newmetin, IKSIR, result As String
+    Select Case shadda
+    Case 2 : newmetin = SAF(metin, 0, 2)
+    Case Else : newmetin = SAF(metin, 0)
+    End Select
+    result = SAF(newmetin, ayrac) & Chr(10) & Chr(13)
+    IKSIR = newmetin
+    For produce = 1 To LEN(newmetin) -1
+        If LEN(newmetin) / 2 = DUZLE(LEN(newmetin) / 2) Then LengthDouble = 1
+        IKSIR = ""
+        For counter = 1 To DUZLE(LEN(newmetin) / 2)
+            inverse = LEN(newmetin) + 1 - counter
+            IKSIR = IKSIR & MID(newmetin, inverse, 1)
+            IKSIR = IKSIR & MID(newmetin, counter, 1)
+        Next counter
+        If LengthDouble <> 1 Then IKSIR = IKSIR & MID(newmetin, DUZLE(LEN(newmetin) / 2) + 1, 1)
+        TEKSIR = result & SAF(IKSIR, ayrac) & Chr(10) & Chr(13)
+        result = TEKSIR
+        newmetin = SAF(IKSIR, 0)
+        ReDim IKSIR, result, inverse, newmetin
+    Next produce
+End Function
+Function TESBIH(ByVal zkr As Variant, minimum As Double, boncuk As Double, bolum As Double) As String
+    Dim outp        As String
+    Dim turn, part, rest(1) As Double
+    zkr = CDbl(zkr) : If zkr < minimum Then zkr = zkr * zkr
+    turn = DUZLE(zkr / boncuk)
+    rest(0) = (zkr - (turn * boncuk))
+    part = DUZLE(rest(0) / bolum)
+    rest(1) = (rest(0) - (part * bolum))
+    If turn > 0 Then outp = "[" & turn & " tur]"
+    If part > 0 Then outp = outp & "[" & part & "X" & bolum & "]"
+    If rest(1) > 0 Then outp = outp & "[" & rest(1) & " kalan]"
+    ReDim outp
+    TESBIH = outp
+End Function
+Function TUMLE(range)
+    Dim row, col    As Integer
+    Dim result, cell As String
+    result = ""
+    On Error GoTo 276
+    For row = LBound(range, 1) To UBound(range, 1)
+        For col = LBound(range, 2) To UBound(range, 2)
+            cell = range(row, col)
+            If cell <> 0 And Len(Trim(cell)) <> 0 Then
+                If result <> "" Then
+                    result = result & " "
+                End If
+                result = result & range(row, col)
+            End If
+        Next  	REM ** Bu satırda uyarı vermesinin sebebi fonksiyonun kullanıldığı bir aralık girilmemiş olmasıdır.
+    Next
+    276 If result = "" Then MsgBox "TUMLE() için girilen aralıktaki tüm hücreler zaten boş; makrolar harika çalışıyorlar"
+    TUMLE = result
+End Function
+Function UNSUR(ByVal metin As String, Optional otabiat As Variant, Optional otype As Variant, Optional shadda As Integer, Optional guide As Variant) As String
+    Dim counter, adet As Integer
+    Dim choosen, liste As String
+    For counter = 1 To LEN(metin)
+        choosen = MID(metin, counter, 1)
+        If shadda = 2 Then
+            C = 1
+            If choosen = "ّ" Then
+                Do
+                    choosen = MID(metin, counter - C, 1)
+                    C = C + 1
+                Loop Until SAF(choosen, "") <> ""
+            Else
+            End If
+        End If
+        Select Case UCase(choosen)
+        Case "ا", "ب", "ج", "س", "ص", "ر", "خ", "ه", "ز", "ح", "ط", "ي", "ی", "ل", "ة", "ث", "د", "ك", "ع", "ف", "ق", "ش", "ض", "و", "م", "ن", "ت", "ذ", "ظ", "غ" : selected = selected & choosen
+        Case "أ", "إ", "آ", "ء", "ى" : selected = selected & "ا"
+        Case "ؤ" : selected = selected & "و" & "ا"
+        Case "ۀ" : selected = selected & "ه" & "ي"
+        Case "ئ" : selected = selected & "ي" & "ا"
+        Case "א", "ב", "ג", "ד", "ה", "ו", "ז", "ח", "ט", "י", "כ", "ל", "מ", "נ", "ס", "ע", "פ", "צ", "ק", "ר", "ש", "ת", "ם", "ן", "ף", "ץ", "ך" : selected = selected & choosen
+        Case "A", "B", "C", "Ç", "D", "E", "F", "G", "Ğ", "H", "I", "İ", "J", "K", "L", "M", "N", "O", "Ö", "P", "R", "S", "Ş", "T", "U", "Ü", "V", "Y", "Z" : selected = selected & UCase(choosen)
+        End Select
+    Next counter
+    Select Case guide
+    Case "TURKCE", 0
+        Select Case otype
+        Case "fire", "ateş", 0
+            For counter = 1 To LEN(selected)
+                choosen = MID(selected, counter, 1)
+                Select Case choosen
+                Case "A", "D", "Ğ", "J", "N", "R", "U", "Z"
+                    liste = liste & choosen & " "
+                    adet = adet + 1
                 Case Else
                 End Select
-            End If
-        Else
-        End If
-        If LEN(Result) > 0  And CDbl(Right(MyNumber, 2)) <> 0 Then Result = Result & " و "
-        If Mid(MyNumber, 2, 1) <> "0" Then
-            Result = Result & GetTens(Right(MyNumber, 2), Lang, Count, Cdbl(Mid(MyNumber, 1, 1)), Result & Spell)
-        Else
-            Result = Result & GetDigit(Mid(MyNumber, 3), Lang, Count, Result & Spell)
-        End If
-    Case "HEBREW"
-        If Cdbl(Mid(MyNumber, 1, 1)) > 0 Then
-            Select Case CDbl(Mid(MyNumber, 1, 1))
-            Case 1 : Result = "מאה "
-            Case 2 : Result = "מאתיים "
-            Case 3 : Result = "שלוש מאות "
-            Case 4 : Result = "ארבע מאות "
-            Case 5 : Result = "חמש מאות "
-            Case 6 : Result = "שש מאות "
-            Case 7 : Result = "שבע מאות "
-            Case 8 : Result = "שמונה מאות "
-            Case 9 : Result = "תשע מאות "
-            Case Else
-            End Select
-        Else
-        End If
-        If LEN(Result) > 0  And CDbl(Right(MyNumber, 2)) <> 0 Then Result = Result & " ו "
-        If Mid(MyNumber, 2, 1) <> "0" Then
-            Result = Result & GetTens(Right(MyNumber, 2), Lang, Count, Cdbl(Mid(MyNumber, 1, 1)), Result & Spell)
-        Else
-            Result = Result & GetDigit(Mid(MyNumber, 3), Lang, Count, Result & Spell)
-        End If
-    Case "TURKCE"
-        If Mid(MyNumber, 1, 1) <> "0" Then
-            If CDbl(Mid(MyNumber, 1, 1)) > 1 Then
-                Result = GetDigit(Mid(MyNumber, 1, 1), Lang) & " yüz "
-            Else
-                Result = "yüz "
-            End If
-        End If
-        If Mid(MyNumber, 2, 1) <> "0" Then
-            Result = Result & GetTens(Mid(MyNumber, 2), Lang)
-        Else
-            Result = Result & GetDigit(Mid(MyNumber, 3), Lang)
-        End If
+            Next counter
+        Case "air", "hava", 1
+            For counter = 1 To LEN(selected)
+                choosen = MID(selected, counter, 1)
+                Select Case choosen
+                Case "B", "E", "H", "K", "O", "S", "Ü"
+                    liste = liste & choosen & " "
+                    adet = adet + 1
+                Case Else
+                End Select
+            Next counter
+        Case "water", "su", 2
+            For counter = 1 To LEN(selected)
+                choosen = MID(selected, counter, 1)
+                Select Case choosen
+                Case "C", "F", "I", "L", "Ö", "Ş", "V"
+                    liste = liste & choosen & " "
+                    adet = adet + 1
+                Case Else
+                End Select
+            Next counter
+        Case "earth", "toprak", 3
+            For counter = 1 To LEN(selected)
+                choosen = MID(selected, counter, 1)
+                Select Case choosen
+                Case "Ç", "G", "İ", "M", "P", "T", "Y"
+                    liste = liste & choosen & " "
+                    adet = adet + 1
+                Case Else
+                End Select
+            Next counter
+        End Select
+    Case "ARABI", 1
+        Select Case otype
+        Case "fire", "ateş", 0
+            For counter = 1 To LEN(selected)
+                choosen = MID(selected, counter, 1)
+                Select Case choosen
+                Case "ا", "ه", "ط", "م", "ف", "ش", "ذ"
+                    liste = liste & choosen & " "
+                    adet = adet + 1
+                Case Else
+                End Select
+            Next counter
+        Case "air", "hava", 1
+            For counter = 1 To LEN(selected)
+                choosen = MID(selected, counter, 1)
+                Select Case choosen
+                Case "د", "ح", "ل", "ع", "ر", "خ", "غ"
+                    liste = liste & choosen & " "
+                    adet = adet + 1
+                Case Else
+                End Select
+            Next counter
+        Case "water", "su", 2
+            For counter = 1 To LEN(selected)
+                choosen = MID(selected, counter, 1)
+                Select Case choosen
+                Case "ب", "و", "ن", "ي", "ی", "ص", "ت", "ض"
+                    liste = liste & choosen & " "
+                    adet = adet + 1
+                Case Else
+                End Select
+            Next counter
+        Case "earth", "toprak", 3
+            For counter = 1 To LEN(selected)
+                choosen = MID(selected, counter, 1)
+                Select Case choosen
+                Case "ج", "ز", "ك", "س", "ق", "ث", "ظ"
+                    liste = liste & choosen & " "
+                    adet = adet + 1
+                Case Else
+                End Select
+            Next counter
+        End Select
+    Case "BUNI", 2
+        Select Case otype
+        Case "fire", "ateş", 0
+            For counter = 1 To LEN(selected)
+                choosen = MID(selected, counter, 1)
+                Select Case choosen
+                Case "ا", "ه", "ط", "م", "ف", "ش", "ذ"
+                    liste = liste & choosen & " "
+                    adet = adet + 1
+                Case Else
+                End Select
+            Next counter
+        Case "air", "hava", 1
+            For counter = 1 To LEN(selected)
+                choosen = MID(selected, counter, 1)
+                Select Case choosen
+                Case "ب", "و", "ن", "ي", "ی", "ص", "ت", "ض"
+                    liste = liste & choosen & " "
+                    adet = adet + 1
+                Case Else
+                End Select
+            Next counter
+        Case "water", "su", 2
+            For counter = 1 To LEN(selected)
+                choosen = MID(selected, counter, 1)
+                Select Case choosen
+                Case "د", "ح", "ل", "ع", "ر", "خ", "غ"
+                    liste = liste & choosen & " "
+                    adet = adet + 1
+                Case Else
+                End Select
+            Next counter
+        Case "earth", "toprak", 3
+            For counter = 1 To LEN(selected)
+                choosen = MID(selected, counter, 1)
+                Select Case choosen
+                Case "ج", "ز", "ك", "س", "ق", "ث", "ظ"
+                    liste = liste & choosen & " "
+                    adet = adet + 1
+                Case Else
+                End Select
+            Next counter
+        End Select
+    Case "HUSEYNI", 3
+        Select Case otype
+        Case "fire", "ateş", 0
+            For counter = 1 To LEN(selected)
+                choosen = MID(selected, counter, 1)
+                Select Case choosen
+                Case "ا", "ه", "ط", "م", "ف", "ش", "ذ"
+                    liste = liste & choosen & " "
+                    adet = adet + 1
+                Case Else
+                End Select
+            Next counter
+        Case "air", "hava", 1
+            For counter = 1 To LEN(selected)
+                choosen = MID(selected, counter, 1)
+                Select Case choosen
+                Case "ج", "ز", "ك", "س", "ق", "ث", "ظ"
+                    liste = liste & choosen & " "
+                    adet = adet + 1
+                Case Else
+                End Select
+            Next counter
+        Case "water", "su", 2
+            For counter = 1 To LEN(selected)
+                choosen = MID(selected, counter, 1)
+                Select Case choosen
+                Case "د", "ح", "ل", "ع", "ر", "خ", "غ"
+                    liste = liste & choosen & " "
+                    adet = adet + 1
+                Case Else
+                End Select
+            Next counter
+        Case "earth", "toprak", 3
+            For counter = 1 To LEN(selected)
+                choosen = MID(selected, counter, 1)
+                Select Case choosen
+                Case "ب", "و", "ي", "ی", "ن", "ص", "ت", "ض"
+                    liste = liste & choosen & " "
+                    adet = adet + 1
+                Case Else
+                End Select
+            Next counter
+        End Select
+    Case "HEBREW", 4
+        Select Case otype
+        Case "fire", "ateş", 0
+            For counter = 1 To LEN(selected)
+                choosen = MID(selected, counter, 1)
+                Select Case choosen
+                Case "א", "ה", "ט", "מ", "פ", "ש", "ף"
+                    liste = liste & choosen & " "
+                    adet = adet + 1
+                Case Else
+                End Select
+            Next counter
+        Case "air", "hava", 1
+            For counter = 1 To LEN(selected)
+                choosen = MID(selected, counter, 1)
+                Select Case choosen
+                Case "ב", "ו", "י", "נ", "צ", "ת", "ץ"
+                    liste = liste & choosen & " "
+                    adet = adet + 1
+                Case Else
+                End Select
+            Next counter
+        Case "water", "su", 2
+            For counter = 1 To LEN(selected)
+                choosen = MID(selected, counter, 1)
+                Select Case choosen
+                Case "ג", "ז", "כ", "ס", "ק", "ם", "ך"
+                    liste = liste & choosen & " "
+                    adet = adet + 1
+                Case Else
+                End Select
+            Next counter
+        Case "earth", "toprak", 3
+            For counter = 1 To LEN(selected)
+                choosen = MID(selected, counter, 1)
+                Select Case choosen
+                Case "ד", "ח", "ל", "ע", "ר", "ן"
+                    liste = liste & choosen & " "
+                    adet = adet + 1
+                Case Else
+                End Select
+            Next counter
+        End Select
     Case Else
+        Select Case otype
+        Case "fire", "ateş", 0
+            For counter = 1 To LEN(selected)
+                choosen = MID(selected, counter, 1)
+                Select Case choosen
+                Case "ا", "ب", "ج", "س", "ص", "ر", "خ"
+                    liste = liste & choosen & " "
+                    adet = adet + 1
+                Case Else
+                End Select
+            Next counter
+        Case "air", "hava", 1
+            For counter = 1 To LEN(selected)
+                choosen = MID(selected, counter, 1)
+                Select Case choosen
+                Case "ه", "ز", "ح", "ط", "ي", "ل", "ة", "ث", "ی"
+                    liste = liste & choosen & " "
+                    adet = adet + 1
+                Case Else
+                End Select
+            Next counter
+        Case "water", "su", 2
+            For counter = 1 To LEN(selected)
+                choosen = MID(selected, counter, 1)
+                Select Case choosen
+                Case "د", "ك", "ع", "ف", "ق", "ش", "ض"
+                    liste = liste & choosen & " "
+                    adet = adet + 1
+                Case Else
+                End Select
+            Next counter
+        Case "earth", "toprak", 3
+            For counter = 1 To LEN(selected)
+                choosen = MID(selected, counter, 1)
+                Select Case choosen
+                Case "و", "م", "ن", "ت", "ذ", "ظ", "غ"
+                    liste = liste & choosen & " "
+                    adet = adet + 1
+                Case Else
+                End Select
+            Next counter
+        End Select
     End Select
-    GetHundreds = Result
+    Select Case otabiat
+    Case "liste", "list", 1 : UNSUR = liste
+    Case "adet", "amount", 0 : UNSUR = adet
+    End Select
 End Function
-Function GetTens(TensText, Lang, Optional Count, Optional Hundreds, Optional Spell)
-    Dim Result As String
-    ReDim PlaceOnes(9), PlaceTwos(9) As String
-    Result = ""
-    Select Case UCase(Lang)
-    Case "ARABIC"
-        PlaceOnes(2) = "ألف "
-        PlaceOnes(3) = "مليون "
-        PlaceOnes(4) = "مليار "
-        PlaceOnes(5) = "تريليون "
-        PlaceTwos(2) = "ألفان "
-        PlaceTwos(3) = "مليونان "
-        PlaceTwos(4) = "ملياران "
-        PlaceTwos(5) = "تريليونان "
-        If CDbl(Left(TensText, 1)) = 1 Then
-            Select Case Val(TensText)
-            Case 10: Result = "عشرة"
-            Case 11: Result = "إحدى عشرة"
-            Case 12: Result = "اثنتا عشرة"
-            Case 13: Result = "ثلاث عشرة"
-            Case 14: Result = "أربع عشرة"
-            Case 15: Result = "خمس عشرة"
-            Case 16: Result = "ست عشرة"
-            Case 17: Result = "سبع عشرة"
-            Case 18: Result = "ثماني عشرة"
-            Case 19: Result = "تسع عشرة"
-            Case Else
-            End Select
-        Else
-            If CDbl(TensText) = 2 And Hundreds = 0 And Count > 1 Then
-                Result = PlaceTwos(Count) & Result
-            Else
-                If CDbl(TensText) = 1 And Count > 1 Then
-                    Result = PlaceOnes(Count) & Result
-                ElseIf CDbl(TensText) = 1 Or CDbl(TensText) = 2 Then
-                    If Count = 1 And Hundreds = 0 And CDbl(TensText) = 0 Then Result = Result & ""
-                Else
-                End If
-            End If
-            If CDbl(TensText) > 0 Then
-                If CDbl(Left(TensText, 1)) > 1 Then	Result = Result & GetTensStatus(CDbl(Left(TensText, 1)), Lang)
-                If LEN(Result) > 0 And CDbl(Right(TensText, 1)) <> 0 Then 	Result = Result & "و "
-                Result = Result & GetDigit(Right(TensText, 1), Lang, Count)
-            Else
-                If LEN(Spell) > 0  And CDbl(Left(TensText, 1)) <> 0 Or LEN(Result) > 0 And CDbl(Left(TensText, 1)) <> 0 Then Result = Result & "و "
-                Result = Result & GetTensStatus(CDbl(Left(TensText, 1)), Lang)
-            End If
-        End If
-    Case "HEBREW"
-        PlaceOnes(2) = "אלפים "
-        PlaceOnes(3) = "מיליון "
-        PlaceOnes(4) = "מיליארד "
-        PlaceOnes(5) = "טריליון "
-        PlaceTwos(2) = "אלפיים "
-        PlaceTwos(3) = "שני מיליון "
-        PlaceTwos(4) = "שני מיליארד "
-        PlaceTwos(5) = "שני טריליון "
-        If CDbl(Left(TensText, 1)) = 1 Then
-            Select Case Val(TensText)
-            Case 10: Result = "עשר "
-            Case 11: Result = "אחת עשרה "
-            Case 12: Result = "שתים עשרה "
-            Case 13: Result = "שלוש עשרה "
-            Case 14: Result = "ארבע עשרה "
-            Case 15: Result = "חמש עשרה "
-            Case 16: Result = "שש עשרה "
-            Case 17: Result = "שבע עשרה "
-            Case 18: Result = "שמונה עשרה "
-            Case 19: Result = "תשע עשרה "
-            Case Else
-            End Select
-        Else
-            If CDbl(TensText) = 2 And Hundreds = 0 And Count > 1 Then
-                Result = PlaceTwos(Count) & Result
-            Else
-                If CDbl(TensText) = 1 And Count > 1 Then
-                    Result = PlaceOnes(Count) & Result
-                ElseIf CDbl(TensText) = 1 Or CDbl(TensText) = 2 Then
-                    If Count = 1 And Hundreds = 0 And CDbl(TensText) = 0 Then Result = Result & ""
-                Else
-                End If
-            End If
-            If CDbl(TensText) > 0 Then
-                If CDbl(Left(TensText, 1)) > 1 Then	Result = Result & GetTensStatus(CDbl(Left(TensText, 1)), Lang)
-                If LEN(Result) > 0 And CDbl(Right(TensText, 1)) <> 0 Then 	Result = Result & "ו "
-                Result = Result & GetDigit(Right(TensText, 1), Lang, Count)
-            Else
-                If LEN(Spell) > 0  And CDbl(Left(TensText, 1)) <> 0 Or LEN(Result) > 0 And CDbl(Left(TensText, 1)) <> 0 Then Result = Result & "ו "
-                Result = Result & GetTensStatus(CDbl(Left(TensText, 1)), Lang)
-            End If
-        End If
-    Case "TURKCE"
-        Select Case Val(Left(TensText, 1))
-        Case 1: Result = "on "
-        Case 2: Result = "yirmi "
-        Case 3: Result = "otuz "
-        Case 4: Result = "kırk "
-        Case 5: Result = "elli "
-        Case 6: Result = "altmış "
-        Case 7: Result = "yetmiş "
-        Case 8: Result = "seksen "
-        Case 9: Result = "doksan "
+Function WORDBYWORD(ByVal klmmetin As String, Optional tablo As Integer, Optional shadda As Integer, Optional detail As Integer) As String
+    Dim content, word As String
+    content = ""
+    word = ""
+    klmmetin = klmmetin & " "
+    For counter = 1 To LEN(klmmetin)
+        klmchoosen = MID(klmmetin, counter, 1)
+        word = word + klmchoosen
+        Select Case klmchoosen
+        Case " ", Chr(10)
+            calculation =  "("  & ABJAD(word, tablo, shadda, detail) & ")" & klmchoosen
+            If calculation <> "(0) " Then content = content & word & ALTAYAZ(calculation)
+            word = ""
+            calculation = ""
         Case Else
         End Select
-        Result = Result & GetDigit(Right(TensText, 1), Lang)
-    Case Else
-    End Select
-    GetTens = Result
-End Function
-Function GetTensStatus(Tens, Lang)
-    Select Case UCase(Lang)
-    Case "ARABIC"
-        Select Case Tens
-        Case 2: Result = "عشرين "
-        Case 3: Result = "ثلاثين "
-        Case 4: Result = "أربعين "
-        Case 5: Result = "خمسين "
-        Case 6: Result = "ستين "
-        Case 7: Result = "سبعين "
-        Case 8: Result = "ثمانين "
-        Case 9: Result = "تسعين "
-        Case Else
-        End Select
-    Case "HEBREW"
-        Select Case Tens
-        Case 2: Result = "עשרים "
-        Case 3: Result = "שלושים "
-        Case 4: Result = "ארבעים "
-        Case 5: Result = "חמישים "
-        Case 6: Result = "שישים "
-        Case 7: Result = "שבעים "
-        Case 8: Result = "שמונים "
-        Case 9: Result = "תשעים "
-        Case Else
-        End Select
-    Case Else
-    End Select
-    GetTensStatus = Result
-End Function
-Function GetDigit(Digit, Lang)
-    Select Case UCase(Lang)
-    Case "ARABIC"
-        Select Case Val(Digit)
-        Case 1: GetDigit = "احد"
-        Case 2: GetDigit = "اثنان"
-        Case 3: GetDigit = "ثلاثة"
-        Case 4: GetDigit = "أربعة"
-        Case 5: GetDigit = "خمسة"
-        Case 6: GetDigit = "ستة"
-        Case 7: GetDigit = "سبعة"
-        Case 8: GetDigit = "ثمانية"
-        Case 9: GetDigit = "تسعة"
-        Case Else: GetDigit = ""
-        End Select
-    Case "HEBREW"
-        Select Case Val(Digit)
-        Case 1: GetDigit = "אחת"
-        Case 2: GetDigit = "שניים"
-        Case 3: GetDigit = "שלושה"
-        Case 4: GetDigit = "ארבעה"
-        Case 5: GetDigit = "חמש"
-        Case 6: GetDigit = "שישה"
-        Case 7: GetDigit = "שבע"
-        Case 8: GetDigit = "שמונה"
-        Case 9: GetDigit = "תשע"
-        Case Else: GetDigit = ""
-        End Select
-    Case "TURKCE"
-        Select Case Val(Digit)
-        Case 1: GetDigit = "bir"
-        Case 2: GetDigit = "iki"
-        Case 3: GetDigit = "üç"
-        Case 4: GetDigit = "dört"
-        Case 5: GetDigit = "beş"
-        Case 6: GetDigit = "altı"
-        Case 7: GetDigit = "yedi"
-        Case 8: GetDigit = "sekiz"
-        Case 9: GetDigit = "dokuz"
-        Case Else: GetDigit = ""
-        End Select
-    Case Else
-    End Select
-End Function
-Function HEPART(Optional npotent As Double, Optional memec As Integer) As Double
-    Dim result      As Double
-    Dim R, kat	As Double: kat = 2
-    result = 0
-    On Error GoTo 726
-    If DUZLE((result - 30) / 4) < 1 Then
-        Do
-            result = npotent * kat
-            R = DUZLE((result - 30) / 4)
-            kat = kat + 1
-        Loop Until 1 <= R
-    Else
-        result = npotent
-    End If
-    ReDim result
-    If memec = 1 Then
-        HEPART = kat - 1
-    Else
-        HEPART = result
-    End If
-    726 If result = 0 Then MsgBox "HEPART() için değişken seçimlik değil; fakat, makrolar harika çalışıyorlar"
+    Next
+    ReDim word, calculation, content
+    WORDBYWORD = content
 End Function
