@@ -1044,7 +1044,7 @@ Function GetHundreds(ByVal MyNumber, Lang, Optional Count, Optional Spell)
             If CDbl(Mid(MyNumber, 1, 1)) > 1 Then
                 result = GetDigit(Mid(MyNumber, 1, 1), Lang) & " yüz "
             Else
-                result = "yüz & ChrW(32)"
+                result = "yüz" & ChrW(32)
             End If
         End If
         If Mid(MyNumber, 2, 1) <> ChrW(48) Then
