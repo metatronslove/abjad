@@ -2475,7 +2475,7 @@ function wordbyword(klmmetin, tablow, shaddaw, detailw) {
 				case "\n":
 					word = word.substring(0, word.length - 1);
 					calculation = abjad(word, tablow, shaddaw, detailw).toString();
-					content += word + altayaz(calculation) + klmchoosen;
+					if (calculation != "0") { content += word + altayaz(calculation) + klmchoosen; }
 					word = "";
 					calculation = "";
 					break;

@@ -705,7 +705,7 @@ def wordbyword(metin, tablo=1, shadda=1, detail=0):
 			word += counter
 			if counter in [' ', '\n']:
 				calculation =  '('  + str(abjad(word, tablo, shadda, detail)) + ')' + counter
-				content = content + word + altayaz(calculation)
+				if calculation != "(0)" + counter: content += word + altayaz(calculation)
 				word = ''
 				calculation = ''
 	except Exception:
