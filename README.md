@@ -2,7 +2,7 @@ A google spread sheet pre-added some macro code sets is here:
     https://tinyurl.com/bl4nksh33t
 
 # abjad https://github.com/metatronslove/abjad
-Abjad Calculation Macro Commands To Use Custom Functions For Google Sheets, LibreOffice Calc and Web Pages
+Abjad Calculation Macro Commands To Use Custom Functions For Google Sheets, LibreOffice Calc, MS Excel and Web Pages
 
 NO CERTAIN CALCULATION IS OFFERED:
 RECREATE YOUR OWN FUNCTIONS TO REACH ANY CERTAINITY !!!

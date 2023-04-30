@@ -1,5 +1,5 @@
 # abjad https://github.com/metatronslove/abjad
-Google E-tablolar, LibreOffice Hesap Tablosu ve Web Sayfaları için Ebced
+Google E-tablolar, LibreOffice Hesap Tablosu, MS Excel ve Web Sayfaları için Ebced
 Hesaplama fonksiyonları
 
 KESİN TUTARLI YA DA DOĞRU HESAPLANMIŞ SONUÇ VAAT EDİLMİYOR; KODLARI 
