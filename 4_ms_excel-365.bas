@@ -1219,12 +1219,15 @@ End Function
 Function HUDDAM(ByVal num As Long, Optional htype As String = "ULVI", Optional method As Integer = 1) As String
     Dim hpart(19), rest, counts, counting, counted, counter, part, preffixdepart As Integer: counts = 1
     Dim suffix As Double
-    Dim preffix As String
+    Dim preffix, mode, eacher As String
     Dim GH, H       As String: GH = ""
     Select Case method
-    Case 7
-    Case 12
-    Case Else: method = 1
+    Case 8 : method = 7 : mode = "eacher"
+    Case 13 : method = 12: mode = "eacher"
+    Case 2 : method = 1: mode = "eacher"
+    Case 7 : mode = "regular"
+    Case 12 : mode = "regular"
+    Case Else : method = 1 : mode = "regular"
     End Select
     Select Case UCase(htype)
     Case "ULVI": suffix = ABJAD(ChrW(1574) & ChrW(1610) & ChrW(1604), CLng(method), 1)
@@ -1256,6 +1259,7 @@ Function HUDDAM(ByVal num As Long, Optional htype As String = "ULVI", Optional m
     End If
     For counter = counts To 1 Step -1
         For counting = 1 To Len(hpart(counter))
+			eacher = ""
             choosen = Mid(hpart(counter), counting, 1)
             turn = 3 - Len(hpart(counter)) + counting
             Select Case turn
@@ -1405,18 +1409,20 @@ Function HUDDAM(ByVal num As Long, Optional htype As String = "ULVI", Optional m
                 End Select
             End Select
             GH = GH & H
+            If CInt(hpart(counter)) > 0 Then
+				For counted = 1 To counter - 1
+					Select Case method
+					Case 7: eacher = eacher & ChrW(1588)
+					Case 12: eacher = eacher & ChrW(1592)
+					Case Else: eacher = eacher & ChrW(1594)
+					End Select
+				Next
+			Else
+			End If
+			If mode = "eacher" Then GH = GH & eacher : eacher = ""
             H = ""
         Next
-        If CInt(hpart(counter)) > 0 Then
-            For counted = 1 To counter - 1
-                Select Case method
-                Case 7: GH = GH & ChrW(1588)
-                Case 12: GH = GH & ChrW(1592)
-                Case Else: GH = GH & ChrW(1594)
-                End Select
-            Next
-        Else
-        End If
+        If mode = "regular" Then GH = GH & eacher : eacher = ""
     Next
     Select Case htype
     Case "ULVI": GH = GH & ChrW(1574) & ChrW(1610) & ChrW(1604)

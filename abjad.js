@@ -3330,7 +3330,7 @@ function numbers2arab(indians) {
 }
 
 function huddam(num, htype, method) {
-	var suffix, preffix, h, gh, counts, departs, rest, counter, counting, choosenduty, turn, counted;
+	var suffix, preffix, h, gh, counts, departs, rest, counter, counting, choosenduty, turn, counted, mode, eacher;
 	var hpart = new Array();
 	hpart[0] = "nothing";
 	num = parseFloat(num);
@@ -3340,13 +3340,28 @@ function huddam(num, htype, method) {
 	if (num !== undefined && num !== null) {
 		if (htype !== undefined) {
 			switch (method) {
+				case 8:
+					method = 7;
+					mode = "eacher";
+					break;
+				case 13:
+					method = 12;
+					mode = "eacher";
+					break;
+				case 2:
+					method = 1;
+					mode = "eacher";
+					break;
 				case 7:
+					mode = "regular";
 					break;
 				case 12:
+					mode = "regular";
 					break;
 				case 1:
 				default:
 					method = 1;
+					mode = "regular";
 			}
 			switch (htype.toUpperCase()) {
 				case "ULVI":
@@ -3384,6 +3399,7 @@ function huddam(num, htype, method) {
 			for (counter = counts; counter > 0; counter -= 1) {
 				if (hpart[counter] !== undefined) {
 					for (counting = 0; counting < hpart[counter].length; counting++) {
+						eacher = "";
 						choosenduty = parseFloat(hpart[counter].substring(counting, counting + 1));
 						turn = (4 - hpart[counter].length) + counting;
 						h = "";
@@ -3693,21 +3709,29 @@ function huddam(num, htype, method) {
 						if (h !== undefined) {
 							gh += "" + h;
 						}
-					}
-				}
-				if (parseFloat(hpart[counter]) > 0) {
-					for (counted = 1; counted < counter; counted++) {
-						switch (method) {
-							case 7:
-								gh += "ش";
-								break;
-							case 12:
-								gh += "ظ";
-								break;
-							case 1:
-							default:
-								gh += "غ";
+						if (parseFloat(hpart[counter]) > 0) {
+							for (counted = 1; counted < counter; counted++) {
+								switch (method) {
+									case 7:
+										eacher += "ش";
+										break;
+									case 12:
+										eacher += "ظ";
+										break;
+									case 1:
+									default:
+										eacher += "غ";
+								}
+							}
 						}
+						if (mode == "eacher") { 
+							gh += eacher;
+							eacher = "";
+						}
+					}
+					if (mode == "regular") {
+						gh += eacher;
+						eacher = "";
 					}
 				}
 			}

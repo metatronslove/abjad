@@ -1239,12 +1239,15 @@ End Function
 Function HUDDAM(ByVal num As Long, Optional htype As String, Optional method As Integer) As String
     Dim hpart(19), rest, counts, counting, counted, counter, part, preffixdepart As Integer : counts = 1
     Dim suffix As Double
-    Dim preffix As String
-    Dim GH, H       As String : GH = ""
+    Dim preffix, mode, eacher As String
+    Dim GH, H       As String: GH = ""
     Select Case method
-    Case 7
-    Case 12
-    Case Else : method = 1
+    Case 8 : method = 7 : mode = "eacher"
+    Case 13 : method = 12: mode = "eacher"
+    Case 2 : method = 1: mode = "eacher"
+    Case 7 : mode = "regular"
+    Case 12 : mode = "regular"
+    Case Else : method = 1 : mode = "regular"
     End Select
     Select Case UCase(htype)
     Case "ULVI" : suffix = CDbl(ABJAD("ئيل", method, 1))
@@ -1276,6 +1279,7 @@ Function HUDDAM(ByVal num As Long, Optional htype As String, Optional method As 
     End If
     For counter = counts To 1 Step - 1
         For counting = 1 To LEN(hpart(counter))
+			eacher = ""
             choosen = MID(hpart(counter), counting, 1)
             turn = 3 - LEN(hpart(counter)) + counting
             Select Case turn
@@ -1425,19 +1429,21 @@ Function HUDDAM(ByVal num As Long, Optional htype As String, Optional method As 
                 End Select
             End Select
             GH = GH & H
-            ReDim H
+            If CInt(hpart(counter)) > 0 Then
+				For counted = 1 To counter - 1
+					Select Case method
+					Case 7: eacher = eacher & "ش"
+					Case 12: eacher = eacher & "ظ"
+					Case Else: eacher = eacher & "غ"
+					End Select
+				Next
+			Else
+			End If
+			If mode = "eacher" Then GH = GH & eacher : eacher = ""
+			ReDim H, eacher
             H = ""
         Next
-        If CInt(hpart(counter)) > 0 Then
-            For counted = 1 To counter - 1
-                Select Case method
-                Case 7 : GH = GH & "ش"
-                Case 12 : GH = GH & "ظ"
-                Case Else : GH = GH & "غ"
-                End Select
-            Next
-        Else
-        End If
+        If mode = "regular" Then GH = GH & eacher : eacher = ""
     Next
     ReDim hpart(19)
     Select Case htype

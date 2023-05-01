@@ -1325,12 +1325,18 @@ def GetDigit(digit, language='ARABIC'):
 
 def huddam(num, htype='ulvi', method=1):
 	try:
-		h = gh = ''
+		h = gh = eacher = mode = ''
 		counts = 1
 		hpart = ['']
 		htype = htype.upper()
 		method = 1
-		if method not in [7, 12]: method = 1
+		if method in [2, 8, 13]: 
+			method -= 1
+			mode = 'eacher'
+		if method not in [7, 12, 2, 8, 13]: 
+			method = 1
+		if method not in [2, 8, 13]:
+			mode = 'regular'
 		if htype in ['ULVI', 'ULVİ']: suffix = abjad('ئيل', method, 1)
 		elif htype in ['SUFLI', 'SUFLİ']: suffix = abjad('يوش', method, 1)
 		elif htype in ['ŞER', 'SER']: suffix = abjad('طيش', method, 1)
@@ -1348,6 +1354,7 @@ def huddam(num, htype='ulvi', method=1):
 		else: hpart.insert(1, preffix)
 		for counter in range(counts, 0, -1):
 			for counting in range(len(str(hpart[counter]))):
+				eacher = ''
 				choosen = str(hpart[counter])[counting]
 				turn = (4 - len(str(hpart[counter]))) + counting
 				if turn == 3:
@@ -1447,14 +1454,17 @@ def huddam(num, htype='ulvi', method=1):
 				if h is not None and h != '':
 					gh += h
 					h = ''
-			if hpart[counter] is not None:
-				for counted in range(1, counter):
-					if method == 1:	gh += 'غ'
-					elif method == 7: gh += 'ش'
-					elif method == 12: gh += 'ظ'
-					if h is not None and h != '':
-						gh += h
-						h = ''
+				if hpart[counter] is not None:
+					for counted in range(1, counter):
+						if method == 1:	eacher += 'غ'
+						elif method == 7: eacher += 'ش'
+						elif method == 12: eacher += 'ظ'
+				if mode = 'eacher':
+					gh += eacher 
+					eacher = ''
+			if mode = 'regular':
+				gh += eacher 
+				eacher = ''
 		if method in [1, 7, 12]:
 			if htype in ['ULVI', 'ULVİ']: gh += 'ئيل'
 			elif htype in ['SUFLI', 'SUFLİ']: gh += 'يوش'

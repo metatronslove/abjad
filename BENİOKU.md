@@ -203,11 +203,16 @@ ya da elif harfi kullanarak kendi tür belirtecinizi girin.
 
 >#### yöntem seçeneği
 
-Yöntem seçebeği, abjad() fonksiyonundaki Sağir ebced tablosu kodları 
+Yöntem seçeneği, abjad() fonksiyonundaki Sağir ebced tablosu kodları 
 olan 1, 7, 12'dir. Cümel-i Kebir tablosuna uyan bir ebced tekniği ile 
 isim üretmek istiyorsanız seçimlik olan bu yöntem seçeneğini girmeyin.
 Bu seçenek için 12 girdiğinizde Cümel-i Kebir tablosu yerine Deneysel 
 Frekans Ebced tablosuna uyan isimler üretmeye başlar. 
+
+Yöntem seçeneğinin bir başka hesaplama biçimi için Sağir Ebced tablosu
+koduna bir ekleyerek (+1) girilen yöntem seçenekleri de tanımlıdır
+bunlar da 2, 8, 13 olarak girilirse nasıl çalıştıklarını deneyerek
+keşfedebilirsiniz.
 
 ***
 ### rakamtopla(indirgenecek sayı; basamak miktarı)

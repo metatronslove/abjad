@@ -208,6 +208,12 @@ gives the duty name depending to the table code entered as method.
 
 1, 7 and 12 !
 
+There is another mode for defined modes which Saghir Abjad Table CODE 
+PLUS ONE (+1) is the method option; you may test the code to find out
+the difference: 
+
+2, 8 and 13 !
+
 ***
 ### rakamtopla(number to reduce; number of digits)
 ***
