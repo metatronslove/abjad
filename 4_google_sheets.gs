@@ -3341,20 +3341,12 @@ function huddam(num, htype, method) {
 		if (htype !== undefined) {
 			switch (method) {
 				case 8:
-					method = 7;
-					mode = "eacher";
-					break;
 				case 13:
-					method = 12;
-					mode = "eacher";
-					break;
 				case 2:
-					method = 1;
+					method -= 1;
 					mode = "eacher";
 					break;
 				case 7:
-					mode = "regular";
-					break;
 				case 12:
 					mode = "regular";
 					break;
