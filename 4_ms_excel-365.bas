@@ -1,5 +1,5 @@
 Function ABJAD(ByVal metin As String, tablo As Integer, Optional shadda As Integer = 1, Optional detail As Integer = 0) As Variant
-    Dim SM, S, N  As Double: SM = 0: N = 0: S = 0
+    Dim SM, S, N    As Double: SM = 0: N = 0: S = 0
     Dim SH, counter, err, space, hrk As Long: SH = 0: err = 0: space = 0: hrk = 0
     Dim SN, nitem, choosen As String: nitem = "": SN = ""
     For counter = 1 To Len(metin)
@@ -903,9 +903,9 @@ Function ASGAR(ByVal harf As String, Optional level As Integer) As String
 End Function
 Function BASTET(ByVal metin As Variant, Optional MT As Variant, Optional tablo As Variant, Optional shadda As Integer, Optional language As Variant, Optional detail As Integer) As Variant
     Dim HM, invertablo, err As Integer: err = 0
-    Dim Baster, NS As Variant
+    Dim Baster, NS  As Variant
     Select Case IsNumeric(metin)
-    Case False
+    Case FALSE
         Select Case tablo
         Case 0 To 15: Baster = ABJAD(metin, CLng(tablo), shadda)
         Case -16 To -1: invertablo = (-1 * tablo) - 1: Baster = ABJAD(metin, CLng(invertablo), shadda)
@@ -984,7 +984,7 @@ Function GetDigit(Digit, Lang)
     End Select
 End Function
 Function GetHundreds(ByVal MyNumber, Lang, Optional Count, Optional Spell)
-    Dim result As String
+    Dim result      As String
     MyNumber = Right(ChrW(48) & ChrW(48) & ChrW(48) & MyNumber, 3)
     Select Case UCase(Lang)
     Case "ARABIC"
@@ -1057,7 +1057,7 @@ Function GetHundreds(ByVal MyNumber, Lang, Optional Count, Optional Spell)
     GetHundreds = result
 End Function
 Function GetTens(TensText, Lang, Optional Count, Optional Hundreds, Optional Spell)
-    Dim result As String
+    Dim result      As String
     ReDim PlaceOnes(9), PlaceTwos(9) As String
     result = ""
     Select Case UCase(Lang)
@@ -1197,7 +1197,7 @@ Function GetTensStatus(Tens, Lang)
 End Function
 Function HEPART(Optional npotent As Double, Optional memec As Integer) As Double
     Dim result      As Double
-    Dim R, kat As Double: kat = 2
+    Dim R, kat      As Double: kat = 2
     result = 0
     On Error GoTo 726
     If DUZLE((result - 30) / 4) < 1 Then
@@ -1214,19 +1214,16 @@ Function HEPART(Optional npotent As Double, Optional memec As Integer) As Double
     Else
         HEPART = result
     End If
-726     If result = 0 Then MsgBox "HEPART() için değişken seçimlik değil" & ChrW(59) " fakat makrolar harika çalışıyorlar"
+    726     If result = 0 Then MsgBox "HEPART() için değişken seçimlik değil" & ChrW(59) " fakat makrolar harika çalışıyorlar"
 End Function
 Function HUDDAM(ByVal num As Long, Optional htype As String = "ULVI", Optional method As Integer = 1) As String
     Dim hpart(19), rest, counts, counting, counted, counter, part, preffixdepart As Integer: counts = 1
-    Dim suffix As Double
+    Dim suffix      As Double
     Dim preffix, mode, eacher As String
     Dim GH, H       As String: GH = ""
     Select Case method
-    Case 8 : method = 7 : mode = "eacher"
-    Case 13 : method = 12: mode = "eacher"
-    Case 2 : method = 1: mode = "eacher"
-    Case 7 : mode = "regular"
-    Case 12 : mode = "regular"
+    Case 2, 8, 13 : method = method - 1 : mode = "eacher"
+    Case 7, 12 : mode = "regular"
     Case Else : method = 1 : mode = "regular"
     End Select
     Select Case UCase(htype)
@@ -1259,7 +1256,7 @@ Function HUDDAM(ByVal num As Long, Optional htype As String = "ULVI", Optional m
     End If
     For counter = counts To 1 Step -1
         For counting = 1 To Len(hpart(counter))
-			eacher = ""
+            eacher = ""
             choosen = Mid(hpart(counter), counting, 1)
             turn = 3 - Len(hpart(counter)) + counting
             Select Case turn
@@ -1410,16 +1407,16 @@ Function HUDDAM(ByVal num As Long, Optional htype As String = "ULVI", Optional m
             End Select
             GH = GH & H
             If CInt(hpart(counter)) > 0 Then
-				For counted = 1 To counter - 1
-					Select Case method
-					Case 7: eacher = eacher & ChrW(1588)
-					Case 12: eacher = eacher & ChrW(1592)
-					Case Else: eacher = eacher & ChrW(1594)
-					End Select
-				Next
-			Else
-			End If
-			If mode = "eacher" Then GH = GH & eacher : eacher = ""
+                For counted = 1 To counter - 1
+                    Select Case method
+                    Case 7: eacher = eacher & ChrW(1588)
+                    Case 12: eacher = eacher & ChrW(1592)
+                    Case Else: eacher = eacher & ChrW(1594)
+                    End Select
+                Next
+            Else
+            End If
+            If mode = "eacher" Then GH = GH & eacher : eacher = ""
             H = ""
         Next
         If mode = "regular" Then GH = GH & eacher : eacher = ""
@@ -2194,18 +2191,18 @@ Function RAKAMTOPLA(ByVal valuez As Double, Optional d1g1tamount As Integer) As 
             For counter = 1 To Len(CStr(valuez))
                 choosen = CDbl(Mid(CStr(valuez), counter, 1))
                 NewSum = NewSum + choosen
-            Next: valuez = NewSum: hepsi = hepsi & ChrW(32) & ChrW(9658) & ChrW(32) & NewSum
-        Loop: RAKAMTOPLA = hepsi
-    Else
-        Do Until Len(CStr(valuez)) <= d1g1tamount
-            NewSum = 0
-            For counter = 1 To Len(CStr(valuez))
-                choosen = Mid(CStr(valuez), counter, 1)
-                NewSum = NewSum + choosen
-            Next: valuez = NewSum
-        Loop: RAKAMTOPLA = valuez
-    End If
-End Function
+                Next: valuez = NewSum: hepsi = hepsi & ChrW(32) & ChrW(9658) & ChrW(32) & NewSum
+                Loop: RAKAMTOPLA = hepsi
+            Else
+                Do Until Len(CStr(valuez)) <= d1g1tamount
+                    NewSum = 0
+                    For counter = 1 To Len(CStr(valuez))
+                        choosen = Mid(CStr(valuez), counter, 1)
+                        NewSum = NewSum + choosen
+                        Next: valuez = NewSum
+                        Loop: RAKAMTOPLA = valuez
+                    End If
+                End Function
 Function SAF(ByVal metin As String, Optional ayrac As Variant, Optional shadda As Integer = 1) As String
     Dim counter     As Integer
     Dim choosen, S, irun As String: SAF = ""

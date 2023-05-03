@@ -920,14 +920,14 @@ Function ASGAR(ByVal harf As String, Optional level As Integer) As String
 End Function
 Function BASTET(ByVal metin As Variant, Optional MT As Variant, Optional tablo As Variant, Optional shadda As Integer, Optional language As Variant, Optional detail As Integer) As Variant
     Dim HM, invertablo, err As Integer : err = 0
-    Dim Baster, NS As Variant
+    Dim Baster, NS  As Variant
     Select Case metin
-    Case CStr(metin)        
+    Case CStr(metin)
         Select Case tablo
         Case 0 To 15 : Baster = ABJAD(metin, tablo, shadda)
         Case -16 To -1 : invertablo = (-1 * tablo) - 1 : Baster = ABJAD(metin, invertablo, shadda)
         End Select
-    Case Else        
+    Case Else
         Baster = metin
     End Select
     For HM = 1 To MT
@@ -1003,7 +1003,7 @@ Function GetDigit(Digit, Lang)
     End Select
 End Function
 Function GetHundreds(ByVal MyNumber, Lang, Optional Count, Optional Spell)
-    Dim Result As String
+    Dim Result      As String
     MyNumber = Right("000" & MyNumber, 3)
     Select Case UCase(Lang)
     Case "ARABIC"
@@ -1076,7 +1076,7 @@ Function GetHundreds(ByVal MyNumber, Lang, Optional Count, Optional Spell)
     GetHundreds = Result
 End Function
 Function GetTens(TensText, Lang, Optional Count, Optional Hundreds, Optional Spell)
-    Dim Result As String
+    Dim Result      As String
     ReDim PlaceOnes(9), PlaceTwos(9) As String
     Result = ""
     Select Case UCase(Lang)
@@ -1238,15 +1238,12 @@ Function HEPART(Optional npotent As Double, Optional memec As Integer) As Double
 End Function
 Function HUDDAM(ByVal num As Long, Optional htype As String, Optional method As Integer) As String
     Dim hpart(19), rest, counts, counting, counted, counter, part, preffixdepart As Integer : counts = 1
-    Dim suffix As Double
+    Dim suffix      As Double
     Dim preffix, mode, eacher As String
     Dim GH, H       As String: GH = ""
     Select Case method
-    Case 8 : method = 7 : mode = "eacher"
-    Case 13 : method = 12: mode = "eacher"
-    Case 2 : method = 1: mode = "eacher"
-    Case 7 : mode = "regular"
-    Case 12 : mode = "regular"
+    Case 2, 8, 13 : method = method - 1 : mode = "eacher"
+    Case 7, 12 : mode = "regular"
     Case Else : method = 1 : mode = "regular"
     End Select
     Select Case UCase(htype)
@@ -1279,7 +1276,7 @@ Function HUDDAM(ByVal num As Long, Optional htype As String, Optional method As 
     End If
     For counter = counts To 1 Step - 1
         For counting = 1 To LEN(hpart(counter))
-			eacher = ""
+            eacher = ""
             choosen = MID(hpart(counter), counting, 1)
             turn = 3 - LEN(hpart(counter)) + counting
             Select Case turn
@@ -1430,17 +1427,17 @@ Function HUDDAM(ByVal num As Long, Optional htype As String, Optional method As 
             End Select
             GH = GH & H
             If CInt(hpart(counter)) > 0 Then
-				For counted = 1 To counter - 1
-					Select Case method
-					Case 7: eacher = eacher & "ش"
-					Case 12: eacher = eacher & "ظ"
-					Case Else: eacher = eacher & "غ"
-					End Select
-				Next
-			Else
-			End If
-			If mode = "eacher" Then GH = GH & eacher : eacher = ""
-			ReDim H, eacher
+                For counted = 1 To counter - 1
+                    Select Case method
+                    Case 7: eacher = eacher & "ش"
+                    Case 12: eacher = eacher & "ظ"
+                    Case Else: eacher = eacher & "غ"
+                    End Select
+                Next
+            Else
+            End If
+            If mode = "eacher" Then GH = GH & eacher : eacher = ""
+            ReDim H, eacher
             H = ""
         Next
         If mode = "regular" Then GH = GH & eacher : eacher = ""
