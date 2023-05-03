@@ -1214,7 +1214,7 @@ Function HEPART(Optional npotent As Double, Optional memec As Integer) As Double
     Else
         HEPART = result
     End If
-    726     If result = 0 Then MsgBox "HEPART() için değişken seçimlik değil" & ChrW(59) " fakat makrolar harika çalışıyorlar"
+    726     If result = 0 Then MsgBox "HEPART() için değişken seçimlik değil" & ChrW(59) & " fakat makrolar harika çalışıyorlar"
 End Function
 Function HUDDAM(ByVal num As Long, Optional htype As String = "ULVI", Optional method As Integer = 1) As String
     Dim hpart(19), rest, counts, counting, counted, counter, part, preffixdepart As Integer: counts = 1
