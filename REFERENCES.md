@@ -3,6 +3,7 @@
 * JavaScript
 * Google Apps Script
 * LibreOffice Basic
+* Visual Basic
 * Python
 
 There ara enough syntax references to code in these languages. Simple used search engines for this.
