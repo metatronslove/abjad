@@ -1459,10 +1459,10 @@ def huddam(num, htype='ulvi', method=1):
 						if method == 1:	eacher += 'غ'
 						elif method == 7: eacher += 'ش'
 						elif method == 12: eacher += 'ظ'
-				if mode = 'eacher':
+				if mode == 'eacher':
 					gh += eacher 
 					eacher = ''
-			if mode = 'regular':
+			if mode == 'regular':
 				gh += eacher 
 				eacher = ''
 		if method in [1, 7, 12]:
