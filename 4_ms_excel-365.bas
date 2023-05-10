@@ -877,11 +877,11 @@ Function ABJAD(ByVal metin As String, tablo As Integer, Optional shadda As Integ
         End Select
     Case 1: ABJAD = CStr("Tablo Kodu" & ChrW(63))
     Case 2
-		For unicodes = 1 to LEN(nitem)
-			choosen = Mid(nitem, unicodes, 1)
-			chrlist = chrlist & choosen & ": ChrW(" & AscW(choosen) & ")" & ChrW(10)
-		Next unicodes
-		ABJAD = CStr(N - (space + hrk) & " Tanımsız" & ChrW(58) & ChrW(10) & chrlist & space & " boşluk" & ChrW(10) & hrk & " hareke")
+	For unicodes = 1 to Len(nitem)
+            choosen = Mid(nitem, unicodes, 1)
+            chrlist = chrlist & choosen & ": ChrW(" & AscW(choosen) & ")" & ChrW(10)
+        Next unicodes
+        ABJAD = CStr(N - (space + hrk) & " Tanımsız" & ChrW(58) & ChrW(10) & chrlist & space & " boşluk" & ChrW(10) & hrk & " hareke")
     Case 3: ABJAD = CStr("Şedde Ayarı" & ChrW(63))
     End Select
 End Function
@@ -897,7 +897,7 @@ Function ALTAYAZ(ByVal girdi As String) As String
     Next
     ALTAYAZ = ss
 End Function
-Function ASGAR(ByVal harf As String, Optional level As Integer) As String
+Function ASGAR(ByVal harf As String, Optional level As Integer) As Variant
     Dim C           As Double
     C = ABJAD(harf, level, 1)
     If C > 12 Then
@@ -2333,7 +2333,7 @@ Function TESBIH(ByVal zkr As Variant, minimum As Double, boncuk As Double, bolum
     If rest(1) > 0 Then outp = outp & ChrW(91) & rest(1) & " kalan" & ChrW(93)
     TESBIH = outp
 End Function
-Function UNSUR(ByVal metin As String, Optional otabiat As Variant, Optional otype As Variant, Optional shadda As Integer, Optional guide As Variant) As String
+Function UNSUR(ByVal metin As String, Optional otabiat As Variant, Optional otype As Variant, Optional shadda As Integer, Optional guide As Variant) As Variant
     Dim counter, adet As Integer
     Dim choosen, liste As String
     For counter = 1 To Len(metin)
