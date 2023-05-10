@@ -876,7 +876,12 @@ Function ABJAD(ByVal metin As String, tablo As Integer, Optional shadda As Integ
         Case Else: ABJAD = CDbl(SM)
         End Select
     Case 1: ABJAD = CStr("Tablo Kodu" & ChrW(63))
-    Case 2: ABJAD = CStr(N - (space + hrk) & " Tanımsız" & ChrW(58) & nitem & ChrW(124) & ChrW(124) & space & " boşluk" & ChrW(124) & ChrW(124) & hrk & " hareke")
+    Case 2
+		For unicodes = 1 to LEN(nitem)
+			choosen = Mid(nitem, unicodes, 1)
+			chrlist = chrlist & choosen & ": ChrW(" & AscW(choosen) & ")" & ChrW(10)
+		Next unicodes
+		ABJAD = CStr(N - (space + hrk) & " Tanımsız" & ChrW(58) & ChrW(10) & chrlist & space & " boşluk" & ChrW(10) & hrk & " hareke")
     Case 3: ABJAD = CStr("Şedde Ayarı" & ChrW(63))
     End Select
 End Function
@@ -1433,7 +1438,7 @@ Function NEWLINE(Optional amount As Double) As String
     Dim rows        As Double
     Dim NL          As String: NL = ""
     For rows = 1 To amount
-        NL = NL & ChrW(10) & ChrW(13)
+        NL = NL & ChrW(10)
     Next rows
     NEWLINE = NL
 End Function
@@ -2299,7 +2304,7 @@ Function TEKSIR(ByVal metin As String, Optional ayrac As String, Optional shadda
     Case 2: newmetin = SAF(metin, 0, 2)
     Case Else: newmetin = SAF(metin, 0)
     End Select
-    result = SAF(newmetin, ayrac) & ChrW(10) & ChrW(13)
+    result = SAF(newmetin, ayrac) & ChrW(10)
     IKSIR = newmetin
     For produce = 1 To Len(newmetin) - 1
         If Len(newmetin) / 2 = DUZLE(Len(newmetin) / 2) Then LengthDouble = 1
@@ -2310,7 +2315,7 @@ Function TEKSIR(ByVal metin As String, Optional ayrac As String, Optional shadda
             IKSIR = IKSIR & Mid(newmetin, counter, 1)
         Next counter
         If LengthDouble <> 1 Then IKSIR = IKSIR & Mid(newmetin, DUZLE(Len(newmetin) / 2) + 1, 1)
-        TEKSIR = result & SAF(IKSIR, ayrac) & ChrW(10) & ChrW(13)
+        TEKSIR = result & SAF(IKSIR, ayrac) & ChrW(10)
         result = TEKSIR
         newmetin = SAF(IKSIR, 0)
     Next produce
@@ -2628,7 +2633,7 @@ Function WORDBYWORD(ByVal klmmetin As String, Optional tablo As Integer, Optiona
         klmchoosen = Mid(klmmetin, counter, 1)
         word = word + klmchoosen
         Select Case klmchoosen
-        Case ChrW(32), ChrW(13)
+        Case ChrW(32), ChrW(10)
             calculation = ChrW(40) & ABJAD(word, tablo, shadda, detail) & ChrW(41) & klmchoosen
             If calculation <> "(0) " Then content = content & word & ALTAYAZ(calculation)
             word = ""
