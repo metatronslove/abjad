@@ -877,7 +877,7 @@ Function ABJAD(ByVal metin As String, tablo As Integer, Optional shadda As Integ
         End Select
     Case 1: ABJAD = CStr("Tablo Kodu" & ChrW(63))
     Case 2
-	For unicodes = 1 to Len(nitem)
+        For unicodes = 1 To Len(nitem)
             choosen = Mid(nitem, unicodes, 1)
             chrlist = chrlist & choosen & ": ChrW(" & AscW(choosen) & ")" & ChrW(10)
         Next unicodes
@@ -2196,18 +2196,22 @@ Function RAKAMTOPLA(ByVal valuez As Double, Optional d1g1tamount As Integer) As 
             For counter = 1 To Len(CStr(valuez))
                 choosen = CDbl(Mid(CStr(valuez), counter, 1))
                 NewSum = NewSum + choosen
-                Next: valuez = NewSum: hepsi = hepsi & ChrW(32) & ChrW(9658) & ChrW(32) & NewSum
-                Loop: RAKAMTOPLA = hepsi
-            Else
-                Do Until Len(CStr(valuez)) <= d1g1tamount
-                    NewSum = 0
-                    For counter = 1 To Len(CStr(valuez))
-                        choosen = Mid(CStr(valuez), counter, 1)
-                        NewSum = NewSum + choosen
-                        Next: valuez = NewSum
-                        Loop: RAKAMTOPLA = valuez
-                    End If
-                End Function
+            Next
+            valuez = NewSum: hepsi = hepsi & ChrW(32) & ChrW(9658) & ChrW(32) & NewSum
+        Loop
+        RAKAMTOPLA = hepsi
+    Else
+        Do Until Len(CStr(valuez)) <= d1g1tamount
+            NewSum = 0
+            For counter = 1 To Len(CStr(valuez))
+                choosen = Mid(CStr(valuez), counter, 1)
+                NewSum = NewSum + choosen
+            Next
+            valuez = NewSum
+        Loop
+        RAKAMTOPLA = valuez
+    End If
+End Function
 Function SAF(ByVal metin As String, Optional ayrac As Variant, Optional shadda As Integer = 1) As String
     Dim counter     As Integer
     Dim choosen, S, irun As String: SAF = ""
@@ -2624,7 +2628,6 @@ Function UNSUR(ByVal metin As String, Optional otabiat As Variant, Optional otyp
     End Select
 End Function
 Function WORDBYWORD(ByVal klmmetin As String, Optional tablo As Integer, Optional shadda As Integer = 1, Optional detail As Integer) As String
-    'Bu fonksiyonu kullandığınız hücreler için metin Kaydır seçeneğini etkinleştirirseniz daha düzgün çalışıyor, parametreleri ABJAD() fonksiyonuyla aynı'
     Dim content, word As String
     content = ""
     word = ""
