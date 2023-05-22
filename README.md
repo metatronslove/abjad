@@ -7,6 +7,8 @@ Abjad Calculation Macro Commands To Use Custom Functions For Google Sheets, Libr
 NO CERTAIN CALCULATION IS OFFERED:
 RECREATE YOUR OWN FUNCTIONS TO REACH ANY CERTAINITY !!!
 
+[![Running LibreOffice Calc Macro On AndrOpen Office IS POSSIBLE](https://img.youtube.com/vi/H1VLp7zScys/maxresdefault.jpg)](https://youtu.be/H1VLp7zScys "Running LibreOffice Calc Macro On AndrOpen Office IS POSSIBLE")
+
 [![wordbyword() function](https://i.ytimg.com/vi/FWqtQP_V5u4/maxresdefault.jpg)](https://youtu.be/FWqtQP_V5u4 "wordbyword() function")
 
 Function by function description of custom functions... 
