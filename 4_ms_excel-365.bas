@@ -897,7 +897,7 @@ Function ALTAYAZ(ByVal girdi As String) As String
     Next
     ALTAYAZ = ss
 End Function
-Function ASGAR(ByVal harf As String, Optional level As Integer) As Variant
+Function ASGAR(ByVal harf As String, Optional level As Integer) As String
     Dim C           As Double
     C = ABJAD(harf, level, 1)
     If C > 12 Then
@@ -910,7 +910,7 @@ Function BASTET(ByVal metin As Variant, Optional MT As Variant, Optional tablo A
     Dim HM, invertablo, err As Integer: err = 0
     Dim Baster, NS  As Variant
     Select Case IsNumeric(metin)
-    Case FALSE
+    Case False
         Select Case tablo
         Case 0 To 15: Baster = ABJAD(metin, CLng(tablo), shadda)
         Case -16 To -1: invertablo = (-1 * tablo) - 1: Baster = ABJAD(metin, CLng(invertablo), shadda)
@@ -1219,7 +1219,7 @@ Function HEPART(Optional npotent As Double, Optional memec As Integer) As Double
     Else
         HEPART = result
     End If
-    726     If result = 0 Then MsgBox "HEPART() için değişken seçimlik değil" & ChrW(59) & " fakat makrolar harika çalışıyorlar"
+726         If result = 0 Then MsgBox "HEPART() için değişken seçimlik değil" & ChrW(59) & " fakat makrolar harika çalışıyorlar"
 End Function
 Function HUDDAM(ByVal num As Long, Optional htype As String = "ULVI", Optional method As Integer = 1) As String
     Dim hpart(19), rest, counts, counting, counted, counter, part, preffixdepart As Integer: counts = 1
@@ -1227,9 +1227,9 @@ Function HUDDAM(ByVal num As Long, Optional htype As String = "ULVI", Optional m
     Dim preffix, mode, eacher As String
     Dim GH, H       As String: GH = ""
     Select Case method
-    Case 2, 8, 13 : method = method - 1 : mode = "eacher"
-    Case 7, 12 : mode = "regular"
-    Case Else : method = 1 : mode = "regular"
+    Case 2, 8, 13: method = method - 1: mode = "eacher"
+    Case 7, 12: mode = "regular"
+    Case Else: method = 1: mode = "regular"
     End Select
     Select Case UCase(htype)
     Case "ULVI": suffix = ABJAD(ChrW(1574) & ChrW(1610) & ChrW(1604), CLng(method), 1)
@@ -1421,10 +1421,10 @@ Function HUDDAM(ByVal num As Long, Optional htype As String = "ULVI", Optional m
                 Next
             Else
             End If
-            If mode = "eacher" Then GH = GH & eacher : eacher = ""
+            If mode = "eacher" Then GH = GH & eacher: eacher = ""
             H = ""
         Next
-        If mode = "regular" Then GH = GH & eacher : eacher = ""
+        If mode = "regular" Then GH = GH & eacher: eacher = ""
     Next
     Select Case htype
     Case "ULVI": GH = GH & ChrW(1574) & ChrW(1610) & ChrW(1604)
@@ -1473,7 +1473,7 @@ Function NUMEROLOG(ByVal metin As String, Optional tablo As String, Optional out
     Case Else
         For counter = 1 To Len(metin)
             choosen = Mid(metin, counter, 1)
-            Select Case choosen
+            Select Case UCase(choosen)
             Case "A"
                 Select Case tablo
                 Case "modern": S = 1: sesli = 1
@@ -1541,14 +1541,14 @@ Function NUMEROLOG(ByVal metin As String, Optional tablo As String, Optional out
                 Case "en": S = 8
                 Case Else: err = 1
                 End Select
-            Case "I"
+            Case UCase("ı"), "I"
                 Select Case tablo
                 Case "modern": S = 9: sesli = 9
                 Case "tr": S = 11
                 Case "en": S = 9
                 Case Else: err = 1
                 End Select
-            Case "İ"
+            Case UCase("i"), "İ"
                 Select Case tablo
                 Case "modern": S = 9: sesli = 9
                 Case "tr": S = 12
@@ -2196,22 +2196,18 @@ Function RAKAMTOPLA(ByVal valuez As Double, Optional d1g1tamount As Integer) As 
             For counter = 1 To Len(CStr(valuez))
                 choosen = CDbl(Mid(CStr(valuez), counter, 1))
                 NewSum = NewSum + choosen
-            Next
-            valuez = NewSum: hepsi = hepsi & ChrW(32) & ChrW(9658) & ChrW(32) & NewSum
-        Loop
-        RAKAMTOPLA = hepsi
-    Else
-        Do Until Len(CStr(valuez)) <= d1g1tamount
-            NewSum = 0
-            For counter = 1 To Len(CStr(valuez))
-                choosen = Mid(CStr(valuez), counter, 1)
-                NewSum = NewSum + choosen
-            Next
-            valuez = NewSum
-        Loop
-        RAKAMTOPLA = valuez
-    End If
-End Function
+                Next: valuez = NewSum: hepsi = hepsi & ChrW(32) & ChrW(9658) & ChrW(32) & NewSum
+                Loop: RAKAMTOPLA = hepsi
+            Else
+                Do Until Len(CStr(valuez)) <= d1g1tamount
+                    NewSum = 0
+                    For counter = 1 To Len(CStr(valuez))
+                        choosen = Mid(CStr(valuez), counter, 1)
+                        NewSum = NewSum + choosen
+                        Next: valuez = NewSum
+                        Loop: RAKAMTOPLA = valuez
+                    End If
+                End Function
 Function SAF(ByVal metin As String, Optional ayrac As Variant, Optional shadda As Integer = 1) As String
     Dim counter     As Integer
     Dim choosen, S, irun As String: SAF = ""
@@ -2337,7 +2333,7 @@ Function TESBIH(ByVal zkr As Variant, minimum As Double, boncuk As Double, bolum
     If rest(1) > 0 Then outp = outp & ChrW(91) & rest(1) & " kalan" & ChrW(93)
     TESBIH = outp
 End Function
-Function UNSUR(ByVal metin As String, Optional otabiat As Variant, Optional otype As Variant, Optional shadda As Integer, Optional guide As Variant) As Variant
+Function UNSUR(ByVal metin As String, Optional otabiat As Variant, Optional otype As Variant, Optional shadda As Integer, Optional guide As Variant) As String
     Dim counter, adet As Integer
     Dim choosen, liste As String
     For counter = 1 To Len(metin)
@@ -2628,6 +2624,7 @@ Function UNSUR(ByVal metin As String, Optional otabiat As Variant, Optional otyp
     End Select
 End Function
 Function WORDBYWORD(ByVal klmmetin As String, Optional tablo As Integer, Optional shadda As Integer = 1, Optional detail As Integer) As String
+    'Bu fonksiyonu kullandığınız hücreler için metin Kaydır seçeneğini etkinleştirirseniz daha düzgün çalışıyor, parametreleri ABJAD() fonksiyonuyla aynı'
     Dim content, word As String
     content = ""
     word = ""
