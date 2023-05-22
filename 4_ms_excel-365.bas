@@ -1466,229 +1466,229 @@ Function NUMBERS2ARAB(Optional metin As String) As String
 End Function
 Function NUMEROLOG(ByVal metin As String, Optional tablo As String, Optional outas As Variant, Optional shadda As Variant) As Variant
     Dim SM, S, C, D, N, sesli, sessiz, err, counter, space, hrk As Integer: NUMEROLOG = 0: S = 0: N = 0: sesli = 0: sessiz = 0
-    Dim M, nitem, nesoohc, choosen As String: nitem = "": err = 0: tablo = LCase(tablo): metin = UCase(metin)
+    Dim M, nitem, nesoohc, choosen As String: nitem = "": err = 0: tablo = LCase(tablo)
     Select Case tablo
     Case "date"
         S = CDbl(CStr(Year(CDbl(metin))) & CStr(Month(CDbl(metin))) & CStr(Day(CDbl(metin))))
     Case Else
         For counter = 1 To Len(metin)
             choosen = Mid(metin, counter, 1)
-            Select Case UCase(choosen)
-            Case "A"
+            Select Case choosen
+            Case "A", "a"
                 Select Case tablo
                 Case "modern": S = 1: sesli = 1
                 Case "tr", "en": S = 1
                 Case Else: err = 1
                 End Select
-            Case "B"
+            Case "B", "b"
                 Select Case tablo
                 Case "modern": S = 2: sessiz = 2
                 Case "tr", "en": S = 2
                 Case Else: err = 1
                 End Select
-            Case "C"
+            Case "C", "c"
                 Select Case tablo
                 Case "modern": S = 3: sessiz = 3
                 Case "tr", "en": S = 3
                 Case Else: err = 1
                 End Select
-            Case "Ç"
+            Case "Ç", "ç"
                 Select Case tablo
                 Case "modern": S = 3: sessiz = 3
                 Case "tr": S = 4
                 Case "en": S = 3
                 Case Else: err = 1
                 End Select
-            Case "D"
+            Case "D", "d"
                 Select Case tablo
                 Case "modern": S = 4: sessiz = 4
                 Case "tr": S = 5
                 Case "en": S = 4
                 Case Else: err = 1
                 End Select
-            Case "E"
+            Case "E", "e"
                 Select Case tablo
                 Case "modern": S = 5: sesli = 5
                 Case "tr": S = 6
                 Case "en": S = 5
                 Case Else: err = 1
                 End Select
-            Case "F"
+            Case "F", "f"
                 Select Case tablo
                 Case "modern": S = 6: sessiz = 6
                 Case "tr": S = 7
                 Case "en": S = 6
                 Case Else: err = 1
                 End Select
-            Case "G"
+            Case "G", "g"
                 Select Case tablo
                 Case "modern": S = 7: sessiz = 7
                 Case "tr": S = 8
                 Case "en": S = 7
                 Case Else: err = 1
                 End Select
-            Case "Ğ"
+            Case "Ğ", "ğ"
                 Select Case tablo
                 Case "modern": S = 7: sessiz = 7
                 Case "tr": S = 9
                 Case "en": S = 7
                 Case Else: err = 1
                 End Select
-            Case "H"
+            Case "H", "h"
                 Select Case tablo
                 Case "modern": S = 8: sessiz = 8
                 Case "tr": S = 10
                 Case "en": S = 8
                 Case Else: err = 1
                 End Select
-            Case UCase("ı"), "I"
+            Case "ı", "I"
                 Select Case tablo
                 Case "modern": S = 9: sesli = 9
                 Case "tr": S = 11
                 Case "en": S = 9
                 Case Else: err = 1
                 End Select
-            Case UCase("i"), "İ"
+            Case "i", "İ"
                 Select Case tablo
                 Case "modern": S = 9: sesli = 9
                 Case "tr": S = 12
                 Case "en": S = 9
                 Case Else: err = 1
                 End Select
-            Case "J"
+            Case "J", "j"
                 Select Case tablo
                 Case "modern": S = 1: sessiz = 1
                 Case "tr": S = 13
                 Case "en": S = 10
                 Case Else: err = 1
                 End Select
-            Case "K"
+            Case "K", "k"
                 Select Case tablo
                 Case "modern": S = 2: sessiz = 2
                 Case "tr": S = 14
                 Case "en": S = 11
                 Case Else: err = 1
                 End Select
-            Case "L"
+            Case "L", "l"
                 Select Case tablo
                 Case "modern": S = 3: sessiz = 3
                 Case "tr": S = 15
                 Case "en": S = 12
                 Case Else: err = 1
                 End Select
-            Case "M"
+            Case "M", "m"
                 Select Case tablo
                 Case "modern": S = 4: sessiz = 4
                 Case "tr": S = 16
                 Case "en": S = 13
                 Case Else: err = 1
                 End Select
-            Case "N"
+            Case "N", "n"
                 Select Case tablo
                 Case "modern": S = 5: sessiz = 5
                 Case "tr": S = 17
                 Case "en": S = 14
                 Case Else: err = 1
                 End Select
-            Case "O"
+            Case "O", "o"
                 Select Case tablo
                 Case "modern": S = 6: sesli = 6
                 Case "tr": S = 18
                 Case "en": S = 15
                 Case Else: err = 1
                 End Select
-            Case "Ö"
+            Case "Ö", "ö"
                 Select Case tablo
                 Case "modern": S = 6: sesli = 6
                 Case "tr": S = 19
                 Case "en": S = 15
                 Case Else: err = 1
                 End Select
-            Case "P"
+            Case "P", "p"
                 Select Case tablo
                 Case "modern": S = 7: sessiz = 7
                 Case "tr": S = 20
                 Case "en": S = 16
                 Case Else: err = 1
                 End Select
-            Case ChrW(81)
+            Case "Q", "q"
                 Select Case tablo
                 Case "modern": S = 8: sessiz = 8
                 Case "tr": S = 0
                 Case "en": S = 17
                 Case Else: err = 1
                 End Select
-            Case "R"
+            Case "R", "r"
                 Select Case tablo
                 Case "modern": S = 9: sessiz = 9
                 Case "tr": S = 21
                 Case "en": S = 18
                 Case Else: err = 1
                 End Select
-            Case "S"
+            Case "S", "s"
                 Select Case tablo
                 Case "modern": S = 1: sessiz = 1
                 Case "tr": S = 22
                 Case "en": S = 19
                 Case Else: err = 1
                 End Select
-            Case "Ş"
+            Case "Ş", "ş"
                 Select Case tablo
                 Case "modern": S = 1: sessiz = 1
                 Case "tr": S = 23
                 Case "en": S = 19
                 Case Else: err = 1
                 End Select
-            Case "T"
+            Case "T", "t"
                 Select Case tablo
                 Case "modern": S = 2: sessiz = 2
                 Case "tr": S = 24
                 Case "en": S = 20
                 Case Else: err = 1
                 End Select
-            Case "U"
+            Case "U", "u"
                 Select Case tablo
                 Case "modern": S = 3: sesli = 3
                 Case "tr": S = 25
                 Case "en": S = 21
                 Case Else: err = 1
                 End Select
-            Case "Ü"
+            Case "Ü", "ü"
                 Select Case tablo
                 Case "modern": S = 3: sesli = 3
                 Case "tr": S = 26
                 Case "en": S = 21
                 Case Else: err = 1
                 End Select
-            Case "V"
+            Case "V", "v"
                 Select Case tablo
                 Case "modern": S = 4: sessiz = 4
                 Case "tr": S = 27
                 Case "en": S = 22
                 Case Else: err = 1
                 End Select
-            Case ChrW(87)
+            Case "W", "w"
                 Select Case tablo
                 Case "modern": S = 5: sessiz = 5
                 Case "tr": S = 0
                 Case "en": S = 23
                 Case Else: err = 1
                 End Select
-            Case ChrW(88)
+            Case "X", "x"
                 Select Case tablo
                 Case "modern": S = 6: sessiz = 6
                 Case "tr": S = 0
                 Case "en": S = 24
                 Case Else: err = 1
                 End Select
-            Case "Y"
+            Case "Y", "y"
                 Select Case tablo
                 Case "modern": S = 7: sessiz = 7
                 Case "tr": S = 28
                 Case "en": S = 25
                 Case Else: err = 1
                 End Select
-            Case "Z"
+            Case "Z", "z"
                 Select Case tablo
                 Case "modern": S = 8: sessiz = 8
                 Case "tr": S = 29
@@ -2229,7 +2229,7 @@ Function SAF(ByVal metin As String, Optional ayrac As Variant, Optional shadda A
             End If
         Case Else
         End Select
-        Select Case UCase(choosen)
+        Select Case choosen
         Case ChrW(1575), ChrW(1569), ChrW(1609), ChrW(1576), ChrW(1580), ChrW(1583), ChrW(1607), ChrW(1608), ChrW(1572), ChrW(1586): S = choosen & irun
         Case ChrW(1581), ChrW(1591), ChrW(1610), ChrW(1603), ChrW(1604), ChrW(1605), ChrW(1606), ChrW(1587), ChrW(1593), ChrW(1601): S = choosen & irun
         Case ChrW(1589), ChrW(1602), ChrW(1585), ChrW(1588), ChrW(1578), ChrW(1590), ChrW(1577), ChrW(1579), ChrW(1582), ChrW(1584): S = choosen & irun
@@ -2246,6 +2246,12 @@ Function SAF(ByVal metin As String, Optional ayrac As Variant, Optional shadda A
         Case "H", "I", "İ", "J", "K", "L", "M", "N", "O": S = choosen & irun
         Case "Ö", "P", "R", "S", "Ş", "T", "U", "Ü", "V": S = choosen & irun
         Case "Y", "Z": S = choosen & irun
+        Case "a", "b", "c", "ç", "d", "e", "f", "g", "ğ": S = UCase(choosen) & irun
+        Case "h", "j", "k", "l", "m", "n", "o": S = UCase(choosen) & irun
+        Case "ö", "p", "r", "s", "ş", "t", "u", "ü", "v": S = UCase(choosen) & irun
+        Case "y", "z": S = UCase(choosen) & irun
+        Case "ı": S = "I" & irun
+        Case "i": S = "İ" & irun
         Case ChrW(32)
             Select Case ayrac
             Case "": S = choosen
@@ -2348,14 +2354,17 @@ Function UNSUR(ByVal metin As String, Optional otabiat As Variant, Optional otyp
             Else
             End If
         End If
-        Select Case UCase(choosen)
+        Select Case choosen
         Case ChrW(1575), ChrW(1576), ChrW(1580), ChrW(1587), ChrW(1589), ChrW(1585), ChrW(1582), ChrW(1607), ChrW(1586), ChrW(1581), ChrW(1591), ChrW(1610), ChrW(1740), ChrW(1604), ChrW(1577), ChrW(1579), ChrW(1583), ChrW(1603), ChrW(1593), ChrW(1601), ChrW(1602), ChrW(1588), ChrW(1590), ChrW(1608), ChrW(1605), ChrW(1606), ChrW(1578), ChrW(1584), ChrW(1592), ChrW(1594): selected = selected & choosen
         Case ChrW(1571), ChrW(1573), ChrW(1570), ChrW(1569), ChrW(1609): selected = selected & ChrW(1575)
         Case ChrW(1572): selected = selected & ChrW(1608) & ChrW(1575)
         Case ChrW(1728): selected = selected & ChrW(1607) & ChrW(1610)
         Case ChrW(1574): selected = selected & ChrW(1610) & ChrW(1575)
         Case ChrW(1488), ChrW(1489), ChrW(1490), ChrW(1491), ChrW(1492), ChrW(1493), ChrW(1494), ChrW(1495), ChrW(1496), ChrW(1497), ChrW(1499), ChrW(1500), ChrW(1502), ChrW(1504), ChrW(1505), ChrW(1506), ChrW(1508), ChrW(1510), ChrW(1511), ChrW(1512), ChrW(1513), ChrW(1514), ChrW(1501), ChrW(1503), ChrW(1507), ChrW(1509), ChrW(1498): selected = selected & choosen
-        Case "A", "B", "C", "Ç", "D", "E", "F", "G", "Ğ", "H", "I", "İ", "J", "K", "L", "M", "N", "O", "Ö", "P", "R", "S", "Ş", "T", "U", "Ü", "V", "Y", "Z": selected = selected & UCase(choosen)
+        Case "A", "B", "C", "Ç", "D", "E", "F", "G", "Ğ", "H", "I", "İ", "J", "K", "L", "M", "N", "O", "Ö", "P", "R", "S", "Ş", "T", "U", "Ü", "V", "Y", "Z": selected = selected & choosen
+        Case "a", "b", "c", "ç", "d", "e", "f", "g", "ğ", "h", "j", "k", "l", "m", "n", "o", "ö", "p", "r", "s", "ş", "t", "u", "ü", "v", "y", "z": selected = selected & UCase(choosen)
+        Case "ı": selected = selected & "I"
+        Case "i": selected = selected & "İ"
         End Select
     Next counter
     Select Case guide
