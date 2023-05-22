@@ -6,6 +6,9 @@ KESİN TUTARLI YA DA DOĞRU HESAPLANMIŞ SONUÇ VAAT EDİLMİYOR; KODLARI
 GÖZDEN GEÇİRİN VE İHTİYAÇLARINIZA GÖRE YENİDEN DÜZENLEYİN Kİ ARADIĞINIZ 
 KESİNLİĞE ULAŞABİLESİNİZ.
 
+
+[![LibreOffice Calc makroları AndrOpen Office'de KULLANILABİLİR](https://img.youtube.com/vi/H1VLp7zScys/maxresdefault.jpg)](https://youtu.be/H1VLp7zScys "LibreOffice Calc makroları AndrOpen Office'de KULLANILABİLİR")
+
 [![wordbyword() function](https://i.ytimg.com/vi/FWqtQP_V5u4/maxresdefault.jpg)](https://youtu.be/FWqtQP_V5u4 "wordbyword() function")
 
 Fonksiyon-fonksiyon kullanıcı tanımlı fonksiyonların açıklaması.
