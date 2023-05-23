@@ -277,3 +277,6 @@ Tesbihin kullanım önerisini verebilmek için kullanılacak tesbihin
 tesbihin kullanım önerisini verebilmek için kullanılacak tesbihin 
 özelliklerini vermemiz gerekiyor, 99'luk tesbih için 33'lü bölümler 
 olması gibi.
+
+[![https://t.me/+A54IrLGrHhowNzA8](https://github.com/metatronslove/abjad/blob/4536f1f4d24c4180f17ff972b8af5d27bdf86806/Telegram%20Room%20Abjad.png)](https://t.me/+A54IrLGrHhowNzA8)
+
