@@ -278,3 +278,5 @@ for a 99 rosary.
 In order to give the recommendation for the use of the rosary, we need 
 to give the characteristics of the rosary to be used, It's like having 
 33 sections for a 99 rosary.
+
+[![https://t.me/+A54IrLGrHhowNzA8](https://github.com/metatronslove/abjad/blob/4536f1f4d24c4180f17ff972b8af5d27bdf86806/Telegram%20Room%20Abjad.png)](https://t.me/+A54IrLGrHhowNzA8)
