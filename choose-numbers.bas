@@ -12,7 +12,7 @@ Function choosenumbers(ByVal limitmax As Integer, Optional repetition As Integer
 	Dim Temp As Variant
 	For selector = 0 To repetition -1
 		Do
-			NewChoosenNumber = Int(Rnd * limitmax)
+			NewChoosenNumber = Int(Rnd * (limitmax + 1))
 			For dontrepeat = 0 to selector
 				If choosen(dontrepeat) = NewChoosenNumber Then NewChoosenNumber = 0
 			Next dontrepeat
