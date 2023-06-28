@@ -8,7 +8,7 @@ Rem '=CHOOSENUMBERS(90;7)
 Function choosenumbers(ByVal limitmax As Integer, repetition As Integer) As String
 	Dim choosen(repetition -1) As Integer, selector As Integer, dontrepeat As Integer, NewChoosenNumber As Integer
 	Dim seperator As String, aliimranyirmialti As String, aliimranyirmiyedi As String : seperator = ""
-	Dim i As Long, j As Long, Calculations As Long, CalculationsLimit As Long
+	Dim i As Long, j As Long, Calculations As Long, CalculationsLimit As Long, CalculationsLasts As Long, CalculationsLoop As Long
 	Dim Temp As Variant : choosenumbers = ""
 	aliimranyirmialti = "قُلِ اللَّهُمَّ مَالِكَ الْمُلْكِ تُؤْتِي الْمُلْكَ مَن تَشَاء وَتَنزِعُ الْمُلْكَ مِمَّن تَشَاء وَتُعِزُّ مَن تَشَاء وَتُذِلُّ مَن تَشَاء بِيَدِكَ الْخَيْرُ إِنَّكَ عَلَىَ كُلِّ شَيْءٍ قَدِيرٌ"
 	aliimranyirmiyedi = "تُولِجُ اللَّيْلَ فِي الْنَّهَارِ وَتُولِجُ النَّهَارَ فِي اللَّيْلِ وَتُخْرِجُ الْحَيَّ مِنَ الْمَيِّتِ وَتُخْرِجُ الَمَيَّتَ مِنَ الْحَيِّ وَتَرْزُقُ مَن تَشَاء بِغَيْرِ حِسَابٍ "
@@ -16,14 +16,13 @@ Function choosenumbers(ByVal limitmax As Integer, repetition As Integer) As Stri
 	CalculationsLasts = ABJAD(aliimranyirmialti & aliimranyirmiyedi, 1, 1) - CalculationsLimit * (repetition -1)
 	For selector = 0 To repetition -1
 		If selector < repetition -1 Then
-			For Calculations = 1 To CalculationsLimit
-				AbjadCalculation = ABJAD(aliimranyirmialti & aliimranyirmiyedi, 1, 1)
-			Next Calculations
+			CalcultationsLoop = CalculationsLimit
 		Else
-			For Calculations = 1 To CalculationsLasts
-				AbjadCalculation = ABJAD(aliimranyirmialti & aliimranyirmiyedi, 1, 1)
-			Next Calculations
+			CalcultationsLoop = CalculationsLasts
 		End If
+		For Calculations = 1 To CalculationsLoop
+			AbjadCalculation = ABJAD(aliimranyirmialti & aliimranyirmiyedi, 1, 1)
+		Next Calculations			
 		Do
 			Randomize AbjadCalculation * Rnd
 			NewChoosenNumber = Int(Rnd * (limitmax + 1))
