@@ -1675,7 +1675,7 @@ def numerolog(metin, tablo='tr', outas='tam', shadda=1):
 					elif tablo == 'tr': s = 29
 					elif tablo == 'en': s = 26
 					else: err = 1
-				elif choosen in ['ا', 'أ', 'إ', 'آ', 'ء', 'ى', 'ئ']
+				elif choosen in ['ا', 'أ', 'إ', 'آ', 'ء', 'ى', 'ئ']:
 					if tablo in ['arb(ebced)', 'arb(mebced)', 'arb(hica)', 'arb(mhica)', 'osman']: s = 1
 					else: err = 1
 				elif choosen == 'ب':
