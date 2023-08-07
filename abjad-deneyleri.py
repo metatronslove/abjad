@@ -1890,4 +1890,5 @@ def numerolog(metin, tablo='tr', outas='tam', shadda=1):
 		elif err == 1: return nesoohc + ' (' + D + ' karakter \'' + tablo + '\' için tanımsız)'
 		elif err == 2: return nitem + ' (' + str(N  - space + hrk) + ' karakter yöntemlerde tanımsız)'
 		elif err == 3: return 'Şedde Ayarı?'
+	except:	return 'Hata?'
 # ----------------------------------------------------------------------
