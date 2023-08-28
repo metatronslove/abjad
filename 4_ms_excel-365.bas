@@ -2196,18 +2196,22 @@ Function RAKAMTOPLA(ByVal valuez As Double, Optional d1g1tamount As Integer) As 
             For counter = 1 To Len(CStr(valuez))
                 choosen = CDbl(Mid(CStr(valuez), counter, 1))
                 NewSum = NewSum + choosen
-                Next: valuez = NewSum: hepsi = hepsi & ChrW(32) & ChrW(9658) & ChrW(32) & NewSum
-                Loop: RAKAMTOPLA = hepsi
-            Else
-                Do Until Len(CStr(valuez)) <= d1g1tamount
-                    NewSum = 0
-                    For counter = 1 To Len(CStr(valuez))
-                        choosen = Mid(CStr(valuez), counter, 1)
-                        NewSum = NewSum + choosen
-                        Next: valuez = NewSum
-                        Loop: RAKAMTOPLA = valuez
-                    End If
-                End Function
+            Next
+            valuez = NewSum: hepsi = hepsi & ChrW(32) & ChrW(9658) & ChrW(32) & NewSum
+        Loop
+        RAKAMTOPLA = hepsi
+    Else
+        Do Until Len(CStr(valuez)) <= d1g1tamount
+            NewSum = 0
+            For counter = 1 To Len(CStr(valuez))
+                choosen = Mid(CStr(valuez), counter, 1)
+                NewSum = NewSum + choosen
+            Next
+            valuez = NewSum
+        Loop
+        RAKAMTOPLA = valuez
+    End If
+End Function
 Function SAF(ByVal metin As String, Optional ayrac As Variant, Optional shadda As Integer = 1) As String
     Dim counter     As Integer
     Dim choosen, S, irun As String: SAF = ""
