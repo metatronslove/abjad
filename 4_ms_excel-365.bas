@@ -2185,7 +2185,7 @@ Function NUTKET(ByVal MyNumber, Lang)
     End Select
     NUTKET = Trim(Spell)
 End Function
-Function RAKAMTOPLA(ByVal valuez As Double, Optional d1g1tamount As Integer) As String
+Function RAKAMTOPLA(ByVal valuez As Double, Optional d1g1tamount As Integer) As Variant
     Dim hepsi       As String
     Dim counter     As Integer
     Dim NewSum, choosen As Double
