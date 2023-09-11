@@ -31,7 +31,7 @@ Arabic or Hebrew text or cell including that text.
 * 4 Small Abjad + Letter Quantity
 * 5 Letter Quantity
 
-6 - 15 table codes for Arabic only
+6 - 35 table codes for Arabic only
 
 ![ebced tabloları - abjad tables](https://github.com/metatronslove/abjad/blob/1b8fb33d7611926237c2ee0c4fc884918030dc76/Ebced%20Tablosu%20Kodlar%C4%B1%20-%20Abjad%20Table%20Codes.jpg)
 
