@@ -33,7 +33,7 @@ Türkçe, Arapça ya da İbranice bir metin ya da metnin bulunduğu hücre.
 
 6 - 16 tablo kodları sadece Arapça için
 
-[![https://github.com/metatronslove/abjad](https://github.com/metatronslove/abjad/blob/1b8fb33d7611926237c2ee0c4fc884918030dc76/Ebced%20Tablosu%20Kodlar%C4%B1%20-%20Abjad%20Table%20Codes.jpg)](https://github.com/metatronslove/abjad)
+![ebced tabloları - abjad tables](https://github.com/metatronslove/abjad/blob/1b8fb33d7611926237c2ee0c4fc884918030dc76/Ebced%20Tablosu%20Kodlar%C4%B1%20-%20Abjad%20Table%20Codes.jpg)
 
 >#### şedde seçeneği
 
