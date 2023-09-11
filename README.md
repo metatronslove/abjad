@@ -33,17 +33,7 @@ Arabic or Hebrew text or cell including that text.
 
 6 - 15 table codes for Arabic only
 
-* 6 Minimum Maghribi Abjad
-* 7 Small Maghribi Abjad
-* 8 Big Maghribi Abjad
-* 9 Maximum Maghribi Abjad
-* 10 Small Maghribi Abjad + Letter Quantity
-
-* 11 Minimum Frequency Abjad
-* 12 Small Frequency Abjad
-* 13 Big Frequency Abjad
-* 14 Maximum Frequency Abjad
-* 15 Small Frequency Abjad + Letter Quantity
+[![https://github.com/metatronslove/abjad](https://github.com/metatronslove/abjad/blob/1b8fb33d7611926237c2ee0c4fc884918030dc76/Ebced%20Tablosu%20Kodlar%C4%B1%20-%20Abjad%20Table%20Codes.jpg)](https://github.com/metatronslove/abjad)
 
 >#### shadda option
 
