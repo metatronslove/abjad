@@ -7,321 +7,387 @@ Function ABJAD(ByVal metin As String, tablo As Integer, Optional shadda As Integ
         Select Case choosen
         Case ChrW(1575), ChrW(1571), ChrW(1573), ChrW(1570), ChrW(1569), ChrW(1609)
             Select Case tablo
-            Case 1, 4, 5, 7, 10, 12, 15: S = 1
-            Case 0, 6, 11: S = ASGAR(CStr(choosen), tablo + 1)
-            Case 2, 8, 13: S = ABJAD(ChrW(1575) & ChrW(1604) & ChrW(1601), tablo - 1, 1)
-            Case 3, 9, 14: S = BASTET(CStr(choosen), 1, -1 - (tablo - 2), 1, "ARABIC")
+            Case 1, 4, 5, 7, 10, 12, 15, 17, 20, 22, 25, 27, 30, 32, 35 : S = 1
+            Case 0, 6, 11, 16, 21, 26, 31 : S = ASGAR(CStr(choosen), tablo + 1)
+            Case 2, 8, 13, 18, 23, 28, 33 : S = ABJAD(ChrW(1575) & ChrW(1604) & ChrW(1601), tablo - 1, 1)
+            Case 3, 9, 14, 19, 24, 29, 34 : S = BASTET(CStr(choosen), 1, -1 - (tablo - 2), 1, "ARABIC")
             Case Else: err = 1
             End Select
         Case ChrW(1572)
             Select Case tablo
-            Case 1, 4, 7, 10: S = 7
-            Case 12, 15: S = 6
-            Case 0, 6, 11: S = ASGAR(ChrW(1608), tablo + 1) + ASGAR(ChrW(1575), tablo + 1)
-            Case 2, 8, 13: S = ABJAD(ChrW(1575) & ChrW(1604) & ChrW(1601), tablo - 1, 1) + ABJAD(ChrW(1608) & ChrW(1575) & ChrW(1608), tablo - 1, 1)
-            Case 3, 9, 14: S = BASTET(ChrW(1608), 1, -1 - (tablo - 2), 1, "ARABIC") + BASTET(ChrW(1575), 1, -1 - (tablo - 2), 1, "ARABIC")
+            Case 1, 4, 7, 10 : S = 7
+            Case 12, 15 : S = 6
+            Case 17, 20, 22, 25 : S = 801
+            Case 27, 30 : S = 41
+            Case 32, 35 : S = 901
+            Case 0, 6, 11, 16, 21, 26, 31 : S = ASGAR(ChrW(1608), tablo + 1) + ASGAR(ChrW(1575), tablo + 1)
+            Case 2, 8, 13, 18, 23, 28, 33 : S = ABJAD(ChrW(1575) & ChrW(1604) & ChrW(1601), tablo - 1, 1) + ABJAD(ChrW(1608) & ChrW(1575) & ChrW(1608), tablo - 1, 1)
+            Case 3, 9, 14, 19, 24, 29, 34 : S = BASTET(ChrW(1608), 1, -1 - (tablo - 2), 1, "ARABIC") + BASTET(ChrW(1575), 1, -1 - (tablo - 2), 1, "ARABIC")
             Case 5: S = 1
             Case Else: err = 1
             End Select
         Case ChrW(1574)
             Select Case tablo
-            Case 1, 4, 7, 10: S = 11
-            Case 12, 15: S = 7
-            Case 0, 6, 11: S = ASGAR(ChrW(1610), tablo + 1) + ASGAR(ChrW(1575), tablo + 1)
-            Case 2, 8, 13: S = ABJAD(ChrW(1575) & ChrW(1604) & ChrW(1601), tablo - 1, 1) + ABJAD(ChrW(1610) & ChrW(1575), tablo - 1, 1)
-            Case 3, 9, 14: S = BASTET(ChrW(1610), 1, -1 - (tablo - 2), 1, "ARABIC") + BASTET(ChrW(1575), 1, -1 - (tablo - 2), 1, "ARABIC")
+            Case 1, 4, 7, 10 : S = 11
+            Case 12, 15 : S = 7
+            Case 17, 20, 22, 25, 27, 30, 32, 35 : S = 1001
+            Case 0, 6, 11, 16, 21, 26, 31 : S = ASGAR(ChrW(1610), tablo + 1) + ASGAR(ChrW(1575), tablo + 1)
+            Case 2, 8, 13, 18, 23, 28, 33 : S = ABJAD(ChrW(1575) & ChrW(1604) & ChrW(1601), tablo - 1, 1) + ABJAD(ChrW(1610) & ChrW(1575), tablo - 1, 1)
+            Case 3, 9, 14, 19, 24, 29, 34 : S = BASTET(ChrW(1610), 1, -1 - (tablo - 2), 1, "ARABIC") + BASTET(ChrW(1575), 1, -1 - (tablo - 2), 1, "ARABIC")
             Case 5: S = 1
             Case Else: err = 1
             End Select
         Case ChrW(1728)
             Select Case tablo
-            Case 1, 4, 7, 10: S = 15
-            Case 12, 15: S = 13
-            Case 0, 6, 11: S = ASGAR(ChrW(1610), tablo + 1) + ASGAR(ChrW(1607), tablo + 1)
-            Case 2, 8, 13: S = ABJAD(ChrW(1610) & ChrW(1575), tablo - 1, 1) + ABJAD(ChrW(1607) & ChrW(1575), tablo - 1, 1)
-            Case 3, 9, 14: S = BASTET(ChrW(1610), 1, -1 - (tablo - 2), 1, "ARABIC") + BASTET(ChrW(1607), 1, -1 - (tablo - 2), 1, "ARABIC")
+            Case 1, 4, 7, 10 : S = 15
+            Case 12, 15 : S = 13
+            Case 17, 20, 22, 25 : S = 1800
+            Case 27, 30 : S = 1700
+            Case 32, 35 : S = 1900
+            Case 0, 6, 11, 16, 21, 26, 31 : S = ASGAR(ChrW(1610), tablo + 1) + ASGAR(ChrW(1607), tablo + 1)
+            Case 2, 8, 13, 18, 23, 28, 33 : S = ABJAD(ChrW(1610) & ChrW(1575), tablo - 1, 1) + ABJAD(ChrW(1607) & ChrW(1575), tablo - 1, 1)
+            Case 3, 9, 14, 19, 24, 29, 34 : S = BASTET(ChrW(1610), 1, -1 - (tablo - 2), 1, "ARABIC") + BASTET(ChrW(1607), 1, -1 - (tablo - 2), 1, "ARABIC")
             Case 5: S = 1
             Case Else: err = 1
             End Select
         Case ChrW(1576), ChrW(64342)
             Select Case tablo
-            Case 1, 4, 7, 10: S = 2
-            Case 12, 15: S = 9
-            Case 0, 6, 11: S = ASGAR(CStr(choosen), tablo + 1)
-            Case 2, 8, 13: S = ABJAD(ChrW(1576) & ChrW(1575), tablo - 1, 1)
-            Case 3, 9, 14: S = BASTET(CStr(choosen), 1, -1 - (tablo - 2), 1, "ARABIC")
+            Case 1, 4, 7, 10, 17, 20, 22, 25, 27, 30, 32, 35 : S = 2
+            Case 12, 15 : S = 9
+            Case 0, 6, 11, 16, 21, 26, 31 : S = ASGAR(CStr(choosen), tablo + 1)
+            Case 2, 8, 13, 18, 23, 28, 33 : S = ABJAD(ChrW(1576) & ChrW(1575), tablo - 1, 1)
+            Case 3, 9, 14, 19, 24, 29, 34 : S = BASTET(CStr(choosen), 1, -1 - (tablo - 2), 1, "ARABIC")
             Case 5: S = 1
             Case Else: err = 1
             End Select
         Case ChrW(1580), ChrW(64378)
             Select Case tablo
-            Case 1, 4, 7, 10: S = 3
-            Case 12, 15: S = 100
-            Case 0, 6, 11: S = ASGAR(CStr(choosen), tablo + 1)
-            Case 2, 8, 13: S = ABJAD(ChrW(1580) & ChrW(1610) & ChrW(1605), tablo - 1, 1)
-            Case 3, 9, 14: S = BASTET(CStr(choosen), 1, -1 - (tablo - 2), 1, "ARABIC")
+            Case 1, 4, 7, 10 : S = 3
+            Case 12, 15 : S = 100
+            Case 17, 20, 22, 25, 27, 30, 32, 35 : S = 5
+            Case 0, 6, 11, 16, 21, 26, 31 : S = ASGAR(CStr(choosen), tablo + 1)
+            Case 2, 8, 13, 18, 23, 28, 33 : S = ABJAD(ChrW(1580) & ChrW(1610) & ChrW(1605), tablo - 1, 1)
+            Case 3, 9, 14, 19, 24, 29, 34 : S = BASTET(CStr(choosen), 1, -1 - (tablo - 2), 1, "ARABIC")
             Case 5: S = 1
             Case Else: err = 1
             End Select
         Case ChrW(1583)
             Select Case tablo
-            Case 1, 4, 7, 10: S = 4
-            Case 12, 15: S = 70
-            Case 0, 6, 11: S = ASGAR(CStr(choosen), tablo + 1)
-            Case 2, 8, 13: S = ABJAD(ChrW(1583) & ChrW(1575) & ChrW(1604), tablo - 1, 1)
-            Case 3, 9, 14: S = BASTET(CStr(choosen), 1, -1 - (tablo - 2), 1, "ARABIC")
+            Case 1, 4, 7, 10 : S = 4
+            Case 12, 15 : S = 70
+            Case 17, 20, 22, 25, 27, 30, 32, 35 : S = 8
+            Case 0, 6, 11, 16, 21, 26, 31 : S = ASGAR(CStr(choosen), tablo + 1)
+            Case 2, 8, 13, 18, 23, 28, 33 : S = ABJAD(ChrW(1583) & ChrW(1575) & ChrW(1604), tablo - 1, 1)
+            Case 3, 9, 14, 19, 24, 29, 34 : S = BASTET(CStr(choosen), 1, -1 - (tablo - 2), 1, "ARABIC")
             Case 5: S = 1
             Case Else: err = 1
             End Select
         Case ChrW(1607), ChrW(1577)
             Select Case tablo
-            Case 1, 4, 7, 10: S = 5
-            Case 12, 15: S = 7
-            Case 0, 6, 11: S = ASGAR(CStr(choosen), tablo + 1)
-            Case 2, 8, 13: S = ABJAD(ChrW(1607) & ChrW(1575), tablo - 1, 1)
-            Case 3, 9, 14: S = BASTET(CStr(choosen), 1, -1 - (tablo - 2), 1, "ARABIC")
+            Case 1, 4, 7, 10 : S = 5
+            Case 12, 15 : S = 7
+            Case 17, 20, 22, 25 : S = 800
+            Case 27, 30 : S = 700
+            Case 32, 35 : S = 900
+            Case 0, 6, 11, 16, 21, 26, 31 : S = ASGAR(CStr(choosen), tablo + 1)
+            Case 2, 8, 13, 18, 23, 28, 33 : S = ABJAD(ChrW(1607) & ChrW(1575), tablo - 1, 1)
+            Case 3, 9, 14, 19, 24, 29, 34 : S = BASTET(CStr(choosen), 1, -1 - (tablo - 2), 1, "ARABIC")
             Case 5: S = 1
             Case Else: err = 1
             End Select
         Case ChrW(1608)
             Select Case tablo
-            Case 1, 4, 7, 10: S = 6
-            Case 12, 15: S = 5
-            Case 0, 6, 11: S = ASGAR(CStr(choosen), tablo + 1)
-            Case 2, 8, 13: S = ABJAD(ChrW(1608) & ChrW(1575) & ChrW(1608), tablo - 1, 1)
-            Case 3, 9, 14: S = BASTET(CStr(choosen), 1, -1 - (tablo - 2), 1, "ARABIC")
+            Case 1, 4, 7, 10 : S = 6
+            Case 12, 15 : S = 5
+            Case 17, 20, 22, 25 : S = 900
+            Case 27, 30 : S = 40
+            Case 32, 35 : S = 800
+            Case 0, 6, 11, 16, 21, 26, 31 : S = ASGAR(CStr(choosen), tablo + 1)
+            Case 2, 8, 13, 18, 23, 28, 33 : S = ABJAD(ChrW(1608) & ChrW(1575) & ChrW(1608), tablo - 1, 1)
+            Case 3, 9, 14, 19, 24, 29, 34 : S = BASTET(CStr(choosen), 1, -1 - (tablo - 2), 1, "ARABIC")
             Case 5: S = 1
             Case Else: err = 1
             End Select
         Case ChrW(1586), ChrW(64394)
             Select Case tablo
-            Case 1, 4, 7, 10: S = 7
-            Case 12, 15: S = 600
-            Case 0, 6, 11: S = ASGAR(CStr(choosen), tablo + 1)
-            Case 2, 8, 13: S = ABJAD(ChrW(1586) & ChrW(1575), tablo - 1, 1)
-            Case 3, 9, 14: S = BASTET(CStr(choosen), 1, -1 - (tablo - 2), 1, "ARABIC")
+            Case 1, 4, 7, 10 : S = 7
+            Case 12, 15, 27, 30 : S = 600
+            Case 17, 20, 22, 25, 32, 35 : S = 20
+            Case 0, 6, 11, 16, 21, 26, 31 : S = ASGAR(CStr(choosen), tablo + 1)
+            Case 2, 8, 13, 18, 23, 28, 33 : S = ABJAD(ChrW(1586) & ChrW(1575), tablo - 1, 1)
+            Case 3, 9, 14, 19, 24, 29, 34 : S = BASTET(CStr(choosen), 1, -1 - (tablo - 2), 1, "ARABIC")
             Case 5: S = 1
             Case Else: err = 1
             End Select
         Case ChrW(1581)
             Select Case tablo
-            Case 1, 4, 7, 10: S = 8
-            Case 12, 15: S = 90
-            Case 0, 6, 11: S = ASGAR(CStr(choosen), tablo + 1)
-            Case 2, 8, 13: S = ABJAD(ChrW(1581) & ChrW(1575), tablo - 1, 1)
-            Case 3, 9, 14: S = BASTET(CStr(choosen), 1, -1 - (tablo - 2), 1, "ARABIC")
+            Case 1, 4, 7, 10 : S = 8
+            Case 12, 15 : S = 90
+            Case 17, 20, 22, 25, 27, 30, 32, 35 : S = 6
+            Case 0, 6, 11, 16, 21, 26, 31 : S = ASGAR(CStr(choosen), tablo + 1)
+            Case 2, 8, 13, 18, 23, 28, 33 : S = ABJAD(ChrW(1581) & ChrW(1575), tablo - 1, 1)
+            Case 3, 9, 14, 19, 24, 29, 34 : S = BASTET(CStr(choosen), 1, -1 - (tablo - 2), 1, "ARABIC")
             Case 5: S = 1
             Case Else: err = 1
             End Select
         Case ChrW(1591)
             Select Case tablo
-            Case 1, 4, 7, 10: S = 9
-            Case 12, 15: S = 800
-            Case 0, 6, 11: S = ASGAR(CStr(choosen), tablo + 1)
-            Case 2, 8, 13: S = ABJAD(ChrW(1591) & ChrW(1575), tablo - 1, 1)
-            Case 3, 9, 14: S = BASTET(CStr(choosen), 1, -1 - (tablo - 2), 1, "ARABIC")
+            Case 1, 4, 7, 10 : S = 9
+            Case 12, 15 : S = 800
+            Case 17, 20, 32, 35 : S = 70
+            Case 22, 25 : S = 30
+            Case 27, 30 : S = 100
+            Case 0, 6, 11, 16, 21, 26, 31 : S = ASGAR(CStr(choosen), tablo + 1)
+            Case 2, 8, 13, 18, 23, 28, 33 : S = ABJAD(ChrW(1591) & ChrW(1575), tablo - 1, 1)
+            Case 3, 9, 14, 19, 24, 29, 34 : S = BASTET(CStr(choosen), 1, -1 - (tablo - 2), 1, "ARABIC")
             Case 5: S = 1
             Case Else: err = 1
             End Select
         Case ChrW(1740), ChrW(1610)
             Select Case tablo
-            Case 1, 4, 7, 10: S = 10
-            Case 12, 15: S = 6
-            Case 0, 6, 11: S = ASGAR(CStr(choosen), tablo + 1)
-            Case 2, 8, 13: S = ABJAD(ChrW(1610) & ChrW(1575), tablo - 1, 1)
-            Case 3, 9, 14: S = BASTET(CStr(choosen), 1, -1 - (tablo - 2), 1, "ARABIC")
+            Case 1, 4, 7, 10 : S = 10
+            Case 12, 15 : S = 6
+            Case 17, 20, 22, 25, 27, 30, 32, 35 : S = 1000
+            Case 0, 6, 11, 16, 21, 26, 31 : S = ASGAR(CStr(choosen), tablo + 1)
+            Case 2, 8, 13, 18, 23, 28, 33 : S = ABJAD(ChrW(1610) & ChrW(1575), tablo - 1, 1)
+            Case 3, 9, 14, 19, 24, 29, 34 : S = BASTET(CStr(choosen), 1, -1 - (tablo - 2), 1, "ARABIC")
             Case 5: S = 1
             Case Else: err = 1
             End Select
         Case ChrW(1603), ChrW(64402), ChrW(1705)
             Select Case tablo
-            Case 1, 4, 7, 10, 12, 15: S = 20
-            Case 0, 6, 11: S = ASGAR(CStr(choosen), tablo + 1)
-            Case 2, 8, 13: S = ABJAD(ChrW(1603) & ChrW(1575) & ChrW(1601), tablo - 1, 1)
-            Case 3, 9, 14: S = BASTET(CStr(choosen), 1, -1 - (tablo - 2), 1, "ARABIC")
+            Case 1, 4, 7, 10, 12, 15 : S = 20
+            Case 17, 20, 32, 35 : S = 400
+            Case 22, 25 : S = 50
+            Case 27, 30 : S = 10
+            Case 0, 6, 11, 16, 21, 26, 31 : S = ASGAR(CStr(choosen), tablo + 1)
+            Case 2, 8, 13, 18, 23, 28, 33 : S = ABJAD(ChrW(1603) & ChrW(1575) & ChrW(1601), tablo - 1, 1)
+            Case 3, 9, 14, 19, 24, 29, 34 : S = BASTET(CStr(choosen), 1, -1 - (tablo - 2), 1, "ARABIC")
             Case 5: S = 1
             Case Else: err = 1
             End Select
         Case ChrW(1604)
             Select Case tablo
-            Case 1, 4, 7, 10: S = 30
-            Case 12, 15: S = 2
-            Case 0, 6, 11: S = ASGAR(CStr(choosen), tablo + 1)
-            Case 2, 8, 13: S = ABJAD(ChrW(1604) & ChrW(1575) & ChrW(1605), tablo - 1, 1)
-            Case 3, 9, 14: S = BASTET(CStr(choosen), 1, -1 - (tablo - 2), 1, "ARABIC")
+            Case 1, 4, 7, 10 : S = 30
+            Case 12, 15 : S = 2
+            Case 17, 20, 32, 35 : S = 500
+            Case 22, 25 : S = 60
+            Case 27, 30 : S = 20
+            Case 0, 6, 11, 16, 21, 26, 31 : S = ASGAR(CStr(choosen), tablo + 1)
+            Case 2, 8, 13, 18, 23, 28, 33 : S = ABJAD(ChrW(1604) & ChrW(1575) & ChrW(1605), tablo - 1, 1)
+            Case 3, 9, 14, 19, 24, 29, 34 : S = BASTET(CStr(choosen), 1, -1 - (tablo - 2), 1, "ARABIC")
             Case 5: S = 1
             Case Else: err = 1
             End Select
         Case ChrW(65275)
             Select Case tablo
-            Case 1, 4, 7, 10: S = 31
-            Case 12, 15: S = 3
-            Case 0, 6, 11: S = ASGAR(ChrW(1575), tablo + 1) + ASGAR(ChrW(1604), tablo + 1)
-            Case 2, 8, 13: S = ABJAD(ChrW(1604) & ChrW(1575) & ChrW(1605) & ChrW(32) & ChrW(1575) & ChrW(1604) & ChrW(1601), tablo - 1, 1)
-            Case 3, 9, 14: S = BASTET(ChrW(1604) & ChrW(1575), 1, -1 - (tablo - 2), 1, "ARABIC")
+            Case 1, 4, 7, 10 : S = 31
+            Case 12, 15 : S = 3
+            Case 17, 20, 32, 35 : S = 501
+            Case 22, 25 : S = 61
+            Case 27, 30 : S = 21
+            Case 0, 6, 11, 16, 21, 26, 31 : S = ASGAR(ChrW(1575), tablo + 1) + ASGAR(ChrW(1604), tablo + 1)
+            Case 2, 8, 13, 18, 23, 28, 33 : S = ABJAD(ChrW(1604) & ChrW(1575) & ChrW(1605) & ChrW(32) & ChrW(1575) & ChrW(1604) & ChrW(1601), tablo - 1, 1)
+            Case 3, 9, 14, 19, 24, 29, 34 : S = BASTET(ChrW(1604) & ChrW(1575), 1, -1 - (tablo - 2), 1, "ARABIC")
             Case 5: S = 2
             Case Else: err = 1
             End Select
         Case ChrW(1605)
             Select Case tablo
-            Case 1, 4, 7, 10: S = 40
-            Case 12, 15: S = 4
-            Case 0, 6, 11: S = ASGAR(CStr(choosen), tablo + 1)
-            Case 2, 8, 13: S = ABJAD(ChrW(1605) & ChrW(1610) & ChrW(1605), tablo - 1, 1)
-            Case 3, 9, 14: S = BASTET(CStr(choosen), 1, -1 - (tablo - 2), 1, "ARABIC")
+            Case 1, 4, 7, 10 : S = 40
+            Case 12, 15 : S = 4
+            Case 17, 20, 32, 35 : S = 600
+            Case 22, 25 : S = 70
+            Case 27, 30 : S = 30
+            Case 0, 6, 11, 16, 21, 26, 31 : S = ASGAR(CStr(choosen), tablo + 1)
+            Case 2, 8, 13, 18, 23, 28, 33 : S = ABJAD(ChrW(1605) & ChrW(1610) & ChrW(1605), tablo - 1, 1)
+            Case 3, 9, 14, 19, 24, 29, 34 : S = BASTET(CStr(choosen), 1, -1 - (tablo - 2), 1, "ARABIC")
             Case 5: S = 1
             Case Else: err = 1
             End Select
         Case ChrW(1606), ChrW(64467)
             Select Case tablo
-            Case 1, 4, 7, 10: S = 50
-            Case 12, 15: S = 3
-            Case 0, 6, 11: S = ASGAR(CStr(choosen), tablo + 1)
-            Case 2, 8, 13: S = ABJAD(ChrW(1606) & ChrW(1608) & ChrW(1606), tablo - 1, 1)
-            Case 3, 9, 14: S = BASTET(CStr(choosen), 1, -1 - (tablo - 2), 1, "ARABIC")
+            Case 1, 4, 7, 10, 27, 30 : S = 50
+            Case 12, 15 : S = 3
+            Case 17, 20, 32, 35 : S = 700
+            Case 22, 25 : S = 80
+            Case 0, 6, 11, 16, 21, 26, 31 : S = ASGAR(CStr(choosen), tablo + 1)
+            Case 2, 8, 13, 18, 23, 28, 33 : S = ABJAD(ChrW(1606) & ChrW(1608) & ChrW(1606), tablo - 1, 1)
+            Case 3, 9, 14, 19, 24, 29, 34 : S = BASTET(CStr(choosen), 1, -1 - (tablo - 2), 1, "ARABIC")
             Case 5: S = 1
             Case Else: err = 1
             End Select
         Case ChrW(1587)
             Select Case tablo
-            Case 1, 4, 12, 15: S = 60
-            Case 7, 10: S = 300
-            Case 0, 6, 11: S = ASGAR(CStr(choosen), tablo + 1)
-            Case 2, 8, 13: S = ABJAD(ChrW(1587) & ChrW(1610) & ChrW(1606), tablo - 1, 1)
-            Case 3, 9, 14: S = BASTET(CStr(choosen), 1, -1 - (tablo - 2), 1, "ARABIC")
+            Case 1, 4, 12, 15 : S = 60
+            Case 7, 10 : S = 300
+            Case 17, 20, 32, 35 : S = 30
+            Case 22, 25 : S = 600
+            Case 27, 30 : S = 800
+            Case 0, 6, 11, 16, 21, 26, 31 : S = ASGAR(CStr(choosen), tablo + 1)
+            Case 2, 8, 13, 18, 23, 28, 33 : S = ABJAD(ChrW(1587) & ChrW(1610) & ChrW(1606), tablo - 1, 1)
+            Case 3, 9, 14, 19, 24, 29, 34 : S = BASTET(CStr(choosen), 1, -1 - (tablo - 2), 1, "ARABIC")
             Case 5: S = 1
             Case Else: err = 1
             End Select
         Case ChrW(1593)
             Select Case tablo
-            Case 1, 4, 7, 10: S = 70
-            Case 12, 15: S = 30
-            Case 0, 6, 11: S = ASGAR(CStr(choosen), tablo + 1)
-            Case 2, 8, 13: S = ABJAD(ChrW(1593) & ChrW(1610) & ChrW(1606), tablo - 1, 1)
-            Case 3, 9, 14: S = BASTET(CStr(choosen), 1, -1 - (tablo - 2), 1, "ARABIC")
+            Case 1, 4, 7, 10 : S = 70
+            Case 12, 15 : S = 30
+            Case 17, 20, 32, 35 : S = 90
+            Case 22, 25 : S = 200
+            Case 27, 30 : S = 80
+            Case 0, 6, 11, 16, 21, 26, 31 : S = ASGAR(CStr(choosen), tablo + 1)
+            Case 2, 8, 13, 18, 23, 28, 33 : S = ABJAD(ChrW(1593) & ChrW(1610) & ChrW(1606), tablo - 1, 1)
+            Case 3, 9, 14, 19, 24, 29, 34 : S = BASTET(CStr(choosen), 1, -1 - (tablo - 2), 1, "ARABIC")
             Case 5: S = 1
             Case Else: err = 1
             End Select
         Case ChrW(1601)
             Select Case tablo
-            Case 1, 4, 7, 10: S = 80
-            Case 12, 15: S = 40
-            Case 0, 6, 11: S = ASGAR(CStr(choosen), tablo + 1)
-            Case 2, 8, 13: S = ABJAD(ChrW(1601) & ChrW(1575), tablo - 1, 1)
-            Case 3, 9, 14: S = BASTET(CStr(choosen), 1, -1 - (tablo - 2), 1, "ARABIC")
+            Case 1, 4, 7, 10 : S = 80
+            Case 12, 15 : S = 40
+            Case 17, 20, 32, 35 : S = 200
+            Case 22, 25 : S = 400
+            Case 27, 30 : S = 300
+            Case 0, 6, 11, 16, 21, 26, 31 : S = ASGAR(CStr(choosen), tablo + 1)
+            Case 2, 8, 13, 18, 23, 28, 33 : S = ABJAD(ChrW(1601) & ChrW(1575), tablo - 1, 1)
+            Case 3, 9, 14, 19, 24, 29, 34 : S = BASTET(CStr(choosen), 1, -1 - (tablo - 2), 1, "ARABIC")
             Case 5: S = 1
             Case Else: err = 1
             End Select
         Case ChrW(1589)
             Select Case tablo
-            Case 1, 4: S = 90
-            Case 7, 10: S = 60
-            Case 12, 15: S = 400
-            Case 0, 6, 11: S = ASGAR(CStr(choosen), tablo + 1)
-            Case 2, 8, 13: S = ABJAD(ChrW(1589) & ChrW(1575) & ChrW(1583), tablo - 1, 1)
-            Case 3, 9, 14: S = BASTET(CStr(choosen), 1, -1 - (tablo - 2), 1, "ARABIC")
+            Case 1, 4, 22, 25 : S = 90
+            Case 7, 10, 27, 30 : S = 60
+            Case 12, 15 : S = 400
+            Case 17, 20, 32, 35 : S = 50
+            Case 0, 6, 11, 16, 21, 26, 31 : S = ASGAR(CStr(choosen), tablo + 1)
+            Case 2, 8, 13, 18, 23, 28, 33 : S = ABJAD(ChrW(1589) & ChrW(1575) & ChrW(1583), tablo - 1, 1)
+            Case 3, 9, 14, 19, 24, 29, 34 : S = BASTET(CStr(choosen), 1, -1 - (tablo - 2), 1, "ARABIC")
             Case 5: S = 1
             Case Else: err = 1
             End Select
         Case ChrW(1602)
             Select Case tablo
-            Case 1, 4, 7, 10: S = 100
-            Case 12, 15: S = 50
-            Case 0, 6, 11: S = ASGAR(CStr(choosen), tablo + 1)
-            Case 2, 8, 13: S = ABJAD(ChrW(1602) & ChrW(1575) & ChrW(1601), tablo - 1, 1)
-            Case 3, 9, 14: S = BASTET(CStr(choosen), 1, -1 - (tablo - 2), 1, "ARABIC")
+            Case 1, 4, 7, 10 : S = 100
+            Case 12, 15 : S = 50
+            Case 17, 20, 32, 35 : S = 300
+            Case 22, 25 : S = 500
+            Case 27, 30 : S = 400
+            Case 0, 6, 11, 16, 21, 26, 31 : S = ASGAR(CStr(choosen), tablo + 1)
+            Case 2, 8, 13, 18, 23, 28, 33 : S = ABJAD(ChrW(1602) & ChrW(1575) & ChrW(1601), tablo - 1, 1)
+            Case 3, 9, 14, 19, 24, 29, 34 : S = BASTET(CStr(choosen), 1, -1 - (tablo - 2), 1, "ARABIC")
             Case 5: S = 1
             Case Else: err = 1
             End Select
         Case ChrW(1585)
             Select Case tablo
-            Case 1, 4, 7, 10: S = 200
-            Case 12, 15: S = 80
-            Case 0, 6, 11: S = ASGAR(CStr(choosen), tablo + 1)
-            Case 2, 8, 13: S = ABJAD(ChrW(1585) & ChrW(1575), tablo - 1, 1)
-            Case 3, 9, 14: S = BASTET(CStr(choosen), 1, -1 - (tablo - 2), 1, "ARABIC")
+            Case 1, 4, 7, 10 : S = 200
+            Case 12, 15 : S = 8
+            Case 17, 20, 22, 25, 32, 35 : S = 10
+            Case 27, 30 : S = 500
+            Case 0, 6, 11, 16, 21, 26, 31 : S = ASGAR(CStr(choosen), tablo + 1)
+            Case 2, 8, 13, 18, 23, 28, 33 : S = ABJAD(ChrW(1585) & ChrW(1575), tablo - 1, 1)
+            Case 3, 9, 14, 19, 24, 29, 34 : S = BASTET(CStr(choosen), 1, -1 - (tablo - 2), 1, "ARABIC")
             Case 5: S = 1
             Case Else: err = 1
             End Select
         Case ChrW(1588)
             Select Case tablo
-            Case 1, 4, 12, 15: S = 300
-            Case 7, 10: S = 1000
-            Case 0, 6, 11: S = ASGAR(CStr(choosen), tablo + 1)
-            Case 2, 8, 13: S = ABJAD(ChrW(1588) & ChrW(1610) & ChrW(1606), tablo - 1, 1)
-            Case 3, 9, 14: S = BASTET(CStr(choosen), 1, -1 - (tablo - 2), 1, "ARABIC")
+            Case 1, 4, 12, 15 : S = 300
+            Case 7, 10 : S = 1000
+            Case 17, 20, 32, 35 : S = 40
+            Case 22, 25 : S = 700
+            Case 27, 30 : S = 900
+            Case 0, 6, 11, 16, 21, 26, 31 : S = ASGAR(CStr(choosen), tablo + 1)
+            Case 2, 8, 13, 18, 23, 28, 33 : S = ABJAD(ChrW(1588) & ChrW(1610) & ChrW(1606), tablo - 1, 1)
+            Case 3, 9, 14, 19, 24, 29, 34 : S = BASTET(CStr(choosen), 1, -1 - (tablo - 2), 1, "ARABIC")
             Case 5: S = 1
             Case Else: err = 1
             End Select
         Case ChrW(1578)
             Select Case tablo
-            Case 1, 4, 7, 10: S = 400
-            Case 12, 15: S = 10
-            Case 0, 6, 11: S = ASGAR(CStr(choosen), tablo + 1)
-            Case 2, 8, 13: S = ABJAD(ChrW(1578) & ChrW(1575), tablo - 1, 1)
-            Case 3, 9, 14: S = BASTET(CStr(choosen), 1, -1 - (tablo - 2), 1, "ARABIC")
+            Case 1, 4, 7, 10 : S = 400
+            Case 12, 15 : S = 10
+            Case 17, 20, 22, 25, 27, 30, 32, 35 : S = 3
+            Case 0, 6, 11, 16, 21, 26, 31 : S = ASGAR(CStr(choosen), tablo + 1)
+            Case 2, 8, 13, 18, 23, 28, 33 : S = ABJAD(ChrW(1578) & ChrW(1575), tablo - 1, 1)
+            Case 3, 9, 14, 19, 24, 29, 34 : S = BASTET(CStr(choosen), 1, -1 - (tablo - 2), 1, "ARABIC")
             Case 5: S = 1
             Case Else: err = 1
             End Select
         Case ChrW(1579)
             Select Case tablo
-            Case 1, 4, 7, 10: S = 500
-            Case 12, 15: S = 700
-            Case 0, 6, 11: S = ASGAR(CStr(choosen), tablo + 1)
-            Case 2, 8, 13: S = ABJAD(ChrW(1579) & ChrW(1575), tablo - 1, 1)
-            Case 3, 9, 14: S = BASTET(CStr(choosen), 1, -1 - (tablo - 2), 1, "ARABIC")
+            Case 1, 4, 7, 10 : S = 500
+            Case 12, 15 : S = 700
+            Case 17, 20, 22, 25, 27, 30, 32, 35 : S = 4
+            Case 0, 6, 11, 16, 21, 26, 31 : S = ASGAR(CStr(choosen), tablo + 1)
+            Case 2, 8, 13, 18, 23, 28, 33 : S = ABJAD(ChrW(1579) & ChrW(1575), tablo - 1, 1)
+            Case 3, 9, 14, 19, 24, 29, 34 : S = BASTET(CStr(choosen), 1, -1 - (tablo - 2), 1, "ARABIC")
             Case 5: S = 1
             Case Else: err = 1
             End Select
         Case ChrW(1582)
             Select Case tablo
-            Case 1, 4, 7, 10: S = 600
-            Case 12, 15: S = 200
-            Case 0, 6, 11: S = ASGAR(CStr(choosen), tablo + 1)
-            Case 2, 8, 13: S = ABJAD(ChrW(1582) & ChrW(1575), tablo - 1, 1)
-            Case 3, 9, 14: S = BASTET(CStr(choosen), 1, -1 - (tablo - 2), 1, "ARABIC")
+            Case 1, 4, 7, 10 : S = 600
+            Case 12, 15 : S = 200
+            Case 17, 20, 22, 25, 27, 30, 32, 35 : S = 7
+            Case 0, 6, 11, 16, 21, 26, 31 : S = ASGAR(CStr(choosen), tablo + 1)
+            Case 2, 8, 13, 18, 23, 28, 33 : S = ABJAD(ChrW(1582) & ChrW(1575), tablo - 1, 1)
+            Case 3, 9, 14, 19, 24, 29, 34 : S = BASTET(CStr(choosen), 1, -1 - (tablo - 2), 1, "ARABIC")
             Case 5: S = 1
             Case Else: err = 1
             End Select
         Case ChrW(1584)
             Select Case tablo
-            Case 1, 4, 7, 10: S = 700
-            Case 12, 15: S = 80
-            Case 0, 6, 11: S = ASGAR(CStr(choosen), tablo + 1)
-            Case 2, 8, 13: S = ABJAD(ChrW(1584) & ChrW(1575) & ChrW(1604), tablo - 1, 1)
-            Case 3, 9, 14: S = BASTET(CStr(choosen), 1, -1 - (tablo - 2), 1, "ARABIC")
+            Case 1, 4, 7, 10 : S = 700
+            Case 12, 15 : S = 80
+            Case 17, 20, 22, 25, 27, 30, 32, 35 : S = 9
+            Case 0, 6, 11, 16, 21, 26, 31 : S = ASGAR(CStr(choosen), tablo + 1)
+            Case 2, 8, 13, 18, 23, 28, 33 : S = ABJAD(ChrW(1584) & ChrW(1575) & ChrW(1604), tablo - 1, 1)
+            Case 3, 9, 14, 19, 24, 29, 34 : S = BASTET(CStr(choosen), 1, -1 - (tablo - 2), 1, "ARABIC")
             Case 5: S = 1
             Case Else: err = 1
             End Select
         Case ChrW(1590)
             Select Case tablo
-            Case 1, 4: S = 800
-            Case 7, 10: S = 90
-            Case 12, 15: S = 500
-            Case 0, 6, 11: S = ASGAR(CStr(choosen), tablo + 1)
-            Case 2, 8, 13: S = ABJAD(ChrW(1590) & ChrW(1575) & ChrW(1583), tablo - 1, 1)
-            Case 3, 9, 14: S = BASTET(CStr(choosen), 1, -1 - (tablo - 2), 1, "ARABIC")
+            Case 1, 4 : S = 800
+            Case 7, 10 : S = 90
+            Case 12, 15 : S = 500
+            Case 17, 20, 32, 35 : S = 60
+            Case 22, 25 : S = 100
+            Case 27, 30 : S = 70
+            Case 0, 6, 11, 16, 21, 26, 31 : S = ASGAR(CStr(choosen), tablo + 1)
+            Case 2, 8, 13, 18, 23, 28, 33 : S = ABJAD(ChrW(1590) & ChrW(1575) & ChrW(1583), tablo - 1, 1)
+            Case 3, 9, 14, 19, 24, 29, 34 : S = BASTET(CStr(choosen), 1, -1 - (tablo - 2), 1, "ARABIC")
             Case 5: S = 1
             Case Else: err = 1
             End Select
         Case ChrW(1592)
             Select Case tablo
-            Case 1, 4: S = 900
-            Case 7, 10: S = 800
-            Case 12, 15: S = 1000
-            Case 0, 6, 11: S = ASGAR(CStr(choosen), tablo + 1)
-            Case 2, 8, 13: S = ABJAD(ChrW(1592) & ChrW(1575), tablo - 1, 1)
-            Case 3, 9, 14: S = BASTET(CStr(choosen), 1, -1 - (tablo - 2), 1, "ARABIC")
+            Case 1, 4 : S = 900
+            Case 7, 10 : S = 800
+            Case 12, 15 : S = 1000
+            Case 17, 20, 32, 35 : S = 80
+            Case 22, 25 : S = 40
+            Case 27, 30 : S = 200
+            Case 0, 6, 11, 16, 21, 26, 31 : S = ASGAR(CStr(choosen), tablo + 1)
+            Case 2, 8, 13, 18, 23, 28, 33 : S = ABJAD(ChrW(1592) & ChrW(1575), tablo - 1, 1)
+            Case 3, 9, 14, 19, 24, 29, 34 : S = BASTET(CStr(choosen), 1, -1 - (tablo - 2), 1, "ARABIC")
             Case 5: S = 1
             Case Else: err = 1
             End Select
         Case ChrW(1594)
             Select Case tablo
-            Case 1, 4: S = 1000
-            Case 7, 10, 12, 15: S = 900
-            Case 0, 6, 11: S = ASGAR(CStr(choosen), tablo + 1)
-            Case 2, 8, 13: S = ABJAD(ChrW(1594) & ChrW(1610) & ChrW(1606), tablo - 1, 1)
-            Case 3, 9, 14: S = BASTET(CStr(choosen), 1, -1 - (tablo - 2), 1, "ARABIC")
+            Case 1, 4 : S = 1000
+            Case 7, 10, 12, 15 : S = 900
+            Case 17, 20, 32, 35 : S = 100
+            Case 22, 25 : S = 300
+            Case 27, 30 : S = 90
+            Case 0, 6, 11, 16, 21, 26, 31 : S = ASGAR(CStr(choosen), tablo + 1)
+            Case 2, 8, 13, 18, 23, 28, 33 : S = ABJAD(ChrW(1594) & ChrW(1610) & ChrW(1606), tablo - 1, 1)
+            Case 3, 9, 14, 19, 24, 29, 34 : S = BASTET(CStr(choosen), 1, -1 - (tablo - 2), 1, "ARABIC")
             Case 5: S = 1
             Case Else: err = 1
             End Select
@@ -912,8 +978,8 @@ Function BASTET(ByVal metin As Variant, Optional MT As Variant, Optional tablo A
     Select Case IsNumeric(metin)
     Case False
         Select Case tablo
-        Case 0 To 15: Baster = ABJAD(metin, CLng(tablo), shadda)
-        Case -16 To -1: invertablo = (-1 * tablo) - 1: Baster = ABJAD(metin, CLng(invertablo), shadda)
+        Case 0 To 35: Baster = ABJAD(metin, CLng(tablo), shadda)
+        Case -36 To -1: invertablo = (-1 * tablo) - 1: Baster = ABJAD(metin, CLng(invertablo), shadda)
         End Select
     Case Else
         Baster = metin
@@ -923,8 +989,8 @@ Function BASTET(ByVal metin As Variant, Optional MT As Variant, Optional tablo A
         NS = NUTKET(Baster, UCase(language))
         Baster = 0
         Select Case tablo
-        Case 0 To 15: Baster = ABJAD(NS, CLng(tablo), 1) + ABJAD(NS, 5, 1)
-        Case -16 To -1: invertablo = (-1 * tablo) - 1: Baster = ABJAD(NS, CLng(invertablo), 1)
+        Case 0 To 35: Baster = ABJAD(NS, CLng(tablo), 1) + ABJAD(NS, 5, 1)
+        Case -36 To -1: invertablo = (-1 * tablo) - 1: Baster = ABJAD(NS, CLng(invertablo), 1)
         Case Else: Baster = "Tablo Kodu" & ChrW(63)
         End Select
     Next HM
@@ -1227,8 +1293,8 @@ Function HUDDAM(ByVal num As Long, Optional htype As String = "ULVI", Optional m
     Dim preffix, mode, eacher As String
     Dim GH, H       As String: GH = ""
     Select Case method
-    Case 2, 8, 13: method = method - 1: mode = "eacher"
-    Case 7, 12: mode = "regular"
+    Case 2, 8, 13, 18, 23, 28, 33 : method = method - 1: mode = "eacher"
+    Case 7, 12, 17, 22, 27, 32 : mode = "regular"
     Case Else: method = 1: mode = "regular"
     End Select
     Select Case UCase(htype)
@@ -1268,7 +1334,7 @@ Function HUDDAM(ByVal num As Long, Optional htype As String = "ULVI", Optional m
             Case 3
                 Select Case CInt(choosen)
                 Case 1
-                    If 1 < Len(hpart(counter)) Then
+                    If 1 < LEN(hpart(counter)) Then
                         H = ChrW(1575)
                     ElseIf counts = 1 Then
                         H = ChrW(1575)
@@ -1276,137 +1342,195 @@ Function HUDDAM(ByVal num As Long, Optional htype As String = "ULVI", Optional m
                     End If
                 Case 2
                     Select Case method
-                    Case 12: H = ChrW(1604)
-                    Case Else: H = ChrW(1576)
+                    Case 12 : H = ChrW(1604)
+                    Case Else : H = ChrW(1576)
                     End Select
                 Case 3
                     Select Case method
-                    Case 12: H = ChrW(1606)
-                    Case Else: H = ChrW(1580)
+                    Case 12 : H = ChrW(1606)
+                    Case 17, 22, 27, 32 : H = ChrW(1578)
+                    Case Else : H = ChrW(1580)
                     End Select
                 Case 4
                     Select Case method
-                    Case 12: H = ChrW(1605)
-                    Case Else: H = ChrW(1583)
+                    Case 12 : H = ChrW(1605)
+                    Case 17, 22, 27, 32 : H = ChrW(1579)
+                    Case Else : H = ChrW(1583)
                     End Select
                 Case 5
                     Select Case method
-                    Case 12: H = ChrW(1608)
-                    Case Else: H = ChrW(1607)
+                    Case 12 : H = ChrW(1608)
+                    Case 17, 22, 27, 32 : H = ChrW(1580)
+                    Case Else : H = ChrW(1607)
                     End Select
                 Case 6
                     Select Case method
-                    Case 12: H = ChrW(1610)
-                    Case Else: H = ChrW(1608)
+                    Case 12 : H = ChrW(1610)
+                    Case 17, 22, 27, 32 : H = ChrW(1581)
+                    Case Else : H = ChrW(1608)
                     End Select
                 Case 7
                     Select Case method
-                    Case 12: H = ChrW(1607)
-                    Case Else: H = ChrW(1586)
+                    Case 12 : H = ChrW(1607)
+                    Case 17, 22, 27, 32 : H = ChrW(1582)
+                    Case Else : H = ChrW(1586)
                     End Select
                 Case 8
                     Select Case method
-                    Case 12: H = ChrW(1585)
-                    Case Else: H = ChrW(1581)
+                    Case 12 : H = ChrW(1585)
+                    Case 17, 22, 27, 32 : H = ChrW(1583)
+                    Case Else : H = ChrW(1581)
                     End Select
                 Case 9
                     Select Case method
-                    Case 12: H = ChrW(1576)
-                    Case Else: H = ChrW(1591)
+                    Case 12 : H = ChrW(1576)
+                    Case 17, 22, 27, 32 : H = ChrW(1584)
+                    Case Else : H = ChrW(1591)
                     End Select
                 End Select
             Case 2
                 Select Case CInt(choosen)
                 Case 1
                     Select Case method
-                    Case 12: H = ChrW(1578)
-                    Case Else: H = ChrW(1610)
+                    Case 12 : H = ChrW(1578)
+                    Case 17, 22, 32 : H = ChrW(1585)
+                    Case 27 : H = ChrW(1603)
+                    Case Else : H = ChrW(1610)
                     End Select
-                Case 2: H = ChrW(1603)
+                Case 2
+                    Select Case method
+                    Case 17, 22, 32 : H = ChrW(1586)
+                    Case 27 : H = ChrW(1604)
+                    Case Else : H = ChrW(1603)
+                    End Select
                 Case 3
                     Select Case method
-                    Case 12: H = ChrW(1593)
-                    Case Else: H = ChrW(1604)
+                    Case 12 : H = ChrW(1593)
+                    Case 17, 32 : H = ChrW(1587)
+                    Case 22 : H = ChrW(1591)
+                    Case 27 : H = ChrW(1605)
+                    Case Else : H = ChrW(1604)
                     End Select
                 Case 4
                     Select Case method
-                    Case 12: H = ChrW(1601)
-                    Case Else: H = ChrW(1605)
+                    Case 12 : H = ChrW(1601)
+                    Case 17, 32 : H = ChrW(1588)
+                    Case 22 : H = ChrW(1592)
+                    Case 27 : H = ChrW(1608)
+                    Case Else : H = ChrW(1605)
                     End Select
                 Case 5
                     Select Case method
-                    Case 12: H = ChrW(1602)
-                    Case Else: H = ChrW(1606)
+                    Case 12 : H = ChrW(1602)
+                    Case 17, 32 : H = ChrW(1589)
+                    Case 22 : H = ChrW(1603)
+                    Case Else : H = ChrW(1606)
                     End Select
                 Case 6
                     Select Case method
-                    Case 7: H = ChrW(1589)
-                    Case Else: H = ChrW(1587)
+                    Case 7, 27 : H = ChrW(1589)
+                    Case 17, 32 : H = ChrW(1590)
+                    Case 22 : H = ChrW(1604)
+                    Case Else : H = ChrW(1587)
                     End Select
                 Case 7
                     Select Case method
-                    Case 12: H = ChrW(1583)
-                    Case Else: H = ChrW(1593)
+                    Case 12 : H = ChrW(1583)
+                    Case 17, 32 : H = ChrW(1591)
+                    Case 22 : H = ChrW(1605)
+                    Case 27 : H = ChrW(1590)
+                    Case Else : H = ChrW(1593)
                     End Select
                 Case 8
                     Select Case method
-                    Case 12: H = ChrW(1584)
-                    Case Else: H = ChrW(1601)
+                    Case 12 : H = ChrW(1584)
+                    Case 17, 32 : H = ChrW(1592)
+                    Case 22 : H = ChrW(1606)
+                    Case 27 : H = ChrW(1593)
+                    Case Else : H = ChrW(1601)
                     End Select
                 Case 9
                     Select Case method
-                    Case 7: H = ChrW(1590)
-                    Case 12: H = ChrW(1581)
-                    Case Else: H = ChrW(1589)
+                    Case 7 : H = ChrW(1590)
+                    Case 12 : H = ChrW(1581)
+                    Case 17, 32 : H = ChrW(1593)
+                    Case 27 : H = ChrW(1594)
+                    Case Else : H = ChrW(1589)
                     End Select
                 End Select
             Case 1
                 Select Case CInt(choosen)
                 Case 1
                     Select Case method
-                    Case 12: H = ChrW(1580)
-                    Case Else: H = ChrW(1602)
+                    Case 12 : H = ChrW(1580)
+                    Case 17, 32 : H = ChrW(1594)
+                    Case 22 : H = ChrW(1590)
+                    Case 27 : H = ChrW(1591)
+                    Case Else : H = ChrW(1602)
                     End Select
                 Case 2
                     Select Case method
-                    Case 12: H = ChrW(1582)
-                    Case Else: H = ChrW(1585)
+                    Case 12 : H = ChrW(1582)
+                    Case 17, 32 : H = ChrW(1601)
+                    Case 22 : H = ChrW(1593)
+                    Case 27 : H = ChrW(1592)
+                    Case Else : H = ChrW(1585)
                     End Select
                 Case 3
                     Select Case method
-                    Case 7: H = ChrW(1587)
-                    Case Else: H = ChrW(1588)
+                    Case 7 : H = ChrW(1587)
+                    Case 17, 32 : H = ChrW(1602)
+                    Case 22 : H = ChrW(1594)
+                    Case 27 : H = ChrW(1601)
+                    Case Else : H = ChrW(1588)
                     End Select
                 Case 4
                     Select Case method
-                    Case 12: H = ChrW(1589)
-                    Case Else: H = ChrW(1578)
+                    Case 12 : H = ChrW(1589)
+                    Case 17, 32 : H = ChrW(1603)
+                    Case 22 : H = ChrW(1601)
+                    Case 27 : H = ChrW(1602)
+                    Case Else : H = ChrW(1578)
                     End Select
                 Case 5
                     Select Case method
-                    Case 12: H = ChrW(1590)
-                    Case Else: H = ChrW(1579)
+                    Case 12 : H = ChrW(1590)
+                    Case 17, 32 : H = ChrW(1604)
+                    Case 22 : H = ChrW(1602)
+                    Case 27 : H = ChrW(1585)
+                    Case Else : H = ChrW(1579)
                     End Select
                 Case 6
                     Select Case method
-                    Case 12: H = ChrW(1586)
-                    Case Else: H = ChrW(1582)
+                    Case 12, 27 : H = ChrW(1586)
+                    Case 17, 32 : H = ChrW(1605)
+                    Case 22 : H = ChrW(1587)
+                    Case Else : H = ChrW(1582)
                     End Select
                 Case 7
                     Select Case method
-                    Case 12: H = ChrW(1579)
-                    Case Else: H = ChrW(1584)
+                    Case 12 : H = ChrW(1579)
+                    Case 17, 32 : H = ChrW(1606)
+                    Case 22 : H = ChrW(1588)
+                    Case 27 : H = ChrW(1607)
+                    Case Else : H = ChrW(1584)
                     End Select
                 Case 8
                     Select Case method
-                    Case 7: H = ChrW(1592)
-                    Case 12: H = ChrW(1591)
-                    Case Else: H = ChrW(1590)
+                    Case 7 : H = ChrW(1592)
+                    Case 12 : H = ChrW(1591)
+                    Case 17, 22 : H = ChrW(1607)
+                    Case 27 : H = ChrW(1587)
+                    Case 32 : H = ChrW(1608)
+                    Case Else : H = ChrW(1590)
                     End Select
                 Case 9
                     Select Case method
-                    Case 7, 12: H = ChrW(1594)
-                    Case Else: H = ChrW(1592)
+                    Case 7, 12 : H = ChrW(1594)
+                    Case 17, 22 : H = ChrW(1608)
+                    Case 27 : H = ChrW(1588)
+                    Case 32 : H = ChrW(1607)
+                    Case Else : H = ChrW(1592)
                     End Select
                 End Select
             End Select
@@ -1416,6 +1540,7 @@ Function HUDDAM(ByVal num As Long, Optional htype As String = "ULVI", Optional m
                     Select Case method
                     Case 7: eacher = eacher & ChrW(1588)
                     Case 12: eacher = eacher & ChrW(1592)
+                    Case 17, 22, 27, 32 : eacher = eacher & ChrW(1610)
                     Case Else: eacher = eacher & ChrW(1594)
                     End Select
                 Next
@@ -2306,6 +2431,35 @@ Function SAY(ByVal metin As String, Optional met As String, Optional stype As Va
             End If
         End Select
     Next
+End Function
+Function STR2UCODE(Optional STRNG As String) As String
+	'LibreOffice Basic Kodundaki Karakterleri Excele Uygun Hale Getirmeye Çabalıyor...
+	Dim counter, inside As Long
+	Dim addafter, tocopy, kod As String
+	inside = 0
+	For counter = 1 To LEN(STRNG)
+		kod = ""
+		tocopy = MID(STRNG, counter, 1)
+		Select Case tocopy
+		Case Chr(34)
+			If inside = 1 Then
+				inside = 0
+				addafter = " & "
+			Else
+				inside = 1
+				addafter = ""
+			End If
+		Case Else
+			If inside = 1 Then
+				If MID(STRNG, counter + 1, 1) = Chr(34) Then addafter = ""
+				kod = "ChrW(" & Asc(tocopy) & ")" & addafter
+			Else
+				kod = tocopy & addafter
+			End If
+		End Select
+		ReDim kod
+		STR2UCODE = STR2UCODE & kod
+	Next
 End Function
 Function TEKSIR(ByVal metin As String, Optional ayrac As String, Optional shadda As Integer) As String
     Dim counter, produce, inverse, LengthDouble As Integer: LengthDouble = 0

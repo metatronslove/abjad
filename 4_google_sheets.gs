@@ -1,8 +1,8 @@
 // Merhaba Sahur Özel'in Ebced Hesaplayan Makrolarının LibreOffice Basic
-// dilinden Google Apps Script diline çevirisidir. Konu hakkında daha 
+// dilinden Google Apps Script diline çevirisidir. Konu hakkında daha
 // geniş bilgi için go.abdil.one/6 adresinden ilgili Google Drive kla-
-// sörüne erişebilirsiniz bu kodlar MIT, Creative commons ve GPL gibi 
-// lisanslarla değil; kullanıcılarının vicdanlarıyla korunmaktadır. 
+// sörüne erişebilirsiniz bu kodlar MIT, Creative commons ve GPL gibi
+// lisanslarla değil; kullanıcılarının vicdanlarıyla korunmaktadır.
 // Vicdansızları büyük yargı gününde rab hesaba çeker.
 function abjad(metin, tablo, shadda, detail) {
 	var sm, s, n, shaddie, counter, err, space, hrk, sn, choosen, nitem, c;
@@ -34,21 +34,41 @@ function abjad(metin, tablo, shadda, detail) {
 							case 10:
 							case 12:
 							case 15:
+							case 17:
+							case 20:
+							case 22:
+							case 25:
+							case 27:
+							case 30:
+							case 32:
+							case 35:
 								s = 1;
 								break;
 							case 0:
 							case 6:
 							case 11:
+							case 16:
+							case 21:
+							case 26:
+							case 31:
 								s = parseFloat(asgar(choosen, tablo + 1));
 								break;
 							case 2:
 							case 8:
 							case 13:
+							case 18:
+							case 23:
+							case 28:
+							case 33:
 								s = parseFloat(abjad("الف", tablo - 1, 1));
 								break;
 							case 3:
 							case 9:
 							case 14:
+							case 19:
+							case 24:
+							case 29:
+							case 34:
 								s = parseFloat(bastet(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"));
 								break;
 							default:
@@ -67,19 +87,45 @@ function abjad(metin, tablo, shadda, detail) {
 							case 15:
 								s = 6;
 								break;
+							case 17:
+							case 20:
+							case 22:
+							case 25:
+								s = 801;
+								break;
+							case 27:
+							case 30:
+								s = 41;
+								break;
+							case 32:
+							case 35:
+								s = 901;
+								break;
 							case 0:
 							case 6:
 							case 11:
+							case 16:
+							case 21:
+							case 26:
+							case 31:
 								s = parseFloat(asgar(choosen, tablo + 1));
 								break;
 							case 2:
 							case 8:
 							case 13:
+							case 18:
+							case 23:
+							case 28:
+							case 33:
 								s = parseFloat(abjad("الف", tablo - 1, 1)) + parseFloat(abjad("واو", tablo - 1, 1));
 								break;
 							case 3:
 							case 9:
 							case 14:
+							case 19:
+							case 24:
+							case 29:
+							case 34:
 								s = parseFloat(bastet("و", 1, -1 - (tablo - 2), 1, "ARABIC")) + parseFloat(bastet("ا", 1, -1 - (tablo - 2), 1, "ARABIC"));
 								break;
 							case 5:
@@ -101,19 +147,41 @@ function abjad(metin, tablo, shadda, detail) {
 							case 15:
 								s = 7;
 								break;
+							case 17:
+							case 20:
+							case 22:
+							case 25:
+							case 27:
+							case 30:
+							case 32:
+							case 35:
+								s = 1001;
+								break;
 							case 0:
 							case 6:
 							case 11:
+							case 16:
+							case 21:
+							case 26:
+							case 31:
 								s = parseFloat(asgar("ي", tablo + 1)) + parseFloat(asgar("ا", tablo + 1));
 								break;
 							case 2:
 							case 8:
 							case 13:
+							case 18:
+							case 23:
+							case 28:
+							case 33:
 								s = parseFloat(abjad("الف", tablo - 1, 1)) + parseFloat(abjad("يا", tablo - 1, 1));
 								break;
 							case 3:
 							case 9:
 							case 14:
+							case 19:
+							case 24:
+							case 29:
+							case 34:
 								s = parseFloat(bastet("ي", 1, -1 - (tablo - 2), 1, "ARABIC")) + parseFloat(bastet("ا", 1, -1 - (tablo - 2), 1, "ARABIC"));
 								break;
 							case 5:
@@ -135,19 +203,45 @@ function abjad(metin, tablo, shadda, detail) {
 							case 15:
 								s = 13;
 								break;
+							case 17:
+							case 20:
+							case 22:
+							case 25:
+								s = 1800;
+								break;
+							case 27:
+							case 30:
+								s = 1700;
+								break;
+							case 32:
+							case 35:
+								s = 1900;
+								break;
 							case 0:
 							case 6:
 							case 11:
+							case 16:
+							case 21:
+							case 26:
+							case 31:
 								s = parseFloat(asgar("ي", tablo + 1)) + parseFloat(asgar("ه", tablo + 1));
 								break;
 							case 2:
 							case 8:
 							case 13:
+							case 18:
+							case 23:
+							case 28:
+							case 33:
 								s = parseFloat(abjad("يا", tablo - 1, 1)) + parseFloat(abjad("ها", tablo - 1, 1));
 								break;
 							case 3:
 							case 9:
 							case 14:
+							case 19:
+							case 24:
+							case 29:
+							case 34:
 								s = parseFloat(bastet("ي", 1, -1 - (tablo - 2), 1, "ARABIC")) + parseFloat(bastet("ه", 1, -1 - (tablo - 2), 1, "ARABIC"));
 								break;
 							case 5:
@@ -164,6 +258,14 @@ function abjad(metin, tablo, shadda, detail) {
 							case 4:
 							case 7:
 							case 10:
+							case 17:
+							case 20:
+							case 22:
+							case 25:
+							case 27:
+							case 30:
+							case 32:
+							case 35:
 								s = 2;
 								break;
 							case 12:
@@ -173,16 +275,28 @@ function abjad(metin, tablo, shadda, detail) {
 							case 0:
 							case 6:
 							case 11:
+							case 16:
+							case 21:
+							case 26:
+							case 31:
 								s = parseFloat(asgar(choosen, tablo + 1));
 								break;
 							case 2:
 							case 8:
 							case 13:
+							case 18:
+							case 23:
+							case 28:
+							case 33:
 								s = parseFloat(abjad("با", tablo - 1, 1));
 								break;
 							case 3:
 							case 9:
 							case 14:
+							case 19:
+							case 24:
+							case 29:
+							case 34:
 								s = parseFloat(bastet(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"));
 								break;
 							case 5:
@@ -205,19 +319,41 @@ function abjad(metin, tablo, shadda, detail) {
 							case 15:
 								s = 100;
 								break;
+							case 17:
+							case 20:
+							case 22:
+							case 25:
+							case 27:
+							case 30:
+							case 32:
+							case 35:
+								s = 5;
+								break;
 							case 0:
 							case 6:
 							case 11:
+							case 16:
+							case 21:
+							case 26:
+							case 31:
 								s = parseFloat(asgar(choosen, tablo + 1));
 								break;
 							case 2:
 							case 8:
 							case 13:
+							case 18:
+							case 23:
+							case 28:
+							case 33:
 								s = parseFloat(abjad("جيم", tablo - 1, 1));
 								break;
 							case 3:
 							case 9:
 							case 14:
+							case 19:
+							case 24:
+							case 29:
+							case 34:
 								s = parseFloat(bastet(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"));
 								break;
 							case 5:
@@ -239,19 +375,41 @@ function abjad(metin, tablo, shadda, detail) {
 							case 15:
 								s = 70;
 								break;
+							case 17:
+							case 20:
+							case 22:
+							case 25:
+							case 27:
+							case 30:
+							case 32:
+							case 35:
+								s = 8;
+								break;
 							case 0:
 							case 6:
 							case 11:
+							case 16:
+							case 21:
+							case 26:
+							case 31:
 								s = parseFloat(asgar(choosen, tablo + 1));
 								break;
 							case 2:
 							case 8:
 							case 13:
+							case 18:
+							case 23:
+							case 28:
+							case 33:
 								s = parseFloat(abjad("دال", tablo - 1, 1));
 								break;
 							case 3:
 							case 9:
 							case 14:
+							case 19:
+							case 24:
+							case 29:
+							case 34:
 								s = parseFloat(bastet(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"));
 								break;
 							case 5:
@@ -274,19 +432,45 @@ function abjad(metin, tablo, shadda, detail) {
 							case 15:
 								s = 7;
 								break;
+							case 17:
+							case 20:
+							case 22:
+							case 25:
+								s = 800;
+								break;
+							case 27:
+							case 30:
+								s = 700;
+								break;
+							case 32:
+							case 35:
+								s = 900;
+								break;
 							case 0:
 							case 6:
 							case 11:
+							case 16:
+							case 21:
+							case 26:
+							case 31:
 								s = parseFloat(asgar(choosen, tablo + 1));
 								break;
 							case 2:
 							case 8:
 							case 13:
+							case 18:
+							case 23:
+							case 28:
+							case 33:
 								s = parseFloat(abjad("ها", tablo - 1, 1));
 								break;
 							case 3:
 							case 9:
 							case 14:
+							case 19:
+							case 24:
+							case 29:
+							case 34:
 								s = parseFloat(bastet(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"));
 								break;
 							case 5:
@@ -308,19 +492,45 @@ function abjad(metin, tablo, shadda, detail) {
 							case 15:
 								s = 5;
 								break;
+							case 17:
+							case 20:
+							case 22:
+							case 25:
+								s = 900;
+								break;
+							case 27:
+							case 30:
+								s = 40;
+								break;
+							case 32:
+							case 35:
+								s = 800;
+								break;
 							case 0:
 							case 6:
 							case 11:
+							case 16:
+							case 21:
+							case 26:
+							case 31:
 								s = parseFloat(asgar(choosen, tablo + 1));
 								break;
 							case 2:
 							case 8:
 							case 13:
+							case 18:
+							case 23:
+							case 28:
+							case 33:
 								s = parseFloat(abjad("واو", tablo - 1, 1));
 								break;
 							case 3:
 							case 9:
 							case 14:
+							case 19:
+							case 24:
+							case 29:
+							case 34:
 								s = parseFloat(bastet(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"));
 								break;
 							case 5:
@@ -341,21 +551,43 @@ function abjad(metin, tablo, shadda, detail) {
 								break;
 							case 12:
 							case 15:
+							case 27:
+							case 30:
 								s = 600;
+								break;
+							case 17:
+							case 20:
+							case 22:
+							case 25:
+							case 32:
+							case 35:
+								s = 20;
 								break;
 							case 0:
 							case 6:
 							case 11:
+							case 16:
+							case 21:
+							case 26:
+							case 31:
 								s = parseFloat(asgar(choosen, tablo + 1));
 								break;
 							case 2:
 							case 8:
 							case 13:
+							case 18:
+							case 23:
+							case 28:
+							case 33:
 								s = parseFloat(abjad("زا", tablo - 1, 1));
 								break;
 							case 3:
 							case 9:
 							case 14:
+							case 19:
+							case 24:
+							case 29:
+							case 34:
 								s = parseFloat(bastet(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"));
 								break;
 							case 5:
@@ -377,19 +609,41 @@ function abjad(metin, tablo, shadda, detail) {
 							case 15:
 								s = 90;
 								break;
+							case 17:
+							case 20:
+							case 22:
+							case 25:
+							case 27:
+							case 30:
+							case 32:
+							case 35:
+								s = 6;
+								break;
 							case 0:
 							case 6:
 							case 11:
+							case 16:
+							case 21:
+							case 26:
+							case 31:
 								s = parseFloat(asgar(choosen, tablo + 1));
 								break;
 							case 2:
 							case 8:
 							case 13:
+							case 18:
+							case 23:
+							case 28:
+							case 33:
 								s = parseFloat(abjad("حا", tablo - 1, 1));
 								break;
 							case 3:
 							case 9:
 							case 14:
+							case 19:
+							case 24:
+							case 29:
+							case 34:
 								s = parseFloat(bastet(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"));
 								break;
 							case 5:
@@ -411,19 +665,45 @@ function abjad(metin, tablo, shadda, detail) {
 							case 15:
 								s = 800;
 								break;
+							case 17:
+							case 20:
+							case 32:
+							case 35:
+								s = 70;
+								break;
+							case 22:
+							case 25:
+								s = 30;
+								break;
+							case 27:
+							case 30:
+								s = 100;
+								break;
 							case 0:
 							case 6:
 							case 11:
+							case 16:
+							case 21:
+							case 26:
+							case 31:
 								s = parseFloat(asgar(choosen, tablo + 1));
 								break;
 							case 2:
 							case 8:
 							case 13:
+							case 18:
+							case 23:
+							case 28:
+							case 33:
 								s = parseFloat(abjad("طا", tablo - 1, 1));
 								break;
 							case 3:
 							case 9:
 							case 14:
+							case 19:
+							case 24:
+							case 29:
+							case 34:
 								s = parseFloat(bastet(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"));
 								break;
 							case 5:
@@ -446,19 +726,41 @@ function abjad(metin, tablo, shadda, detail) {
 							case 15:
 								s = 6;
 								break;
+							case 17:
+							case 20:
+							case 22:
+							case 25:
+							case 27:
+							case 30:
+							case 32:
+							case 35:
+								s = 1000;
+								break;
 							case 0:
 							case 6:
 							case 11:
+							case 16:
+							case 21:
+							case 26:
+							case 31:
 								s = parseFloat(asgar(choosen, tablo + 1));
 								break;
 							case 2:
 							case 8:
 							case 13:
+							case 18:
+							case 23:
+							case 28:
+							case 33:
 								s = parseFloat(abjad("يا", tablo - 1, 1));
 								break;
 							case 3:
 							case 9:
 							case 14:
+							case 19:
+							case 24:
+							case 29:
+							case 34:
 								s = parseFloat(bastet(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"));
 								break;
 							case 5:
@@ -480,19 +782,45 @@ function abjad(metin, tablo, shadda, detail) {
 							case 15:
 								s = 20;
 								break;
+							case 17:
+							case 20:
+							case 32:
+							case 35:
+								s = 400;
+								break;
+							case 22:
+							case 25:
+								s = 50;
+								break;
+							case 27:
+							case 30:
+								s = 10;
+								break;
 							case 0:
 							case 6:
 							case 11:
+							case 16:
+							case 21:
+							case 26:
+							case 31:
 								s = parseFloat(asgar(choosen, tablo + 1));
 								break;
 							case 2:
 							case 8:
 							case 13:
+							case 18:
+							case 23:
+							case 28:
+							case 33:
 								s = parseFloat(abjad("كاف", tablo - 1, 1));
 								break;
 							case 3:
 							case 9:
 							case 14:
+							case 19:
+							case 24:
+							case 29:
+							case 34:
 								s = parseFloat(bastet(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"));
 								break;
 							case 5:
@@ -514,19 +842,45 @@ function abjad(metin, tablo, shadda, detail) {
 							case 15:
 								s = 2;
 								break;
+							case 17:
+							case 20:
+							case 32:
+							case 35:
+								s = 500;
+								break;
+							case 22:
+							case 25:
+								s = 60;
+								break;
+							case 27:
+							case 30:
+								s = 20;
+								break;
 							case 0:
 							case 6:
 							case 11:
+							case 16:
+							case 21:
+							case 26:
+							case 31:
 								s = parseFloat(asgar(choosen, tablo + 1));
 								break;
 							case 2:
 							case 8:
 							case 13:
+							case 18:
+							case 23:
+							case 28:
+							case 33:
 								s = parseFloat(abjad("لام", tablo - 1, 1));
 								break;
 							case 3:
 							case 9:
 							case 14:
+							case 19:
+							case 24:
+							case 29:
+							case 34:
 								s = parseFloat(bastet(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"));
 								break;
 							case 5:
@@ -548,19 +902,45 @@ function abjad(metin, tablo, shadda, detail) {
 							case 15:
 								s = 3;
 								break;
+							case 17:
+							case 20:
+							case 32:
+							case 35:
+								s = 501;
+								break;
+							case 22:
+							case 25:
+								s = 61;
+								break;
+							case 27:
+							case 30:
+								s = 21;
+								break;
 							case 0:
 							case 6:
 							case 11:
+							case 16:
+							case 21:
+							case 26:
+							case 31:
 								s = parseFloat(asgar("ا", tablo + 1)) + parseFloat(asgar("ل", tablo + 1));
 								break;
 							case 2:
 							case 8:
 							case 13:
+							case 18:
+							case 23:
+							case 28:
+							case 33:
 								s = parseFloat(abjad("لام الف", tablo - 1, 1));
 								break;
 							case 3:
 							case 9:
 							case 14:
+							case 19:
+							case 24:
+							case 29:
+							case 34:
 								s = parseFloat(bastet(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"));
 								break;
 							case 5:
@@ -582,19 +962,45 @@ function abjad(metin, tablo, shadda, detail) {
 							case 15:
 								s = 4;
 								break;
+							case 17:
+							case 20:
+							case 32:
+							case 35:
+								s = 600;
+								break;
+							case 22:
+							case 25:
+								s = 70;
+								break;
+							case 27:
+							case 30:
+								s = 30;
+								break;
 							case 0:
 							case 6:
 							case 11:
+							case 16:
+							case 21:
+							case 26:
+							case 31:
 								s = parseFloat(asgar(choosen, tablo + 1));
 								break;
 							case 2:
 							case 8:
 							case 13:
+							case 18:
+							case 23:
+							case 28:
+							case 33:
 								s = parseFloat(abjad("ميم", tablo - 1, 1));
 								break;
 							case 3:
 							case 9:
 							case 14:
+							case 19:
+							case 24:
+							case 29:
+							case 34:
 								s = parseFloat(bastet(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"));
 								break;
 							case 5:
@@ -611,25 +1017,49 @@ function abjad(metin, tablo, shadda, detail) {
 							case 4:
 							case 7:
 							case 10:
+							case 27:
+							case 30:
 								s = 50;
 								break;
 							case 12:
 							case 15:
 								s = 3;
 								break;
+							case 17:
+							case 20:
+							case 32:
+							case 35:
+								s = 700;
+								break;
+							case 22:
+							case 25:
+								s = 80;
+								break;
 							case 0:
 							case 6:
 							case 11:
+							case 16:
+							case 21:
+							case 26:
+							case 31:
 								s = parseFloat(asgar(choosen, tablo + 1));
 								break;
 							case 2:
 							case 8:
 							case 13:
+							case 18:
+							case 23:
+							case 28:
+							case 33:
 								s = parseFloat(abjad("نون", tablo - 1, 1));
 								break;
 							case 3:
 							case 9:
 							case 14:
+							case 19:
+							case 24:
+							case 29:
+							case 34:
 								s = parseFloat(bastet(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"));
 								break;
 							case 5:
@@ -651,19 +1081,45 @@ function abjad(metin, tablo, shadda, detail) {
 							case 10:
 								s = 300;
 								break;
+							case 17:
+							case 20:
+							case 32:
+							case 35:
+								s = 30;
+								break;
+							case 22:
+							case 25:
+								s = 600;
+								break;
+							case 27:
+							case 30:
+								s = 800;
+								break;
 							case 0:
 							case 6:
 							case 11:
+							case 16:
+							case 21:
+							case 26:
+							case 31:
 								s = parseFloat(asgar(choosen, tablo + 1));
 								break;
 							case 2:
 							case 8:
 							case 13:
+							case 18:
+							case 23:
+							case 28:
+							case 33:
 								s = parseFloat(abjad("سين", tablo - 1, 1));
 								break;
 							case 3:
 							case 9:
 							case 14:
+							case 19:
+							case 24:
+							case 29:
+							case 34:
 								s = parseFloat(bastet(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"));
 								break;
 							case 5:
@@ -685,19 +1141,45 @@ function abjad(metin, tablo, shadda, detail) {
 							case 15:
 								s = 30;
 								break;
+							case 17:
+							case 20:
+							case 32:
+							case 35:
+								s = 90;
+								break;
+							case 22:
+							case 25:
+								s = 200;
+								break;
+							case 27:
+							case 30:
+								s = 80;
+								break;
 							case 0:
 							case 6:
 							case 11:
+							case 16:
+							case 21:
+							case 26:
+							case 31:
 								s = parseFloat(asgar(choosen, tablo + 1));
 								break;
 							case 2:
 							case 8:
 							case 13:
+							case 18:
+							case 23:
+							case 28:
+							case 33:
 								s = parseFloat(abjad("عين", tablo - 1, 1));
 								break;
 							case 3:
 							case 9:
 							case 14:
+							case 19:
+							case 24:
+							case 29:
+							case 34:
 								s = parseFloat(bastet(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"));
 								break;
 							case 5:
@@ -719,19 +1201,45 @@ function abjad(metin, tablo, shadda, detail) {
 							case 15:
 								s = 40;
 								break;
+							case 17:
+							case 20:
+							case 32:
+							case 35:
+								s = 200;
+								break;
+							case 22:
+							case 25:
+								s = 400;
+								break;
+							case 27:
+							case 30:
+								s = 300;
+								break;
 							case 0:
 							case 6:
 							case 11:
+							case 16:
+							case 21:
+							case 26:
+							case 31:
 								s = parseFloat(asgar(choosen, tablo + 1));
 								break;
 							case 2:
 							case 8:
 							case 13:
+							case 18:
+							case 23:
+							case 28:
+							case 33:
 								s = parseFloat(abjad("فا", tablo - 1, 1));
 								break;
 							case 3:
 							case 9:
 							case 14:
+							case 19:
+							case 24:
+							case 29:
+							case 34:
 								s = parseFloat(bastet(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"));
 								break;
 							case 5:
@@ -745,29 +1253,51 @@ function abjad(metin, tablo, shadda, detail) {
 						switch (tablo) {
 							case 1:
 							case 4:
+							case 22:
+							case 25:
 								s = 90;
 								break;
 							case 7:
 							case 10:
+							case 27:
+							case 30:
 								s = 60;
 								break;
 							case 12:
 							case 15:
 								s = 400;
 								break;
+							case 17:
+							case 20:
+							case 32:
+							case 35:
+								s = 50;
+								break;
 							case 0:
 							case 6:
 							case 11:
+							case 16:
+							case 21:
+							case 26:
+							case 31:
 								s = parseFloat(asgar(choosen, tablo + 1));
 								break;
 							case 2:
 							case 8:
 							case 13:
+							case 18:
+							case 23:
+							case 28:
+							case 33:
 								s = parseFloat(abjad("صاد", tablo - 1, 1));
 								break;
 							case 3:
 							case 9:
 							case 14:
+							case 19:
+							case 24:
+							case 29:
+							case 34:
 								s = parseFloat(bastet(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"));
 								break;
 							case 5:
@@ -789,19 +1319,45 @@ function abjad(metin, tablo, shadda, detail) {
 							case 15:
 								s = 50;
 								break;
+							case 17:
+							case 20:
+							case 32:
+							case 35:
+								s = 300;
+								break;
+							case 22:
+							case 25:
+								s = 500;
+								break;
+							case 27:
+							case 30:
+								s = 400;
+								break;
 							case 0:
 							case 6:
 							case 11:
+							case 16:
+							case 21:
+							case 26:
+							case 31:
 								s = parseFloat(asgar(choosen, tablo + 1));
 								break;
 							case 2:
 							case 8:
 							case 13:
+							case 18:
+							case 23:
+							case 28:
+							case 33:
 								s = parseFloat(abjad("قاف", tablo - 1, 1));
 								break;
 							case 3:
 							case 9:
 							case 14:
+							case 19:
+							case 24:
+							case 29:
+							case 34:
 								s = parseFloat(bastet(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"));
 								break;
 							case 5:
@@ -821,21 +1377,45 @@ function abjad(metin, tablo, shadda, detail) {
 								break;
 							case 12:
 							case 15:
-								s = 80;
+								s = 8;
+								break;
+							case 17:
+							case 20:
+							case 22:
+							case 25:
+							case 32:
+							case 35:
+								s = 10;
+								break;
+							case 27:
+							case 30:
+								s = 500;
 								break;
 							case 0:
 							case 6:
 							case 11:
+							case 16:
+							case 21:
+							case 26:
+							case 31:
 								s = parseFloat(asgar(choosen, tablo + 1));
 								break;
 							case 2:
 							case 8:
 							case 13:
+							case 18:
+							case 23:
+							case 28:
+							case 33:
 								s = parseFloat(abjad("را", tablo - 1, 1));
 								break;
 							case 3:
 							case 9:
 							case 14:
+							case 19:
+							case 24:
+							case 29:
+							case 34:
 								s = parseFloat(bastet(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"));
 								break;
 							case 5:
@@ -857,19 +1437,45 @@ function abjad(metin, tablo, shadda, detail) {
 							case 10:
 								s = 1000;
 								break;
+							case 17:
+							case 20:
+							case 32:
+							case 35:
+								s = 40;
+								break;
+							case 22:
+							case 25:
+								s = 700;
+								break;
+							case 27:
+							case 30:
+								s = 900;
+								break;
 							case 0:
 							case 6:
 							case 11:
+							case 16:
+							case 21:
+							case 26:
+							case 31:
 								s = parseFloat(asgar(choosen, tablo + 1));
 								break;
 							case 2:
 							case 8:
 							case 13:
+							case 18:
+							case 23:
+							case 28:
+							case 33:
 								s = parseFloat(abjad("شين", tablo - 1, 1));
 								break;
 							case 3:
 							case 9:
 							case 14:
+							case 19:
+							case 24:
+							case 29:
+							case 34:
 								s = parseFloat(bastet(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"));
 								break;
 							case 5:
@@ -891,19 +1497,41 @@ function abjad(metin, tablo, shadda, detail) {
 							case 15:
 								s = 10;
 								break;
+							case 17:
+							case 20:
+							case 22:
+							case 25:
+							case 27:
+							case 30:
+							case 32:
+							case 35:
+								s = 3;
+								break;
 							case 0:
 							case 6:
 							case 11:
+							case 16:
+							case 21:
+							case 26:
+							case 31:
 								s = parseFloat(asgar(choosen, tablo + 1));
 								break;
 							case 2:
 							case 8:
 							case 13:
+							case 18:
+							case 23:
+							case 28:
+							case 33:
 								s = parseFloat(abjad("تا", tablo - 1, 1));
 								break;
 							case 3:
 							case 9:
 							case 14:
+							case 19:
+							case 24:
+							case 29:
+							case 34:
 								s = parseFloat(bastet(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"));
 								break;
 							case 5:
@@ -925,19 +1553,41 @@ function abjad(metin, tablo, shadda, detail) {
 							case 15:
 								s = 700;
 								break;
+							case 17:
+							case 20:
+							case 22:
+							case 25:
+							case 27:
+							case 30:
+							case 32:
+							case 35:
+								s = 4;
+								break;
 							case 0:
 							case 6:
 							case 11:
+							case 16:
+							case 21:
+							case 26:
+							case 31:
 								s = parseFloat(asgar(choosen, tablo + 1));
 								break;
 							case 2:
 							case 8:
 							case 13:
+							case 18:
+							case 23:
+							case 28:
+							case 33:
 								s = parseFloat(abjad("ثا", tablo - 1, 1));
 								break;
 							case 3:
 							case 9:
 							case 14:
+							case 19:
+							case 24:
+							case 29:
+							case 34:
 								s = parseFloat(bastet(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"));
 								break;
 							case 5:
@@ -959,19 +1609,41 @@ function abjad(metin, tablo, shadda, detail) {
 							case 15:
 								s = 200;
 								break;
+							case 17:
+							case 20:
+							case 22:
+							case 25:
+							case 27:
+							case 30:
+							case 32:
+							case 35:
+								s = 7;
+								break;
 							case 0:
 							case 6:
 							case 11:
+							case 16:
+							case 21:
+							case 26:
+							case 31:
 								s = parseFloat(asgar(choosen, tablo + 1));
 								break;
 							case 2:
 							case 8:
 							case 13:
+							case 18:
+							case 23:
+							case 28:
+							case 33:
 								s = parseFloat(abjad("خا", tablo - 1, 1));
 								break;
 							case 3:
 							case 9:
 							case 14:
+							case 19:
+							case 24:
+							case 29:
+							case 34:
 								s = parseFloat(bastet(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"));
 								break;
 							case 5:
@@ -993,19 +1665,41 @@ function abjad(metin, tablo, shadda, detail) {
 							case 15:
 								s = 80;
 								break;
+							case 17:
+							case 20:
+							case 22:
+							case 25:
+							case 27:
+							case 30:
+							case 32:
+							case 35:
+								s = 9;
+								break;
 							case 0:
 							case 6:
 							case 11:
+							case 16:
+							case 21:
+							case 26:
+							case 31:
 								s = parseFloat(asgar(choosen, tablo + 1));
 								break;
 							case 2:
 							case 8:
 							case 13:
+							case 18:
+							case 23:
+							case 28:
+							case 33:
 								s = parseFloat(abjad("ذال", tablo - 1, 1));
 								break;
 							case 3:
 							case 9:
 							case 14:
+							case 19:
+							case 24:
+							case 29:
+							case 34:
 								s = parseFloat(bastet(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"));
 								break;
 							case 5:
@@ -1029,19 +1723,45 @@ function abjad(metin, tablo, shadda, detail) {
 							case 15:
 								s = 500;
 								break;
+							case 17:
+							case 20:
+							case 32:
+							case 35:
+								s = 60;
+								break;
+							case 22:
+							case 25:
+								s = 100;
+								break;
+							case 27:
+							case 30:
+								s = 70;
+								break;
 							case 0:
 							case 6:
 							case 11:
+							case 16:
+							case 21:
+							case 26:
+							case 31:
 								s = parseFloat(asgar(choosen, tablo + 1));
 								break;
 							case 2:
 							case 8:
 							case 13:
+							case 18:
+							case 23:
+							case 28:
+							case 33:
 								s = parseFloat(abjad("ضاد", tablo - 1, 1));
 								break;
 							case 3:
 							case 9:
 							case 14:
+							case 19:
+							case 24:
+							case 29:
+							case 34:
 								s = parseFloat(bastet(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"));
 								break;
 							case 5:
@@ -1065,19 +1785,45 @@ function abjad(metin, tablo, shadda, detail) {
 							case 15:
 								s = 1000;
 								break;
+							case 17:
+							case 20:
+							case 32:
+							case 35:
+								s = 80;
+								break;
+							case 22:
+							case 25:
+								s = 40;
+								break;
+							case 27:
+							case 30:
+								s = 200;
+								break;
 							case 0:
 							case 6:
 							case 11:
+							case 16:
+							case 21:
+							case 26:
+							case 31:
 								s = parseFloat(asgar(choosen, tablo + 1));
 								break;
 							case 2:
 							case 8:
 							case 13:
+							case 18:
+							case 23:
+							case 28:
+							case 33:
 								s = parseFloat(abjad("ظا", tablo - 1, 1));
 								break;
 							case 3:
 							case 9:
 							case 14:
+							case 19:
+							case 24:
+							case 29:
+							case 34:
 								s = parseFloat(bastet(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"));
 								break;
 							case 5:
@@ -1099,19 +1845,45 @@ function abjad(metin, tablo, shadda, detail) {
 							case 15:
 								s = 900;
 								break;
+							case 17:
+							case 20:
+							case 32:
+							case 35:
+								s = 100;
+								break;
+							case 22:
+							case 25:
+								s = 300;
+								break;
+							case 27:
+							case 30:
+								s = 90;
+								break;
 							case 0:
 							case 6:
 							case 11:
+							case 16:
+							case 21:
+							case 26:
+							case 31:
 								s = parseFloat(asgar(choosen, tablo + 1));
 								break;
 							case 2:
 							case 8:
 							case 13:
+							case 18:
+							case 23:
+							case 28:
+							case 33:
 								s = parseFloat(abjad("غين", tablo - 1, 1));
 								break;
 							case 3:
 							case 9:
 							case 14:
+							case 19:
+							case 24:
+							case 29:
+							case 34:
 								s = parseFloat(bastet(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"));
 								break;
 							case 5:
@@ -2511,6 +3283,26 @@ function bastet(metin, mt, tablo, shadda, language, detail) {
 				case 13:
 				case 14:
 				case 15:
+				case 16:
+				case 17:
+				case 18:
+				case 19:
+				case 20:
+				case 21:
+				case 22:
+				case 23:
+				case 24:
+				case 25:
+				case 26:
+				case 27:
+				case 28:
+				case 29:
+				case 30:
+				case 31:
+				case 32:
+				case 33:
+				case 34:
+				case 35:
 					baster = parseFloat(abjad(metin, tablo, shadda));
 					break;
 				case -1:
@@ -2529,6 +3321,26 @@ function bastet(metin, mt, tablo, shadda, language, detail) {
 				case -14:
 				case -15:
 				case -16:
+				case -17:
+				case -18:
+				case -19:
+				case -20:
+				case -21:
+				case -22:
+				case -23:
+				case -24:
+				case -25:
+				case -26:
+				case -27:
+				case -28:
+				case -29:
+				case -30:
+				case -31:
+				case -32:
+				case -33:
+				case -34:
+				case -35:
+				case -36:
 					invertablo = (-1 * tablo) - 1;
 					baster = parseFloat(abjad(metin, invertablo, shadda));
 					break;
@@ -2539,6 +3351,7 @@ function bastet(metin, mt, tablo, shadda, language, detail) {
 		ns = nutket(baster, language.toUpperCase());
 		baster = 0;
 		switch (tablo) {
+			case 0:
 			case 0:
 			case 1:
 			case 2:
@@ -2555,6 +3368,26 @@ function bastet(metin, mt, tablo, shadda, language, detail) {
 			case 13:
 			case 14:
 			case 15:
+			case 16:
+			case 17:
+			case 18:
+			case 19:
+			case 20:
+			case 21:
+			case 22:
+			case 23:
+			case 24:
+			case 25:
+			case 26:
+			case 27:
+			case 28:
+			case 29:
+			case 30:
+			case 31:
+			case 32:
+			case 33:
+			case 34:
+			case 35:
 				baster = parseFloat(abjad(ns, tablo, 1)) + parseFloat(abjad(ns, 5, 1));
 				break;
 			case -1:
@@ -2573,6 +3406,26 @@ function bastet(metin, mt, tablo, shadda, language, detail) {
 			case -14:
 			case -15:
 			case -16:
+			case -17:
+			case -18:
+			case -19:
+			case -20:
+			case -21:
+			case -22:
+			case -23:
+			case -24:
+			case -25:
+			case -26:
+			case -27:
+			case -28:
+			case -29:
+			case -30:
+			case -31:
+			case -32:
+			case -33:
+			case -34:
+			case -35:
+			case -36:
 				invertablo = (-1 * tablo) - 1;
 				baster = parseFloat(abjad(ns, invertablo, 1));
 				break;
@@ -3340,14 +4193,23 @@ function huddam(num, htype, method) {
 	if (num !== undefined && num !== null) {
 		if (htype !== undefined) {
 			switch (method) {
+				case 2:
 				case 8:
 				case 13:
-				case 2:
+				case 18:
+				case 23:
+				case 28:
+				case 33:
 					method -= 1;
 					mode = "eacher";
 					break;
+				case 4:
 				case 7:
 				case 12:
+				case 17:
+				case 22:
+				case 27:
+				case 32:
 					mode = "regular";
 					break;
 				case 1:
@@ -3412,6 +4274,10 @@ function huddam(num, htype, method) {
 												break;
 											case 1:
 											case 7:
+											case 17:
+											case 22:
+											case 27:
+											case 32:
 											default:
 												h = "ب";
 										}
@@ -3420,6 +4286,12 @@ function huddam(num, htype, method) {
 										switch (method) {
 											case 12:
 												h = "ن";
+												break;
+											case 17:
+											case 22:
+											case 27:
+											case 32:
+												h = "ت";
 												break;
 											case 1:
 											case 7:
@@ -3432,6 +4304,12 @@ function huddam(num, htype, method) {
 											case 12:
 												h = "م";
 												break;
+											case 17:
+											case 22:
+											case 27:
+											case 32:
+												h = "ث";
+												break;
 											case 1:
 											case 7:
 											default:
@@ -3442,6 +4320,12 @@ function huddam(num, htype, method) {
 										switch (method) {
 											case 12:
 												h = "و";
+												break;
+											case 17:
+											case 22:
+											case 27:
+											case 32:
+												h = "ج";
 												break;
 											case 1:
 											case 7:
@@ -3454,6 +4338,12 @@ function huddam(num, htype, method) {
 											case 12:
 												h = "ي";
 												break;
+											case 17:
+											case 22:
+											case 27:
+											case 32:
+												h = "ح";
+												break;
 											case 1:
 											case 7:
 											default:
@@ -3464,6 +4354,12 @@ function huddam(num, htype, method) {
 										switch (method) {
 											case 12:
 												h = "ه";
+												break;
+											case 17:
+											case 22:
+											case 27:
+											case 32:
+												h = "خ";
 												break;
 											case 1:
 											case 7:
@@ -3476,6 +4372,12 @@ function huddam(num, htype, method) {
 											case 12:
 												h = "ر";
 												break;
+											case 17:
+											case 22:
+											case 27:
+											case 32:
+												h = "د";
+												break;
 											case 1:
 											case 7:
 											default:
@@ -3486,6 +4388,12 @@ function huddam(num, htype, method) {
 										switch (method) {
 											case 12:
 												h = "ب";
+												break;
+											case 17:
+											case 22:
+											case 27:
+											case 32:
+												h = "ذ";
 												break;
 											case 1:
 											case 7:
@@ -3502,19 +4410,49 @@ function huddam(num, htype, method) {
 											case 12:
 												h = "ت";
 												break;
+											case 17:
+											case 22:
+											case 32:
+												h = "ر";
+												break;
+											case 27:
+												h = "ك"
+												break;
 											case 1:
 											case 7:
 											default:
 												h = "ي";
 										}
 										break;
-									case 2:
-										h = "ك";
-										break;
+									case 2:switch (method) {
+											case 17:
+											case 22:
+											case 32:
+												h = "ز";
+												break;
+											case 27:
+												h = "ل";
+												break;
+											case 1:
+											case 7:
+											case 12:
+											default:
+												h = "ك";
+										}
 									case 3:
 										switch (method) {
 											case 12:
 												h = "ع";
+												break;
+											case 17:
+											case 32:
+												h = "س";
+												break;
+											case 22:
+												h = "ط";
+												break;
+											case 27:
+												h = "م";
 												break;
 											case 1:
 											case 7:
@@ -3526,6 +4464,16 @@ function huddam(num, htype, method) {
 										switch (method) {
 											case 12:
 												h = "ف";
+												break;
+											case 17:
+											case 32:
+												h = "ش";
+												break;
+											case 22:
+												h = "ظ";
+												break;
+											case 27:
+												h = "و";
 												break;
 											case 1:
 											case 7:
@@ -3547,7 +4495,15 @@ function huddam(num, htype, method) {
 									case 6:
 										switch (method) {
 											case 7:
+											case 27:
 												h = "ص";
+												break;
+											case 17:
+											case 32:
+												h = "ض";
+												break;
+											case 22:
+												h = "ل";
 												break;
 											case 1:
 											case 12:
@@ -3560,6 +4516,16 @@ function huddam(num, htype, method) {
 											case 12:
 												h = "د";
 												break;
+											case 17:
+											case 32:
+												h = "ط";
+												break;
+											case 22:
+												h = "م";
+												break;
+											case 27:
+												h = "ض";
+												break;
 											case 1:
 											case 7:
 											default:
@@ -3570,6 +4536,16 @@ function huddam(num, htype, method) {
 										switch (method) {
 											case 12:
 												h = "ذ";
+												break;
+											case 17:
+											case 32:
+												h = "ظ";
+												break;
+											case 22:
+												h = "ن";
+												break;
+											case 27:
+												h = "ع";
 												break;
 											case 1:
 											case 7:
@@ -3585,6 +4561,13 @@ function huddam(num, htype, method) {
 											case 12:
 												h = "ح";
 												break;
+											case 17:
+											case 32:
+												h = "ع";
+												break;
+											case 27:
+												h = "غ";
+												break;
 											case 1:
 											default:
 												h = "ص";
@@ -3599,6 +4582,16 @@ function huddam(num, htype, method) {
 											case 12:
 												h = "ج";
 												break;
+											case 17:
+											case 32:
+												h = "غ";
+												break;
+											case 22:
+												h = "ض";
+												break;
+											case 27:
+												h = "ط";
+												break;
 											case 1:
 											case 7:
 											default:
@@ -3609,6 +4602,16 @@ function huddam(num, htype, method) {
 										switch (method) {
 											case 12:
 												h = "خ";
+												break;
+											case 17:
+											case 32:
+												h = "ف";
+												break;
+											case 22:
+												h = "ع";
+												break;
+											case 27:
+												h = "ظ";
 												break;
 											case 1:
 											case 7:
@@ -3621,6 +4624,16 @@ function huddam(num, htype, method) {
 											case 7:
 												h = "س";
 												break;
+											case 17:
+											case 32:
+												h = "ق";
+												break;
+											case 22:
+												h = "غ";
+												break;
+											case 27:
+												h = "ف";
+												break;
 											case 1:
 											case 12:
 											default:
@@ -3631,6 +4644,16 @@ function huddam(num, htype, method) {
 										switch (method) {
 											case 12:
 												h = "ص";
+												break;
+											case 17:
+											case 32:
+												h = "ك";
+												break;
+											case 22:
+												h = "ف";
+												break;
+											case 27:
+												h = "ق";
 												break;
 											case 1:
 											case 7:
@@ -3643,6 +4666,16 @@ function huddam(num, htype, method) {
 											case 12:
 												h = "ض";
 												break;
+											case 17:
+											case 32:
+												h = "ل";
+												break;
+											case 22:
+												h = "ق";
+												break;
+											case 27:
+												h = "ر";
+												break;
 											case 1:
 											case 7:
 											default:
@@ -3652,7 +4685,15 @@ function huddam(num, htype, method) {
 									case 6:
 										switch (method) {
 											case 12:
+											case 27:
 												h = "ز";
+												break;
+											case 17:
+											case 32:
+												h = "م";
+												break;
+											case 22:
+												h = "س";
 												break;
 											case 1:
 											case 7:
@@ -3664,6 +4705,16 @@ function huddam(num, htype, method) {
 										switch (method) {
 											case 12:
 												h = "ث";
+												break;
+											case 17:
+											case 32:
+												h = "ن";
+												break;
+											case 22:
+												h = "ش";
+												break;
+											case 27:
+												h = "ه";
 												break;
 											case 1:
 											case 7:
@@ -3679,6 +4730,16 @@ function huddam(num, htype, method) {
 											case 12:
 												h = "ط";
 												break;
+											case 17:
+											case 22:
+												h = "ه";
+												break;
+											case 27:
+												h = "س";
+												break;
+											case 32:
+												h = "و";
+												break;
 											case 1:
 											default:
 												h = "ض";
@@ -3689,6 +4750,16 @@ function huddam(num, htype, method) {
 											case 7:
 											case 12:
 												h = "غ";
+												break;
+											case 17:
+											case 22:
+												h = "و";
+												break;
+											case 27:
+												h = "ش";
+												break;
+											case 32:
+												h = "ه";
 												break;
 											case 1:
 											default:
@@ -3710,13 +4781,19 @@ function huddam(num, htype, method) {
 									case 12:
 										eacher += "ظ";
 										break;
+									case 17:
+									case 22:
+									case 27:
+									case 32:
+										eacher += "ي";
+										break;
 									case 1:
 									default:
 										eacher += "غ";
 								}
 							}
 						}
-						if (mode == "eacher") { 
+						if (mode == "eacher") {
 							gh += eacher;
 							eacher = "";
 						}
@@ -4231,7 +5308,7 @@ function nutket(MyNumber, language) {
 				} else {
 					MyNumber = "";
 				}
-				dongu += 1;				
+				dongu += 1;
 			}
 			break;
 		default:
