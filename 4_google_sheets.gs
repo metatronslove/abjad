@@ -4424,7 +4424,8 @@ function huddam(num, htype, method) {
 												h = "ي";
 										}
 										break;
-									case 2:switch (method) {
+									case 2:
+										switch (method) {
 											case 17:
 											case 22:
 											case 32:
@@ -4439,6 +4440,7 @@ function huddam(num, htype, method) {
 											default:
 												h = "ك";
 										}
+										break;
 									case 3:
 										switch (method) {
 											case 12:
@@ -4485,6 +4487,13 @@ function huddam(num, htype, method) {
 										switch (method) {
 											case 12:
 												h = "ق";
+												break;
+											case 17:
+											case 32:
+												h = "ص";
+												break;
+											case 22:
+												h = "ك";
 												break;
 											case 1:
 											case 7:
