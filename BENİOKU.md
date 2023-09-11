@@ -33,17 +33,7 @@ Türkçe, Arapça ya da İbranice bir metin ya da metnin bulunduğu hücre.
 
 6 - 16 tablo kodları sadece Arapça için
 
-* 6 Asgari Mağribi Ebced 
-* 7 Sağir Mağribi Ebced
-* 8 Kebir Mağribi Ebced
-* 9 Ekber Mağribi Ebced
-* 10 Sağir Mağribi Ebced + Harf Miktarı
-
-* 11 Asgari Frekans Ebcedi
-* 12 Sağir Frekans Ebcedi
-* 13 Kebir Frekans Ebcedi
-* 14 Ekber Frekans Ebcedi
-* 15 Sağir Frekans Ebcedi + Harf Miktarı
+[![https://github.com/metatronslove/abjad](https://github.com/metatronslove/abjad/blob/1b8fb33d7611926237c2ee0c4fc884918030dc76/Ebced%20Tablosu%20Kodlar%C4%B1%20-%20Abjad%20Table%20Codes.jpg)](https://github.com/metatronslove/abjad)
 
 >#### şedde seçeneği
 
