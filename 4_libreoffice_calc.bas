@@ -1413,7 +1413,7 @@ Function HUDDAM(ByVal num As Long, Optional htype As String, Optional method As 
                     Case Else : H = "ي"
                     End Select
                 Case 2
-					Select Case method
+                    Select Case method
                     Case 17, 22, 32 : H = "ز"
                     Case 27 : H = "ل"
                     Case Else : H = "ك"
