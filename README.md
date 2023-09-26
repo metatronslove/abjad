@@ -1,3 +1,5 @@
+Instant Download : https://github.com/metatronslove/abjad/archive/refs/heads/main.zip
+
 A google spread sheet pre-added some macro code sets is here:
     https://tinyurl.com/bl4nksh33t
 
