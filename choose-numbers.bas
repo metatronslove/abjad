@@ -10,21 +10,21 @@ Function choosenumbers(ByVal limitmax As Integer, repetition As Integer) As Stri
 	Dim seperator As String, aliimranyirmialti As String, aliimranyirmiyedi As String : seperator = ""
 	Dim i As Long, j As Long, Calculations As Long, CalculationsLimit As Long, CalculationsLasts As Long, CalculationsLoops As Long
 	Dim Temp As Variant : choosenumbers = ""
-	aliimranyirmialti = "قُلِ اللَّهُمَّ مَالِكَ الْمُلْكِ تُؤْتِي الْمُلْكَ مَن تَشَاء وَتَنزِعُ الْمُلْكَ مِمَّن تَشَاء وَتُعِزُّ مَن تَشَاء وَتُذِلُّ مَن تَشَاء بِيَدِكَ الْخَيْرُ إِنَّكَ عَلَىَ كُلِّ شَيْءٍ قَدِيرٌ"
-	aliimranyirmiyedi = "تُولِجُ اللَّيْلَ فِي الْنَّهَارِ وَتُولِجُ النَّهَارَ فِي اللَّيْلِ وَتُخْرِجُ الْحَيَّ مِنَ الْمَيِّتِ وَتُخْرِجُ الَمَيَّتَ مِنَ الْحَيِّ وَتَرْزُقُ مَن تَشَاء بِغَيْرِ حِسَابٍ "
-	CalculationsLimit = ABJAD(aliimranyirmialti & aliimranyirmiyedi, 1, 1) / repetition
-	CalculationsLasts = ABJAD(aliimranyirmialti & aliimranyirmiyedi, 1, 1) - CalculationsLimit * (repetition -1)
+	'aliimranyirmialti = "قُلِ اللَّهُمَّ مَالِكَ الْمُلْكِ تُؤْتِي الْمُلْكَ مَن تَشَاء وَتَنزِعُ الْمُلْكَ مِمَّن تَشَاء وَتُعِزُّ مَن تَشَاء وَتُذِلُّ مَن تَشَاء بِيَدِكَ الْخَيْرُ إِنَّكَ عَلَىَ كُلِّ شَيْءٍ قَدِيرٌ"
+	'aliimranyirmiyedi = "تُولِجُ اللَّيْلَ فِي الْنَّهَارِ وَتُولِجُ النَّهَارَ فِي اللَّيْلِ وَتُخْرِجُ الْحَيَّ مِنَ الْمَيِّتِ وَتُخْرِجُ الَمَيَّتَ مِنَ الْحَيِّ وَتَرْزُقُ مَن تَشَاء بِغَيْرِ حِسَابٍ "
+	'CalculationsLimit = ABJAD(aliimranyirmialti & aliimranyirmiyedi, 1, 1) / repetition
+	'CalculationsLasts = ABJAD(aliimranyirmialti & aliimranyirmiyedi, 1, 1) - CalculationsLimit * (repetition -1)
 	For selector = 0 To repetition -1
-		If selector < repetition -1 Then
-			CalculationsLoops = CalculationsLimit
-		Else
-			CalculationsLoops = CalculationsLasts
-		End If
-		For Calculations = 1 To CalculationsLoops
-			AbjadCalculation = ABJAD(aliimranyirmialti & aliimranyirmiyedi, 1, 1)
-		Next Calculations			
+		'If selector < repetition -1 Then
+		'	CalculationsLoops = CalculationsLimit
+		'Else
+		'	CalculationsLoops = CalculationsLasts
+		'End If
+		'For Calculations = 1 To CalculationsLoops
+		'	AbjadCalculation = ABJAD(aliimranyirmialti & aliimranyirmiyedi, 1, 1)
+		'Next Calculations			
 		Do
-			Randomize AbjadCalculation * Rnd
+			'Randomize AbjadCalculation * Rnd
 			NewChoosenNumber = Int(Rnd * (limitmax + 1))
 			For dontrepeat = 0 to selector
 				If choosen(dontrepeat) = NewChoosenNumber Then NewChoosenNumber = 0
