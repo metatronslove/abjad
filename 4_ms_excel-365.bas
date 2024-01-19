@@ -928,7 +928,7 @@ Function ABJAD(ByVal metin As String, tablo As Integer, Optional shadda As Integ
         End Select
     Next
     Select Case tablo
-    Case 4, 10, 15
+    Case 4, 10, 15, 20, 25, 30, 35
         Select Case detail
         Case 1: SN = SN & ChrW(91) & ChrW(43) & ((Len(metin) - N) + SH) & " harf" & ChrW(93)
         Case Else: SM = SM + ((Len(metin) - N) + SH)

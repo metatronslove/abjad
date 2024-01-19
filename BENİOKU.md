@@ -31,7 +31,7 @@ Türkçe, Arapça ya da İbranice bir metin ya da metnin bulunduğu hücre.
 * 4 Sağir Ebced + Harf Miktarı
 * 5 Harf Miktarı
 
-6 - 16 tablo kodları sadece Arapça için
+6 - 35 tablo kodları sadece Arapça için
 
 ![ebced tabloları - abjad tables](https://github.com/metatronslove/abjad/blob/1b8fb33d7611926237c2ee0c4fc884918030dc76/Ebced%20Tablosu%20Kodlar%C4%B1%20-%20Abjad%20Table%20Codes.jpg)
 
@@ -197,15 +197,16 @@ ya da elif harfi kullanarak kendi tür belirtecinizi girin.
 >#### yöntem seçeneği
 
 Yöntem seçeneği, abjad() fonksiyonundaki Sağir ebced tablosu kodları 
-olan 1, 7, 12'dir. Cümel-i Kebir tablosuna uyan bir ebced tekniği ile 
-isim üretmek istiyorsanız seçimlik olan bu yöntem seçeneğini girmeyin.
-Bu seçenek için 12 girdiğinizde Cümel-i Kebir tablosu yerine Deneysel 
-Frekans Ebced tablosuna uyan isimler üretmeye başlar. 
+olan 1, 7, 12, 17, 22, 27, 32'dir. Cümel-i Kebir tablosuna uyan bir 
+ebced tekniği ile isim üretmek istiyorsanız seçimlik olan bu yöntem
+seçeneğini girmeyin. Bu seçenek için 12 girdiğinizde Cümel-i Kebir
+tablosu yerine Deneysel Frekans Ebced tablosuna uyan isimler üretmeye
+başlar. 
 
 Yöntem seçeneğinin bir başka hesaplama biçimi için Sağir Ebced tablosu
 koduna bir ekleyerek (+1) girilen yöntem seçenekleri de tanımlıdır
-bunlar da 2, 8, 13 olarak girilirse nasıl çalıştıklarını deneyerek
-keşfedebilirsiniz.
+bunlar da 2, 8, 13, 18, 23, 28, 33 olarak girilirse nasıl çalıştıklarını
+deneyerek keşfedebilirsiniz.
 
 ***
 ### rakamtopla(indirgenecek sayı; basamak miktarı)

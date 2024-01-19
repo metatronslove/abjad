@@ -3205,6 +3205,10 @@ function abjad(metin, tablo, shadda, detail) {
 				case 4:
 				case 10:
 				case 15:
+				case 20:
+				case 25:
+				case 30:
+				case 35:
 					if (detail == 1 && shadda == undefined || detail == 1 && shadda !== undefined) {
 						sn = sn + " \+" + ((metin.length - n) + shaddie).toString() + " ";
 					} else {

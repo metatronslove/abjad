@@ -1,7 +1,4 @@
-Instant Download : https://github.com/metatronslove/abjad/archive/refs/heads/main.zip
-
-A google spread sheet pre-added some macro code sets is here:
-    https://tinyurl.com/bl4nksh33t
+A google spread sheet pre-added some macro code sets is here: https://tinyurl.com/bl4nksh33t
 
 [![https://github.com/metatronslove/abjad](https://github.com/metatronslove/abjad/blob/7558f99fd7b9300247d6cbea14448231987d1ebf/The%20Abjad%20Code%20Matrix.png)](https://github.com/metatronslove/abjad)
 Abjad Calculation Macro Commands To Use Custom Functions For Google Sheets, LibreOffice Calc, MS Excel and Web Pages
@@ -200,13 +197,13 @@ Arabic Letters as string.
 Now Method Option is the Saghir Abjad Table CODE for abjad() function,
 gives the duty name depending to the table code entered as method.
 
-1, 7 and 12 !
+1, 7, 12, 17, 22, 27 and 32 !
 
 There is another mode for defined methods which Saghir Abjad Table CODE 
 PLUS ONE (+1) is the method option; you may test the code to find out
 the difference: 
 
-2, 8 and 13 !
+2, 8, 13, 18, 23, 28 and 33 !
 
 ***
 ### rakamtopla(number to reduce; number of digits)
