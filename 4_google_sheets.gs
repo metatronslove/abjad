@@ -3210,9 +3210,9 @@ function abjad(metin, tablo, shadda, detail) {
 				case 30:
 				case 35:
 					if (detail == 1 && shadda == undefined || detail == 1 && shadda !== undefined) {
-						sn = sn + " \+" + ((metin.length - n) + shaddie).toString() + " ";
+						sn += " \+" + ((metin.length - n) + shaddie).toString() + " ";
 					} else {
-						sm = sm + ((metin.length - n) + shaddie);
+						sm += ((metin.length - n) + shaddie);
 					}
 					break;
 				default:
@@ -4124,8 +4124,8 @@ function teksir(teksirmetin, teksirayrac, shadda) {
 		iksir = "";
 		for (counter = 1; counter <= Math.floor(newmetin.length / 2); counter++) {
 			inversed = newmetin.length - counter;
-			iksir = iksir + newmetin[inversed];
-			iksir = iksir + newmetin[counter - 1];
+			iksir += newmetin[inversed];
+			iksir += newmetin[counter - 1];
 		}
 		if (lengthdouble !== 1) {
 			iksir += newmetin[Math.floor(newmetin.length / 2)];
@@ -4145,42 +4145,42 @@ function numbers2arab(indians) {
 		choosenarab = indians[counter];
 		switch (choosenarab) {
 			case "1":
-				na = na + "١";
+				na += "١";
 				break;
 			case "2":
-				na = na + "٢";
+				na += "٢";
 				break;
 			case "3":
-				na = na + "٣";
+				na += "٣";
 				break;
 			case "4":
-				na = na + "٤";
+				na += "٤";
 				break;
 			case "5":
-				na = na + "٥";
+				na += "٥";
 				break;
 			case "6":
-				na = na + "٦";
+				na += "٦";
 				break;
 			case "7":
-				na = na + "٧";
+				na += "٧";
 				break;
 			case "8":
-				na = na + "٨";
+				na += "٨";
 				break;
 			case "9":
-				na = na + "٩";
+				na += "٩";
 				break;
 			case "0":
-				na = na + "٠";
+				na += "٠";
 				break;
 			case " ":
-				na = na + " ";
+				na += " ";
 				break;
 			case undefined:
 				break;
 			default:
-				na = na + choosenarab;
+				na += choosenarab;
 		}
 	}
 	return na;
@@ -5156,7 +5156,7 @@ function asgar(harf, level) {
 function newline(amount) {
 	var nl = "";
 	for (var rows = 1; rows < amount; rows += 1) {
-		nl = nl + String.fromCharCode(10) + String.fromCharCode(13);
+		nl += String.fromCharCode(10) + String.fromCharCode(13);
 	}
 	return nl;
 }
