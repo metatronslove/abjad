@@ -1,15 +1,9 @@
-[![https://github.com/metatronslove/abjad](https://github.com/metatronslove/abjad/blob/7558f99fd7b9300247d6cbea14448231987d1ebf/The%20Abjad%20Code%20Matrix.png)](https://github.com/metatronslove/abjad)
 Google E-tablolar, LibreOffice Hesap Tablosu, MS Excel ve Web Sayfaları için Ebced
 Hesaplama fonksiyonları
 
 KESİN TUTARLI YA DA DOĞRU HESAPLANMIŞ SONUÇ VAAT EDİLMİYOR; KODLARI 
 GÖZDEN GEÇİRİN VE İHTİYAÇLARINIZA GÖRE YENİDEN DÜZENLEYİN Kİ ARADIĞINIZ 
 KESİNLİĞE ULAŞABİLESİNİZ.
-
-
-[![LibreOffice Calc makroları AndrOpen Office'de KULLANILABİLİR](https://img.youtube.com/vi/H1VLp7zScys/maxresdefault.jpg)](https://youtu.be/H1VLp7zScys "LibreOffice Calc makroları AndrOpen Office'de KULLANILABİLİR")
-
-[![wordbyword() function](https://i.ytimg.com/vi/FWqtQP_V5u4/maxresdefault.jpg)](https://youtu.be/FWqtQP_V5u4 "wordbyword() function")
 
 Fonksiyon-fonksiyon kullanıcı tanımlı fonksiyonların açıklaması.
 ***
@@ -45,8 +39,6 @@ girin.
 
 Bu seçeneği girmek seçimliktir, eğer 1 olarak girerseniz her harf için 
 verilmiş olan tablo koduna göre değerleriyle beraber listeler.
-
-[![https://tinyurl.com/t3stc0d3](https://i.ibb.co/Jp19XXS/Ekran-g-r-nt-s-2021-10-08-14-47-23.png)](https://tinyurl.com/t3stc0d3)
 
 ***
 ### bastet(“metin veya sayı”; bast tekrar adedi; tablo kodu; şedde seçeneği; "dil seçeneği"; ayrıntı ayarı)
@@ -168,8 +160,6 @@ ihtiyaç varsa boşluk yerine başka karakterler de girilebilir.
 Arap rakamlarından [0-9] oluşan sayılar girilmiş hücrededir, bunlar Hint
 rakamlarına dönüşür. Formul yayarken oldukça kullanışlıdır.
 
-[![https://tinyurl.com/1v3fk](https://i.ibb.co/bK80X5H/Ekran-g-r-nt-s-2021-10-11-19-55-02.png)](https://tinyurl.com/1v3fk)
-
 ***
 ### huddam(hesaplanmış sayı; vazifeli türü belirteci; yöntem seçeneği)
 ***
@@ -269,5 +259,5 @@ tesbihin kullanım önerisini verebilmek için kullanılacak tesbihin
 özelliklerini vermemiz gerekiyor, 99'luk tesbih için 33'lü bölümler 
 olması gibi.
 
-[![https://t.me/+A54IrLGrHhowNzA8](https://github.com/metatronslove/abjad/blob/4536f1f4d24c4180f17ff972b8af5d27bdf86806/Telegram%20Room%20Abjad.png)](https://t.me/+A54IrLGrHhowNzA8)
-
+Biraz video:
+[![LibreOffice Calc makroları AndrOpen Office'de KULLANILABİLİR](https://img.youtube.com/vi/H1VLp7zScys/maxresdefault.jpg)](https://youtu.be/H1VLp7zScys "LibreOffice Calc makroları AndrOpen Office'de KULLANILABİLİR")
