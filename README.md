@@ -1,16 +1,12 @@
-A google spread sheet pre-added some macro code sets is here: https://tinyurl.com/bl4nksh33t
-
-[![https://github.com/metatronslove/abjad](https://github.com/metatronslove/abjad/blob/7558f99fd7b9300247d6cbea14448231987d1ebf/The%20Abjad%20Code%20Matrix.png)](https://github.com/metatronslove/abjad)
 Abjad Calculation Macro Commands To Use Custom Functions For Google Sheets, LibreOffice Calc, MS Excel and Web Pages
 
 NO CERTAIN CALCULATION IS OFFERED:
-RECREATE YOUR OWN FUNCTIONS TO REACH ANY CERTAINITY !!!
+RECREATE YOUR OWN FUNCTIONS TO REACH ANY CERTAINITY!
 
-[![Running LibreOffice Calc Macro On AndrOpen Office IS POSSIBLE](https://img.youtube.com/vi/H1VLp7zScys/maxresdefault.jpg)](https://youtu.be/H1VLp7zScys "Running LibreOffice Calc Macro On AndrOpen Office IS POSSIBLE")
+A google spread sheet with some user defined functions is here: https://tinyurl.com/bl4nksh33t
 
-[![wordbyword() function](https://i.ytimg.com/vi/FWqtQP_V5u4/maxresdefault.jpg)](https://youtu.be/FWqtQP_V5u4 "wordbyword() function")
+Function by function description of defined functions...
 
-Function by function description of custom functions... 
 ***
 ### abjad("text to find abjad value"; abjad table code; shadda option; detail option)
 ### wordbyword("text to find abjad value"; abjad table code; shadda option; detail option)
@@ -44,8 +40,6 @@ for adding letters only once give 1.
 
 if you enter 1  here, it lists every letter with value according to
 given table code.
-
-[![https://tinyurl.com/t3stc0d3](https://i.ibb.co/Jp19XXS/Ekran-g-r-nt-s-2021-10-08-14-47-23.png)](https://tinyurl.com/t3stc0d3)
 
 ***
 ###  bastet(“text or number”; bast repetitions; table code; shadda option; “language”; detail option)
@@ -165,8 +159,6 @@ Numbers consisting of Arabic numerals [0-9] are in the entered cell,
 these are Indian numerals. turns into It is very useful when spreading 
 formulas.
 
-[![https://tinyurl.com/1v3fk](https://i.ibb.co/bK80X5H/Ekran-g-r-nt-s-2021-10-11-19-55-02.png)](https://tinyurl.com/1v3fk)
-
 ***
 ### huddam(calculated number; duty type specifier; method option)
 ***
@@ -268,4 +260,5 @@ In order to give the recommendation for the use of the rosary, we need
 to give the characteristics of the rosary to be used, It's like having 
 33 sections for a 99 rosary.
 
-[![https://t.me/+A54IrLGrHhowNzA8](https://github.com/metatronslove/abjad/blob/4536f1f4d24c4180f17ff972b8af5d27bdf86806/Telegram%20Room%20Abjad.png)](https://t.me/+A54IrLGrHhowNzA8)
+Some video :
+[![Running LibreOffice Calc Macro On AndrOpen Office IS POSSIBLE](https://img.youtube.com/vi/H1VLp7zScys/maxresdefault.jpg)](https://youtu.be/H1VLp7zScys "Running LibreOffice Calc Macro On AndrOpen Office IS POSSIBLE")
