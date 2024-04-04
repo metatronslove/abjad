@@ -259,5 +259,22 @@ tesbihin kullanım önerisini verebilmek için kullanılacak tesbihin
 özelliklerini vermemiz gerekiyor, 99'luk tesbih için 33'lü bölümler 
 olması gibi.
 
+Biraz bağlantı:
+|Konum Bağlantı Adresi|İçerik|
+|:--------------------------------------------------------|------------------------------------------------------:|
+|https://abdil.one/|Kodlayıcının blogu|
+|https://ebced.abdil.one/|Eğlence için JS örneklendirmesi|
+|https://forum.libreoffice.org.tr/viewforum.php?f=6|Hesap Tablosu ile alakalı soru ve yanıtlar|
+|https://github.com/metatronslove/abjad|Kullanıcı Tanımlı Ebced Fonksiyonları için Kaynak|
+|https://go.abdil.one/6|Kodların merak edilmesi gerekmeyen eskilei|
+|https://ruhsalenerji.org|İslami Gizli İlimlerle İlgili İçerik|
+|https://tinyurl.com/1v3fk|Ebced Fonksiyonlarının Google Sheet ile kullanımı|
+|https://tinyurl.com/3bc3dh3s4b1|Kaynağı indirme olası alternatifi|
+|https://tinyurl.com/bl4nksh33t|Ebced Fonksiyonları olan Boş Google E-tablolar dökümanı|
+|https://tinyurl.com/huddam|Ebced Fonksiyonlarının Google Sheet ile kullanımı|
+|https://tinyurl.com/t3stc0d3|Ebced Fonksiyonlarının Google Sheet ile kullanımı|
+|https://www.facebook.com/ebcedmakro|Kodlayıcının sayfası|
+|https://www.youtube.com/channel/UCuv0cfdSZ9F0bFTh64n802g|Kodlayıcının kanalı|
+
 Biraz video:
 [![LibreOffice Calc makroları AndrOpen Office'de KULLANILABİLİR](https://img.youtube.com/vi/H1VLp7zScys/maxresdefault.jpg)](https://youtu.be/H1VLp7zScys "LibreOffice Calc makroları AndrOpen Office'de KULLANILABİLİR")
