@@ -3,8 +3,6 @@ Abjad Calculation Macro Commands To Use Custom Functions For Google Sheets, Libr
 NO CERTAIN CALCULATION IS OFFERED:
 RECREATE YOUR OWN FUNCTIONS TO REACH ANY CERTAINITY!
 
-A google spread sheet with some user defined functions is here: https://tinyurl.com/bl4nksh33t
-
 Function by function description of defined functions...
 
 ***
@@ -267,16 +265,8 @@ Some links :
 |https://ebced.abdil.one/|Some JS page for fun|
 |https://forum.libreoffice.org.tr/viewforum.php?f=6|Turkish LO Calc Answers|
 |https://github.com/metatronslove/abjad|Repository for User Defined ABJAD Functions|
-|https://go.abdil.one/6|Unnecessary to check old versions of these codes|
 |https://ruhsalenerji.org|Turkish Islamic Occult Forum|
-|https://tinyurl.com/1v3fk|ABJAD functions in use Google Sheet sample|
-|https://tinyurl.com/3bc3dh3s4b1|Alternative download repo possibility|
-|https://tinyurl.com/bl4nksh33t|Blank Google Spread Sheet with ABJAD Functions|
-|https://tinyurl.com/huddam|ABJAD functions in use Google Sheet sample|
-|https://tinyurl.com/t3stc0d3|ABJAD functions in use Google Sheet sample|
-|https://www.facebook.com/ebcedmakro|Coders page|
 |https://www.youtube.com/channel/UCuv0cfdSZ9F0bFTh64n802g|Coders channel|
-
 
 Some video :
 [![Running LibreOffice Calc Macro On AndrOpen Office IS POSSIBLE](https://img.youtube.com/vi/H1VLp7zScys/maxresdefault.jpg)](https://youtu.be/H1VLp7zScys "Running LibreOffice Calc Macro On AndrOpen Office IS POSSIBLE")
