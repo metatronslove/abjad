@@ -3138,14 +3138,14 @@ function abjad(metin, tablo, shadda, detail) {
 						n = n + 1;
 						switch (choosen) {
 							case "ّ":
-								if (shadda == 1 && detail == undefined || shadda == 1 && detail !== undefined) {
+								if (shadda == 1) {
 									s = 0;
-								} else if (shadda > 2 && detail == undefined || shadda > 2 && detail !== undefined) {
+								} else if (shadda > 2){
 									err = 3;
-								} else if (shadda == 2 && detail == undefined || shadda == 2 && detail !== undefined) {
-									c = 1;
+								} else if (shadda == 2) {
+									c = 0;
 									do {
-										choosen = metin[counter - 1 - c];
+										choosen = metin[counter - c];
 										s = parseFloat(abjad(choosen, tablo, 1));
 										c += 1;
 										shaddie = shaddie + 1;
@@ -3156,9 +3156,9 @@ function abjad(metin, tablo, shadda, detail) {
 								hrk = hrk + 1;
 								break;
 							case "ٰ":
-								c = 1;
+								c = 0;
 								do {
-									choosen = metin[counter - 1 - c];
+									choosen = metin[counter - c];
 									if (choosen == "ـ") {
 										s = parseFloat(abjad("ا", tablo, 1));
 									}
@@ -3460,7 +3460,7 @@ function unsur(metin, otabiat, otype, shadda, guide) {
 		for (counter = 0; counter < metin.length; counter++) {
 			choosen = metin[counter];
 			if (choosen == "ّ" && shadda == 2) {
-				c = 1;
+				c = 0;
 				do {
 					choosen = metin[counter - c];
 					c += 1;
@@ -4975,7 +4975,7 @@ function saf(metinsaf, ayrac, shadda) {
 			choosen = metinsaf[counter];
 			s = "";
 			if (choosen == "ّ" && shadda == 2) {
-				c = 1;
+				c = 0;
 				do {
 					choosen = metinsaf[counter - c];
 					c += 1;
