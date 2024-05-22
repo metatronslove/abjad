@@ -261,6 +261,7 @@ to give the characteristics of the rosary to be used, It's like having
 Some links :
 |Uniform Resource Locator|Content|
 |:--------------------------------------------------------|------------------------------------------------------:|
+|https://abdil.one/occult-abjad-calculator|A web page that I used these codes|
 |https://abdil.one/|Coders weblog|
 |https://ebced.abdil.one/|Some JS page for fun|
 |https://forum.libreoffice.org.tr/viewforum.php?f=6|Turkish LO Calc Answers|
