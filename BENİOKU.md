@@ -262,6 +262,7 @@ olması gibi.
 Biraz bağlantı:
 |Konum Bağlantı Adresi|İçerik|
 |:--------------------------------------------------------|------------------------------------------------------:|
+|https://abdil.one/occult-abjad-calculator|Bu kodlardan yararlandığım bir sayfa|
 |https://abdil.one/|Kodlayıcının blogu|
 |https://ebced.abdil.one/|Eğlence için JS örneklendirmesi|
 |https://forum.libreoffice.org.tr/viewforum.php?f=6|Hesap Tablosu ile alakalı soru ve yanıtlar|
