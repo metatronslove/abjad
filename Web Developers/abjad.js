@@ -3597,8 +3597,8 @@ function unsur(metin, otabiat, otype, shadda, guide) {
 								case "R":
 								case "U":
 								case "Z":
-									liste += choosen + " "
-									adet += 1
+									liste += choosen + " ";
+									adet += 1;
 									break;
 								default:
 							}
@@ -3617,8 +3617,8 @@ function unsur(metin, otabiat, otype, shadda, guide) {
 								case "O":
 								case "S":
 								case "Ü":
-									liste += choosen + " "
-									adet += 1
+									liste += choosen + " ";
+									adet += 1;
 									break;
 								default:
 							}
@@ -3637,8 +3637,8 @@ function unsur(metin, otabiat, otype, shadda, guide) {
 								case "Ö":
 								case "Ş":
 								case "V":
-									liste += choosen + " "
-									adet += 1
+									liste += choosen + " ";
+									adet += 1;
 									break;
 								default:
 							}
@@ -3657,8 +3657,8 @@ function unsur(metin, otabiat, otype, shadda, guide) {
 								case "P":
 								case "T":
 								case "Y":
-									liste += choosen + " "
-									adet += 1
+									liste += choosen + " ";
+									adet += 1;
 									break;
 								default:
 							}
@@ -3682,8 +3682,8 @@ function unsur(metin, otabiat, otype, shadda, guide) {
 								case "ف":
 								case "ش":
 								case "ذ":
-									liste += choosen + " "
-									adet += 1
+									liste += choosen + " ";
+									adet += 1;
 									break;
 								default:
 							}
@@ -3702,8 +3702,8 @@ function unsur(metin, otabiat, otype, shadda, guide) {
 								case "ر":
 								case "خ":
 								case "غ":
-									liste += choosen + " "
-									adet += 1
+									liste += choosen + " ";
+									adet += 1;
 									break;
 								default:
 							}
@@ -3723,8 +3723,8 @@ function unsur(metin, otabiat, otype, shadda, guide) {
 								case "ص":
 								case "ت":
 								case "ض":
-									liste += choosen + " "
-									adet += 1
+									liste += choosen + " ";
+									adet += 1;
 									break;
 								default:
 							}
@@ -3743,8 +3743,8 @@ function unsur(metin, otabiat, otype, shadda, guide) {
 								case "ق":
 								case "ث":
 								case "ظ":
-									liste += choosen + " "
-									adet += 1
+									liste += choosen + " ";
+									adet += 1;
 									break;
 								default:
 							}
@@ -3768,8 +3768,8 @@ function unsur(metin, otabiat, otype, shadda, guide) {
 								case "ف":
 								case "ش":
 								case "ذ":
-									liste += choosen + " "
-									adet += 1
+									liste += choosen + " ";
+									adet += 1;
 									break;
 								default:
 							}
@@ -3789,8 +3789,8 @@ function unsur(metin, otabiat, otype, shadda, guide) {
 								case "ص":
 								case "ت":
 								case "ض":
-									liste += choosen + " "
-									adet += 1
+									liste += choosen + " ";
+									adet += 1;
 									break;
 								default:
 							}
@@ -3809,8 +3809,8 @@ function unsur(metin, otabiat, otype, shadda, guide) {
 								case "ر":
 								case "خ":
 								case "غ":
-									liste += choosen + " "
-									adet += 1
+									liste += choosen + " ";
+									adet += 1;
 									break;
 								default:
 							}
@@ -3829,8 +3829,8 @@ function unsur(metin, otabiat, otype, shadda, guide) {
 								case "ق":
 								case "ث":
 								case "ظ":
-									liste += choosen + " "
-									adet += 1
+									liste += choosen + " ";
+									adet += 1;
 									break;
 								default:
 							}
@@ -3854,8 +3854,8 @@ function unsur(metin, otabiat, otype, shadda, guide) {
 								case "ف":
 								case "ش":
 								case "ذ":
-									liste += choosen + " "
-									adet += 1
+									liste += choosen + " ";
+									adet += 1;
 									break;
 								default:
 							}
@@ -3874,8 +3874,8 @@ function unsur(metin, otabiat, otype, shadda, guide) {
 								case "ق":
 								case "ث":
 								case "ظ":
-									liste += choosen + " "
-									adet += 1
+									liste += choosen + " ";
+									adet += 1;
 									break;
 								default:
 							}
@@ -3894,8 +3894,8 @@ function unsur(metin, otabiat, otype, shadda, guide) {
 								case "ر":
 								case "خ":
 								case "غ":
-									liste += choosen + " "
-									adet += 1
+									liste += choosen + " ";
+									adet += 1;
 									break;
 								default:
 							}
@@ -3915,8 +3915,8 @@ function unsur(metin, otabiat, otype, shadda, guide) {
 								case "ص":
 								case "ت":
 								case "ض":
-									liste += choosen + " "
-									adet += 1
+									liste += choosen + " ";
+									adet += 1;
 									break;
 								default:
 							}
@@ -3940,8 +3940,8 @@ function unsur(metin, otabiat, otype, shadda, guide) {
 								case "פ":
 								case "ש":
 								case "ף":
-									liste += choosen + " "
-									adet += 1
+									liste += choosen + " ";
+									adet += 1;
 									break;
 								default:
 							}
@@ -3960,8 +3960,8 @@ function unsur(metin, otabiat, otype, shadda, guide) {
 								case "צ":
 								case "ת":
 								case "ץ":
-									liste += choosen + " "
-									adet += 1
+									liste += choosen + " ";
+									adet += 1;
 									break;
 								default:
 							}
@@ -3980,8 +3980,8 @@ function unsur(metin, otabiat, otype, shadda, guide) {
 								case "ק":
 								case "ם":
 								case "ך":
-									liste += choosen + " "
-									adet += 1
+									liste += choosen + " ";
+									adet += 1;
 									break;
 								default:
 							}
@@ -3999,8 +3999,8 @@ function unsur(metin, otabiat, otype, shadda, guide) {
 								case "ע":
 								case "ר":
 								case "ן":
-									liste += choosen + " "
-									adet += 1
+									liste += choosen + " ";
+									adet += 1;
 									break;
 								default:
 							}
@@ -4023,8 +4023,8 @@ function unsur(metin, otabiat, otype, shadda, guide) {
 								case "ص":
 								case "ر":
 								case "خ":
-									liste += choosen + " "
-									adet += 1
+									liste += choosen + " ";
+									adet += 1;
 									break;
 								default:
 							}
@@ -4045,8 +4045,8 @@ function unsur(metin, otabiat, otype, shadda, guide) {
 								case "ة":
 								case "ث":
 								case "ی":
-									liste += choosen + " "
-									adet += 1
+									liste += choosen + " ";
+									adet += 1;
 									break;
 								default:
 							}
@@ -4065,8 +4065,8 @@ function unsur(metin, otabiat, otype, shadda, guide) {
 								case "ق":
 								case "ش":
 								case "ض":
-									liste += choosen + " "
-									adet += 1
+									liste += choosen + " ";
+									adet += 1;
 									break;
 								default:
 							}
@@ -4085,8 +4085,8 @@ function unsur(metin, otabiat, otype, shadda, guide) {
 								case "ذ":
 								case "ظ":
 								case "غ":
-									liste += choosen + " "
-									adet += 1
+									liste += choosen + " ";
+									adet += 1;
 									break;
 								default:
 							}
