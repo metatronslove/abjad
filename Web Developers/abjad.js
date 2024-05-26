@@ -15,8 +15,8 @@ function abjad(metin, tablo, shadda, detail) {
 	hrk = 0;
 	nitem = "";
 	sn = "";
-	if (metin !== undefined) {
-		if (tablo !== undefined) {
+	if (metin != undefined) {
+		if (tablo != undefined) {
 			for (counter = 0; counter < metin.length; counter += 1) {
 				choosen = metin[counter];
 				switch (choosen) {
@@ -3150,7 +3150,7 @@ function abjad(metin, tablo, shadda, detail) {
 										c += 1;
 										shaddie = shaddie + 1;
 									} while (saf(choosen, "", 1) == "");
-								} else if (shadda == undefined && detail == undefined || shadda == undefined && detail !== undefined) {
+								} else if (shadda == undefined && detail == undefined || shadda == undefined && detail != undefined) {
 									err = 3;
 								}
 								hrk = hrk + 1;
@@ -3163,7 +3163,7 @@ function abjad(metin, tablo, shadda, detail) {
 										s = parseFloat(abjad("ا", tablo, 1));
 									}
 									c += 1;
-								} while (saf(choosen, "", 1) == "" || choosen !== "ـ");
+								} while (saf(choosen, "", 1) == "" || choosen != "ـ");
 								break;
 							case " ":
 								space = space + 1;
@@ -3209,7 +3209,7 @@ function abjad(metin, tablo, shadda, detail) {
 				case 25:
 				case 30:
 				case 35:
-					if (detail == 1 && shadda == undefined || detail == 1 && shadda !== undefined) {
+					if (detail == 1 && shadda == undefined || detail == 1 && shadda != undefined) {
 						sn += " \+" + ((metin.length - n) + shaddie).toString() + " ";
 					} else {
 						sm += ((metin.length - n) + shaddie);
@@ -3221,7 +3221,7 @@ function abjad(metin, tablo, shadda, detail) {
 	}
 	switch (err) {
 		case 0:
-			if (detail == 1 && shadda == undefined || detail == 1 && shadda !== undefined) {
+			if (detail == 1 && shadda == undefined || detail == 1 && shadda != undefined) {
 				return "\ " + sn + "\ ";
 			} else {
 				return sm;
@@ -3237,7 +3237,7 @@ function abjad(metin, tablo, shadda, detail) {
 }
 
 function wordbyword(klmmetin, tablow, shaddaw, detailw) {
-	if (klmmetin !== undefined) {
+	if (klmmetin != undefined) {
 		klmmetin += " ";
 		var calculation = "";
 		var content = "";
@@ -3251,7 +3251,7 @@ function wordbyword(klmmetin, tablow, shaddaw, detailw) {
 				case "\n":
 					word = word.substring(0, word.length - 1);
 					calculation = abjad(word, tablow, shaddaw, detailw).toString();
-					if (calculation !== "0") { content += word + altayaz(calculation) + klmchoosen; }
+					if (calculation != "0") { content += word + altayaz(calculation) + klmchoosen; }
 					word = "";
 					calculation = "";
 					break;
@@ -3456,7 +3456,7 @@ function unsur(metin, otabiat, otype, shadda, guide) {
 	selected = "";
 	liste = "";
 	adet = 0;
-	if (metin !== undefined) {
+	if (metin != undefined) {
 		for (counter = 0; counter < metin.length; counter++) {
 			choosen = metin[counter];
 			if (choosen == "ّ" && shadda == 2) {
@@ -4127,7 +4127,7 @@ function teksir(teksirmetin, teksirayrac, shadda) {
 			iksir += newmetin[inversed];
 			iksir += newmetin[counter - 1];
 		}
-		if (lengthdouble !== 1) {
+		if (lengthdouble != 1) {
 			iksir += newmetin[Math.floor(newmetin.length / 2)];
 		}
 		teksired = result + saf(iksir, teksirayrac, 1) + String.fromCharCode(10) + String.fromCharCode(13);
@@ -4194,8 +4194,8 @@ function huddam(num, htype, method) {
 	counts = 1;
 	gh = "";
 	h = "";
-	if (num !== undefined && num !== null) {
-		if (htype !== undefined) {
+	if (num != undefined && num != null) {
+		if (htype != undefined) {
 			switch (method) {
 				case 2:
 				case 8:
@@ -4255,7 +4255,7 @@ function huddam(num, htype, method) {
 				hpart[1] = preffix;
 			}
 			for (counter = counts; counter > 0; counter -= 1) {
-				if (hpart[counter] !== undefined) {
+				if (hpart[counter] != undefined) {
 					for (counting = 0; counting < hpart[counter].length; counting++) {
 						eacher = "";
 						choosenduty = parseFloat(hpart[counter].substring(counting, counting + 1));
@@ -4782,7 +4782,7 @@ function huddam(num, htype, method) {
 								}
 								break;
 						}
-						if (h !== undefined) {
+						if (h != undefined) {
 							gh += "" + h;
 						}
 						if (parseFloat(hpart[counter]) > 0) {
@@ -4832,7 +4832,7 @@ function huddam(num, htype, method) {
 			}
 		}
 	}
-	if (gh !== undefined) {
+	if (gh != undefined) {
 		return gh;
 	} else {
 		return "";
@@ -4878,13 +4878,13 @@ function tesbeh(zkr, minimum, boncuk, bolum) {
 	turn = Math.floor(zkr / boncuk);
 	part = Math.floor((zkr - (turn * boncuk)) / bolum);
 	rest = ((zkr - (turn * boncuk)) - (part * bolum));
-	if (turn > 0 && turn !== undefined) {
+	if (turn > 0 && turn != undefined) {
 		outp += "[" + turn + " tur]";
 	}
-	if (part > 0 && part !== undefined) {
+	if (part > 0 && part != undefined) {
 		outp += "[" + part + "X" + bolum + "]";
 	}
-	if (rest > 0 && rest !== undefined) {
+	if (rest > 0 && rest != undefined) {
 		outp += "[" + rest + " kalan]";
 	}
 	return outp;
@@ -4970,7 +4970,7 @@ function saf(metinsaf, ayrac, shadda) {
 		default:
 			irun = ayrac;
 	}
-	if (metinsaf !== undefined) {
+	if (metinsaf != undefined) {
 		for (counter = 0; counter < metinsaf.length; counter++) {
 			choosen = metinsaf[counter];
 			s = "";
