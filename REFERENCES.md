@@ -6,8 +6,7 @@
 * Visual Basic
 * Python
 
-There ara enough syntax references to code in these languages. Simple used search engines for this.
-***
+***There are enough syntax references to code in these languages. Simply used search engines for this.***
 
 * İlm-i Cifir Şerhi ve Havassı - Muhiyiddin ibni Arabi - Turkish Translation by Mustafa Varlı
 * Usul-ul Bast Fi Sırrı-l Evfak Vel Havas - İdris Çelebi
@@ -19,10 +18,9 @@ There ara enough syntax references to code in these languages. Simple used searc
 * Wikipedia Turkish - Arabic - English encyclopedic references
 * Havas İlminin Derinlikleri - Facebook Group
 
-My Code Simply Refers To These Sources Worked On Them Between 2017 - 2023
-***
+***My Code Simply Refers To These Sources Worked On Them Between 2017 - 2023***
 
 Other than codes I have published on github; I have notes taken in pdf files and some other things
-which could be found at Google Drive or Dosya.Org:
+which could be found at Google Drive:
 
     https://drive.google.com/drive/folders/1O9FdxTU5YXS-My3eHtqc8a3XjqZLuSSF
