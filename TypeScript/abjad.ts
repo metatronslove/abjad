@@ -8,3246 +8,3246 @@
  * @returns Abjad value of given text.
  */
 function abjad(metin: string | undefined, tablo: number | undefined, shadda: number | undefined, detail: number | undefined): string | number {
-    let sm: number = 0;
-    let s: number = 0;
-    let n: number = 0;
-    let shaddie: number = 0;
-    let err: number = 0;
-    let space: number = 0;
-    let hrk: number = 0;
-    let nitem: string = "";
-    let sn: string = "";
-    let choosen: string;
-    let c: number;
+        let sm: number = 0;
+        let s: number = 0;
+        let n: number = 0;
+        let shaddie: number = 0;
+        let err: number = 0;
+        let space: number = 0;
+        let hrk: number = 0;
+        let nitem: string = "";
+        let sn: string = "";
+        let choosen: string;
+        let c: number;
 
-    if (metin !== undefined) {
-        if (tablo !== undefined) {
-            for (let counter: number = 0; counter < metin.length; counter += 1) {
-                choosen = metin[counter];
-                switch (choosen) {
-                    case "ا":
-                    case "أ":
-                    case "إ":
-                    case "آ":
-                    case "ء":
-                    case "ى":
-                        switch (tablo) {
-                            case 1:
-                            case 4:
-                            case 5:
-                            case 7:
-                            case 10:
-                            case 12:
-                            case 15:
-                            case 17:
-                            case 20:
-                            case 22:
-                            case 25:
-                            case 27:
-                            case 30:
-                            case 32:
-                            case 35:
-                                s = 1;
-                                break;
-                            case 0:
-                            case 6:
-                            case 11:
-                            case 16:
-                            case 21:
-                            case 26:
-                            case 31:
-                                s = parseFloat(asgar(choosen, tablo + 1));
-                                break;
-                            case 2:
-                            case 8:
-                            case 13:
-                            case 18:
-                            case 23:
-                            case 28:
-                            case 33:
-                                s = parseFloat(abjad("الف", tablo - 1, 1));
-                                break;
-                            case 3:
-                            case 9:
-                            case 14:
-                            case 19:
-                            case 24:
-                            case 29:
-                            case 34:
-                                s = parseFloat(bastet(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"));
-                                break;
-                            default:
-                                err = 1;
-                        }
-                        break;
-					case "ؤ":
-						switch (tablo) {
-							case 1:
-							case 4:
-							case 7:
-							case 10:
-								s = 7;
-								break;
-							case 12:
-							case 15:
-								s = 6;
-								break;
-							case 17:
-							case 20:
-							case 22:
-							case 25:
-								s = 801;
-								break;
-							case 27:
-							case 30:
-								s = 41;
-								break;
-							case 32:
-							case 35:
-								s = 901;
-								break;
-							case 0:
-							case 6:
-							case 11:
-							case 16:
-							case 21:
-							case 26:
-							case 31:
-								s = parseFloat(asgar(choosen, tablo + 1));
-								break;
-							case 2:
-							case 8:
-							case 13:
-							case 18:
-							case 23:
-							case 28:
-							case 33:
-								s = parseFloat(abjad("الف", tablo - 1, 1)) + parseFloat(abjad("واو", tablo - 1, 1));
-								break;
-							case 3:
-							case 9:
-							case 14:
-							case 19:
-							case 24:
-							case 29:
-							case 34:
-								s = parseFloat(bastet("و", 1, -1 - (tablo - 2), 1, "ARABIC")) + parseFloat(bastet("ا", 1, -1 - (tablo - 2), 1, "ARABIC"));
-								break;
-							case 5:
-								s = 1;
-								break;
-							default:
-								err = 1;
-						}
-						break;
-					case "ئ":
-						switch (tablo) {
-							case 1:
-							case 4:
-							case 7:
-							case 10:
-								s = 11;
-								break;
-							case 12:
-							case 15:
-								s = 7;
-								break;
-							case 17:
-							case 20:
-							case 22:
-							case 25:
-							case 27:
-							case 30:
-							case 32:
-							case 35:
-								s = 1001;
-								break;
-							case 0:
-							case 6:
-							case 11:
-							case 16:
-							case 21:
-							case 26:
-							case 31:
-								s = parseFloat(asgar("ي", tablo + 1)) + parseFloat(asgar("ا", tablo + 1));
-								break;
-							case 2:
-							case 8:
-							case 13:
-							case 18:
-							case 23:
-							case 28:
-							case 33:
-								s = parseFloat(abjad("الف", tablo - 1, 1)) + parseFloat(abjad("يا", tablo - 1, 1));
-								break;
-							case 3:
-							case 9:
-							case 14:
-							case 19:
-							case 24:
-							case 29:
-							case 34:
-								s = parseFloat(bastet("ي", 1, -1 - (tablo - 2), 1, "ARABIC")) + parseFloat(bastet("ا", 1, -1 - (tablo - 2), 1, "ARABIC"));
-								break;
-							case 5:
-								s = 1;
-								break;
-							default:
-								err = 1;
-						}
-						break;
-					case "ۀ":
-						switch (tablo) {
-							case 1:
-							case 4:
-							case 7:
-							case 10:
-								s = 15;
-								break;
-							case 12:
-							case 15:
-								s = 13;
-								break;
-							case 17:
-							case 20:
-							case 22:
-							case 25:
-								s = 1800;
-								break;
-							case 27:
-							case 30:
-								s = 1700;
-								break;
-							case 32:
-							case 35:
-								s = 1900;
-								break;
-							case 0:
-							case 6:
-							case 11:
-							case 16:
-							case 21:
-							case 26:
-							case 31:
-								s = parseFloat(asgar("ي", tablo + 1)) + parseFloat(asgar("ه", tablo + 1));
-								break;
-							case 2:
-							case 8:
-							case 13:
-							case 18:
-							case 23:
-							case 28:
-							case 33:
-								s = parseFloat(abjad("يا", tablo - 1, 1)) + parseFloat(abjad("ها", tablo - 1, 1));
-								break;
-							case 3:
-							case 9:
-							case 14:
-							case 19:
-							case 24:
-							case 29:
-							case 34:
-								s = parseFloat(bastet("ي", 1, -1 - (tablo - 2), 1, "ARABIC")) + parseFloat(bastet("ه", 1, -1 - (tablo - 2), 1, "ARABIC"));
-								break;
-							case 5:
-								s = 1;
-								break;
-							default:
-								err = 1;
-						}
-						break;
-					case "ب":
-					case "ﭖ":
-						switch (tablo) {
-							case 1:
-							case 4:
-							case 7:
-							case 10:
-							case 17:
-							case 20:
-							case 22:
-							case 25:
-							case 27:
-							case 30:
-							case 32:
-							case 35:
-								s = 2;
-								break;
-							case 12:
-							case 15:
-								s = 9;
-								break;
-							case 0:
-							case 6:
-							case 11:
-							case 16:
-							case 21:
-							case 26:
-							case 31:
-								s = parseFloat(asgar(choosen, tablo + 1));
-								break;
-							case 2:
-							case 8:
-							case 13:
-							case 18:
-							case 23:
-							case 28:
-							case 33:
-								s = parseFloat(abjad("با", tablo - 1, 1));
-								break;
-							case 3:
-							case 9:
-							case 14:
-							case 19:
-							case 24:
-							case 29:
-							case 34:
-								s = parseFloat(bastet(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"));
-								break;
-							case 5:
-								s = 1;
-								break;
-							default:
-								err = 1;
-						}
-						break;
-					case "ج":
-					case "ﭺ":
-						switch (tablo) {
-							case 1:
-							case 4:
-							case 7:
-							case 10:
-								s = 3;
-								break;
-							case 12:
-							case 15:
-								s = 100;
-								break;
-							case 17:
-							case 20:
-							case 22:
-							case 25:
-							case 27:
-							case 30:
-							case 32:
-							case 35:
-								s = 5;
-								break;
-							case 0:
-							case 6:
-							case 11:
-							case 16:
-							case 21:
-							case 26:
-							case 31:
-								s = parseFloat(asgar(choosen, tablo + 1));
-								break;
-							case 2:
-							case 8:
-							case 13:
-							case 18:
-							case 23:
-							case 28:
-							case 33:
-								s = parseFloat(abjad("جيم", tablo - 1, 1));
-								break;
-							case 3:
-							case 9:
-							case 14:
-							case 19:
-							case 24:
-							case 29:
-							case 34:
-								s = parseFloat(bastet(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"));
-								break;
-							case 5:
-								s = 1;
-								break;
-							default:
-								err = 1;
-						}
-						break;
-					case "د":
-						switch (tablo) {
-							case 1:
-							case 4:
-							case 7:
-							case 10:
-								s = 4;
-								break;
-							case 12:
-							case 15:
-								s = 70;
-								break;
-							case 17:
-							case 20:
-							case 22:
-							case 25:
-							case 27:
-							case 30:
-							case 32:
-							case 35:
-								s = 8;
-								break;
-							case 0:
-							case 6:
-							case 11:
-							case 16:
-							case 21:
-							case 26:
-							case 31:
-								s = parseFloat(asgar(choosen, tablo + 1));
-								break;
-							case 2:
-							case 8:
-							case 13:
-							case 18:
-							case 23:
-							case 28:
-							case 33:
-								s = parseFloat(abjad("دال", tablo - 1, 1));
-								break;
-							case 3:
-							case 9:
-							case 14:
-							case 19:
-							case 24:
-							case 29:
-							case 34:
-								s = parseFloat(bastet(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"));
-								break;
-							case 5:
-								s = 1;
-								break;
-							default:
-								err = 1;
-						}
-						break;
-					case "ه":
-					case "ة":
-						switch (tablo) {
-							case 1:
-							case 4:
-							case 7:
-							case 10:
-								s = 5;
-								break;
-							case 12:
-							case 15:
-								s = 7;
-								break;
-							case 17:
-							case 20:
-							case 22:
-							case 25:
-								s = 800;
-								break;
-							case 27:
-							case 30:
-								s = 700;
-								break;
-							case 32:
-							case 35:
-								s = 900;
-								break;
-							case 0:
-							case 6:
-							case 11:
-							case 16:
-							case 21:
-							case 26:
-							case 31:
-								s = parseFloat(asgar(choosen, tablo + 1));
-								break;
-							case 2:
-							case 8:
-							case 13:
-							case 18:
-							case 23:
-							case 28:
-							case 33:
-								s = parseFloat(abjad("ها", tablo - 1, 1));
-								break;
-							case 3:
-							case 9:
-							case 14:
-							case 19:
-							case 24:
-							case 29:
-							case 34:
-								s = parseFloat(bastet(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"));
-								break;
-							case 5:
-								s = 1;
-								break;
-							default:
-								err = 1;
-						}
-						break;
-					case "و":
-						switch (tablo) {
-							case 1:
-							case 4:
-							case 7:
-							case 10:
-								s = 6;
-								break;
-							case 12:
-							case 15:
-								s = 5;
-								break;
-							case 17:
-							case 20:
-							case 22:
-							case 25:
-								s = 900;
-								break;
-							case 27:
-							case 30:
-								s = 40;
-								break;
-							case 32:
-							case 35:
-								s = 800;
-								break;
-							case 0:
-							case 6:
-							case 11:
-							case 16:
-							case 21:
-							case 26:
-							case 31:
-								s = parseFloat(asgar(choosen, tablo + 1));
-								break;
-							case 2:
-							case 8:
-							case 13:
-							case 18:
-							case 23:
-							case 28:
-							case 33:
-								s = parseFloat(abjad("واو", tablo - 1, 1));
-								break;
-							case 3:
-							case 9:
-							case 14:
-							case 19:
-							case 24:
-							case 29:
-							case 34:
-								s = parseFloat(bastet(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"));
-								break;
-							case 5:
-								s = 1;
-								break;
-							default:
-								err = 1;
-						}
-						break;
-					case "ز":
-					case "ﮊ":
-						switch (tablo) {
-							case 1:
-							case 4:
-							case 7:
-							case 10:
-								s = 7;
-								break;
-							case 12:
-							case 15:
-							case 27:
-							case 30:
-								s = 600;
-								break;
-							case 17:
-							case 20:
-							case 22:
-							case 25:
-							case 32:
-							case 35:
-								s = 20;
-								break;
-							case 0:
-							case 6:
-							case 11:
-							case 16:
-							case 21:
-							case 26:
-							case 31:
-								s = parseFloat(asgar(choosen, tablo + 1));
-								break;
-							case 2:
-							case 8:
-							case 13:
-							case 18:
-							case 23:
-							case 28:
-							case 33:
-								s = parseFloat(abjad("زا", tablo - 1, 1));
-								break;
-							case 3:
-							case 9:
-							case 14:
-							case 19:
-							case 24:
-							case 29:
-							case 34:
-								s = parseFloat(bastet(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"));
-								break;
-							case 5:
-								s = 1;
-								break;
-							default:
-								err = 1;
-						}
-						break;
-					case "ح":
-						switch (tablo) {
-							case 1:
-							case 4:
-							case 7:
-							case 10:
-								s = 8;
-								break;
-							case 12:
-							case 15:
-								s = 90;
-								break;
-							case 17:
-							case 20:
-							case 22:
-							case 25:
-							case 27:
-							case 30:
-							case 32:
-							case 35:
-								s = 6;
-								break;
-							case 0:
-							case 6:
-							case 11:
-							case 16:
-							case 21:
-							case 26:
-							case 31:
-								s = parseFloat(asgar(choosen, tablo + 1));
-								break;
-							case 2:
-							case 8:
-							case 13:
-							case 18:
-							case 23:
-							case 28:
-							case 33:
-								s = parseFloat(abjad("حا", tablo - 1, 1));
-								break;
-							case 3:
-							case 9:
-							case 14:
-							case 19:
-							case 24:
-							case 29:
-							case 34:
-								s = parseFloat(bastet(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"));
-								break;
-							case 5:
-								s = 1;
-								break;
-							default:
-								err = 1;
-						}
-						break;
-					case "ط":
-						switch (tablo) {
-							case 1:
-							case 4:
-							case 7:
-							case 10:
-								s = 9;
-								break;
-							case 12:
-							case 15:
-								s = 800;
-								break;
-							case 17:
-							case 20:
-							case 32:
-							case 35:
-								s = 70;
-								break;
-							case 22:
-							case 25:
-								s = 30;
-								break;
-							case 27:
-							case 30:
-								s = 100;
-								break;
-							case 0:
-							case 6:
-							case 11:
-							case 16:
-							case 21:
-							case 26:
-							case 31:
-								s = parseFloat(asgar(choosen, tablo + 1));
-								break;
-							case 2:
-							case 8:
-							case 13:
-							case 18:
-							case 23:
-							case 28:
-							case 33:
-								s = parseFloat(abjad("طا", tablo - 1, 1));
-								break;
-							case 3:
-							case 9:
-							case 14:
-							case 19:
-							case 24:
-							case 29:
-							case 34:
-								s = parseFloat(bastet(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"));
-								break;
-							case 5:
-								s = 1;
-								break;
-							default:
-								err = 1;
-						}
-						break;
-					case "ی":
-					case "ي":
-						switch (tablo) {
-							case 1:
-							case 4:
-							case 7:
-							case 10:
-								s = 10;
-								break;
-							case 12:
-							case 15:
-								s = 6;
-								break;
-							case 17:
-							case 20:
-							case 22:
-							case 25:
-							case 27:
-							case 30:
-							case 32:
-							case 35:
-								s = 1000;
-								break;
-							case 0:
-							case 6:
-							case 11:
-							case 16:
-							case 21:
-							case 26:
-							case 31:
-								s = parseFloat(asgar(choosen, tablo + 1));
-								break;
-							case 2:
-							case 8:
-							case 13:
-							case 18:
-							case 23:
-							case 28:
-							case 33:
-								s = parseFloat(abjad("يا", tablo - 1, 1));
-								break;
-							case 3:
-							case 9:
-							case 14:
-							case 19:
-							case 24:
-							case 29:
-							case 34:
-								s = parseFloat(bastet(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"));
-								break;
-							case 5:
-								s = 1;
-								break;
-							default:
-								err = 1;
-						}
-						break;
-					case "ك":
-					case "ﮒ":
-					case "ک":
-						switch (tablo) {
-							case 1:
-							case 4:
-							case 7:
-							case 10:
-							case 12:
-							case 15:
-								s = 20;
-								break;
-							case 17:
-							case 20:
-							case 32:
-							case 35:
-								s = 400;
-								break;
-							case 22:
-							case 25:
-								s = 50;
-								break;
-							case 27:
-							case 30:
-								s = 10;
-								break;
-							case 0:
-							case 6:
-							case 11:
-							case 16:
-							case 21:
-							case 26:
-							case 31:
-								s = parseFloat(asgar(choosen, tablo + 1));
-								break;
-							case 2:
-							case 8:
-							case 13:
-							case 18:
-							case 23:
-							case 28:
-							case 33:
-								s = parseFloat(abjad("كاف", tablo - 1, 1));
-								break;
-							case 3:
-							case 9:
-							case 14:
-							case 19:
-							case 24:
-							case 29:
-							case 34:
-								s = parseFloat(bastet(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"));
-								break;
-							case 5:
-								s = 1;
-								break;
-							default:
-								err = 1;
-						}
-						break;
-					case "ل":
-						switch (tablo) {
-							case 1:
-							case 4:
-							case 7:
-							case 10:
-								s = 30;
-								break;
-							case 12:
-							case 15:
-								s = 2;
-								break;
-							case 17:
-							case 20:
-							case 32:
-							case 35:
-								s = 500;
-								break;
-							case 22:
-							case 25:
-								s = 60;
-								break;
-							case 27:
-							case 30:
-								s = 20;
-								break;
-							case 0:
-							case 6:
-							case 11:
-							case 16:
-							case 21:
-							case 26:
-							case 31:
-								s = parseFloat(asgar(choosen, tablo + 1));
-								break;
-							case 2:
-							case 8:
-							case 13:
-							case 18:
-							case 23:
-							case 28:
-							case 33:
-								s = parseFloat(abjad("لام", tablo - 1, 1));
-								break;
-							case 3:
-							case 9:
-							case 14:
-							case 19:
-							case 24:
-							case 29:
-							case 34:
-								s = parseFloat(bastet(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"));
-								break;
-							case 5:
-								s = 1;
-								break;
-							default:
-								err = 1;
-						}
-						break;
-					case "ﻻ":
-						switch (tablo) {
-							case 1:
-							case 4:
-							case 7:
-							case 10:
-								s = 31;
-								break;
-							case 12:
-							case 15:
-								s = 3;
-								break;
-							case 17:
-							case 20:
-							case 32:
-							case 35:
-								s = 501;
-								break;
-							case 22:
-							case 25:
-								s = 61;
-								break;
-							case 27:
-							case 30:
-								s = 21;
-								break;
-							case 0:
-							case 6:
-							case 11:
-							case 16:
-							case 21:
-							case 26:
-							case 31:
-								s = parseFloat(asgar("ا", tablo + 1)) + parseFloat(asgar("ل", tablo + 1));
-								break;
-							case 2:
-							case 8:
-							case 13:
-							case 18:
-							case 23:
-							case 28:
-							case 33:
-								s = parseFloat(abjad("لام الف", tablo - 1, 1));
-								break;
-							case 3:
-							case 9:
-							case 14:
-							case 19:
-							case 24:
-							case 29:
-							case 34:
-								s = parseFloat(bastet(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"));
-								break;
-							case 5:
-								s = 1;
-								break;
-							default:
-								err = 1;
-						}
-						break;
-					case "م":
-						switch (tablo) {
-							case 1:
-							case 4:
-							case 7:
-							case 10:
-								s = 40;
-								break;
-							case 12:
-							case 15:
-								s = 4;
-								break;
-							case 17:
-							case 20:
-							case 32:
-							case 35:
-								s = 600;
-								break;
-							case 22:
-							case 25:
-								s = 70;
-								break;
-							case 27:
-							case 30:
-								s = 30;
-								break;
-							case 0:
-							case 6:
-							case 11:
-							case 16:
-							case 21:
-							case 26:
-							case 31:
-								s = parseFloat(asgar(choosen, tablo + 1));
-								break;
-							case 2:
-							case 8:
-							case 13:
-							case 18:
-							case 23:
-							case 28:
-							case 33:
-								s = parseFloat(abjad("ميم", tablo - 1, 1));
-								break;
-							case 3:
-							case 9:
-							case 14:
-							case 19:
-							case 24:
-							case 29:
-							case 34:
-								s = parseFloat(bastet(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"));
-								break;
-							case 5:
-								s = 1;
-								break;
-							default:
-								err = 1;
-						}
-						break;
-					case "ن":
-					case "ﯓ":
-						switch (tablo) {
-							case 1:
-							case 4:
-							case 7:
-							case 10:
-							case 27:
-							case 30:
-								s = 50;
-								break;
-							case 12:
-							case 15:
-								s = 3;
-								break;
-							case 17:
-							case 20:
-							case 32:
-							case 35:
-								s = 700;
-								break;
-							case 22:
-							case 25:
-								s = 80;
-								break;
-							case 0:
-							case 6:
-							case 11:
-							case 16:
-							case 21:
-							case 26:
-							case 31:
-								s = parseFloat(asgar(choosen, tablo + 1));
-								break;
-							case 2:
-							case 8:
-							case 13:
-							case 18:
-							case 23:
-							case 28:
-							case 33:
-								s = parseFloat(abjad("نون", tablo - 1, 1));
-								break;
-							case 3:
-							case 9:
-							case 14:
-							case 19:
-							case 24:
-							case 29:
-							case 34:
-								s = parseFloat(bastet(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"));
-								break;
-							case 5:
-								s = 1;
-								break;
-							default:
-								err = 1;
-						}
-						break;
-					case "س":
-						switch (tablo) {
-							case 1:
-							case 4:
-							case 12:
-							case 15:
-								s = 60;
-								break;
-							case 7:
-							case 10:
-								s = 300;
-								break;
-							case 17:
-							case 20:
-							case 32:
-							case 35:
-								s = 30;
-								break;
-							case 22:
-							case 25:
-								s = 600;
-								break;
-							case 27:
-							case 30:
-								s = 800;
-								break;
-							case 0:
-							case 6:
-							case 11:
-							case 16:
-							case 21:
-							case 26:
-							case 31:
-								s = parseFloat(asgar(choosen, tablo + 1));
-								break;
-							case 2:
-							case 8:
-							case 13:
-							case 18:
-							case 23:
-							case 28:
-							case 33:
-								s = parseFloat(abjad("سين", tablo - 1, 1));
-								break;
-							case 3:
-							case 9:
-							case 14:
-							case 19:
-							case 24:
-							case 29:
-							case 34:
-								s = parseFloat(bastet(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"));
-								break;
-							case 5:
-								s = 1;
-								break;
-							default:
-								err = 1;
-						}
-						break;
-					case "ع":
-						switch (tablo) {
-							case 1:
-							case 4:
-							case 7:
-							case 10:
-								s = 70;
-								break;
-							case 12:
-							case 15:
-								s = 30;
-								break;
-							case 17:
-							case 20:
-							case 32:
-							case 35:
-								s = 90;
-								break;
-							case 22:
-							case 25:
-								s = 200;
-								break;
-							case 27:
-							case 30:
-								s = 80;
-								break;
-							case 0:
-							case 6:
-							case 11:
-							case 16:
-							case 21:
-							case 26:
-							case 31:
-								s = parseFloat(asgar(choosen, tablo + 1));
-								break;
-							case 2:
-							case 8:
-							case 13:
-							case 18:
-							case 23:
-							case 28:
-							case 33:
-								s = parseFloat(abjad("عين", tablo - 1, 1));
-								break;
-							case 3:
-							case 9:
-							case 14:
-							case 19:
-							case 24:
-							case 29:
-							case 34:
-								s = parseFloat(bastet(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"));
-								break;
-							case 5:
-								s = 1;
-								break;
-							default:
-								err = 1;
-						}
-						break;
-					case "ف":
-						switch (tablo) {
-							case 1:
-							case 4:
-							case 7:
-							case 10:
-								s = 80;
-								break;
-							case 12:
-							case 15:
-								s = 40;
-								break;
-							case 17:
-							case 20:
-							case 32:
-							case 35:
-								s = 200;
-								break;
-							case 22:
-							case 25:
-								s = 400;
-								break;
-							case 27:
-							case 30:
-								s = 300;
-								break;
-							case 0:
-							case 6:
-							case 11:
-							case 16:
-							case 21:
-							case 26:
-							case 31:
-								s = parseFloat(asgar(choosen, tablo + 1));
-								break;
-							case 2:
-							case 8:
-							case 13:
-							case 18:
-							case 23:
-							case 28:
-							case 33:
-								s = parseFloat(abjad("فا", tablo - 1, 1));
-								break;
-							case 3:
-							case 9:
-							case 14:
-							case 19:
-							case 24:
-							case 29:
-							case 34:
-								s = parseFloat(bastet(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"));
-								break;
-							case 5:
-								s = 1;
-								break;
-							default:
-								err = 1;
-						}
-						break;
-					case "ص":
-						switch (tablo) {
-							case 1:
-							case 4:
-							case 22:
-							case 25:
-								s = 90;
-								break;
-							case 7:
-							case 10:
-							case 27:
-							case 30:
-								s = 60;
-								break;
-							case 12:
-							case 15:
-								s = 400;
-								break;
-							case 17:
-							case 20:
-							case 32:
-							case 35:
-								s = 50;
-								break;
-							case 0:
-							case 6:
-							case 11:
-							case 16:
-							case 21:
-							case 26:
-							case 31:
-								s = parseFloat(asgar(choosen, tablo + 1));
-								break;
-							case 2:
-							case 8:
-							case 13:
-							case 18:
-							case 23:
-							case 28:
-							case 33:
-								s = parseFloat(abjad("صاد", tablo - 1, 1));
-								break;
-							case 3:
-							case 9:
-							case 14:
-							case 19:
-							case 24:
-							case 29:
-							case 34:
-								s = parseFloat(bastet(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"));
-								break;
-							case 5:
-								s = 1;
-								break;
-							default:
-								err = 1;
-						}
-						break;
-					case "ق":
-						switch (tablo) {
-							case 1:
-							case 4:
-							case 7:
-							case 10:
-								s = 100;
-								break;
-							case 12:
-							case 15:
-								s = 50;
-								break;
-							case 17:
-							case 20:
-							case 32:
-							case 35:
-								s = 300;
-								break;
-							case 22:
-							case 25:
-								s = 500;
-								break;
-							case 27:
-							case 30:
-								s = 400;
-								break;
-							case 0:
-							case 6:
-							case 11:
-							case 16:
-							case 21:
-							case 26:
-							case 31:
-								s = parseFloat(asgar(choosen, tablo + 1));
-								break;
-							case 2:
-							case 8:
-							case 13:
-							case 18:
-							case 23:
-							case 28:
-							case 33:
-								s = parseFloat(abjad("قاف", tablo - 1, 1));
-								break;
-							case 3:
-							case 9:
-							case 14:
-							case 19:
-							case 24:
-							case 29:
-							case 34:
-								s = parseFloat(bastet(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"));
-								break;
-							case 5:
-								s = 1;
-								break;
-							default:
-								err = 1;
-						}
-						break;
-					case "ر":
-						switch (tablo) {
-							case 1:
-							case 4:
-							case 7:
-							case 10:
-								s = 200;
-								break;
-							case 12:
-							case 15:
-								s = 8;
-								break;
-							case 17:
-							case 20:
-							case 22:
-							case 25:
-							case 32:
-							case 35:
-								s = 10;
-								break;
-							case 27:
-							case 30:
-								s = 500;
-								break;
-							case 0:
-							case 6:
-							case 11:
-							case 16:
-							case 21:
-							case 26:
-							case 31:
-								s = parseFloat(asgar(choosen, tablo + 1));
-								break;
-							case 2:
-							case 8:
-							case 13:
-							case 18:
-							case 23:
-							case 28:
-							case 33:
-								s = parseFloat(abjad("را", tablo - 1, 1));
-								break;
-							case 3:
-							case 9:
-							case 14:
-							case 19:
-							case 24:
-							case 29:
-							case 34:
-								s = parseFloat(bastet(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"));
-								break;
-							case 5:
-								s = 1;
-								break;
-							default:
-								err = 1;
-						}
-						break;
-					case "ش":
-						switch (tablo) {
-							case 1:
-							case 4:
-							case 12:
-							case 15:
-								s = 300;
-								break;
-							case 7:
-							case 10:
-								s = 1000;
-								break;
-							case 17:
-							case 20:
-							case 32:
-							case 35:
-								s = 40;
-								break;
-							case 22:
-							case 25:
-								s = 700;
-								break;
-							case 27:
-							case 30:
-								s = 900;
-								break;
-							case 0:
-							case 6:
-							case 11:
-							case 16:
-							case 21:
-							case 26:
-							case 31:
-								s = parseFloat(asgar(choosen, tablo + 1));
-								break;
-							case 2:
-							case 8:
-							case 13:
-							case 18:
-							case 23:
-							case 28:
-							case 33:
-								s = parseFloat(abjad("شين", tablo - 1, 1));
-								break;
-							case 3:
-							case 9:
-							case 14:
-							case 19:
-							case 24:
-							case 29:
-							case 34:
-								s = parseFloat(bastet(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"));
-								break;
-							case 5:
-								s = 1;
-								break;
-							default:
-								err = 1;
-						}
-						break;
-					case "ت":
-						switch (tablo) {
-							case 1:
-							case 4:
-							case 7:
-							case 10:
-								s = 400;
-								break;
-							case 12:
-							case 15:
-								s = 10;
-								break;
-							case 17:
-							case 20:
-							case 22:
-							case 25:
-							case 27:
-							case 30:
-							case 32:
-							case 35:
-								s = 3;
-								break;
-							case 0:
-							case 6:
-							case 11:
-							case 16:
-							case 21:
-							case 26:
-							case 31:
-								s = parseFloat(asgar(choosen, tablo + 1));
-								break;
-							case 2:
-							case 8:
-							case 13:
-							case 18:
-							case 23:
-							case 28:
-							case 33:
-								s = parseFloat(abjad("تا", tablo - 1, 1));
-								break;
-							case 3:
-							case 9:
-							case 14:
-							case 19:
-							case 24:
-							case 29:
-							case 34:
-								s = parseFloat(bastet(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"));
-								break;
-							case 5:
-								s = 1;
-								break;
-							default:
-								err = 1;
-						}
-						break;
-					case "ث":
-						switch (tablo) {
-							case 1:
-							case 4:
-							case 7:
-							case 10:
-								s = 500;
-								break;
-							case 12:
-							case 15:
-								s = 700;
-								break;
-							case 17:
-							case 20:
-							case 22:
-							case 25:
-							case 27:
-							case 30:
-							case 32:
-							case 35:
-								s = 4;
-								break;
-							case 0:
-							case 6:
-							case 11:
-							case 16:
-							case 21:
-							case 26:
-							case 31:
-								s = parseFloat(asgar(choosen, tablo + 1));
-								break;
-							case 2:
-							case 8:
-							case 13:
-							case 18:
-							case 23:
-							case 28:
-							case 33:
-								s = parseFloat(abjad("ثا", tablo - 1, 1));
-								break;
-							case 3:
-							case 9:
-							case 14:
-							case 19:
-							case 24:
-							case 29:
-							case 34:
-								s = parseFloat(bastet(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"));
-								break;
-							case 5:
-								s = 1;
-								break;
-							default:
-								err = 1;
-						}
-						break;
-					case "خ":
-						switch (tablo) {
-							case 1:
-							case 4:
-							case 7:
-							case 10:
-								s = 600;
-								break;
-							case 12:
-							case 15:
-								s = 200;
-								break;
-							case 17:
-							case 20:
-							case 22:
-							case 25:
-							case 27:
-							case 30:
-							case 32:
-							case 35:
-								s = 7;
-								break;
-							case 0:
-							case 6:
-							case 11:
-							case 16:
-							case 21:
-							case 26:
-							case 31:
-								s = parseFloat(asgar(choosen, tablo + 1));
-								break;
-							case 2:
-							case 8:
-							case 13:
-							case 18:
-							case 23:
-							case 28:
-							case 33:
-								s = parseFloat(abjad("خا", tablo - 1, 1));
-								break;
-							case 3:
-							case 9:
-							case 14:
-							case 19:
-							case 24:
-							case 29:
-							case 34:
-								s = parseFloat(bastet(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"));
-								break;
-							case 5:
-								s = 1;
-								break;
-							default:
-								err = 1;
-						}
-						break;
-					case "ذ":
-						switch (tablo) {
-							case 1:
-							case 4:
-							case 7:
-							case 10:
-								s = 700;
-								break;
-							case 12:
-							case 15:
-								s = 80;
-								break;
-							case 17:
-							case 20:
-							case 22:
-							case 25:
-							case 27:
-							case 30:
-							case 32:
-							case 35:
-								s = 9;
-								break;
-							case 0:
-							case 6:
-							case 11:
-							case 16:
-							case 21:
-							case 26:
-							case 31:
-								s = parseFloat(asgar(choosen, tablo + 1));
-								break;
-							case 2:
-							case 8:
-							case 13:
-							case 18:
-							case 23:
-							case 28:
-							case 33:
-								s = parseFloat(abjad("ذال", tablo - 1, 1));
-								break;
-							case 3:
-							case 9:
-							case 14:
-							case 19:
-							case 24:
-							case 29:
-							case 34:
-								s = parseFloat(bastet(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"));
-								break;
-							case 5:
-								s = 1;
-								break;
-							default:
-								err = 1;
-						}
-						break;
-					case "ض":
-						switch (tablo) {
-							case 1:
-							case 4:
-								s = 800;
-								break;
-							case 7:
-							case 10:
-								s = 90;
-								break;
-							case 12:
-							case 15:
-								s = 500;
-								break;
-							case 17:
-							case 20:
-							case 32:
-							case 35:
-								s = 60;
-								break;
-							case 22:
-							case 25:
-								s = 100;
-								break;
-							case 27:
-							case 30:
-								s = 70;
-								break;
-							case 0:
-							case 6:
-							case 11:
-							case 16:
-							case 21:
-							case 26:
-							case 31:
-								s = parseFloat(asgar(choosen, tablo + 1));
-								break;
-							case 2:
-							case 8:
-							case 13:
-							case 18:
-							case 23:
-							case 28:
-							case 33:
-								s = parseFloat(abjad("ضاد", tablo - 1, 1));
-								break;
-							case 3:
-							case 9:
-							case 14:
-							case 19:
-							case 24:
-							case 29:
-							case 34:
-								s = parseFloat(bastet(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"));
-								break;
-							case 5:
-								s = 1;
-								break;
-							default:
-								err = 1;
-						}
-						break;
-					case "ظ":
-						switch (tablo) {
-							case 1:
-							case 4:
-								s = 900;
-								break;
-							case 7:
-							case 10:
-								s = 800;
-								break;
-							case 12:
-							case 15:
-								s = 1000;
-								break;
-							case 17:
-							case 20:
-							case 32:
-							case 35:
-								s = 80;
-								break;
-							case 22:
-							case 25:
-								s = 40;
-								break;
-							case 27:
-							case 30:
-								s = 200;
-								break;
-							case 0:
-							case 6:
-							case 11:
-							case 16:
-							case 21:
-							case 26:
-							case 31:
-								s = parseFloat(asgar(choosen, tablo + 1));
-								break;
-							case 2:
-							case 8:
-							case 13:
-							case 18:
-							case 23:
-							case 28:
-							case 33:
-								s = parseFloat(abjad("ظا", tablo - 1, 1));
-								break;
-							case 3:
-							case 9:
-							case 14:
-							case 19:
-							case 24:
-							case 29:
-							case 34:
-								s = parseFloat(bastet(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"));
-								break;
-							case 5:
-								s = 1;
-								break;
-							default:
-								err = 1;
-						}
-						break;
-					case "غ":
-						switch (tablo) {
-							case 1:
-							case 4:
-								s = 1000;
-								break;
-							case 7:
-							case 10:
-							case 12:
-							case 15:
-								s = 900;
-								break;
-							case 17:
-							case 20:
-							case 32:
-							case 35:
-								s = 100;
-								break;
-							case 22:
-							case 25:
-								s = 300;
-								break;
-							case 27:
-							case 30:
-								s = 90;
-								break;
-							case 0:
-							case 6:
-							case 11:
-							case 16:
-							case 21:
-							case 26:
-							case 31:
-								s = parseFloat(asgar(choosen, tablo + 1));
-								break;
-							case 2:
-							case 8:
-							case 13:
-							case 18:
-							case 23:
-							case 28:
-							case 33:
-								s = parseFloat(abjad("غين", tablo - 1, 1));
-								break;
-							case 3:
-							case 9:
-							case 14:
-							case 19:
-							case 24:
-							case 29:
-							case 34:
-								s = parseFloat(bastet(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"));
-								break;
-							case 5:
-								s = 1;
-								break;
-							default:
-								err = 1;
-						}
-						break;
-					case "א":
-						switch (tablo) {
-							case 1:
-							case 4:
-								s = 1;
-								break;
-							case 0:
-								s = parseFloat(asgar(choosen, 1));
-								break;
-							case 2:
-								s = parseFloat(abjad("אלף", 1, 1));
-								break;
-							case 3:
-								s = parseFloat(bastet(choosen, 1, -2, 1, "HEBREW"));
-								break;
-							case 5:
-								s = 1;
-								break;
-							default:
-								err = 1;
-						}
-						break;
-					case "ב":
-						switch (tablo) {
-							case 1:
-							case 4:
-								s = 2;
-								break;
-							case 0:
-								s = parseFloat(asgar(choosen, 1));
-								break;
-							case 2:
-								s = parseFloat(abjad("בית", 1, 1));
-								break;
-							case 3:
-								s = parseFloat(bastet(choosen, 1, -2, 1, "HEBREW"));
-								break;
-							case 5:
-								s = 1;
-								break;
-							default:
-								err = 1;
-						}
-						break;
-					case "ג":
-						switch (tablo) {
-							case 1:
-							case 4:
-								s = 3;
-								break;
-							case 0:
-								s = parseFloat(asgar(choosen, 1));
-								break;
-							case 2:
-								s = parseFloat(abjad("גימל", 1, 1));
-								break;
-							case 3:
-								s = parseFloat(bastet(choosen, 1, -2, 1, "HEBREW"));
-								break;
-							case 5:
-								s = 1;
-								break;
-							default:
-								err = 1;
-						}
-						break;
-					case "ד":
-						switch (tablo) {
-							case 1:
-							case 4:
-								s = 4;
-								break;
-							case 0:
-								s = parseFloat(asgar(choosen, 1));
-								break;
-							case 2:
-								s = parseFloat(abjad("דלת", 1, 1));
-								break;
-							case 3:
-								s = parseFloat(bastet(choosen, 1, -2, 1, "HEBREW"));
-								break;
-							case 5:
-								s = 1;
-								break;
-							default:
-								err = 1;
-						}
-						break;
-					case "ה":
-						switch (tablo) {
-							case 1:
-							case 4:
-								s = 5;
-								break;
-							case 0:
-								s = parseFloat(asgar(choosen, 1));
-								break;
-							case 2:
-								s = parseFloat(abjad("הא", 1, 1));
-								break;
-							case 3:
-								s = parseFloat(bastet(choosen, 1, -2, 1, "HEBREW"));
-								break;
-							case 5:
-								s = 1;
-								break;
-							default:
-								err = 1;
-						}
-						break;
-					case "ו":
-						switch (tablo) {
-							case 1:
-							case 4:
-								s = 6;
-								break;
-							case 0:
-								s = parseFloat(asgar(choosen, 1));
-								break;
-							case 2:
-								s = parseFloat(abjad("וו", 1, 1));
-								break;
-							case 3:
-								s = parseFloat(bastet(choosen, 1, -2, 1, "HEBREW"));
-								break;
-							case 5:
-								s = 1;
-								break;
-							default:
-								err = 1;
-						}
-						break;
-					case "ז":
-						switch (tablo) {
-							case 1:
-							case 4:
-								s = 7;
-								break;
-							case 0:
-								s = parseFloat(asgar(choosen, 1));
-								break;
-							case 2:
-								s = parseFloat(abjad("זין", 1, 1));
-								break;
-							case 3:
-								s = parseFloat(bastet(choosen, 1, -2, 1, "HEBREW"));
-								break;
-							case 5:
-								s = 1;
-								break;
-							default:
-								err = 1;
-						}
-						break;
-					case "ח":
-						switch (tablo) {
-							case 1:
-							case 4:
-								s = 8;
-								break;
-							case 0:
-								s = parseFloat(asgar(choosen, 1));
-								break;
-							case 2:
-								s = parseFloat(abjad("חית", 1, 1));
-								break;
-							case 3:
-								s = parseFloat(bastet(choosen, 1, -2, 1, "HEBREW"));
-								break;
-							case 5:
-								s = 1;
-								break;
-							default:
-								err = 1;
-						}
-						break;
-					case "ט":
-						switch (tablo) {
-							case 1:
-							case 4:
-								s = 9;
-								break;
-							case 0:
-								s = parseFloat(asgar(choosen, 1));
-								break;
-							case 2:
-								s = parseFloat(abjad("טיח", 1, 1));
-								break;
-							case 3:
-								s = parseFloat(bastet(choosen, 1, -2, 1, "HEBREW"));
-								break;
-							case 5:
-								s = 1;
-								break;
-							default:
-								err = 1;
-						}
-						break;
-					case "י":
-						switch (tablo) {
-							case 1:
-							case 4:
-								s = 10;
-								break;
-							case 0:
-								s = parseFloat(asgar(choosen, 1));
-								break;
-							case 2:
-								s = parseFloat(abjad("יוד", 1, 1));
-								break;
-							case 3:
-								s = parseFloat(bastet(choosen, 1, -2, 1, "HEBREW"));
-								break;
-							case 5:
-								s = 1;
-								break;
-							default:
-								err = 1;
-						}
-						break;
-					case "כ":
-						switch (tablo) {
-							case 1:
-							case 4:
-								s = 20;
-								break;
-							case 0:
-								s = parseFloat(asgar(choosen, 1));
-								break;
-							case 2:
-								s = parseFloat(abjad("כף", 1, 1));
-								break;
-							case 3:
-								s = parseFloat(bastet(choosen, 1, -2, 1, "HEBREW"));
-								break;
-							case 5:
-								s = 1;
-								break;
-							default:
-								err = 1;
-						}
-						break;
-					case "ל":
-						switch (tablo) {
-							case 1:
-							case 4:
-								s = 30;
-								break;
-							case 0:
-								s = parseFloat(asgar(choosen, 1));
-								break;
-							case 2:
-								s = parseFloat(abjad("למד", 1, 1));
-								break;
-							case 3:
-								s = parseFloat(bastet(choosen, 1, -2, 1, "HEBREW"));
-								break;
-							case 5:
-								s = 1;
-								break;
-							default:
-								err = 1;
-						}
-						break;
-					case "מ":
-						switch (tablo) {
-							case 1:
-							case 4:
-								s = 40;
-								break;
-							case 0:
-								s = parseFloat(asgar(choosen, 1));
-								break;
-							case 2:
-								s = parseFloat(abjad("מם", 1, 1));
-								break;
-							case 3:
-								s = parseFloat(bastet(choosen, 1, -2, 1, "HEBREW"));
-								break;
-							case 5:
-								s = 1;
-								break;
-							default:
-								err = 1;
-						}
-						break;
-					case "נ":
-						switch (tablo) {
-							case 1:
-							case 4:
-								s = 50;
-								break;
-							case 0:
-								s = parseFloat(asgar(choosen, 1));
-								break;
-							case 2:
-								s = parseFloat(abjad("נון", 1, 1));
-								break;
-							case 3:
-								s = parseFloat(bastet(choosen, 1, -2, 1, "HEBREW"));
-								break;
-							case 5:
-								s = 1;
-								break;
-							default:
-								err = 1;
-						}
-						break;
-					case "ס":
-						switch (tablo) {
-							case 1:
-							case 4:
-								s = 60;
-								break;
-							case 0:
-								s = parseFloat(asgar(choosen, 1));
-								break;
-							case 2:
-								s = parseFloat(abjad("סמך", 1, 1));
-								break;
-							case 3:
-								s = parseFloat(bastet(choosen, 1, -2, 1, "HEBREW"));
-								break;
-							case 5:
-								s = 1;
-								break;
-							default:
-								err = 1;
-						}
-						break;
-					case "ע":
-						switch (tablo) {
-							case 1:
-							case 4:
-								s = 70;
-								break;
-							case 0:
-								s = parseFloat(asgar(choosen, 1));
-								break;
-							case 2:
-								s = parseFloat(abjad("עין", 1, 1));
-								break;
-							case 3:
-								s = parseFloat(bastet(choosen, 1, -2, 1, "HEBREW"));
-								break;
-							case 5:
-								s = 1;
-								break;
-							default:
-								err = 1;
-						}
-						break;
-					case "פ":
-						switch (tablo) {
-							case 1:
-							case 4:
-								s = 80;
-								break;
-							case 0:
-								s = parseFloat(asgar(choosen, 1));
-								break;
-							case 2:
-								s = parseFloat(abjad("פא", 1, 1));
-								break;
-							case 3:
-								s = parseFloat(bastet(choosen, 1, -2, 1, "HEBREW"));
-								break;
-							case 5:
-								s = 1;
-								break;
-							default:
-								err = 1;
-						}
-						break;
-					case "צ":
-						switch (tablo) {
-							case 1:
-							case 4:
-								s = 90;
-								break;
-							case 0:
-								s = parseFloat(asgar(choosen, 1));
-								break;
-							case 2:
-								s = parseFloat(abjad("צדי", 1, 1));
-								break;
-							case 3:
-								s = parseFloat(bastet(choosen, 1, -2, 1, "HEBREW"));
-								break;
-							case 5:
-								s = 1;
-								break;
-							default:
-								err = 1;
-						}
-						break;
-					case "ק":
-						switch (tablo) {
-							case 1:
-							case 4:
-								s = 100;
-								break;
-							case 0:
-								s = parseFloat(asgar(choosen, 1));
-								break;
-							case 2:
-								s = parseFloat(abjad("קוף", 1, 1));
-								break;
-							case 3:
-								s = parseFloat(bastet(choosen, 1, -2, 1, "HEBREW"));
-								break;
-							case 5:
-								s = 1;
-								break;
-							default:
-								err = 1;
-						}
-						break;
-					case "ר":
-						switch (tablo) {
-							case 1:
-							case 4:
-								s = 200;
-								break;
-							case 0:
-								s = parseFloat(asgar(choosen, 1));
-								break;
-							case 2:
-								s = parseFloat(abjad("ריש", 1, 1));
-								break;
-							case 3:
-								s = parseFloat(bastet(choosen, 1, -2, 1, "HEBREW"));
-								break;
-							case 5:
-								s = 1;
-								break;
-							default:
-								err = 1;
-						}
-						break;
-					case "ש":
-						switch (tablo) {
-							case 1:
-							case 4:
-								s = 300;
-								break;
-							case 0:
-								s = parseFloat(asgar(choosen, 1));
-								break;
-							case 2:
-								s = parseFloat(abjad("שין", 1, 1));
-								break;
-							case 3:
-								s = parseFloat(bastet(choosen, 1, -2, 1, "HEBREW"));
-								break;
-							case 5:
-								s = 1;
-								break;
-							default:
-								err = 1;
-						}
-						break;
-					case "ת":
-						switch (tablo) {
-							case 1:
-							case 4:
-								s = 400;
-								break;
-							case 0:
-								s = parseFloat(asgar(choosen, 1));
-								break;
-							case 2:
-								s = parseFloat(abjad("תו", 1, 1));
-								break;
-							case 3:
-								s = parseFloat(bastet(choosen, 1, -2, 1, "HEBREW"));
-								break;
-							case 5:
-								s = 1;
-								break;
-							default:
-								err = 1;
-						}
-						break;
-					case "ך":
-						switch (tablo) {
-							case 1:
-							case 4:
-								s = 500;
-								break;
-							case 0:
-								s = parseFloat(asgar(choosen, 1));
-								break;
-							case 2:
-								s = parseFloat(abjad("ךף", 1, 1));
-								break;
-							case 3:
-								s = parseFloat(bastet(choosen, 1, -2, 1, "HEBREW"));
-								break;
-							case 5:
-								s = 1;
-								break;
-							default:
-								err = 1;
-						}
-						break;
-					case "ם":
-						switch (tablo) {
-							case 1:
-							case 4:
-								s = 600;
-								break;
-							case 0:
-								s = parseFloat(asgar(choosen, 1));
-								break;
-							case 2:
-								s = parseFloat(abjad("םם", 1, 1));
-								break;
-							case 3:
-								s = parseFloat(bastet(choosen, 1, -2, 1, "HEBREW"));
-								break;
-							case 5:
-								s = 1;
-								break;
-							default:
-								err = 1;
-						}
-						break;
-					case "ן":
-						switch (tablo) {
-							case 1:
-							case 4:
-								s = 700;
-								break;
-							case 0:
-								s = parseFloat(asgar(choosen, 1));
-								break;
-							case 2:
-								s = parseFloat(abjad("וןן", 1, 1));
-								break;
-							case 3:
-								s = parseFloat(bastet(choosen, 1, -2, 1, "HEBREW"));
-								break;
-							case 5:
-								s = 1;
-								break;
-							default:
-								err = 1;
-						}
-						break;
-					case "ף":
-						switch (tablo) {
-							case 1:
-							case 4:
-								s = 800;
-								break;
-							case 0:
-								s = parseFloat(asgar(choosen, 1));
-								break;
-							case 2:
-								s = parseFloat(abjad("ףא", 1, 1));
-								break;
-							case 3:
-								s = parseFloat(bastet(choosen, 1, -2, 1, "HEBREW"));
-								break;
-							case 5:
-								s = 1;
-								break;
-							default:
-								err = 1;
-						}
-						break;
-					case "ץ":
-						switch (tablo) {
-							case 1:
-							case 4:
-								s = 900;
-								break;
-							case 0:
-								s = parseFloat(asgar(choosen, 1));
-								break;
-							case 2:
-								s = parseFloat(abjad("ץדי", 1, 1));
-								break;
-							case 3:
-								s = parseFloat(bastet(choosen, 1, -2, 1, "HEBREW"));
-								break;
-							case 5:
-								s = 1;
-								break;
-							default:
-								err = 1;
-						}
-						break;
-					case "A":
-					case "a":
-						switch (tablo) {
-							case 1:
-							case 4:
-								s = 1;
-								break;
-							case 0:
-								s = parseFloat(asgar(choosen, 1));
-								break;
-							case 2:
-								s = parseFloat(abjad("aa", 1, 1));
-								break;
-							case 3:
-								s = parseFloat(bastet(choosen, 1, -2, 1, "TURKCE"));
-								break;
-							case 5:
-								s = 1;
-								break;
-							default:
-								err = 1;
-						}
-						break;
-					case "B":
-					case "b":
-						switch (tablo) {
-							case 1:
-							case 4:
-								s = 2;
-								break;
-							case 0:
-								s = parseFloat(asgar(choosen, 1));
-								break;
-							case 2:
-								s = parseFloat(abjad("be", 1, 1));
-								break;
-							case 3:
-								s = parseFloat(bastet(choosen, 1, -2, 1, "TURKCE"));
-								break;
-							case 5:
-								s = 1;
-								break;
-							default:
-								err = 1;
-						}
-						break;
-					case "C":
-					case "c":
-					case "Ç":
-					case "ç":
-						switch (tablo) {
-							case 1:
-							case 4:
-								s = 3;
-								break;
-							case 0:
-								s = parseFloat(asgar(choosen, 1));
-								break;
-							case 2:
-								s = parseFloat(abjad("ce", 1, 1));
-								break;
-							case 3:
-								s = parseFloat(bastet(choosen, 1, -2, 1, "TURKCE"));
-								break;
-							case 5:
-								s = 1;
-								break;
-							default:
-								err = 1;
-						}
-						break;
-					case "D":
-					case "d":
-						switch (tablo) {
-							case 1:
-							case 4:
-								s = 4;
-								break;
-							case 0:
-								s = parseFloat(asgar(choosen, 1));
-								break;
-							case 2:
-								s = parseFloat(abjad("de", 1, 1));
-								break;
-							case 3:
-								s = parseFloat(bastet(choosen, 1, -2, 1, "TURKCE"));
-								break;
-							case 5:
-								s = 1;
-								break;
-							default:
-								err = 1;
-						}
-						break;
-					case "E":
-					case "e":
-						switch (tablo) {
-							case 1:
-							case 4:
-								s = 5;
-								break;
-							case 0:
-								s = parseFloat(asgar(choosen, 1));
-								break;
-							case 2:
-								s = parseFloat(abjad("ee", 1, 1));
-								break;
-							case 3:
-								s = parseFloat(bastet(choosen, 1, -2, 1, "TURKCE"));
-								break;
-							case 5:
-								s = 1;
-								break;
-							default:
-								err = 1;
-						}
-						break;
-					case "F":
-					case "f":
-						switch (tablo) {
-							case 1:
-							case 4:
-								s = 6;
-								break;
-							case 0:
-								s = parseFloat(asgar(choosen, 1));
-								break;
-							case 2:
-								s = parseFloat(abjad("fe", 1, 1));
-								break;
-							case 3:
-								s = parseFloat(bastet(choosen, 1, -2, 1, "TURKCE"));
-								break;
-							case 5:
-								s = 1;
-								break;
-							default:
-								err = 1;
-						}
-						break;
-					case "G":
-					case "g":
-						switch (tablo) {
-							case 1:
-							case 4:
-								s = 7;
-								break;
-							case 0:
-								s = parseFloat(asgar(choosen, 1));
-								break;
-							case 2:
-								s = parseFloat(abjad("ge", 1, 1));
-								break;
-							case 3:
-								s = parseFloat(bastet(choosen, 1, -2, 1, "TURKCE"));
-								break;
-							case 5:
-								s = 1;
-								break;
-							default:
-								err = 1;
-						}
-						break;
-					case "Ğ":
-					case "ğ":
-						switch (tablo) {
-							case 1:
-							case 4:
-								s = 8;
-								break;
-							case 0:
-								s = parseFloat(asgar(choosen, 1));
-								break;
-							case 2:
-								s = parseFloat(abjad("yumusakge", 1, 1));
-								break;
-							case 3:
-								s = parseFloat(bastet(choosen, 1, -2, 1, "TURKCE"));
-								break;
-							case 5:
-								s = 1;
-								break;
-							default:
-								err = 1;
-						}
-						break;
-					case "H":
-					case "h":
-						switch (tablo) {
-							case 1:
-							case 4:
-								s = 9;
-								break;
-							case 0:
-								s = parseFloat(asgar(choosen, 1));
-								break;
-							case 2:
-								s = parseFloat(abjad("he", 1, 1));
-								break;
-							case 3:
-								s = parseFloat(bastet(choosen, 1, -2, 1, "TURKCE"));
-								break;
-							case 5:
-								s = 1;
-								break;
-							default:
-								err = 1;
-						}
-						break;
-					case "I":
-					case "ı":
-						switch (tablo) {
-							case 1:
-							case 4:
-								s = 10;
-								break;
-							case 0:
-								s = parseFloat(asgar(choosen, 1));
-								break;
-							case 2:
-								s = parseFloat(abjad("ıı", 1, 1));
-								break;
-							case 3:
-								s = parseFloat(bastet(choosen, 1, -2, 1, "TURKCE"));
-								break;
-							case 5:
-								s = 1;
-								break;
-							default:
-								err = 1;
-						}
-						break;
-					case "İ":
-					case "i":
-						switch (tablo) {
-							case 1:
-							case 4:
-								s = 20;
-								break;
-							case 0:
-								s = parseFloat(asgar(choosen, 1));
-								break;
-							case 2:
-								s = parseFloat(abjad("ii", 1, 1));
-								break;
-							case 3:
-								s = parseFloat(bastet(choosen, 1, -2, 1, "TURKCE"));
-								break;
-							case 5:
-								s = 1;
-								break;
-							default:
-								err = 1;
-						}
-						break;
-					case "J":
-					case "j":
-						switch (tablo) {
-							case 1:
-							case 4:
-								s = 30;
-								break;
-							case 0:
-								s = parseFloat(asgar(choosen, 1));
-								break;
-							case 2:
-								s = parseFloat(abjad("je", 1, 1));
-								break;
-							case 3:
-								s = parseFloat(bastet(choosen, 1, -2, 1, "TURKCE"));
-								break;
-							case 5:
-								s = 1;
-								break;
-							default:
-								err = 1;
-						}
-						break;
-					case "K":
-					case "k":
-						switch (tablo) {
-							case 1:
-							case 4:
-								s = 40;
-								break;
-							case 0:
-								s = parseFloat(asgar(choosen, 1));
-								break;
-							case 2:
-								s = parseFloat(abjad("ke", 1, 1));
-								break;
-							case 3:
-								s = parseFloat(bastet(choosen, 1, -2, 1, "TURKCE"));
-								break;
-							case 5:
-								s = 1;
-								break;
-							default:
-								err = 1;
-						}
-						break;
-					case "L":
-					case "l":
-						switch (tablo) {
-							case 1:
-							case 4:
-								s = 50;
-								break;
-							case 0:
-								s = parseFloat(asgar(choosen, 1));
-								break;
-							case 2:
-								s = parseFloat(abjad("le", 1, 1));
-								break;
-							case 3:
-								s = parseFloat(bastet(choosen, 1, -2, 1, "TURKCE"));
-								break;
-							case 5:
-								s = 1;
-								break;
-							default:
-								err = 1;
-						}
-						break;
-					case "M":
-					case "m":
-						switch (tablo) {
-							case 1:
-							case 4:
-								s = 60;
-								break;
-							case 0:
-								s = parseFloat(asgar(choosen, 1));
-								break;
-							case 2:
-								s = parseFloat(abjad("me", 1, 1));
-								break;
-							case 3:
-								s = parseFloat(bastet(choosen, 1, -2, 1, "TURKCE"));
-								break;
-							case 5:
-								s = 1;
-								break;
-							default:
-								err = 1;
-						}
-						break;
-					case "N":
-					case "n":
-						switch (tablo) {
-							case 1:
-							case 4:
-								s = 70;
-								break;
-							case 0:
-								s = parseFloat(asgar(choosen, 1));
-								break;
-							case 2:
-								s = parseFloat(abjad("ne", 1, 1));
-								break;
-							case 3:
-								s = parseFloat(bastet(choosen, 1, -2, 1, "TURKCE"));
-								break;
-							case 5:
-								s = 1;
-								break;
-							default:
-								err = 1;
-						}
-						break;
-					case "O":
-					case "o":
-						switch (tablo) {
-							case 1:
-							case 4:
-								s = 80;
-								break;
-							case 0:
-								s = parseFloat(asgar(choosen, 1));
-								break;
-							case 2:
-								s = parseFloat(abjad("oo", 1, 1));
-								break;
-							case 3:
-								s = parseFloat(bastet(choosen, 1, -2, 1, "TURKCE"));
-								break;
-							case 5:
-								s = 1;
-								break;
-							default:
-								err = 1;
-						}
-						break;
-					case "Ö":
-					case "ö":
-						switch (tablo) {
-							case 1:
-							case 4:
-								s = 90;
-								break;
-							case 0:
-								s = parseFloat(asgar(choosen, 1));
-								break;
-							case 2:
-								s = parseFloat(abjad("öö", 1, 1));
-								break;
-							case 3:
-								s = parseFloat(bastet(choosen, 1, -2, 1, "TURKCE"));
-								break;
-							case 5:
-								s = 1;
-								break;
-							default:
-								err = 1;
-						}
-						break;
-					case "P":
-					case "p":
-						switch (tablo) {
-							case 1:
-							case 4:
-								s = 100;
-								break;
-							case 0:
-								s = parseFloat(asgar(choosen, 1));
-								break;
-							case 2:
-								s = parseFloat(abjad("pe", 1, 1));
-								break;
-							case 3:
-								s = parseFloat(bastet(choosen, 1, -2, 1, "TURKCE"));
-								break;
-							case 5:
-								s = 1;
-								break;
-							default:
-								err = 1;
-						}
-						break;
-					case "R":
-					case "r":
-						switch (tablo) {
-							case 1:
-							case 4:
-								s = 200;
-								break;
-							case 0:
-								s = parseFloat(asgar(choosen, 1));
-								break;
-							case 2:
-								s = parseFloat(abjad("re", 1, 1));
-								break;
-							case 3:
-								s = parseFloat(bastet(choosen, 1, -2, 1, "TURKCE"));
-								break;
-							case 5:
-								s = 1;
-								break;
-							default:
-								err = 1;
-						}
-						break;
-					case "S":
-					case "s":
-						switch (tablo) {
-							case 1:
-							case 4:
-								s = 300;
-								break;
-							case 0:
-								s = parseFloat(asgar(choosen, 1));
-								break;
-							case 2:
-								s = parseFloat(abjad("se", 1, 1));
-								break;
-							case 3:
-								s = parseFloat(bastet(choosen, 1, -2, 1, "TURKCE"));
-								break;
-							case 5:
-								s = 1;
-								break;
-							default:
-								err = 1;
-						}
-						break;
-					case "Ş":
-					case "ş":
-						switch (tablo) {
-							case 1:
-							case 4:
-								s = 400;
-								break;
-							case 0:
-								s = parseFloat(asgar(choosen, 1));
-								break;
-							case 2:
-								s = parseFloat(abjad("şe", 1, 1));
-								break;
-							case 3:
-								s = parseFloat(bastet(choosen, 1, -2, 1, "TURKCE"));
-								break;
-							case 5:
-								s = 1;
-								break;
-							default:
-								err = 1;
-						}
-						break;
-					case "T":
-					case "t":
-						switch (tablo) {
-							case 1:
-							case 4:
-								s = 500;
-								break;
-							case 0:
-								s = parseFloat(asgar(choosen, 1));
-								break;
-							case 2:
-								s = parseFloat(abjad("te", 1, 1));
-								break;
-							case 3:
-								s = parseFloat(bastet(choosen, 1, -2, 1, "TURKCE"));
-								break;
-							case 5:
-								s = 1;
-								break;
-							default:
-								err = 1;
-						}
-						break;
-					case "U":
-					case "u":
-						switch (tablo) {
-							case 1:
-							case 4:
-								s = 600;
-								break;
-							case 0:
-								s = parseFloat(asgar(choosen, 1));
-								break;
-							case 2:
-								s = parseFloat(abjad("uu", 1, 1));
-								break;
-							case 3:
-								s = parseFloat(bastet(choosen, 1, -2, 1, "TURKCE"));
-								break;
-							case 5:
-								s = 1;
-								break;
-							default:
-								err = 1;
-						}
-						break;
-					case "Ü":
-					case "ü":
-						switch (tablo) {
-							case 1:
-							case 4:
-								s = 700;
-								break;
-							case 0:
-								s = parseFloat(asgar(choosen, 1));
-								break;
-							case 2:
-								s = parseFloat(abjad("üü", 1, 1));
-								break;
-							case 3:
-								s = parseFloat(bastet(choosen, 1, -2, 1, "TURKCE"));
-								break;
-							case 5:
-								s = 1;
-								break;
-							default:
-								err = 1;
-						}
-						break;
-					case "V":
-					case "v":
-						switch (tablo) {
-							case 1:
-							case 4:
-								s = 800;
-								break;
-							case 0:
-								s = parseFloat(asgar(choosen, 1));
-								break;
-							case 2:
-								s = parseFloat(abjad("ve", 1, 1));
-								break;
-							case 3:
-								s = parseFloat(bastet(choosen, 1, -2, 1, "TURKCE"));
-								break;
-							case 5:
-								s = 1;
-								break;
-							default:
-								err = 1;
-						}
-						break;
-					case "Y":
-					case "y":
-						switch (tablo) {
-							case 1:
-							case 4:
-								s = 900;
-								break;
-							case 0:
-								s = parseFloat(asgar(choosen, 1));
-								break;
-							case 2:
-								s = parseFloat(abjad("ye", 1, 1));
-								break;
-							case 3:
-								s = parseFloat(bastet(choosen, 1, -2, 1, "TURKCE"));
-								break;
-							case 5:
-								s = 1;
-								break;
-							default:
-								err = 1;
-						}
-						break;
-					case "Z":
-					case "z":
-						switch (tablo) {
-							case 1:
-							case 4:
-								s = 1000;
-								break;
-							case 0:
-								s = parseFloat(asgar(choosen, 1));
-								break;
-							case 2:
-								s = parseFloat(abjad("ze", 1, 1));
-								break;
-							case 3:
-								s = parseFloat(bastet(choosen, 1, -2, 1, "TURKCE"));
-								break;
-							case 5:
-								s = 1;
-								break;
-							default:
-								err = 1;
-						}
-						break;
-                    default:
-                        s = 0;
-                        n = n + 1;
-                        switch (choosen) {
-                            case "ّ":
-                                if (shadda === 1) {
-                                    s = 0;
-                                } else if (shadda > 2) {
-                                    err = 3;
-                                } else if (shadda === 2) {
+        if (metin !== undefined) {
+            if (tablo !== undefined) {
+                for (let counter: number = 0; counter < metin.length; counter += 1) {
+                    choosen = metin[counter];
+                    switch (choosen) {
+                        case "ا":
+                        case "أ":
+                        case "إ":
+                        case "آ":
+                        case "ء":
+                        case "ى":
+                            switch (tablo) {
+                                case 1:
+                                case 4:
+                                case 5:
+                                case 7:
+                                case 10:
+                                case 12:
+                                case 15:
+                                case 17:
+                                case 20:
+                                case 22:
+                                case 25:
+                                case 27:
+                                case 30:
+                                case 32:
+                                case 35:
+                                    s = 1;
+                                    break;
+                                case 0:
+                                case 6:
+                                case 11:
+                                case 16:
+                                case 21:
+                                case 26:
+                                case 31:
+                                    s = parseFloat(asgar(choosen, tablo + 1));
+                                    break;
+                                case 2:
+                                case 8:
+                                case 13:
+                                case 18:
+                                case 23:
+                                case 28:
+                                case 33:
+                                    s = parseFloat(abjad("الف", tablo - 1, 1));
+                                    break;
+                                case 3:
+                                case 9:
+                                case 14:
+                                case 19:
+                                case 24:
+                                case 29:
+                                case 34:
+                                    s = parseFloat(bastet(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"));
+                                    break;
+                                default:
+                                    err = 1;
+                            }
+                            break;
+                        case "ؤ":
+                            switch (tablo) {
+                                case 1:
+                                case 4:
+                                case 7:
+                                case 10:
+                                    s = 7;
+                                    break;
+                                case 12:
+                                case 15:
+                                    s = 6;
+                                    break;
+                                case 17:
+                                case 20:
+                                case 22:
+                                case 25:
+                                    s = 801;
+                                    break;
+                                case 27:
+                                case 30:
+                                    s = 41;
+                                    break;
+                                case 32:
+                                case 35:
+                                    s = 901;
+                                    break;
+                                case 0:
+                                case 6:
+                                case 11:
+                                case 16:
+                                case 21:
+                                case 26:
+                                case 31:
+                                    s = parseFloat(asgar(choosen, tablo + 1));
+                                    break;
+                                case 2:
+                                case 8:
+                                case 13:
+                                case 18:
+                                case 23:
+                                case 28:
+                                case 33:
+                                    s = parseFloat(abjad("الف", tablo - 1, 1)) + parseFloat(abjad("واو", tablo - 1, 1));
+                                    break;
+                                case 3:
+                                case 9:
+                                case 14:
+                                case 19:
+                                case 24:
+                                case 29:
+                                case 34:
+                                    s = parseFloat(bastet("و", 1, -1 - (tablo - 2), 1, "ARABIC")) + parseFloat(bastet("ا", 1, -1 - (tablo - 2), 1, "ARABIC"));
+                                    break;
+                                case 5:
+                                    s = 1;
+                                    break;
+                                default:
+                                    err = 1;
+                            }
+                            break;
+                        case "ئ":
+                            switch (tablo) {
+                                case 1:
+                                case 4:
+                                case 7:
+                                case 10:
+                                    s = 11;
+                                    break;
+                                case 12:
+                                case 15:
+                                    s = 7;
+                                    break;
+                                case 17:
+                                case 20:
+                                case 22:
+                                case 25:
+                                case 27:
+                                case 30:
+                                case 32:
+                                case 35:
+                                    s = 1001;
+                                    break;
+                                case 0:
+                                case 6:
+                                case 11:
+                                case 16:
+                                case 21:
+                                case 26:
+                                case 31:
+                                    s = parseFloat(asgar("ي", tablo + 1)) + parseFloat(asgar("ا", tablo + 1));
+                                    break;
+                                case 2:
+                                case 8:
+                                case 13:
+                                case 18:
+                                case 23:
+                                case 28:
+                                case 33:
+                                    s = parseFloat(abjad("الف", tablo - 1, 1)) + parseFloat(abjad("يا", tablo - 1, 1));
+                                    break;
+                                case 3:
+                                case 9:
+                                case 14:
+                                case 19:
+                                case 24:
+                                case 29:
+                                case 34:
+                                    s = parseFloat(bastet("ي", 1, -1 - (tablo - 2), 1, "ARABIC")) + parseFloat(bastet("ا", 1, -1 - (tablo - 2), 1, "ARABIC"));
+                                    break;
+                                case 5:
+                                    s = 1;
+                                    break;
+                                default:
+                                    err = 1;
+                            }
+                            break;
+                        case "ۀ":
+                            switch (tablo) {
+                                case 1:
+                                case 4:
+                                case 7:
+                                case 10:
+                                    s = 15;
+                                    break;
+                                case 12:
+                                case 15:
+                                    s = 13;
+                                    break;
+                                case 17:
+                                case 20:
+                                case 22:
+                                case 25:
+                                    s = 1800;
+                                    break;
+                                case 27:
+                                case 30:
+                                    s = 1700;
+                                    break;
+                                case 32:
+                                case 35:
+                                    s = 1900;
+                                    break;
+                                case 0:
+                                case 6:
+                                case 11:
+                                case 16:
+                                case 21:
+                                case 26:
+                                case 31:
+                                    s = parseFloat(asgar("ي", tablo + 1)) + parseFloat(asgar("ه", tablo + 1));
+                                    break;
+                                case 2:
+                                case 8:
+                                case 13:
+                                case 18:
+                                case 23:
+                                case 28:
+                                case 33:
+                                    s = parseFloat(abjad("يا", tablo - 1, 1)) + parseFloat(abjad("ها", tablo - 1, 1));
+                                    break;
+                                case 3:
+                                case 9:
+                                case 14:
+                                case 19:
+                                case 24:
+                                case 29:
+                                case 34:
+                                    s = parseFloat(bastet("ي", 1, -1 - (tablo - 2), 1, "ARABIC")) + parseFloat(bastet("ه", 1, -1 - (tablo - 2), 1, "ARABIC"));
+                                    break;
+                                case 5:
+                                    s = 1;
+                                    break;
+                                default:
+                                    err = 1;
+                            }
+                            break;
+                        case "ب":
+                        case "ﭖ":
+                            switch (tablo) {
+                                case 1:
+                                case 4:
+                                case 7:
+                                case 10:
+                                case 17:
+                                case 20:
+                                case 22:
+                                case 25:
+                                case 27:
+                                case 30:
+                                case 32:
+                                case 35:
+                                    s = 2;
+                                    break;
+                                case 12:
+                                case 15:
+                                    s = 9;
+                                    break;
+                                case 0:
+                                case 6:
+                                case 11:
+                                case 16:
+                                case 21:
+                                case 26:
+                                case 31:
+                                    s = parseFloat(asgar(choosen, tablo + 1));
+                                    break;
+                                case 2:
+                                case 8:
+                                case 13:
+                                case 18:
+                                case 23:
+                                case 28:
+                                case 33:
+                                    s = parseFloat(abjad("با", tablo - 1, 1));
+                                    break;
+                                case 3:
+                                case 9:
+                                case 14:
+                                case 19:
+                                case 24:
+                                case 29:
+                                case 34:
+                                    s = parseFloat(bastet(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"));
+                                    break;
+                                case 5:
+                                    s = 1;
+                                    break;
+                                default:
+                                    err = 1;
+                            }
+                            break;
+                        case "ج":
+                        case "ﭺ":
+                            switch (tablo) {
+                                case 1:
+                                case 4:
+                                case 7:
+                                case 10:
+                                    s = 3;
+                                    break;
+                                case 12:
+                                case 15:
+                                    s = 100;
+                                    break;
+                                case 17:
+                                case 20:
+                                case 22:
+                                case 25:
+                                case 27:
+                                case 30:
+                                case 32:
+                                case 35:
+                                    s = 5;
+                                    break;
+                                case 0:
+                                case 6:
+                                case 11:
+                                case 16:
+                                case 21:
+                                case 26:
+                                case 31:
+                                    s = parseFloat(asgar(choosen, tablo + 1));
+                                    break;
+                                case 2:
+                                case 8:
+                                case 13:
+                                case 18:
+                                case 23:
+                                case 28:
+                                case 33:
+                                    s = parseFloat(abjad("جيم", tablo - 1, 1));
+                                    break;
+                                case 3:
+                                case 9:
+                                case 14:
+                                case 19:
+                                case 24:
+                                case 29:
+                                case 34:
+                                    s = parseFloat(bastet(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"));
+                                    break;
+                                case 5:
+                                    s = 1;
+                                    break;
+                                default:
+                                    err = 1;
+                            }
+                            break;
+                        case "د":
+                            switch (tablo) {
+                                case 1:
+                                case 4:
+                                case 7:
+                                case 10:
+                                    s = 4;
+                                    break;
+                                case 12:
+                                case 15:
+                                    s = 70;
+                                    break;
+                                case 17:
+                                case 20:
+                                case 22:
+                                case 25:
+                                case 27:
+                                case 30:
+                                case 32:
+                                case 35:
+                                    s = 8;
+                                    break;
+                                case 0:
+                                case 6:
+                                case 11:
+                                case 16:
+                                case 21:
+                                case 26:
+                                case 31:
+                                    s = parseFloat(asgar(choosen, tablo + 1));
+                                    break;
+                                case 2:
+                                case 8:
+                                case 13:
+                                case 18:
+                                case 23:
+                                case 28:
+                                case 33:
+                                    s = parseFloat(abjad("دال", tablo - 1, 1));
+                                    break;
+                                case 3:
+                                case 9:
+                                case 14:
+                                case 19:
+                                case 24:
+                                case 29:
+                                case 34:
+                                    s = parseFloat(bastet(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"));
+                                    break;
+                                case 5:
+                                    s = 1;
+                                    break;
+                                default:
+                                    err = 1;
+                            }
+                            break;
+                        case "ه":
+                        case "ة":
+                            switch (tablo) {
+                                case 1:
+                                case 4:
+                                case 7:
+                                case 10:
+                                    s = 5;
+                                    break;
+                                case 12:
+                                case 15:
+                                    s = 7;
+                                    break;
+                                case 17:
+                                case 20:
+                                case 22:
+                                case 25:
+                                    s = 800;
+                                    break;
+                                case 27:
+                                case 30:
+                                    s = 700;
+                                    break;
+                                case 32:
+                                case 35:
+                                    s = 900;
+                                    break;
+                                case 0:
+                                case 6:
+                                case 11:
+                                case 16:
+                                case 21:
+                                case 26:
+                                case 31:
+                                    s = parseFloat(asgar(choosen, tablo + 1));
+                                    break;
+                                case 2:
+                                case 8:
+                                case 13:
+                                case 18:
+                                case 23:
+                                case 28:
+                                case 33:
+                                    s = parseFloat(abjad("ها", tablo - 1, 1));
+                                    break;
+                                case 3:
+                                case 9:
+                                case 14:
+                                case 19:
+                                case 24:
+                                case 29:
+                                case 34:
+                                    s = parseFloat(bastet(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"));
+                                    break;
+                                case 5:
+                                    s = 1;
+                                    break;
+                                default:
+                                    err = 1;
+                            }
+                            break;
+                        case "و":
+                            switch (tablo) {
+                                case 1:
+                                case 4:
+                                case 7:
+                                case 10:
+                                    s = 6;
+                                    break;
+                                case 12:
+                                case 15:
+                                    s = 5;
+                                    break;
+                                case 17:
+                                case 20:
+                                case 22:
+                                case 25:
+                                    s = 900;
+                                    break;
+                                case 27:
+                                case 30:
+                                    s = 40;
+                                    break;
+                                case 32:
+                                case 35:
+                                    s = 800;
+                                    break;
+                                case 0:
+                                case 6:
+                                case 11:
+                                case 16:
+                                case 21:
+                                case 26:
+                                case 31:
+                                    s = parseFloat(asgar(choosen, tablo + 1));
+                                    break;
+                                case 2:
+                                case 8:
+                                case 13:
+                                case 18:
+                                case 23:
+                                case 28:
+                                case 33:
+                                    s = parseFloat(abjad("واو", tablo - 1, 1));
+                                    break;
+                                case 3:
+                                case 9:
+                                case 14:
+                                case 19:
+                                case 24:
+                                case 29:
+                                case 34:
+                                    s = parseFloat(bastet(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"));
+                                    break;
+                                case 5:
+                                    s = 1;
+                                    break;
+                                default:
+                                    err = 1;
+                            }
+                            break;
+                        case "ز":
+                        case "ﮊ":
+                            switch (tablo) {
+                                case 1:
+                                case 4:
+                                case 7:
+                                case 10:
+                                    s = 7;
+                                    break;
+                                case 12:
+                                case 15:
+                                case 27:
+                                case 30:
+                                    s = 600;
+                                    break;
+                                case 17:
+                                case 20:
+                                case 22:
+                                case 25:
+                                case 32:
+                                case 35:
+                                    s = 20;
+                                    break;
+                                case 0:
+                                case 6:
+                                case 11:
+                                case 16:
+                                case 21:
+                                case 26:
+                                case 31:
+                                    s = parseFloat(asgar(choosen, tablo + 1));
+                                    break;
+                                case 2:
+                                case 8:
+                                case 13:
+                                case 18:
+                                case 23:
+                                case 28:
+                                case 33:
+                                    s = parseFloat(abjad("زا", tablo - 1, 1));
+                                    break;
+                                case 3:
+                                case 9:
+                                case 14:
+                                case 19:
+                                case 24:
+                                case 29:
+                                case 34:
+                                    s = parseFloat(bastet(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"));
+                                    break;
+                                case 5:
+                                    s = 1;
+                                    break;
+                                default:
+                                    err = 1;
+                            }
+                            break;
+                        case "ح":
+                            switch (tablo) {
+                                case 1:
+                                case 4:
+                                case 7:
+                                case 10:
+                                    s = 8;
+                                    break;
+                                case 12:
+                                case 15:
+                                    s = 90;
+                                    break;
+                                case 17:
+                                case 20:
+                                case 22:
+                                case 25:
+                                case 27:
+                                case 30:
+                                case 32:
+                                case 35:
+                                    s = 6;
+                                    break;
+                                case 0:
+                                case 6:
+                                case 11:
+                                case 16:
+                                case 21:
+                                case 26:
+                                case 31:
+                                    s = parseFloat(asgar(choosen, tablo + 1));
+                                    break;
+                                case 2:
+                                case 8:
+                                case 13:
+                                case 18:
+                                case 23:
+                                case 28:
+                                case 33:
+                                    s = parseFloat(abjad("حا", tablo - 1, 1));
+                                    break;
+                                case 3:
+                                case 9:
+                                case 14:
+                                case 19:
+                                case 24:
+                                case 29:
+                                case 34:
+                                    s = parseFloat(bastet(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"));
+                                    break;
+                                case 5:
+                                    s = 1;
+                                    break;
+                                default:
+                                    err = 1;
+                            }
+                            break;
+                        case "ط":
+                            switch (tablo) {
+                                case 1:
+                                case 4:
+                                case 7:
+                                case 10:
+                                    s = 9;
+                                    break;
+                                case 12:
+                                case 15:
+                                    s = 800;
+                                    break;
+                                case 17:
+                                case 20:
+                                case 32:
+                                case 35:
+                                    s = 70;
+                                    break;
+                                case 22:
+                                case 25:
+                                    s = 30;
+                                    break;
+                                case 27:
+                                case 30:
+                                    s = 100;
+                                    break;
+                                case 0:
+                                case 6:
+                                case 11:
+                                case 16:
+                                case 21:
+                                case 26:
+                                case 31:
+                                    s = parseFloat(asgar(choosen, tablo + 1));
+                                    break;
+                                case 2:
+                                case 8:
+                                case 13:
+                                case 18:
+                                case 23:
+                                case 28:
+                                case 33:
+                                    s = parseFloat(abjad("طا", tablo - 1, 1));
+                                    break;
+                                case 3:
+                                case 9:
+                                case 14:
+                                case 19:
+                                case 24:
+                                case 29:
+                                case 34:
+                                    s = parseFloat(bastet(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"));
+                                    break;
+                                case 5:
+                                    s = 1;
+                                    break;
+                                default:
+                                    err = 1;
+                            }
+                            break;
+                        case "ی":
+                        case "ي":
+                            switch (tablo) {
+                                case 1:
+                                case 4:
+                                case 7:
+                                case 10:
+                                    s = 10;
+                                    break;
+                                case 12:
+                                case 15:
+                                    s = 6;
+                                    break;
+                                case 17:
+                                case 20:
+                                case 22:
+                                case 25:
+                                case 27:
+                                case 30:
+                                case 32:
+                                case 35:
+                                    s = 1000;
+                                    break;
+                                case 0:
+                                case 6:
+                                case 11:
+                                case 16:
+                                case 21:
+                                case 26:
+                                case 31:
+                                    s = parseFloat(asgar(choosen, tablo + 1));
+                                    break;
+                                case 2:
+                                case 8:
+                                case 13:
+                                case 18:
+                                case 23:
+                                case 28:
+                                case 33:
+                                    s = parseFloat(abjad("يا", tablo - 1, 1));
+                                    break;
+                                case 3:
+                                case 9:
+                                case 14:
+                                case 19:
+                                case 24:
+                                case 29:
+                                case 34:
+                                    s = parseFloat(bastet(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"));
+                                    break;
+                                case 5:
+                                    s = 1;
+                                    break;
+                                default:
+                                    err = 1;
+                            }
+                            break;
+                        case "ك":
+                        case "ﮒ":
+                        case "ک":
+                            switch (tablo) {
+                                case 1:
+                                case 4:
+                                case 7:
+                                case 10:
+                                case 12:
+                                case 15:
+                                    s = 20;
+                                    break;
+                                case 17:
+                                case 20:
+                                case 32:
+                                case 35:
+                                    s = 400;
+                                    break;
+                                case 22:
+                                case 25:
+                                    s = 50;
+                                    break;
+                                case 27:
+                                case 30:
+                                    s = 10;
+                                    break;
+                                case 0:
+                                case 6:
+                                case 11:
+                                case 16:
+                                case 21:
+                                case 26:
+                                case 31:
+                                    s = parseFloat(asgar(choosen, tablo + 1));
+                                    break;
+                                case 2:
+                                case 8:
+                                case 13:
+                                case 18:
+                                case 23:
+                                case 28:
+                                case 33:
+                                    s = parseFloat(abjad("كاف", tablo - 1, 1));
+                                    break;
+                                case 3:
+                                case 9:
+                                case 14:
+                                case 19:
+                                case 24:
+                                case 29:
+                                case 34:
+                                    s = parseFloat(bastet(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"));
+                                    break;
+                                case 5:
+                                    s = 1;
+                                    break;
+                                default:
+                                    err = 1;
+                            }
+                            break;
+                        case "ل":
+                            switch (tablo) {
+                                case 1:
+                                case 4:
+                                case 7:
+                                case 10:
+                                    s = 30;
+                                    break;
+                                case 12:
+                                case 15:
+                                    s = 2;
+                                    break;
+                                case 17:
+                                case 20:
+                                case 32:
+                                case 35:
+                                    s = 500;
+                                    break;
+                                case 22:
+                                case 25:
+                                    s = 60;
+                                    break;
+                                case 27:
+                                case 30:
+                                    s = 20;
+                                    break;
+                                case 0:
+                                case 6:
+                                case 11:
+                                case 16:
+                                case 21:
+                                case 26:
+                                case 31:
+                                    s = parseFloat(asgar(choosen, tablo + 1));
+                                    break;
+                                case 2:
+                                case 8:
+                                case 13:
+                                case 18:
+                                case 23:
+                                case 28:
+                                case 33:
+                                    s = parseFloat(abjad("لام", tablo - 1, 1));
+                                    break;
+                                case 3:
+                                case 9:
+                                case 14:
+                                case 19:
+                                case 24:
+                                case 29:
+                                case 34:
+                                    s = parseFloat(bastet(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"));
+                                    break;
+                                case 5:
+                                    s = 1;
+                                    break;
+                                default:
+                                    err = 1;
+                            }
+                            break;
+                        case "ﻻ":
+                            switch (tablo) {
+                                case 1:
+                                case 4:
+                                case 7:
+                                case 10:
+                                    s = 31;
+                                    break;
+                                case 12:
+                                case 15:
+                                    s = 3;
+                                    break;
+                                case 17:
+                                case 20:
+                                case 32:
+                                case 35:
+                                    s = 501;
+                                    break;
+                                case 22:
+                                case 25:
+                                    s = 61;
+                                    break;
+                                case 27:
+                                case 30:
+                                    s = 21;
+                                    break;
+                                case 0:
+                                case 6:
+                                case 11:
+                                case 16:
+                                case 21:
+                                case 26:
+                                case 31:
+                                    s = parseFloat(asgar("ا", tablo + 1)) + parseFloat(asgar("ل", tablo + 1));
+                                    break;
+                                case 2:
+                                case 8:
+                                case 13:
+                                case 18:
+                                case 23:
+                                case 28:
+                                case 33:
+                                    s = parseFloat(abjad("لام الف", tablo - 1, 1));
+                                    break;
+                                case 3:
+                                case 9:
+                                case 14:
+                                case 19:
+                                case 24:
+                                case 29:
+                                case 34:
+                                    s = parseFloat(bastet(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"));
+                                    break;
+                                case 5:
+                                    s = 1;
+                                    break;
+                                default:
+                                    err = 1;
+                            }
+                            break;
+                        case "م":
+                            switch (tablo) {
+                                case 1:
+                                case 4:
+                                case 7:
+                                case 10:
+                                    s = 40;
+                                    break;
+                                case 12:
+                                case 15:
+                                    s = 4;
+                                    break;
+                                case 17:
+                                case 20:
+                                case 32:
+                                case 35:
+                                    s = 600;
+                                    break;
+                                case 22:
+                                case 25:
+                                    s = 70;
+                                    break;
+                                case 27:
+                                case 30:
+                                    s = 30;
+                                    break;
+                                case 0:
+                                case 6:
+                                case 11:
+                                case 16:
+                                case 21:
+                                case 26:
+                                case 31:
+                                    s = parseFloat(asgar(choosen, tablo + 1));
+                                    break;
+                                case 2:
+                                case 8:
+                                case 13:
+                                case 18:
+                                case 23:
+                                case 28:
+                                case 33:
+                                    s = parseFloat(abjad("ميم", tablo - 1, 1));
+                                    break;
+                                case 3:
+                                case 9:
+                                case 14:
+                                case 19:
+                                case 24:
+                                case 29:
+                                case 34:
+                                    s = parseFloat(bastet(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"));
+                                    break;
+                                case 5:
+                                    s = 1;
+                                    break;
+                                default:
+                                    err = 1;
+                            }
+                            break;
+                        case "ن":
+                        case "ﯓ":
+                            switch (tablo) {
+                                case 1:
+                                case 4:
+                                case 7:
+                                case 10:
+                                case 27:
+                                case 30:
+                                    s = 50;
+                                    break;
+                                case 12:
+                                case 15:
+                                    s = 3;
+                                    break;
+                                case 17:
+                                case 20:
+                                case 32:
+                                case 35:
+                                    s = 700;
+                                    break;
+                                case 22:
+                                case 25:
+                                    s = 80;
+                                    break;
+                                case 0:
+                                case 6:
+                                case 11:
+                                case 16:
+                                case 21:
+                                case 26:
+                                case 31:
+                                    s = parseFloat(asgar(choosen, tablo + 1));
+                                    break;
+                                case 2:
+                                case 8:
+                                case 13:
+                                case 18:
+                                case 23:
+                                case 28:
+                                case 33:
+                                    s = parseFloat(abjad("نون", tablo - 1, 1));
+                                    break;
+                                case 3:
+                                case 9:
+                                case 14:
+                                case 19:
+                                case 24:
+                                case 29:
+                                case 34:
+                                    s = parseFloat(bastet(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"));
+                                    break;
+                                case 5:
+                                    s = 1;
+                                    break;
+                                default:
+                                    err = 1;
+                            }
+                            break;
+                        case "س":
+                            switch (tablo) {
+                                case 1:
+                                case 4:
+                                case 12:
+                                case 15:
+                                    s = 60;
+                                    break;
+                                case 7:
+                                case 10:
+                                    s = 300;
+                                    break;
+                                case 17:
+                                case 20:
+                                case 32:
+                                case 35:
+                                    s = 30;
+                                    break;
+                                case 22:
+                                case 25:
+                                    s = 600;
+                                    break;
+                                case 27:
+                                case 30:
+                                    s = 800;
+                                    break;
+                                case 0:
+                                case 6:
+                                case 11:
+                                case 16:
+                                case 21:
+                                case 26:
+                                case 31:
+                                    s = parseFloat(asgar(choosen, tablo + 1));
+                                    break;
+                                case 2:
+                                case 8:
+                                case 13:
+                                case 18:
+                                case 23:
+                                case 28:
+                                case 33:
+                                    s = parseFloat(abjad("سين", tablo - 1, 1));
+                                    break;
+                                case 3:
+                                case 9:
+                                case 14:
+                                case 19:
+                                case 24:
+                                case 29:
+                                case 34:
+                                    s = parseFloat(bastet(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"));
+                                    break;
+                                case 5:
+                                    s = 1;
+                                    break;
+                                default:
+                                    err = 1;
+                            }
+                            break;
+                        case "ع":
+                            switch (tablo) {
+                                case 1:
+                                case 4:
+                                case 7:
+                                case 10:
+                                    s = 70;
+                                    break;
+                                case 12:
+                                case 15:
+                                    s = 30;
+                                    break;
+                                case 17:
+                                case 20:
+                                case 32:
+                                case 35:
+                                    s = 90;
+                                    break;
+                                case 22:
+                                case 25:
+                                    s = 200;
+                                    break;
+                                case 27:
+                                case 30:
+                                    s = 80;
+                                    break;
+                                case 0:
+                                case 6:
+                                case 11:
+                                case 16:
+                                case 21:
+                                case 26:
+                                case 31:
+                                    s = parseFloat(asgar(choosen, tablo + 1));
+                                    break;
+                                case 2:
+                                case 8:
+                                case 13:
+                                case 18:
+                                case 23:
+                                case 28:
+                                case 33:
+                                    s = parseFloat(abjad("عين", tablo - 1, 1));
+                                    break;
+                                case 3:
+                                case 9:
+                                case 14:
+                                case 19:
+                                case 24:
+                                case 29:
+                                case 34:
+                                    s = parseFloat(bastet(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"));
+                                    break;
+                                case 5:
+                                    s = 1;
+                                    break;
+                                default:
+                                    err = 1;
+                            }
+                            break;
+                        case "ف":
+                            switch (tablo) {
+                                case 1:
+                                case 4:
+                                case 7:
+                                case 10:
+                                    s = 80;
+                                    break;
+                                case 12:
+                                case 15:
+                                    s = 40;
+                                    break;
+                                case 17:
+                                case 20:
+                                case 32:
+                                case 35:
+                                    s = 200;
+                                    break;
+                                case 22:
+                                case 25:
+                                    s = 400;
+                                    break;
+                                case 27:
+                                case 30:
+                                    s = 300;
+                                    break;
+                                case 0:
+                                case 6:
+                                case 11:
+                                case 16:
+                                case 21:
+                                case 26:
+                                case 31:
+                                    s = parseFloat(asgar(choosen, tablo + 1));
+                                    break;
+                                case 2:
+                                case 8:
+                                case 13:
+                                case 18:
+                                case 23:
+                                case 28:
+                                case 33:
+                                    s = parseFloat(abjad("فا", tablo - 1, 1));
+                                    break;
+                                case 3:
+                                case 9:
+                                case 14:
+                                case 19:
+                                case 24:
+                                case 29:
+                                case 34:
+                                    s = parseFloat(bastet(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"));
+                                    break;
+                                case 5:
+                                    s = 1;
+                                    break;
+                                default:
+                                    err = 1;
+                            }
+                            break;
+                        case "ص":
+                            switch (tablo) {
+                                case 1:
+                                case 4:
+                                case 22:
+                                case 25:
+                                    s = 90;
+                                    break;
+                                case 7:
+                                case 10:
+                                case 27:
+                                case 30:
+                                    s = 60;
+                                    break;
+                                case 12:
+                                case 15:
+                                    s = 400;
+                                    break;
+                                case 17:
+                                case 20:
+                                case 32:
+                                case 35:
+                                    s = 50;
+                                    break;
+                                case 0:
+                                case 6:
+                                case 11:
+                                case 16:
+                                case 21:
+                                case 26:
+                                case 31:
+                                    s = parseFloat(asgar(choosen, tablo + 1));
+                                    break;
+                                case 2:
+                                case 8:
+                                case 13:
+                                case 18:
+                                case 23:
+                                case 28:
+                                case 33:
+                                    s = parseFloat(abjad("صاد", tablo - 1, 1));
+                                    break;
+                                case 3:
+                                case 9:
+                                case 14:
+                                case 19:
+                                case 24:
+                                case 29:
+                                case 34:
+                                    s = parseFloat(bastet(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"));
+                                    break;
+                                case 5:
+                                    s = 1;
+                                    break;
+                                default:
+                                    err = 1;
+                            }
+                            break;
+                        case "ق":
+                            switch (tablo) {
+                                case 1:
+                                case 4:
+                                case 7:
+                                case 10:
+                                    s = 100;
+                                    break;
+                                case 12:
+                                case 15:
+                                    s = 50;
+                                    break;
+                                case 17:
+                                case 20:
+                                case 32:
+                                case 35:
+                                    s = 300;
+                                    break;
+                                case 22:
+                                case 25:
+                                    s = 500;
+                                    break;
+                                case 27:
+                                case 30:
+                                    s = 400;
+                                    break;
+                                case 0:
+                                case 6:
+                                case 11:
+                                case 16:
+                                case 21:
+                                case 26:
+                                case 31:
+                                    s = parseFloat(asgar(choosen, tablo + 1));
+                                    break;
+                                case 2:
+                                case 8:
+                                case 13:
+                                case 18:
+                                case 23:
+                                case 28:
+                                case 33:
+                                    s = parseFloat(abjad("قاف", tablo - 1, 1));
+                                    break;
+                                case 3:
+                                case 9:
+                                case 14:
+                                case 19:
+                                case 24:
+                                case 29:
+                                case 34:
+                                    s = parseFloat(bastet(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"));
+                                    break;
+                                case 5:
+                                    s = 1;
+                                    break;
+                                default:
+                                    err = 1;
+                            }
+                            break;
+                        case "ر":
+                            switch (tablo) {
+                                case 1:
+                                case 4:
+                                case 7:
+                                case 10:
+                                    s = 200;
+                                    break;
+                                case 12:
+                                case 15:
+                                    s = 8;
+                                    break;
+                                case 17:
+                                case 20:
+                                case 22:
+                                case 25:
+                                case 32:
+                                case 35:
+                                    s = 10;
+                                    break;
+                                case 27:
+                                case 30:
+                                    s = 500;
+                                    break;
+                                case 0:
+                                case 6:
+                                case 11:
+                                case 16:
+                                case 21:
+                                case 26:
+                                case 31:
+                                    s = parseFloat(asgar(choosen, tablo + 1));
+                                    break;
+                                case 2:
+                                case 8:
+                                case 13:
+                                case 18:
+                                case 23:
+                                case 28:
+                                case 33:
+                                    s = parseFloat(abjad("را", tablo - 1, 1));
+                                    break;
+                                case 3:
+                                case 9:
+                                case 14:
+                                case 19:
+                                case 24:
+                                case 29:
+                                case 34:
+                                    s = parseFloat(bastet(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"));
+                                    break;
+                                case 5:
+                                    s = 1;
+                                    break;
+                                default:
+                                    err = 1;
+                            }
+                            break;
+                        case "ش":
+                            switch (tablo) {
+                                case 1:
+                                case 4:
+                                case 12:
+                                case 15:
+                                    s = 300;
+                                    break;
+                                case 7:
+                                case 10:
+                                    s = 1000;
+                                    break;
+                                case 17:
+                                case 20:
+                                case 32:
+                                case 35:
+                                    s = 40;
+                                    break;
+                                case 22:
+                                case 25:
+                                    s = 700;
+                                    break;
+                                case 27:
+                                case 30:
+                                    s = 900;
+                                    break;
+                                case 0:
+                                case 6:
+                                case 11:
+                                case 16:
+                                case 21:
+                                case 26:
+                                case 31:
+                                    s = parseFloat(asgar(choosen, tablo + 1));
+                                    break;
+                                case 2:
+                                case 8:
+                                case 13:
+                                case 18:
+                                case 23:
+                                case 28:
+                                case 33:
+                                    s = parseFloat(abjad("شين", tablo - 1, 1));
+                                    break;
+                                case 3:
+                                case 9:
+                                case 14:
+                                case 19:
+                                case 24:
+                                case 29:
+                                case 34:
+                                    s = parseFloat(bastet(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"));
+                                    break;
+                                case 5:
+                                    s = 1;
+                                    break;
+                                default:
+                                    err = 1;
+                            }
+                            break;
+                        case "ت":
+                            switch (tablo) {
+                                case 1:
+                                case 4:
+                                case 7:
+                                case 10:
+                                    s = 400;
+                                    break;
+                                case 12:
+                                case 15:
+                                    s = 10;
+                                    break;
+                                case 17:
+                                case 20:
+                                case 22:
+                                case 25:
+                                case 27:
+                                case 30:
+                                case 32:
+                                case 35:
+                                    s = 3;
+                                    break;
+                                case 0:
+                                case 6:
+                                case 11:
+                                case 16:
+                                case 21:
+                                case 26:
+                                case 31:
+                                    s = parseFloat(asgar(choosen, tablo + 1));
+                                    break;
+                                case 2:
+                                case 8:
+                                case 13:
+                                case 18:
+                                case 23:
+                                case 28:
+                                case 33:
+                                    s = parseFloat(abjad("تا", tablo - 1, 1));
+                                    break;
+                                case 3:
+                                case 9:
+                                case 14:
+                                case 19:
+                                case 24:
+                                case 29:
+                                case 34:
+                                    s = parseFloat(bastet(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"));
+                                    break;
+                                case 5:
+                                    s = 1;
+                                    break;
+                                default:
+                                    err = 1;
+                            }
+                            break;
+                        case "ث":
+                            switch (tablo) {
+                                case 1:
+                                case 4:
+                                case 7:
+                                case 10:
+                                    s = 500;
+                                    break;
+                                case 12:
+                                case 15:
+                                    s = 700;
+                                    break;
+                                case 17:
+                                case 20:
+                                case 22:
+                                case 25:
+                                case 27:
+                                case 30:
+                                case 32:
+                                case 35:
+                                    s = 4;
+                                    break;
+                                case 0:
+                                case 6:
+                                case 11:
+                                case 16:
+                                case 21:
+                                case 26:
+                                case 31:
+                                    s = parseFloat(asgar(choosen, tablo + 1));
+                                    break;
+                                case 2:
+                                case 8:
+                                case 13:
+                                case 18:
+                                case 23:
+                                case 28:
+                                case 33:
+                                    s = parseFloat(abjad("ثا", tablo - 1, 1));
+                                    break;
+                                case 3:
+                                case 9:
+                                case 14:
+                                case 19:
+                                case 24:
+                                case 29:
+                                case 34:
+                                    s = parseFloat(bastet(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"));
+                                    break;
+                                case 5:
+                                    s = 1;
+                                    break;
+                                default:
+                                    err = 1;
+                            }
+                            break;
+                        case "خ":
+                            switch (tablo) {
+                                case 1:
+                                case 4:
+                                case 7:
+                                case 10:
+                                    s = 600;
+                                    break;
+                                case 12:
+                                case 15:
+                                    s = 200;
+                                    break;
+                                case 17:
+                                case 20:
+                                case 22:
+                                case 25:
+                                case 27:
+                                case 30:
+                                case 32:
+                                case 35:
+                                    s = 7;
+                                    break;
+                                case 0:
+                                case 6:
+                                case 11:
+                                case 16:
+                                case 21:
+                                case 26:
+                                case 31:
+                                    s = parseFloat(asgar(choosen, tablo + 1));
+                                    break;
+                                case 2:
+                                case 8:
+                                case 13:
+                                case 18:
+                                case 23:
+                                case 28:
+                                case 33:
+                                    s = parseFloat(abjad("خا", tablo - 1, 1));
+                                    break;
+                                case 3:
+                                case 9:
+                                case 14:
+                                case 19:
+                                case 24:
+                                case 29:
+                                case 34:
+                                    s = parseFloat(bastet(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"));
+                                    break;
+                                case 5:
+                                    s = 1;
+                                    break;
+                                default:
+                                    err = 1;
+                            }
+                            break;
+                        case "ذ":
+                            switch (tablo) {
+                                case 1:
+                                case 4:
+                                case 7:
+                                case 10:
+                                    s = 700;
+                                    break;
+                                case 12:
+                                case 15:
+                                    s = 80;
+                                    break;
+                                case 17:
+                                case 20:
+                                case 22:
+                                case 25:
+                                case 27:
+                                case 30:
+                                case 32:
+                                case 35:
+                                    s = 9;
+                                    break;
+                                case 0:
+                                case 6:
+                                case 11:
+                                case 16:
+                                case 21:
+                                case 26:
+                                case 31:
+                                    s = parseFloat(asgar(choosen, tablo + 1));
+                                    break;
+                                case 2:
+                                case 8:
+                                case 13:
+                                case 18:
+                                case 23:
+                                case 28:
+                                case 33:
+                                    s = parseFloat(abjad("ذال", tablo - 1, 1));
+                                    break;
+                                case 3:
+                                case 9:
+                                case 14:
+                                case 19:
+                                case 24:
+                                case 29:
+                                case 34:
+                                    s = parseFloat(bastet(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"));
+                                    break;
+                                case 5:
+                                    s = 1;
+                                    break;
+                                default:
+                                    err = 1;
+                            }
+                            break;
+                        case "ض":
+                            switch (tablo) {
+                                case 1:
+                                case 4:
+                                    s = 800;
+                                    break;
+                                case 7:
+                                case 10:
+                                    s = 90;
+                                    break;
+                                case 12:
+                                case 15:
+                                    s = 500;
+                                    break;
+                                case 17:
+                                case 20:
+                                case 32:
+                                case 35:
+                                    s = 60;
+                                    break;
+                                case 22:
+                                case 25:
+                                    s = 100;
+                                    break;
+                                case 27:
+                                case 30:
+                                    s = 70;
+                                    break;
+                                case 0:
+                                case 6:
+                                case 11:
+                                case 16:
+                                case 21:
+                                case 26:
+                                case 31:
+                                    s = parseFloat(asgar(choosen, tablo + 1));
+                                    break;
+                                case 2:
+                                case 8:
+                                case 13:
+                                case 18:
+                                case 23:
+                                case 28:
+                                case 33:
+                                    s = parseFloat(abjad("ضاد", tablo - 1, 1));
+                                    break;
+                                case 3:
+                                case 9:
+                                case 14:
+                                case 19:
+                                case 24:
+                                case 29:
+                                case 34:
+                                    s = parseFloat(bastet(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"));
+                                    break;
+                                case 5:
+                                    s = 1;
+                                    break;
+                                default:
+                                    err = 1;
+                            }
+                            break;
+                        case "ظ":
+                            switch (tablo) {
+                                case 1:
+                                case 4:
+                                    s = 900;
+                                    break;
+                                case 7:
+                                case 10:
+                                    s = 800;
+                                    break;
+                                case 12:
+                                case 15:
+                                    s = 1000;
+                                    break;
+                                case 17:
+                                case 20:
+                                case 32:
+                                case 35:
+                                    s = 80;
+                                    break;
+                                case 22:
+                                case 25:
+                                    s = 40;
+                                    break;
+                                case 27:
+                                case 30:
+                                    s = 200;
+                                    break;
+                                case 0:
+                                case 6:
+                                case 11:
+                                case 16:
+                                case 21:
+                                case 26:
+                                case 31:
+                                    s = parseFloat(asgar(choosen, tablo + 1));
+                                    break;
+                                case 2:
+                                case 8:
+                                case 13:
+                                case 18:
+                                case 23:
+                                case 28:
+                                case 33:
+                                    s = parseFloat(abjad("ظا", tablo - 1, 1));
+                                    break;
+                                case 3:
+                                case 9:
+                                case 14:
+                                case 19:
+                                case 24:
+                                case 29:
+                                case 34:
+                                    s = parseFloat(bastet(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"));
+                                    break;
+                                case 5:
+                                    s = 1;
+                                    break;
+                                default:
+                                    err = 1;
+                            }
+                            break;
+                        case "غ":
+                            switch (tablo) {
+                                case 1:
+                                case 4:
+                                    s = 1000;
+                                    break;
+                                case 7:
+                                case 10:
+                                case 12:
+                                case 15:
+                                    s = 900;
+                                    break;
+                                case 17:
+                                case 20:
+                                case 32:
+                                case 35:
+                                    s = 100;
+                                    break;
+                                case 22:
+                                case 25:
+                                    s = 300;
+                                    break;
+                                case 27:
+                                case 30:
+                                    s = 90;
+                                    break;
+                                case 0:
+                                case 6:
+                                case 11:
+                                case 16:
+                                case 21:
+                                case 26:
+                                case 31:
+                                    s = parseFloat(asgar(choosen, tablo + 1));
+                                    break;
+                                case 2:
+                                case 8:
+                                case 13:
+                                case 18:
+                                case 23:
+                                case 28:
+                                case 33:
+                                    s = parseFloat(abjad("غين", tablo - 1, 1));
+                                    break;
+                                case 3:
+                                case 9:
+                                case 14:
+                                case 19:
+                                case 24:
+                                case 29:
+                                case 34:
+                                    s = parseFloat(bastet(choosen, 1, -1 - (tablo - 2), 1, "ARABIC"));
+                                    break;
+                                case 5:
+                                    s = 1;
+                                    break;
+                                default:
+                                    err = 1;
+                            }
+                            break;
+                        case "א":
+                            switch (tablo) {
+                                case 1:
+                                case 4:
+                                    s = 1;
+                                    break;
+                                case 0:
+                                    s = parseFloat(asgar(choosen, 1));
+                                    break;
+                                case 2:
+                                    s = parseFloat(abjad("אלף", 1, 1));
+                                    break;
+                                case 3:
+                                    s = parseFloat(bastet(choosen, 1, -2, 1, "HEBREW"));
+                                    break;
+                                case 5:
+                                    s = 1;
+                                    break;
+                                default:
+                                    err = 1;
+                            }
+                            break;
+                        case "ב":
+                            switch (tablo) {
+                                case 1:
+                                case 4:
+                                    s = 2;
+                                    break;
+                                case 0:
+                                    s = parseFloat(asgar(choosen, 1));
+                                    break;
+                                case 2:
+                                    s = parseFloat(abjad("בית", 1, 1));
+                                    break;
+                                case 3:
+                                    s = parseFloat(bastet(choosen, 1, -2, 1, "HEBREW"));
+                                    break;
+                                case 5:
+                                    s = 1;
+                                    break;
+                                default:
+                                    err = 1;
+                            }
+                            break;
+                        case "ג":
+                            switch (tablo) {
+                                case 1:
+                                case 4:
+                                    s = 3;
+                                    break;
+                                case 0:
+                                    s = parseFloat(asgar(choosen, 1));
+                                    break;
+                                case 2:
+                                    s = parseFloat(abjad("גימל", 1, 1));
+                                    break;
+                                case 3:
+                                    s = parseFloat(bastet(choosen, 1, -2, 1, "HEBREW"));
+                                    break;
+                                case 5:
+                                    s = 1;
+                                    break;
+                                default:
+                                    err = 1;
+                            }
+                            break;
+                        case "ד":
+                            switch (tablo) {
+                                case 1:
+                                case 4:
+                                    s = 4;
+                                    break;
+                                case 0:
+                                    s = parseFloat(asgar(choosen, 1));
+                                    break;
+                                case 2:
+                                    s = parseFloat(abjad("דלת", 1, 1));
+                                    break;
+                                case 3:
+                                    s = parseFloat(bastet(choosen, 1, -2, 1, "HEBREW"));
+                                    break;
+                                case 5:
+                                    s = 1;
+                                    break;
+                                default:
+                                    err = 1;
+                            }
+                            break;
+                        case "ה":
+                            switch (tablo) {
+                                case 1:
+                                case 4:
+                                    s = 5;
+                                    break;
+                                case 0:
+                                    s = parseFloat(asgar(choosen, 1));
+                                    break;
+                                case 2:
+                                    s = parseFloat(abjad("הא", 1, 1));
+                                    break;
+                                case 3:
+                                    s = parseFloat(bastet(choosen, 1, -2, 1, "HEBREW"));
+                                    break;
+                                case 5:
+                                    s = 1;
+                                    break;
+                                default:
+                                    err = 1;
+                            }
+                            break;
+                        case "ו":
+                            switch (tablo) {
+                                case 1:
+                                case 4:
+                                    s = 6;
+                                    break;
+                                case 0:
+                                    s = parseFloat(asgar(choosen, 1));
+                                    break;
+                                case 2:
+                                    s = parseFloat(abjad("וו", 1, 1));
+                                    break;
+                                case 3:
+                                    s = parseFloat(bastet(choosen, 1, -2, 1, "HEBREW"));
+                                    break;
+                                case 5:
+                                    s = 1;
+                                    break;
+                                default:
+                                    err = 1;
+                            }
+                            break;
+                        case "ז":
+                            switch (tablo) {
+                                case 1:
+                                case 4:
+                                    s = 7;
+                                    break;
+                                case 0:
+                                    s = parseFloat(asgar(choosen, 1));
+                                    break;
+                                case 2:
+                                    s = parseFloat(abjad("זין", 1, 1));
+                                    break;
+                                case 3:
+                                    s = parseFloat(bastet(choosen, 1, -2, 1, "HEBREW"));
+                                    break;
+                                case 5:
+                                    s = 1;
+                                    break;
+                                default:
+                                    err = 1;
+                            }
+                            break;
+                        case "ח":
+                            switch (tablo) {
+                                case 1:
+                                case 4:
+                                    s = 8;
+                                    break;
+                                case 0:
+                                    s = parseFloat(asgar(choosen, 1));
+                                    break;
+                                case 2:
+                                    s = parseFloat(abjad("חית", 1, 1));
+                                    break;
+                                case 3:
+                                    s = parseFloat(bastet(choosen, 1, -2, 1, "HEBREW"));
+                                    break;
+                                case 5:
+                                    s = 1;
+                                    break;
+                                default:
+                                    err = 1;
+                            }
+                            break;
+                        case "ט":
+                            switch (tablo) {
+                                case 1:
+                                case 4:
+                                    s = 9;
+                                    break;
+                                case 0:
+                                    s = parseFloat(asgar(choosen, 1));
+                                    break;
+                                case 2:
+                                    s = parseFloat(abjad("טיח", 1, 1));
+                                    break;
+                                case 3:
+                                    s = parseFloat(bastet(choosen, 1, -2, 1, "HEBREW"));
+                                    break;
+                                case 5:
+                                    s = 1;
+                                    break;
+                                default:
+                                    err = 1;
+                            }
+                            break;
+                        case "י":
+                            switch (tablo) {
+                                case 1:
+                                case 4:
+                                    s = 10;
+                                    break;
+                                case 0:
+                                    s = parseFloat(asgar(choosen, 1));
+                                    break;
+                                case 2:
+                                    s = parseFloat(abjad("יוד", 1, 1));
+                                    break;
+                                case 3:
+                                    s = parseFloat(bastet(choosen, 1, -2, 1, "HEBREW"));
+                                    break;
+                                case 5:
+                                    s = 1;
+                                    break;
+                                default:
+                                    err = 1;
+                            }
+                            break;
+                        case "כ":
+                            switch (tablo) {
+                                case 1:
+                                case 4:
+                                    s = 20;
+                                    break;
+                                case 0:
+                                    s = parseFloat(asgar(choosen, 1));
+                                    break;
+                                case 2:
+                                    s = parseFloat(abjad("כף", 1, 1));
+                                    break;
+                                case 3:
+                                    s = parseFloat(bastet(choosen, 1, -2, 1, "HEBREW"));
+                                    break;
+                                case 5:
+                                    s = 1;
+                                    break;
+                                default:
+                                    err = 1;
+                            }
+                            break;
+                        case "ל":
+                            switch (tablo) {
+                                case 1:
+                                case 4:
+                                    s = 30;
+                                    break;
+                                case 0:
+                                    s = parseFloat(asgar(choosen, 1));
+                                    break;
+                                case 2:
+                                    s = parseFloat(abjad("למד", 1, 1));
+                                    break;
+                                case 3:
+                                    s = parseFloat(bastet(choosen, 1, -2, 1, "HEBREW"));
+                                    break;
+                                case 5:
+                                    s = 1;
+                                    break;
+                                default:
+                                    err = 1;
+                            }
+                            break;
+                        case "מ":
+                            switch (tablo) {
+                                case 1:
+                                case 4:
+                                    s = 40;
+                                    break;
+                                case 0:
+                                    s = parseFloat(asgar(choosen, 1));
+                                    break;
+                                case 2:
+                                    s = parseFloat(abjad("מם", 1, 1));
+                                    break;
+                                case 3:
+                                    s = parseFloat(bastet(choosen, 1, -2, 1, "HEBREW"));
+                                    break;
+                                case 5:
+                                    s = 1;
+                                    break;
+                                default:
+                                    err = 1;
+                            }
+                            break;
+                        case "נ":
+                            switch (tablo) {
+                                case 1:
+                                case 4:
+                                    s = 50;
+                                    break;
+                                case 0:
+                                    s = parseFloat(asgar(choosen, 1));
+                                    break;
+                                case 2:
+                                    s = parseFloat(abjad("נון", 1, 1));
+                                    break;
+                                case 3:
+                                    s = parseFloat(bastet(choosen, 1, -2, 1, "HEBREW"));
+                                    break;
+                                case 5:
+                                    s = 1;
+                                    break;
+                                default:
+                                    err = 1;
+                            }
+                            break;
+                        case "ס":
+                            switch (tablo) {
+                                case 1:
+                                case 4:
+                                    s = 60;
+                                    break;
+                                case 0:
+                                    s = parseFloat(asgar(choosen, 1));
+                                    break;
+                                case 2:
+                                    s = parseFloat(abjad("סמך", 1, 1));
+                                    break;
+                                case 3:
+                                    s = parseFloat(bastet(choosen, 1, -2, 1, "HEBREW"));
+                                    break;
+                                case 5:
+                                    s = 1;
+                                    break;
+                                default:
+                                    err = 1;
+                            }
+                            break;
+                        case "ע":
+                            switch (tablo) {
+                                case 1:
+                                case 4:
+                                    s = 70;
+                                    break;
+                                case 0:
+                                    s = parseFloat(asgar(choosen, 1));
+                                    break;
+                                case 2:
+                                    s = parseFloat(abjad("עין", 1, 1));
+                                    break;
+                                case 3:
+                                    s = parseFloat(bastet(choosen, 1, -2, 1, "HEBREW"));
+                                    break;
+                                case 5:
+                                    s = 1;
+                                    break;
+                                default:
+                                    err = 1;
+                            }
+                            break;
+                        case "פ":
+                            switch (tablo) {
+                                case 1:
+                                case 4:
+                                    s = 80;
+                                    break;
+                                case 0:
+                                    s = parseFloat(asgar(choosen, 1));
+                                    break;
+                                case 2:
+                                    s = parseFloat(abjad("פא", 1, 1));
+                                    break;
+                                case 3:
+                                    s = parseFloat(bastet(choosen, 1, -2, 1, "HEBREW"));
+                                    break;
+                                case 5:
+                                    s = 1;
+                                    break;
+                                default:
+                                    err = 1;
+                            }
+                            break;
+                        case "צ":
+                            switch (tablo) {
+                                case 1:
+                                case 4:
+                                    s = 90;
+                                    break;
+                                case 0:
+                                    s = parseFloat(asgar(choosen, 1));
+                                    break;
+                                case 2:
+                                    s = parseFloat(abjad("צדי", 1, 1));
+                                    break;
+                                case 3:
+                                    s = parseFloat(bastet(choosen, 1, -2, 1, "HEBREW"));
+                                    break;
+                                case 5:
+                                    s = 1;
+                                    break;
+                                default:
+                                    err = 1;
+                            }
+                            break;
+                        case "ק":
+                            switch (tablo) {
+                                case 1:
+                                case 4:
+                                    s = 100;
+                                    break;
+                                case 0:
+                                    s = parseFloat(asgar(choosen, 1));
+                                    break;
+                                case 2:
+                                    s = parseFloat(abjad("קוף", 1, 1));
+                                    break;
+                                case 3:
+                                    s = parseFloat(bastet(choosen, 1, -2, 1, "HEBREW"));
+                                    break;
+                                case 5:
+                                    s = 1;
+                                    break;
+                                default:
+                                    err = 1;
+                            }
+                            break;
+                        case "ר":
+                            switch (tablo) {
+                                case 1:
+                                case 4:
+                                    s = 200;
+                                    break;
+                                case 0:
+                                    s = parseFloat(asgar(choosen, 1));
+                                    break;
+                                case 2:
+                                    s = parseFloat(abjad("ריש", 1, 1));
+                                    break;
+                                case 3:
+                                    s = parseFloat(bastet(choosen, 1, -2, 1, "HEBREW"));
+                                    break;
+                                case 5:
+                                    s = 1;
+                                    break;
+                                default:
+                                    err = 1;
+                            }
+                            break;
+                        case "ש":
+                            switch (tablo) {
+                                case 1:
+                                case 4:
+                                    s = 300;
+                                    break;
+                                case 0:
+                                    s = parseFloat(asgar(choosen, 1));
+                                    break;
+                                case 2:
+                                    s = parseFloat(abjad("שין", 1, 1));
+                                    break;
+                                case 3:
+                                    s = parseFloat(bastet(choosen, 1, -2, 1, "HEBREW"));
+                                    break;
+                                case 5:
+                                    s = 1;
+                                    break;
+                                default:
+                                    err = 1;
+                            }
+                            break;
+                        case "ת":
+                            switch (tablo) {
+                                case 1:
+                                case 4:
+                                    s = 400;
+                                    break;
+                                case 0:
+                                    s = parseFloat(asgar(choosen, 1));
+                                    break;
+                                case 2:
+                                    s = parseFloat(abjad("תו", 1, 1));
+                                    break;
+                                case 3:
+                                    s = parseFloat(bastet(choosen, 1, -2, 1, "HEBREW"));
+                                    break;
+                                case 5:
+                                    s = 1;
+                                    break;
+                                default:
+                                    err = 1;
+                            }
+                            break;
+                        case "ך":
+                            switch (tablo) {
+                                case 1:
+                                case 4:
+                                    s = 500;
+                                    break;
+                                case 0:
+                                    s = parseFloat(asgar(choosen, 1));
+                                    break;
+                                case 2:
+                                    s = parseFloat(abjad("ךף", 1, 1));
+                                    break;
+                                case 3:
+                                    s = parseFloat(bastet(choosen, 1, -2, 1, "HEBREW"));
+                                    break;
+                                case 5:
+                                    s = 1;
+                                    break;
+                                default:
+                                    err = 1;
+                            }
+                            break;
+                        case "ם":
+                            switch (tablo) {
+                                case 1:
+                                case 4:
+                                    s = 600;
+                                    break;
+                                case 0:
+                                    s = parseFloat(asgar(choosen, 1));
+                                    break;
+                                case 2:
+                                    s = parseFloat(abjad("םם", 1, 1));
+                                    break;
+                                case 3:
+                                    s = parseFloat(bastet(choosen, 1, -2, 1, "HEBREW"));
+                                    break;
+                                case 5:
+                                    s = 1;
+                                    break;
+                                default:
+                                    err = 1;
+                            }
+                            break;
+                        case "ן":
+                            switch (tablo) {
+                                case 1:
+                                case 4:
+                                    s = 700;
+                                    break;
+                                case 0:
+                                    s = parseFloat(asgar(choosen, 1));
+                                    break;
+                                case 2:
+                                    s = parseFloat(abjad("וןן", 1, 1));
+                                    break;
+                                case 3:
+                                    s = parseFloat(bastet(choosen, 1, -2, 1, "HEBREW"));
+                                    break;
+                                case 5:
+                                    s = 1;
+                                    break;
+                                default:
+                                    err = 1;
+                            }
+                            break;
+                        case "ף":
+                            switch (tablo) {
+                                case 1:
+                                case 4:
+                                    s = 800;
+                                    break;
+                                case 0:
+                                    s = parseFloat(asgar(choosen, 1));
+                                    break;
+                                case 2:
+                                    s = parseFloat(abjad("ףא", 1, 1));
+                                    break;
+                                case 3:
+                                    s = parseFloat(bastet(choosen, 1, -2, 1, "HEBREW"));
+                                    break;
+                                case 5:
+                                    s = 1;
+                                    break;
+                                default:
+                                    err = 1;
+                            }
+                            break;
+                        case "ץ":
+                            switch (tablo) {
+                                case 1:
+                                case 4:
+                                    s = 900;
+                                    break;
+                                case 0:
+                                    s = parseFloat(asgar(choosen, 1));
+                                    break;
+                                case 2:
+                                    s = parseFloat(abjad("ץדי", 1, 1));
+                                    break;
+                                case 3:
+                                    s = parseFloat(bastet(choosen, 1, -2, 1, "HEBREW"));
+                                    break;
+                                case 5:
+                                    s = 1;
+                                    break;
+                                default:
+                                    err = 1;
+                            }
+                            break;
+                        case "A":
+                        case "a":
+                            switch (tablo) {
+                                case 1:
+                                case 4:
+                                    s = 1;
+                                    break;
+                                case 0:
+                                    s = parseFloat(asgar(choosen, 1));
+                                    break;
+                                case 2:
+                                    s = parseFloat(abjad("aa", 1, 1));
+                                    break;
+                                case 3:
+                                    s = parseFloat(bastet(choosen, 1, -2, 1, "TURKCE"));
+                                    break;
+                                case 5:
+                                    s = 1;
+                                    break;
+                                default:
+                                    err = 1;
+                            }
+                            break;
+                        case "B":
+                        case "b":
+                            switch (tablo) {
+                                case 1:
+                                case 4:
+                                    s = 2;
+                                    break;
+                                case 0:
+                                    s = parseFloat(asgar(choosen, 1));
+                                    break;
+                                case 2:
+                                    s = parseFloat(abjad("be", 1, 1));
+                                    break;
+                                case 3:
+                                    s = parseFloat(bastet(choosen, 1, -2, 1, "TURKCE"));
+                                    break;
+                                case 5:
+                                    s = 1;
+                                    break;
+                                default:
+                                    err = 1;
+                            }
+                            break;
+                        case "C":
+                        case "c":
+                        case "Ç":
+                        case "ç":
+                            switch (tablo) {
+                                case 1:
+                                case 4:
+                                    s = 3;
+                                    break;
+                                case 0:
+                                    s = parseFloat(asgar(choosen, 1));
+                                    break;
+                                case 2:
+                                    s = parseFloat(abjad("ce", 1, 1));
+                                    break;
+                                case 3:
+                                    s = parseFloat(bastet(choosen, 1, -2, 1, "TURKCE"));
+                                    break;
+                                case 5:
+                                    s = 1;
+                                    break;
+                                default:
+                                    err = 1;
+                            }
+                            break;
+                        case "D":
+                        case "d":
+                            switch (tablo) {
+                                case 1:
+                                case 4:
+                                    s = 4;
+                                    break;
+                                case 0:
+                                    s = parseFloat(asgar(choosen, 1));
+                                    break;
+                                case 2:
+                                    s = parseFloat(abjad("de", 1, 1));
+                                    break;
+                                case 3:
+                                    s = parseFloat(bastet(choosen, 1, -2, 1, "TURKCE"));
+                                    break;
+                                case 5:
+                                    s = 1;
+                                    break;
+                                default:
+                                    err = 1;
+                            }
+                            break;
+                        case "E":
+                        case "e":
+                            switch (tablo) {
+                                case 1:
+                                case 4:
+                                    s = 5;
+                                    break;
+                                case 0:
+                                    s = parseFloat(asgar(choosen, 1));
+                                    break;
+                                case 2:
+                                    s = parseFloat(abjad("ee", 1, 1));
+                                    break;
+                                case 3:
+                                    s = parseFloat(bastet(choosen, 1, -2, 1, "TURKCE"));
+                                    break;
+                                case 5:
+                                    s = 1;
+                                    break;
+                                default:
+                                    err = 1;
+                            }
+                            break;
+                        case "F":
+                        case "f":
+                            switch (tablo) {
+                                case 1:
+                                case 4:
+                                    s = 6;
+                                    break;
+                                case 0:
+                                    s = parseFloat(asgar(choosen, 1));
+                                    break;
+                                case 2:
+                                    s = parseFloat(abjad("fe", 1, 1));
+                                    break;
+                                case 3:
+                                    s = parseFloat(bastet(choosen, 1, -2, 1, "TURKCE"));
+                                    break;
+                                case 5:
+                                    s = 1;
+                                    break;
+                                default:
+                                    err = 1;
+                            }
+                            break;
+                        case "G":
+                        case "g":
+                            switch (tablo) {
+                                case 1:
+                                case 4:
+                                    s = 7;
+                                    break;
+                                case 0:
+                                    s = parseFloat(asgar(choosen, 1));
+                                    break;
+                                case 2:
+                                    s = parseFloat(abjad("ge", 1, 1));
+                                    break;
+                                case 3:
+                                    s = parseFloat(bastet(choosen, 1, -2, 1, "TURKCE"));
+                                    break;
+                                case 5:
+                                    s = 1;
+                                    break;
+                                default:
+                                    err = 1;
+                            }
+                            break;
+                        case "Ğ":
+                        case "ğ":
+                            switch (tablo) {
+                                case 1:
+                                case 4:
+                                    s = 8;
+                                    break;
+                                case 0:
+                                    s = parseFloat(asgar(choosen, 1));
+                                    break;
+                                case 2:
+                                    s = parseFloat(abjad("yumusakge", 1, 1));
+                                    break;
+                                case 3:
+                                    s = parseFloat(bastet(choosen, 1, -2, 1, "TURKCE"));
+                                    break;
+                                case 5:
+                                    s = 1;
+                                    break;
+                                default:
+                                    err = 1;
+                            }
+                            break;
+                        case "H":
+                        case "h":
+                            switch (tablo) {
+                                case 1:
+                                case 4:
+                                    s = 9;
+                                    break;
+                                case 0:
+                                    s = parseFloat(asgar(choosen, 1));
+                                    break;
+                                case 2:
+                                    s = parseFloat(abjad("he", 1, 1));
+                                    break;
+                                case 3:
+                                    s = parseFloat(bastet(choosen, 1, -2, 1, "TURKCE"));
+                                    break;
+                                case 5:
+                                    s = 1;
+                                    break;
+                                default:
+                                    err = 1;
+                            }
+                            break;
+                        case "I":
+                        case "ı":
+                            switch (tablo) {
+                                case 1:
+                                case 4:
+                                    s = 10;
+                                    break;
+                                case 0:
+                                    s = parseFloat(asgar(choosen, 1));
+                                    break;
+                                case 2:
+                                    s = parseFloat(abjad("ıı", 1, 1));
+                                    break;
+                                case 3:
+                                    s = parseFloat(bastet(choosen, 1, -2, 1, "TURKCE"));
+                                    break;
+                                case 5:
+                                    s = 1;
+                                    break;
+                                default:
+                                    err = 1;
+                            }
+                            break;
+                        case "İ":
+                        case "i":
+                            switch (tablo) {
+                                case 1:
+                                case 4:
+                                    s = 20;
+                                    break;
+                                case 0:
+                                    s = parseFloat(asgar(choosen, 1));
+                                    break;
+                                case 2:
+                                    s = parseFloat(abjad("ii", 1, 1));
+                                    break;
+                                case 3:
+                                    s = parseFloat(bastet(choosen, 1, -2, 1, "TURKCE"));
+                                    break;
+                                case 5:
+                                    s = 1;
+                                    break;
+                                default:
+                                    err = 1;
+                            }
+                            break;
+                        case "J":
+                        case "j":
+                            switch (tablo) {
+                                case 1:
+                                case 4:
+                                    s = 30;
+                                    break;
+                                case 0:
+                                    s = parseFloat(asgar(choosen, 1));
+                                    break;
+                                case 2:
+                                    s = parseFloat(abjad("je", 1, 1));
+                                    break;
+                                case 3:
+                                    s = parseFloat(bastet(choosen, 1, -2, 1, "TURKCE"));
+                                    break;
+                                case 5:
+                                    s = 1;
+                                    break;
+                                default:
+                                    err = 1;
+                            }
+                            break;
+                        case "K":
+                        case "k":
+                            switch (tablo) {
+                                case 1:
+                                case 4:
+                                    s = 40;
+                                    break;
+                                case 0:
+                                    s = parseFloat(asgar(choosen, 1));
+                                    break;
+                                case 2:
+                                    s = parseFloat(abjad("ke", 1, 1));
+                                    break;
+                                case 3:
+                                    s = parseFloat(bastet(choosen, 1, -2, 1, "TURKCE"));
+                                    break;
+                                case 5:
+                                    s = 1;
+                                    break;
+                                default:
+                                    err = 1;
+                            }
+                            break;
+                        case "L":
+                        case "l":
+                            switch (tablo) {
+                                case 1:
+                                case 4:
+                                    s = 50;
+                                    break;
+                                case 0:
+                                    s = parseFloat(asgar(choosen, 1));
+                                    break;
+                                case 2:
+                                    s = parseFloat(abjad("le", 1, 1));
+                                    break;
+                                case 3:
+                                    s = parseFloat(bastet(choosen, 1, -2, 1, "TURKCE"));
+                                    break;
+                                case 5:
+                                    s = 1;
+                                    break;
+                                default:
+                                    err = 1;
+                            }
+                            break;
+                        case "M":
+                        case "m":
+                            switch (tablo) {
+                                case 1:
+                                case 4:
+                                    s = 60;
+                                    break;
+                                case 0:
+                                    s = parseFloat(asgar(choosen, 1));
+                                    break;
+                                case 2:
+                                    s = parseFloat(abjad("me", 1, 1));
+                                    break;
+                                case 3:
+                                    s = parseFloat(bastet(choosen, 1, -2, 1, "TURKCE"));
+                                    break;
+                                case 5:
+                                    s = 1;
+                                    break;
+                                default:
+                                    err = 1;
+                            }
+                            break;
+                        case "N":
+                        case "n":
+                            switch (tablo) {
+                                case 1:
+                                case 4:
+                                    s = 70;
+                                    break;
+                                case 0:
+                                    s = parseFloat(asgar(choosen, 1));
+                                    break;
+                                case 2:
+                                    s = parseFloat(abjad("ne", 1, 1));
+                                    break;
+                                case 3:
+                                    s = parseFloat(bastet(choosen, 1, -2, 1, "TURKCE"));
+                                    break;
+                                case 5:
+                                    s = 1;
+                                    break;
+                                default:
+                                    err = 1;
+                            }
+                            break;
+                        case "O":
+                        case "o":
+                            switch (tablo) {
+                                case 1:
+                                case 4:
+                                    s = 80;
+                                    break;
+                                case 0:
+                                    s = parseFloat(asgar(choosen, 1));
+                                    break;
+                                case 2:
+                                    s = parseFloat(abjad("oo", 1, 1));
+                                    break;
+                                case 3:
+                                    s = parseFloat(bastet(choosen, 1, -2, 1, "TURKCE"));
+                                    break;
+                                case 5:
+                                    s = 1;
+                                    break;
+                                default:
+                                    err = 1;
+                            }
+                            break;
+                        case "Ö":
+                        case "ö":
+                            switch (tablo) {
+                                case 1:
+                                case 4:
+                                    s = 90;
+                                    break;
+                                case 0:
+                                    s = parseFloat(asgar(choosen, 1));
+                                    break;
+                                case 2:
+                                    s = parseFloat(abjad("öö", 1, 1));
+                                    break;
+                                case 3:
+                                    s = parseFloat(bastet(choosen, 1, -2, 1, "TURKCE"));
+                                    break;
+                                case 5:
+                                    s = 1;
+                                    break;
+                                default:
+                                    err = 1;
+                            }
+                            break;
+                        case "P":
+                        case "p":
+                            switch (tablo) {
+                                case 1:
+                                case 4:
+                                    s = 100;
+                                    break;
+                                case 0:
+                                    s = parseFloat(asgar(choosen, 1));
+                                    break;
+                                case 2:
+                                    s = parseFloat(abjad("pe", 1, 1));
+                                    break;
+                                case 3:
+                                    s = parseFloat(bastet(choosen, 1, -2, 1, "TURKCE"));
+                                    break;
+                                case 5:
+                                    s = 1;
+                                    break;
+                                default:
+                                    err = 1;
+                            }
+                            break;
+                        case "R":
+                        case "r":
+                            switch (tablo) {
+                                case 1:
+                                case 4:
+                                    s = 200;
+                                    break;
+                                case 0:
+                                    s = parseFloat(asgar(choosen, 1));
+                                    break;
+                                case 2:
+                                    s = parseFloat(abjad("re", 1, 1));
+                                    break;
+                                case 3:
+                                    s = parseFloat(bastet(choosen, 1, -2, 1, "TURKCE"));
+                                    break;
+                                case 5:
+                                    s = 1;
+                                    break;
+                                default:
+                                    err = 1;
+                            }
+                            break;
+                        case "S":
+                        case "s":
+                            switch (tablo) {
+                                case 1:
+                                case 4:
+                                    s = 300;
+                                    break;
+                                case 0:
+                                    s = parseFloat(asgar(choosen, 1));
+                                    break;
+                                case 2:
+                                    s = parseFloat(abjad("se", 1, 1));
+                                    break;
+                                case 3:
+                                    s = parseFloat(bastet(choosen, 1, -2, 1, "TURKCE"));
+                                    break;
+                                case 5:
+                                    s = 1;
+                                    break;
+                                default:
+                                    err = 1;
+                            }
+                            break;
+                        case "Ş":
+                        case "ş":
+                            switch (tablo) {
+                                case 1:
+                                case 4:
+                                    s = 400;
+                                    break;
+                                case 0:
+                                    s = parseFloat(asgar(choosen, 1));
+                                    break;
+                                case 2:
+                                    s = parseFloat(abjad("şe", 1, 1));
+                                    break;
+                                case 3:
+                                    s = parseFloat(bastet(choosen, 1, -2, 1, "TURKCE"));
+                                    break;
+                                case 5:
+                                    s = 1;
+                                    break;
+                                default:
+                                    err = 1;
+                            }
+                            break;
+                        case "T":
+                        case "t":
+                            switch (tablo) {
+                                case 1:
+                                case 4:
+                                    s = 500;
+                                    break;
+                                case 0:
+                                    s = parseFloat(asgar(choosen, 1));
+                                    break;
+                                case 2:
+                                    s = parseFloat(abjad("te", 1, 1));
+                                    break;
+                                case 3:
+                                    s = parseFloat(bastet(choosen, 1, -2, 1, "TURKCE"));
+                                    break;
+                                case 5:
+                                    s = 1;
+                                    break;
+                                default:
+                                    err = 1;
+                            }
+                            break;
+                        case "U":
+                        case "u":
+                            switch (tablo) {
+                                case 1:
+                                case 4:
+                                    s = 600;
+                                    break;
+                                case 0:
+                                    s = parseFloat(asgar(choosen, 1));
+                                    break;
+                                case 2:
+                                    s = parseFloat(abjad("uu", 1, 1));
+                                    break;
+                                case 3:
+                                    s = parseFloat(bastet(choosen, 1, -2, 1, "TURKCE"));
+                                    break;
+                                case 5:
+                                    s = 1;
+                                    break;
+                                default:
+                                    err = 1;
+                            }
+                            break;
+                        case "Ü":
+                        case "ü":
+                            switch (tablo) {
+                                case 1:
+                                case 4:
+                                    s = 700;
+                                    break;
+                                case 0:
+                                    s = parseFloat(asgar(choosen, 1));
+                                    break;
+                                case 2:
+                                    s = parseFloat(abjad("üü", 1, 1));
+                                    break;
+                                case 3:
+                                    s = parseFloat(bastet(choosen, 1, -2, 1, "TURKCE"));
+                                    break;
+                                case 5:
+                                    s = 1;
+                                    break;
+                                default:
+                                    err = 1;
+                            }
+                            break;
+                        case "V":
+                        case "v":
+                            switch (tablo) {
+                                case 1:
+                                case 4:
+                                    s = 800;
+                                    break;
+                                case 0:
+                                    s = parseFloat(asgar(choosen, 1));
+                                    break;
+                                case 2:
+                                    s = parseFloat(abjad("ve", 1, 1));
+                                    break;
+                                case 3:
+                                    s = parseFloat(bastet(choosen, 1, -2, 1, "TURKCE"));
+                                    break;
+                                case 5:
+                                    s = 1;
+                                    break;
+                                default:
+                                    err = 1;
+                            }
+                            break;
+                        case "Y":
+                        case "y":
+                            switch (tablo) {
+                                case 1:
+                                case 4:
+                                    s = 900;
+                                    break;
+                                case 0:
+                                    s = parseFloat(asgar(choosen, 1));
+                                    break;
+                                case 2:
+                                    s = parseFloat(abjad("ye", 1, 1));
+                                    break;
+                                case 3:
+                                    s = parseFloat(bastet(choosen, 1, -2, 1, "TURKCE"));
+                                    break;
+                                case 5:
+                                    s = 1;
+                                    break;
+                                default:
+                                    err = 1;
+                            }
+                            break;
+                        case "Z":
+                        case "z":
+                            switch (tablo) {
+                                case 1:
+                                case 4:
+                                    s = 1000;
+                                    break;
+                                case 0:
+                                    s = parseFloat(asgar(choosen, 1));
+                                    break;
+                                case 2:
+                                    s = parseFloat(abjad("ze", 1, 1));
+                                    break;
+                                case 3:
+                                    s = parseFloat(bastet(choosen, 1, -2, 1, "TURKCE"));
+                                    break;
+                                case 5:
+                                    s = 1;
+                                    break;
+                                default:
+                                    err = 1;
+                            }
+                            break;
+                        default:
+                            s = 0;
+                            n = n + 1;
+                            switch (choosen) {
+                                case "ّ":
+                                    if (shadda === 1) {
+                                        s = 0;
+                                    } else if (shadda > 2) {
+                                        err = 3;
+                                    } else if (shadda === 2) {
+                                        c = 0;
+                                        do {
+                                            choosen = metin[counter - c];
+                                            s = parseFloat(abjad(choosen, tablo, 1));
+                                            c += 1;
+                                            shaddie = shaddie + 1;
+                                        } while (saf(choosen, "", 1) === "");
+                                    } else if (shadda === undefined && detail === undefined || shadda === undefined && detail !== undefined) {
+                                        err = 3;
+                                    }
+                                    hrk = hrk + 1;
+                                    break;
+                                case "ٰ":
                                     c = 0;
                                     do {
                                         choosen = metin[counter - c];
-                                        s = parseFloat(abjad(choosen, tablo, 1));
+                                        if (choosen === "ـ") {
+                                            s = parseFloat(abjad("ا", tablo, 1));
+                                        }
                                         c += 1;
-                                        shaddie = shaddie + 1;
-                                    } while (saf(choosen, "", 1) === "");
-                                } else if (shadda === undefined && detail === undefined || shadda === undefined && detail !== undefined) {
-                                    err = 3;
-                                }
-                                hrk = hrk + 1;
-                                break;
-                            case "ٰ":
-                                c = 0;
-                                do {
-                                    choosen = metin[counter - c];
-                                    if (choosen === "ـ") {
-                                        s = parseFloat(abjad("ا", tablo, 1));
-                                    }
-                                    c += 1;
-                                } while (saf(choosen, "", 1) === "" || choosen !== "ـ");
-                                break;
+                                    } while (saf(choosen, "", 1) === "" || choosen !== "ـ");
+                                    break;
+                                case " ":
+                                    space = space + 1;
+                                    break;
+                                case String.fromCharCode(10):
+                                case String.fromCharCode(13):
+                                    break;
+                                case "َ":
+                                case "ِ":
+                                case "ً":
+                                case "ٍ":
+                                case "ُ":
+                                case "ْ":
+                                case "ٌ":
+                                case "ـ":
+                                    hrk += 1;
+                                    break;
+                                default:
+                                    nitem += choosen;
+                                    err = 2;
+                            }
+                    }
+                    if (detail === 1) {
+                        switch (saf(choosen, "", 1)) {
                             case " ":
-                                space = space + 1;
                                 break;
-                            case String.fromCharCode(10):
-                            case String.fromCharCode(13):
+                            case "ا":
+                                sn += "ا=" + s + " / ";
                                 break;
-                            case "َ":
-                            case "ِ":
-                            case "ً":
-                            case "ٍ":
-                            case "ُ":
-                            case "ْ":
-                            case "ٌ":
-                            case "ـ":
-                                hrk += 1;
+                            case choosen:
+                                sn += "" + choosen + "=" + s + " / ";
                                 break;
-                            default:
-                                nitem += choosen;
-                                err = 2;
                         }
-                }
-                if (detail === 1) {
-                    switch (saf(choosen, "", 1)) {
-                        case " ":
-                            break;
-                        case "ا":
-                            sn += "ا=" + s + " / ";
-                            break;
-                        case choosen:
-                            sn += "" + choosen + "=" + s + " / ";
-                            break;
-                    }
-                } else {
-                    sm += s;
-                }
-            }
-            switch (tablo) {
-                case 4:
-                case 10:
-                case 15:
-                case 20:
-                case 25:
-                case 30:
-                case 35:
-                    if (detail === 1 && shadda === undefined || detail === 1 && shadda !== undefined) {
-                        sn += " \+" + ((metin.length - n) + shaddie).toString() + " ";
                     } else {
-                        sm += ((metin.length - n) + shaddie);
+                        sm += s;
                     }
-                    break;
-                default:
+                }
+                switch (tablo) {
+                    case 4:
+                    case 10:
+                    case 15:
+                    case 20:
+                    case 25:
+                    case 30:
+                    case 35:
+                        if (detail === 1 && shadda === undefined || detail === 1 && shadda !== undefined) {
+                            sn += " \+" + ((metin.length - n) + shaddie).toString() + " ";
+                        } else {
+                            sm += ((metin.length - n) + shaddie);
+                        }
+                        break;
+                    default:
+                }
             }
         }
+        switch (err) {
+            case 0:
+                if (detail === 1 && shadda === undefined || detail === 1 && shadda !== undefined) {
+                    return "\ " + sn + "\ ";
+                } else {
+                    return sm;
+                }
+            case 1:
+                return "\ " + "Tablo Kodu?" + "\ ";
+            case 2:
+                return "\ " + (n - (space + hrk)).toString() + " Tanımsız:" + nitem + "\|" + space.toString() + " boşluk\|" + hrk.toString() + " hareke" + "\ ";
+            case 3:
+                return "\ " + "Şedde Ayarı?" + "\ ";
+        }
     }
-    switch (err) {
-        case 0:
-            if (detail === 1 && shadda === undefined || detail === 1 && shadda !== undefined) {
-                return "\ " + sn + "\ ";
-            } else {
-                return sm;
-            }
-        case 1:
-            return "\ " + "Tablo Kodu?" + "\ ";
-        case 2:
-            return "\ " + (n - (space + hrk)).toString() + " Tanımsız:" + nitem + "\|" + space.toString() + " boşluk\|" + hrk.toString() + " hareke" + "\ ";
-        case 3:
-            return "\ " + "Şedde Ayarı?" + "\ ";
-    }
-}
-/**
- * Returns abjad value of some text word by word.
- * @customfunction
- * @param klmmetin Text to find abjad value.
- * @param tablow Table value must be between 0-35.
- * @param shaddaw Add letters under shadda given times.
- * @param detailw If it is 1 returns details.
- * @returns Abjad value of given text word by word.
- */
+    /**
+     * Returns abjad value of some text word by word.
+     * @customfunction
+     * @param klmmetin Text to find abjad value.
+     * @param tablow Table value must be between 0-35.
+     * @param shaddaw Add letters under shadda given times.
+     * @param detailw If it is 1 returns details.
+     * @returns Abjad value of given text word by word.
+     */
 function wordbyword(klmmetin: string | undefined, tablow: any, shaddaw: any, detailw: any): string {
     if (klmmetin !== undefined) {
         klmmetin += " ";
@@ -3288,82 +3288,208 @@ function wordbyword(klmmetin: string | undefined, tablow: any, shaddaw: any, det
  * @returns Usul-ul bast operation results.
  */
 function bastet(metin: string | number, mt: number, tablo: number, shadda: number, language: string, detail: number): string | number {
-    let err: number = 0;
-    let baster: number;
-    let invertablo: number;
-    let hm: number;
-    let ns: string;
+        let err: number = 0;
+        let baster: number;
+        let invertablo: number;
+        let hm: number;
+        let ns: string;
 
-    if (typeof metin === "number" || !isNaN(parseFloat(metin as string))) {
-        baster = parseFloat(metin as string);
-    } else {
-        switch (tablo) {
-            case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: case 8: case 9:
-            case 10: case 11: case 12: case 13: case 14: case 15: case 16: case 17: case 18:
-            case 19: case 20: case 21: case 22: case 23: case 24: case 25: case 26: case 27:
-            case 28: case 29: case 30: case 31: case 32: case 33: case 34: case 35:
-                baster = parseFloat(abjad(metin, tablo, shadda));
-                break;
-            case -1: case -2: case -3: case -4: case -5: case -6: case -7: case -8: case -9:
-            case -10: case -11: case -12: case -13: case -14: case -15: case -16: case -17:
-            case -18: case -19: case -20: case -21: case -22: case -23: case -24: case -25:
-            case -26: case -27: case -28: case -29: case -30: case -31: case -32: case -33:
-            case -34: case -35: case -36:
-                invertablo = (-1 * tablo) - 1;
-                baster = parseFloat(abjad(metin, invertablo, shadda));
-                break;
-        }
-    }
-
-    for (hm = 0; hm < mt; hm++) {
-        ns = "";
-        ns = nutket(baster, language.toUpperCase());
-        baster = 0;
-
-        switch (tablo) {
-            case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: case 8: case 9:
-            case 10: case 11: case 12: case 13: case 14: case 15: case 16: case 17: case 18:
-            case 19: case 20: case 21: case 22: case 23: case 24: case 25: case 26: case 27:
-            case 28: case 29: case 30: case 31: case 32: case 33: case 34: case 35:
-                baster = parseFloat(abjad(ns, tablo, 1)) + parseFloat(abjad(ns, 5, 1));
-                break;
-            case -1: case -2: case -3: case -4: case -5: case -6: case -7: case -8: case -9:
-            case -10: case -11: case -12: case -13: case -14: case -15: case -16: case -17:
-            case -18: case -19: case -20: case -21: case -22: case -23: case -24: case -25:
-            case -26: case -27: case -28: case -29: case -30: case -31: case -32: case -33:
-            case -34: case -35: case -36:
-                invertablo = (-1 * tablo) - 1;
-                baster = parseFloat(abjad(ns, invertablo, 1));
-                break;
-            default:
-                return "Tablo Kodu?";
-        }
-    }
-
-    switch (err) {
-        case 0:
-            switch (detail) {
+        if (typeof metin === "number" || !isNaN(parseFloat(metin as string))) {
+            baster = parseFloat(metin as string);
+        } else {
+            switch (tablo) {
+                case 0:
                 case 1:
-                    return ns;
-                default:
-                    return baster;
+                case 2:
+                case 3:
+                case 4:
+                case 5:
+                case 6:
+                case 7:
+                case 8:
+                case 9:
+                case 10:
+                case 11:
+                case 12:
+                case 13:
+                case 14:
+                case 15:
+                case 16:
+                case 17:
+                case 18:
+                case 19:
+                case 20:
+                case 21:
+                case 22:
+                case 23:
+                case 24:
+                case 25:
+                case 26:
+                case 27:
+                case 28:
+                case 29:
+                case 30:
+                case 31:
+                case 32:
+                case 33:
+                case 34:
+                case 35:
+                    baster = parseFloat(abjad(metin, tablo, shadda));
+                    break;
+                case -1:
+                case -2:
+                case -3:
+                case -4:
+                case -5:
+                case -6:
+                case -7:
+                case -8:
+                case -9:
+                case -10:
+                case -11:
+                case -12:
+                case -13:
+                case -14:
+                case -15:
+                case -16:
+                case -17:
+                case -18:
+                case -19:
+                case -20:
+                case -21:
+                case -22:
+                case -23:
+                case -24:
+                case -25:
+                case -26:
+                case -27:
+                case -28:
+                case -29:
+                case -30:
+                case -31:
+                case -32:
+                case -33:
+                case -34:
+                case -35:
+                case -36:
+                    invertablo = (-1 * tablo) - 1;
+                    baster = parseFloat(abjad(metin, invertablo, shadda));
+                    break;
             }
-        case 1:
-            return "Dil Tanımı?";
-        default:
-            return;
+        }
+
+        for (hm = 0; hm < mt; hm++) {
+            ns = "";
+            ns = nutket(baster, language.toUpperCase());
+            baster = 0;
+
+            switch (tablo) {
+                case 0:
+                case 1:
+                case 2:
+                case 3:
+                case 4:
+                case 5:
+                case 6:
+                case 7:
+                case 8:
+                case 9:
+                case 10:
+                case 11:
+                case 12:
+                case 13:
+                case 14:
+                case 15:
+                case 16:
+                case 17:
+                case 18:
+                case 19:
+                case 20:
+                case 21:
+                case 22:
+                case 23:
+                case 24:
+                case 25:
+                case 26:
+                case 27:
+                case 28:
+                case 29:
+                case 30:
+                case 31:
+                case 32:
+                case 33:
+                case 34:
+                case 35:
+                    baster = parseFloat(abjad(ns, tablo, 1)) + parseFloat(abjad(ns, 5, 1));
+                    break;
+                case -1:
+                case -2:
+                case -3:
+                case -4:
+                case -5:
+                case -6:
+                case -7:
+                case -8:
+                case -9:
+                case -10:
+                case -11:
+                case -12:
+                case -13:
+                case -14:
+                case -15:
+                case -16:
+                case -17:
+                case -18:
+                case -19:
+                case -20:
+                case -21:
+                case -22:
+                case -23:
+                case -24:
+                case -25:
+                case -26:
+                case -27:
+                case -28:
+                case -29:
+                case -30:
+                case -31:
+                case -32:
+                case -33:
+                case -34:
+                case -35:
+                case -36:
+                    invertablo = (-1 * tablo) - 1;
+                    baster = parseFloat(abjad(ns, invertablo, 1));
+                    break;
+                default:
+                    return "Tablo Kodu?";
+            }
+        }
+
+        switch (err) {
+            case 0:
+                switch (detail) {
+                    case 1:
+                        return ns;
+                    default:
+                        return baster;
+                }
+            case 1:
+                return "Dil Tanımı?";
+            default:
+                return;
+        }
     }
-}
-/**
- * Counts or lists elemental letters dependent to a guide.
- * @customfunction
- * @param metin Source text.
- * @param otabiat 0 for amount, 1 for list.
- * @param otype 0 for fire, 1 for air, 2 for water, 3 for earth.
- * @param shadda Add letters under shadda given times.
- * @param guide 0 for Turkish, 1 for Ibn-i Arabi, 2 for Al Buni, 3 for Al Husayni, 4 for Hebrew and else for commenly used guide.
- * @returns Amount or list of letters.
- */
+    /**
+     * Counts or lists elemental letters dependent to a guide.
+     * @customfunction
+     * @param metin Source text.
+     * @param otabiat 0 for amount, 1 for list.
+     * @param otype 0 for fire, 1 for air, 2 for water, 3 for earth.
+     * @param shadda Add letters under shadda given times.
+     * @param guide 0 for Turkish, 1 for Ibn-i Arabi, 2 for Al Buni, 3 for Al Husayni, 4 for Hebrew and else for commenly used guide.
+     * @returns Amount or list of letters.
+     */
 function unsur(metin: string | undefined, otabiat: any, otype: any, shadda: number, guide: any): void {
     let counter: number, adet: number, choosen: string, liste: string, selected: string;
     selected = "";
@@ -3492,531 +3618,531 @@ function unsur(metin: string | undefined, otabiat: any, otype: any, shadda: numb
                     selected += "";
             }
         }
-		switch (guide.toUpperCase()) {
-			case "TURKCE":
-			case 0:
-				switch (otype) {
-					case "fire":
-					case "ateş":
-					case 0:
-						for (counter = 0; counter < selected.length; counter++) {
-							choosen = selected[counter];
-							switch (choosen) {
-								case "A":
-								case "D":
-								case "Ğ":
-								case "J":
-								case "N":
-								case "R":
-								case "U":
-								case "Z":
-									liste += choosen + " ";
-									adet += 1;
-									break;
-								default:
-							}
-						}
-						break;
-					case "air":
-					case "hava":
-					case 1:
-						for (counter = 0; counter < selected.length; counter++) {
-							choosen = selected[counter];
-							switch (choosen) {
-								case "B":
-								case "E":
-								case "H":
-								case "K":
-								case "O":
-								case "S":
-								case "Ü":
-									liste += choosen + " ";
-									adet += 1;
-									break;
-								default:
-							}
-						}
-						break;
-					case "water":
-					case "su":
-					case 2:
-						for (counter = 0; counter < selected.length; counter++) {
-							choosen = selected[counter];
-							switch (choosen) {
-								case "C":
-								case "F":
-								case "I":
-								case "L":
-								case "Ö":
-								case "Ş":
-								case "V":
-									liste += choosen + " ";
-									adet += 1;
-									break;
-								default:
-							}
-						}
-						break;
-					case "earth":
-					case "toprak":
-					case 3:
-						for (counter = 0; counter < selected.length; counter++) {
-							choosen = selected[counter];
-							switch (choosen) {
-								case "Ç":
-								case "G":
-								case "İ":
-								case "M":
-								case "P":
-								case "T":
-								case "Y":
-									liste += choosen + " ";
-									adet += 1;
-									break;
-								default:
-							}
-						}
-						break;
-				}
-				break;
-			case "ARABI":
-			case 1:
-				switch (otype) {
-					case "fire":
-					case "ateş":
-					case 0:
-						for (counter = 0; counter < selected.length; counter++) {
-							choosen = selected[counter];
-							switch (choosen) {
-								case "ا":
-								case "ه":
-								case "ط":
-								case "م":
-								case "ف":
-								case "ش":
-								case "ذ":
-									liste += choosen + " ";
-									adet += 1;
-									break;
-								default:
-							}
-						}
-						break;
-					case "air":
-					case "hava":
-					case 1:
-						for (counter = 0; counter < selected.length; counter++) {
-							choosen = selected[counter];
-							switch (choosen) {
-								case "د":
-								case "ح":
-								case "ل":
-								case "ع":
-								case "ر":
-								case "خ":
-								case "غ":
-									liste += choosen + " ";
-									adet += 1;
-									break;
-								default:
-							}
-						}
-						break;
-					case "water":
-					case "su":
-					case 2:
-						for (counter = 0; counter < selected.length; counter++) {
-							choosen = selected[counter];
-							switch (choosen) {
-								case "ب":
-								case "و":
-								case "ن":
-								case "ي":
-								case "ی":
-								case "ص":
-								case "ت":
-								case "ض":
-									liste += choosen + " ";
-									adet += 1;
-									break;
-								default:
-							}
-						}
-						break;
-					case "earth":
-					case "toprak":
-					case 3:
-						for (counter = 0; counter < selected.length; counter++) {
-							choosen = selected[counter];
-							switch (choosen) {
-								case "ج":
-								case "ز":
-								case "ك":
-								case "س":
-								case "ق":
-								case "ث":
-								case "ظ":
-									liste += choosen + " ";
-									adet += 1;
-									break;
-								default:
-							}
-						}
-						break;
-				}
-				break;
-			case "BUNI":
-			case 2:
-				switch (otype) {
-					case "fire":
-					case "ateş":
-					case 0:
-						for (counter = 0; counter < selected.length; counter++) {
-							choosen = selected[counter];
-							switch (choosen) {
-								case "ا":
-								case "ه":
-								case "ط":
-								case "م":
-								case "ف":
-								case "ش":
-								case "ذ":
-									liste += choosen + " ";
-									adet += 1;
-									break;
-								default:
-							}
-						}
-						break;
-					case "air":
-					case "hava":
-					case 1:
-						for (counter = 0; counter < selected.length; counter++) {
-							choosen = selected[counter];
-							switch (choosen) {
-								case "ب":
-								case "و":
-								case "ن":
-								case "ي":
-								case "ی":
-								case "ص":
-								case "ت":
-								case "ض":
-									liste += choosen + " ";
-									adet += 1;
-									break;
-								default:
-							}
-						}
-						break;
-					case "water":
-					case "su":
-					case 2:
-						for (counter = 0; counter < selected.length; counter++) {
-							choosen = selected[counter];
-							switch (choosen) {
-								case "د":
-								case "ح":
-								case "ل":
-								case "ع":
-								case "ر":
-								case "خ":
-								case "غ":
-									liste += choosen + " ";
-									adet += 1;
-									break;
-								default:
-							}
-						}
-						break;
-					case "earth":
-					case "toprak":
-					case 3:
-						for (counter = 0; counter < selected.length; counter++) {
-							choosen = selected[counter];
-							switch (choosen) {
-								case "ج":
-								case "ز":
-								case "ك":
-								case "س":
-								case "ق":
-								case "ث":
-								case "ظ":
-									liste += choosen + " ";
-									adet += 1;
-									break;
-								default:
-							}
-						}
-						break;
-				}
-				break;
-			case "HUSEYNI":
-			case 3:
-				switch (otype) {
-					case "fire":
-					case "ateş":
-					case 0:
-						for (counter = 0; counter < selected.length; counter++) {
-							choosen = selected[counter];
-							switch (choosen) {
-								case "ا":
-								case "ه":
-								case "ط":
-								case "م":
-								case "ف":
-								case "ش":
-								case "ذ":
-									liste += choosen + " ";
-									adet += 1;
-									break;
-								default:
-							}
-						}
-						break;
-					case "air":
-					case "hava":
-					case 1:
-						for (counter = 0; counter < selected.length; counter++) {
-							choosen = selected[counter];
-							switch (choosen) {
-								case "ج":
-								case "ز":
-								case "ك":
-								case "س":
-								case "ق":
-								case "ث":
-								case "ظ":
-									liste += choosen + " ";
-									adet += 1;
-									break;
-								default:
-							}
-						}
-						break;
-					case "water":
-					case "su":
-					case 2:
-						for (counter = 0; counter < selected.length; counter++) {
-							choosen = selected[counter];
-							switch (choosen) {
-								case "د":
-								case "ح":
-								case "ل":
-								case "ع":
-								case "ر":
-								case "خ":
-								case "غ":
-									liste += choosen + " ";
-									adet += 1;
-									break;
-								default:
-							}
-						}
-						break;
-					case "earth":
-					case "toprak":
-					case 3:
-						for (counter = 0; counter < selected.length; counter++) {
-							choosen = selected[counter];
-							switch (choosen) {
-								case "ب":
-								case "و":
-								case "ي":
-								case "ی":
-								case "ن":
-								case "ص":
-								case "ت":
-								case "ض":
-									liste += choosen + " ";
-									adet += 1;
-									break;
-								default:
-							}
-						}
-						break;
-				}
-				break;
-			case "HEBREW":
-			case 4:
-				switch (otype) {
-					case "fire":
-					case "ateş":
-					case 0:
-						for (counter = 0; counter < selected.length; counter++) {
-							choosen = selected[counter];
-							switch (choosen) {
-								case "א":
-								case "ה":
-								case "ט":
-								case "מ":
-								case "פ":
-								case "ש":
-								case "ף":
-									liste += choosen + " ";
-									adet += 1;
-									break;
-								default:
-							}
-						}
-						break;
-					case "air":
-					case "hava":
-					case 1:
-						for (counter = 0; counter < selected.length; counter++) {
-							choosen = selected[counter];
-							switch (choosen) {
-								case "ב":
-								case "ו":
-								case "י":
-								case "נ":
-								case "צ":
-								case "ת":
-								case "ץ":
-									liste += choosen + " ";
-									adet += 1;
-									break;
-								default:
-							}
-						}
-						break;
-					case "water":
-					case "su":
-					case 2:
-						for (counter = 0; counter < selected.length; counter++) {
-							choosen = selected[counter];
-							switch (choosen) {
-								case "ג":
-								case "ז":
-								case "כ":
-								case "ס":
-								case "ק":
-								case "ם":
-								case "ך":
-									liste += choosen + " ";
-									adet += 1;
-									break;
-								default:
-							}
-						}
-						break;
-					case "earth":
-					case "toprak":
-					case 3:
-						for (counter = 0; counter < selected.length; counter++) {
-							choosen = selected[counter];
-							switch (choosen) {
-								case "ד":
-								case "ח":
-								case "ל":
-								case "ע":
-								case "ר":
-								case "ן":
-									liste += choosen + " ";
-									adet += 1;
-									break;
-								default:
-							}
-						}
-						break;
-				}
-				break;
-			default:
-				switch (otype) {
-					case "fire":
-					case "ateş":
-					case 0:
-						for (counter = 0; counter < selected.length; counter++) {
-							choosen = selected[counter];
-							switch (choosen) {
-								case "ا":
-								case "ب":
-								case "ج":
-								case "س":
-								case "ص":
-								case "ر":
-								case "خ":
-									liste += choosen + " ";
-									adet += 1;
-									break;
-								default:
-							}
-						}
-						break;
-					case "air":
-					case "hava":
-					case 1:
-						for (counter = 0; counter < selected.length; counter++) {
-							choosen = selected[counter];
-							switch (choosen) {
-								case "ه":
-								case "ز":
-								case "ح":
-								case "ط":
-								case "ي":
-								case "ل":
-								case "ة":
-								case "ث":
-								case "ی":
-									liste += choosen + " ";
-									adet += 1;
-									break;
-								default:
-							}
-						}
-						break;
-					case "water":
-					case "su":
-					case 2:
-						for (counter = 0; counter < selected.length; counter++) {
-							choosen = selected[counter];
-							switch (choosen) {
-								case "د":
-								case "ك":
-								case "ع":
-								case "ف":
-								case "ق":
-								case "ش":
-								case "ض":
-									liste += choosen + " ";
-									adet += 1;
-									break;
-								default:
-							}
-						}
-						break;
-					case "earth":
-					case "toprak":
-					case 3:
-						for (counter = 0; counter < selected.length; counter++) {
-							choosen = selected[counter];
-							switch (choosen) {
-								case "و":
-								case "م":
-								case "ن":
-								case "ت":
-								case "ذ":
-								case "ظ":
-								case "غ":
-									liste += choosen + " ";
-									adet += 1;
-									break;
-								default:
-							}
-						}
-						break;
-				}
-		}
-		switch (otabiat) {
-			case "liste":
-			case "list":
-			case 1:
-				return liste;
-			case "adet":
-			case "amount":
-			case 0:
-				return adet;
-		}
+        switch (guide.toUpperCase()) {
+            case "TURKCE":
+            case 0:
+                switch (otype) {
+                    case "fire":
+                    case "ateş":
+                    case 0:
+                        for (counter = 0; counter < selected.length; counter++) {
+                            choosen = selected[counter];
+                            switch (choosen) {
+                                case "A":
+                                case "D":
+                                case "Ğ":
+                                case "J":
+                                case "N":
+                                case "R":
+                                case "U":
+                                case "Z":
+                                    liste += choosen + " ";
+                                    adet += 1;
+                                    break;
+                                default:
+                            }
+                        }
+                        break;
+                    case "air":
+                    case "hava":
+                    case 1:
+                        for (counter = 0; counter < selected.length; counter++) {
+                            choosen = selected[counter];
+                            switch (choosen) {
+                                case "B":
+                                case "E":
+                                case "H":
+                                case "K":
+                                case "O":
+                                case "S":
+                                case "Ü":
+                                    liste += choosen + " ";
+                                    adet += 1;
+                                    break;
+                                default:
+                            }
+                        }
+                        break;
+                    case "water":
+                    case "su":
+                    case 2:
+                        for (counter = 0; counter < selected.length; counter++) {
+                            choosen = selected[counter];
+                            switch (choosen) {
+                                case "C":
+                                case "F":
+                                case "I":
+                                case "L":
+                                case "Ö":
+                                case "Ş":
+                                case "V":
+                                    liste += choosen + " ";
+                                    adet += 1;
+                                    break;
+                                default:
+                            }
+                        }
+                        break;
+                    case "earth":
+                    case "toprak":
+                    case 3:
+                        for (counter = 0; counter < selected.length; counter++) {
+                            choosen = selected[counter];
+                            switch (choosen) {
+                                case "Ç":
+                                case "G":
+                                case "İ":
+                                case "M":
+                                case "P":
+                                case "T":
+                                case "Y":
+                                    liste += choosen + " ";
+                                    adet += 1;
+                                    break;
+                                default:
+                            }
+                        }
+                        break;
+                }
+                break;
+            case "ARABI":
+            case 1:
+                switch (otype) {
+                    case "fire":
+                    case "ateş":
+                    case 0:
+                        for (counter = 0; counter < selected.length; counter++) {
+                            choosen = selected[counter];
+                            switch (choosen) {
+                                case "ا":
+                                case "ه":
+                                case "ط":
+                                case "م":
+                                case "ف":
+                                case "ش":
+                                case "ذ":
+                                    liste += choosen + " ";
+                                    adet += 1;
+                                    break;
+                                default:
+                            }
+                        }
+                        break;
+                    case "air":
+                    case "hava":
+                    case 1:
+                        for (counter = 0; counter < selected.length; counter++) {
+                            choosen = selected[counter];
+                            switch (choosen) {
+                                case "د":
+                                case "ح":
+                                case "ل":
+                                case "ع":
+                                case "ر":
+                                case "خ":
+                                case "غ":
+                                    liste += choosen + " ";
+                                    adet += 1;
+                                    break;
+                                default:
+                            }
+                        }
+                        break;
+                    case "water":
+                    case "su":
+                    case 2:
+                        for (counter = 0; counter < selected.length; counter++) {
+                            choosen = selected[counter];
+                            switch (choosen) {
+                                case "ب":
+                                case "و":
+                                case "ن":
+                                case "ي":
+                                case "ی":
+                                case "ص":
+                                case "ت":
+                                case "ض":
+                                    liste += choosen + " ";
+                                    adet += 1;
+                                    break;
+                                default:
+                            }
+                        }
+                        break;
+                    case "earth":
+                    case "toprak":
+                    case 3:
+                        for (counter = 0; counter < selected.length; counter++) {
+                            choosen = selected[counter];
+                            switch (choosen) {
+                                case "ج":
+                                case "ز":
+                                case "ك":
+                                case "س":
+                                case "ق":
+                                case "ث":
+                                case "ظ":
+                                    liste += choosen + " ";
+                                    adet += 1;
+                                    break;
+                                default:
+                            }
+                        }
+                        break;
+                }
+                break;
+            case "BUNI":
+            case 2:
+                switch (otype) {
+                    case "fire":
+                    case "ateş":
+                    case 0:
+                        for (counter = 0; counter < selected.length; counter++) {
+                            choosen = selected[counter];
+                            switch (choosen) {
+                                case "ا":
+                                case "ه":
+                                case "ط":
+                                case "م":
+                                case "ف":
+                                case "ش":
+                                case "ذ":
+                                    liste += choosen + " ";
+                                    adet += 1;
+                                    break;
+                                default:
+                            }
+                        }
+                        break;
+                    case "air":
+                    case "hava":
+                    case 1:
+                        for (counter = 0; counter < selected.length; counter++) {
+                            choosen = selected[counter];
+                            switch (choosen) {
+                                case "ب":
+                                case "و":
+                                case "ن":
+                                case "ي":
+                                case "ی":
+                                case "ص":
+                                case "ت":
+                                case "ض":
+                                    liste += choosen + " ";
+                                    adet += 1;
+                                    break;
+                                default:
+                            }
+                        }
+                        break;
+                    case "water":
+                    case "su":
+                    case 2:
+                        for (counter = 0; counter < selected.length; counter++) {
+                            choosen = selected[counter];
+                            switch (choosen) {
+                                case "د":
+                                case "ح":
+                                case "ل":
+                                case "ع":
+                                case "ر":
+                                case "خ":
+                                case "غ":
+                                    liste += choosen + " ";
+                                    adet += 1;
+                                    break;
+                                default:
+                            }
+                        }
+                        break;
+                    case "earth":
+                    case "toprak":
+                    case 3:
+                        for (counter = 0; counter < selected.length; counter++) {
+                            choosen = selected[counter];
+                            switch (choosen) {
+                                case "ج":
+                                case "ز":
+                                case "ك":
+                                case "س":
+                                case "ق":
+                                case "ث":
+                                case "ظ":
+                                    liste += choosen + " ";
+                                    adet += 1;
+                                    break;
+                                default:
+                            }
+                        }
+                        break;
+                }
+                break;
+            case "HUSEYNI":
+            case 3:
+                switch (otype) {
+                    case "fire":
+                    case "ateş":
+                    case 0:
+                        for (counter = 0; counter < selected.length; counter++) {
+                            choosen = selected[counter];
+                            switch (choosen) {
+                                case "ا":
+                                case "ه":
+                                case "ط":
+                                case "م":
+                                case "ف":
+                                case "ش":
+                                case "ذ":
+                                    liste += choosen + " ";
+                                    adet += 1;
+                                    break;
+                                default:
+                            }
+                        }
+                        break;
+                    case "air":
+                    case "hava":
+                    case 1:
+                        for (counter = 0; counter < selected.length; counter++) {
+                            choosen = selected[counter];
+                            switch (choosen) {
+                                case "ج":
+                                case "ز":
+                                case "ك":
+                                case "س":
+                                case "ق":
+                                case "ث":
+                                case "ظ":
+                                    liste += choosen + " ";
+                                    adet += 1;
+                                    break;
+                                default:
+                            }
+                        }
+                        break;
+                    case "water":
+                    case "su":
+                    case 2:
+                        for (counter = 0; counter < selected.length; counter++) {
+                            choosen = selected[counter];
+                            switch (choosen) {
+                                case "د":
+                                case "ح":
+                                case "ل":
+                                case "ع":
+                                case "ر":
+                                case "خ":
+                                case "غ":
+                                    liste += choosen + " ";
+                                    adet += 1;
+                                    break;
+                                default:
+                            }
+                        }
+                        break;
+                    case "earth":
+                    case "toprak":
+                    case 3:
+                        for (counter = 0; counter < selected.length; counter++) {
+                            choosen = selected[counter];
+                            switch (choosen) {
+                                case "ب":
+                                case "و":
+                                case "ي":
+                                case "ی":
+                                case "ن":
+                                case "ص":
+                                case "ت":
+                                case "ض":
+                                    liste += choosen + " ";
+                                    adet += 1;
+                                    break;
+                                default:
+                            }
+                        }
+                        break;
+                }
+                break;
+            case "HEBREW":
+            case 4:
+                switch (otype) {
+                    case "fire":
+                    case "ateş":
+                    case 0:
+                        for (counter = 0; counter < selected.length; counter++) {
+                            choosen = selected[counter];
+                            switch (choosen) {
+                                case "א":
+                                case "ה":
+                                case "ט":
+                                case "מ":
+                                case "פ":
+                                case "ש":
+                                case "ף":
+                                    liste += choosen + " ";
+                                    adet += 1;
+                                    break;
+                                default:
+                            }
+                        }
+                        break;
+                    case "air":
+                    case "hava":
+                    case 1:
+                        for (counter = 0; counter < selected.length; counter++) {
+                            choosen = selected[counter];
+                            switch (choosen) {
+                                case "ב":
+                                case "ו":
+                                case "י":
+                                case "נ":
+                                case "צ":
+                                case "ת":
+                                case "ץ":
+                                    liste += choosen + " ";
+                                    adet += 1;
+                                    break;
+                                default:
+                            }
+                        }
+                        break;
+                    case "water":
+                    case "su":
+                    case 2:
+                        for (counter = 0; counter < selected.length; counter++) {
+                            choosen = selected[counter];
+                            switch (choosen) {
+                                case "ג":
+                                case "ז":
+                                case "כ":
+                                case "ס":
+                                case "ק":
+                                case "ם":
+                                case "ך":
+                                    liste += choosen + " ";
+                                    adet += 1;
+                                    break;
+                                default:
+                            }
+                        }
+                        break;
+                    case "earth":
+                    case "toprak":
+                    case 3:
+                        for (counter = 0; counter < selected.length; counter++) {
+                            choosen = selected[counter];
+                            switch (choosen) {
+                                case "ד":
+                                case "ח":
+                                case "ל":
+                                case "ע":
+                                case "ר":
+                                case "ן":
+                                    liste += choosen + " ";
+                                    adet += 1;
+                                    break;
+                                default:
+                            }
+                        }
+                        break;
+                }
+                break;
+            default:
+                switch (otype) {
+                    case "fire":
+                    case "ateş":
+                    case 0:
+                        for (counter = 0; counter < selected.length; counter++) {
+                            choosen = selected[counter];
+                            switch (choosen) {
+                                case "ا":
+                                case "ب":
+                                case "ج":
+                                case "س":
+                                case "ص":
+                                case "ر":
+                                case "خ":
+                                    liste += choosen + " ";
+                                    adet += 1;
+                                    break;
+                                default:
+                            }
+                        }
+                        break;
+                    case "air":
+                    case "hava":
+                    case 1:
+                        for (counter = 0; counter < selected.length; counter++) {
+                            choosen = selected[counter];
+                            switch (choosen) {
+                                case "ه":
+                                case "ز":
+                                case "ح":
+                                case "ط":
+                                case "ي":
+                                case "ل":
+                                case "ة":
+                                case "ث":
+                                case "ی":
+                                    liste += choosen + " ";
+                                    adet += 1;
+                                    break;
+                                default:
+                            }
+                        }
+                        break;
+                    case "water":
+                    case "su":
+                    case 2:
+                        for (counter = 0; counter < selected.length; counter++) {
+                            choosen = selected[counter];
+                            switch (choosen) {
+                                case "د":
+                                case "ك":
+                                case "ع":
+                                case "ف":
+                                case "ق":
+                                case "ش":
+                                case "ض":
+                                    liste += choosen + " ";
+                                    adet += 1;
+                                    break;
+                                default:
+                            }
+                        }
+                        break;
+                    case "earth":
+                    case "toprak":
+                    case 3:
+                        for (counter = 0; counter < selected.length; counter++) {
+                            choosen = selected[counter];
+                            switch (choosen) {
+                                case "و":
+                                case "م":
+                                case "ن":
+                                case "ت":
+                                case "ذ":
+                                case "ظ":
+                                case "غ":
+                                    liste += choosen + " ";
+                                    adet += 1;
+                                    break;
+                                default:
+                            }
+                        }
+                        break;
+                }
+        }
+        switch (otabiat) {
+            case "liste":
+            case "list":
+            case 1:
+                return liste;
+            case "adet":
+            case "amount":
+            case 0:
+                return adet;
+        }
     }
 }
 /**
@@ -4118,7 +4244,8 @@ function numbers2arab(indians: number | string): string {
  * @returns Spritual entity name produced from number.
  */
 function huddam(num: number, htype: string, method: number): string {
-    let suffix: number, preffix: string, h: string, gh: string = "", counts: number, departs: number, rest: number, counter: number, counting: number, choosenduty: number, turn: number, counted: number, mode: string, eacher: string;
+    let suffix: number, preffix: string, h: string, gh: string = "",
+        counts: number, departs: number, rest: number, counter: number, counting: number, choosenduty: number, turn: number, counted: number, mode: string, eacher: string;
     const hpart: string[] = [];
     hpart[0] = "nothing";
     num = parseFloat(num.toString());
@@ -4191,527 +4318,527 @@ function huddam(num: number, htype: string, method: number): string {
                         choosenduty = parseFloat(hpart[counter].substring(counting, counting + 1));
                         turn = (4 - hpart[counter].length) + counting;
                         h = "";
-						switch (turn) {
-							case 3:
-								switch (choosenduty) {
-									case 1:
-										if (1 < hpart[counter].length) {
-											h = "ا";
-										} else if (counts == 1) {
-											h = "ا";
-										}
-										break;
-									case 2:
-										switch (method) {
-											case 12:
-												h = "ل";
-												break;
-											case 1:
-											case 7:
-											case 17:
-											case 22:
-											case 27:
-											case 32:
-											default:
-												h = "ب";
-										}
-										break;
-									case 3:
-										switch (method) {
-											case 12:
-												h = "ن";
-												break;
-											case 17:
-											case 22:
-											case 27:
-											case 32:
-												h = "ت";
-												break;
-											case 1:
-											case 7:
-											default:
-												h = "ج";
-										}
-										break;
-									case 4:
-										switch (method) {
-											case 12:
-												h = "م";
-												break;
-											case 17:
-											case 22:
-											case 27:
-											case 32:
-												h = "ث";
-												break;
-											case 1:
-											case 7:
-											default:
-												h = "د";
-										}
-										break;
-									case 5:
-										switch (method) {
-											case 12:
-												h = "و";
-												break;
-											case 17:
-											case 22:
-											case 27:
-											case 32:
-												h = "ج";
-												break;
-											case 1:
-											case 7:
-											default:
-												h = "ه";
-										}
-										break;
-									case 6:
-										switch (method) {
-											case 12:
-												h = "ي";
-												break;
-											case 17:
-											case 22:
-											case 27:
-											case 32:
-												h = "ح";
-												break;
-											case 1:
-											case 7:
-											default:
-												h = "و";
-										}
-										break;
-									case 7:
-										switch (method) {
-											case 12:
-												h = "ه";
-												break;
-											case 17:
-											case 22:
-											case 27:
-											case 32:
-												h = "خ";
-												break;
-											case 1:
-											case 7:
-											default:
-												h = "ز";
-										}
-										break;
-									case 8:
-										switch (method) {
-											case 12:
-												h = "ر";
-												break;
-											case 17:
-											case 22:
-											case 27:
-											case 32:
-												h = "د";
-												break;
-											case 1:
-											case 7:
-											default:
-												h = "ح";
-										}
-										break;
-									case 9:
-										switch (method) {
-											case 12:
-												h = "ب";
-												break;
-											case 17:
-											case 22:
-											case 27:
-											case 32:
-												h = "ذ";
-												break;
-											case 1:
-											case 7:
-											default:
-												h = "ط";
-										}
-										break;
-								}
-								break;
-							case 2:
-								switch (choosenduty) {
-									case 1:
-										switch (method) {
-											case 12:
-												h = "ت";
-												break;
-											case 17:
-											case 22:
-											case 32:
-												h = "ر";
-												break;
-											case 27:
-												h = "ك"
-												break;
-											case 1:
-											case 7:
-											default:
-												h = "ي";
-										}
-										break;
-									case 2:
-										switch (method) {
-											case 17:
-											case 22:
-											case 32:
-												h = "ز";
-												break;
-											case 27:
-												h = "ل";
-												break;
-											case 1:
-											case 7:
-											case 12:
-											default:
-												h = "ك";
-										}
-										break;
-									case 3:
-										switch (method) {
-											case 12:
-												h = "ع";
-												break;
-											case 17:
-											case 32:
-												h = "س";
-												break;
-											case 22:
-												h = "ط";
-												break;
-											case 27:
-												h = "م";
-												break;
-											case 1:
-											case 7:
-											default:
-												h = "ل";
-										}
-										break;
-									case 4:
-										switch (method) {
-											case 12:
-												h = "ف";
-												break;
-											case 17:
-											case 32:
-												h = "ش";
-												break;
-											case 22:
-												h = "ظ";
-												break;
-											case 27:
-												h = "و";
-												break;
-											case 1:
-											case 7:
-											default:
-												h = "م";
-										}
-										break;
-									case 5:
-										switch (method) {
-											case 12:
-												h = "ق";
-												break;
-											case 17:
-											case 32:
-												h = "ص";
-												break;
-											case 22:
-												h = "ك";
-												break;
-											case 1:
-											case 7:
-											default:
-												h = "ن";
-										}
-										break;
-									case 6:
-										switch (method) {
-											case 7:
-											case 27:
-												h = "ص";
-												break;
-											case 17:
-											case 32:
-												h = "ض";
-												break;
-											case 22:
-												h = "ل";
-												break;
-											case 1:
-											case 12:
-											default:
-												h = "س";
-										}
-										break;
-									case 7:
-										switch (method) {
-											case 12:
-												h = "د";
-												break;
-											case 17:
-											case 32:
-												h = "ط";
-												break;
-											case 22:
-												h = "م";
-												break;
-											case 27:
-												h = "ض";
-												break;
-											case 1:
-											case 7:
-											default:
-												h = "ع";
-										}
-										break;
-									case 8:
-										switch (method) {
-											case 12:
-												h = "ذ";
-												break;
-											case 17:
-											case 32:
-												h = "ظ";
-												break;
-											case 22:
-												h = "ن";
-												break;
-											case 27:
-												h = "ع";
-												break;
-											case 1:
-											case 7:
-											default:
-												h = "ف";
-										}
-										break;
-									case 9:
-										switch (method) {
-											case 7:
-												h = "ض";
-												break;
-											case 12:
-												h = "ح";
-												break;
-											case 17:
-											case 32:
-												h = "ع";
-												break;
-											case 27:
-												h = "غ";
-												break;
-											case 1:
-											default:
-												h = "ص";
-										}
-										break;
-								}
-								break;
-							case 1:
-								switch (choosenduty) {
-									case 1:
-										switch (method) {
-											case 12:
-												h = "ج";
-												break;
-											case 17:
-											case 32:
-												h = "غ";
-												break;
-											case 22:
-												h = "ض";
-												break;
-											case 27:
-												h = "ط";
-												break;
-											case 1:
-											case 7:
-											default:
-												h = "ق";
-										}
-										break;
-									case 2:
-										switch (method) {
-											case 12:
-												h = "خ";
-												break;
-											case 17:
-											case 32:
-												h = "ف";
-												break;
-											case 22:
-												h = "ع";
-												break;
-											case 27:
-												h = "ظ";
-												break;
-											case 1:
-											case 7:
-											default:
-												h = "ر";
-										}
-										break;
-									case 3:
-										switch (method) {
-											case 7:
-												h = "س";
-												break;
-											case 17:
-											case 32:
-												h = "ق";
-												break;
-											case 22:
-												h = "غ";
-												break;
-											case 27:
-												h = "ف";
-												break;
-											case 1:
-											case 12:
-											default:
-												h = "ش";
-										}
-										break;
-									case 4:
-										switch (method) {
-											case 12:
-												h = "ص";
-												break;
-											case 17:
-											case 32:
-												h = "ك";
-												break;
-											case 22:
-												h = "ف";
-												break;
-											case 27:
-												h = "ق";
-												break;
-											case 1:
-											case 7:
-											default:
-												h = "ت";
-										}
-										break;
-									case 5:
-										switch (method) {
-											case 12:
-												h = "ض";
-												break;
-											case 17:
-											case 32:
-												h = "ل";
-												break;
-											case 22:
-												h = "ق";
-												break;
-											case 27:
-												h = "ر";
-												break;
-											case 1:
-											case 7:
-											default:
-												h = "ث";
-										}
-										break;
-									case 6:
-										switch (method) {
-											case 12:
-											case 27:
-												h = "ز";
-												break;
-											case 17:
-											case 32:
-												h = "م";
-												break;
-											case 22:
-												h = "س";
-												break;
-											case 1:
-											case 7:
-											default:
-												h = "خ";
-										}
-										break;
-									case 7:
-										switch (method) {
-											case 12:
-												h = "ث";
-												break;
-											case 17:
-											case 32:
-												h = "ن";
-												break;
-											case 22:
-												h = "ش";
-												break;
-											case 27:
-												h = "ه";
-												break;
-											case 1:
-											case 7:
-											default:
-												h = "ذ";
-										}
-										break;
-									case 8:
-										switch (method) {
-											case 7:
-												h = "ظ";
-												break;
-											case 12:
-												h = "ط";
-												break;
-											case 17:
-											case 22:
-												h = "ه";
-												break;
-											case 27:
-												h = "س";
-												break;
-											case 32:
-												h = "و";
-												break;
-											case 1:
-											default:
-												h = "ض";
-										}
-										break;
-									case 9:
-										switch (method) {
-											case 7:
-											case 12:
-												h = "غ";
-												break;
-											case 17:
-											case 22:
-												h = "و";
-												break;
-											case 27:
-												h = "ش";
-												break;
-											case 32:
-												h = "ه";
-												break;
-											case 1:
-											default:
-												h = "ظ";
-										}
-										break;
-								}
-								break;
-						}
+                        switch (turn) {
+                            case 3:
+                                switch (choosenduty) {
+                                    case 1:
+                                        if (1 < hpart[counter].length) {
+                                            h = "ا";
+                                        } else if (counts == 1) {
+                                            h = "ا";
+                                        }
+                                        break;
+                                    case 2:
+                                        switch (method) {
+                                            case 12:
+                                                h = "ل";
+                                                break;
+                                            case 1:
+                                            case 7:
+                                            case 17:
+                                            case 22:
+                                            case 27:
+                                            case 32:
+                                            default:
+                                                h = "ب";
+                                        }
+                                        break;
+                                    case 3:
+                                        switch (method) {
+                                            case 12:
+                                                h = "ن";
+                                                break;
+                                            case 17:
+                                            case 22:
+                                            case 27:
+                                            case 32:
+                                                h = "ت";
+                                                break;
+                                            case 1:
+                                            case 7:
+                                            default:
+                                                h = "ج";
+                                        }
+                                        break;
+                                    case 4:
+                                        switch (method) {
+                                            case 12:
+                                                h = "م";
+                                                break;
+                                            case 17:
+                                            case 22:
+                                            case 27:
+                                            case 32:
+                                                h = "ث";
+                                                break;
+                                            case 1:
+                                            case 7:
+                                            default:
+                                                h = "د";
+                                        }
+                                        break;
+                                    case 5:
+                                        switch (method) {
+                                            case 12:
+                                                h = "و";
+                                                break;
+                                            case 17:
+                                            case 22:
+                                            case 27:
+                                            case 32:
+                                                h = "ج";
+                                                break;
+                                            case 1:
+                                            case 7:
+                                            default:
+                                                h = "ه";
+                                        }
+                                        break;
+                                    case 6:
+                                        switch (method) {
+                                            case 12:
+                                                h = "ي";
+                                                break;
+                                            case 17:
+                                            case 22:
+                                            case 27:
+                                            case 32:
+                                                h = "ح";
+                                                break;
+                                            case 1:
+                                            case 7:
+                                            default:
+                                                h = "و";
+                                        }
+                                        break;
+                                    case 7:
+                                        switch (method) {
+                                            case 12:
+                                                h = "ه";
+                                                break;
+                                            case 17:
+                                            case 22:
+                                            case 27:
+                                            case 32:
+                                                h = "خ";
+                                                break;
+                                            case 1:
+                                            case 7:
+                                            default:
+                                                h = "ز";
+                                        }
+                                        break;
+                                    case 8:
+                                        switch (method) {
+                                            case 12:
+                                                h = "ر";
+                                                break;
+                                            case 17:
+                                            case 22:
+                                            case 27:
+                                            case 32:
+                                                h = "د";
+                                                break;
+                                            case 1:
+                                            case 7:
+                                            default:
+                                                h = "ح";
+                                        }
+                                        break;
+                                    case 9:
+                                        switch (method) {
+                                            case 12:
+                                                h = "ب";
+                                                break;
+                                            case 17:
+                                            case 22:
+                                            case 27:
+                                            case 32:
+                                                h = "ذ";
+                                                break;
+                                            case 1:
+                                            case 7:
+                                            default:
+                                                h = "ط";
+                                        }
+                                        break;
+                                }
+                                break;
+                            case 2:
+                                switch (choosenduty) {
+                                    case 1:
+                                        switch (method) {
+                                            case 12:
+                                                h = "ت";
+                                                break;
+                                            case 17:
+                                            case 22:
+                                            case 32:
+                                                h = "ر";
+                                                break;
+                                            case 27:
+                                                h = "ك"
+                                                break;
+                                            case 1:
+                                            case 7:
+                                            default:
+                                                h = "ي";
+                                        }
+                                        break;
+                                    case 2:
+                                        switch (method) {
+                                            case 17:
+                                            case 22:
+                                            case 32:
+                                                h = "ز";
+                                                break;
+                                            case 27:
+                                                h = "ل";
+                                                break;
+                                            case 1:
+                                            case 7:
+                                            case 12:
+                                            default:
+                                                h = "ك";
+                                        }
+                                        break;
+                                    case 3:
+                                        switch (method) {
+                                            case 12:
+                                                h = "ع";
+                                                break;
+                                            case 17:
+                                            case 32:
+                                                h = "س";
+                                                break;
+                                            case 22:
+                                                h = "ط";
+                                                break;
+                                            case 27:
+                                                h = "م";
+                                                break;
+                                            case 1:
+                                            case 7:
+                                            default:
+                                                h = "ل";
+                                        }
+                                        break;
+                                    case 4:
+                                        switch (method) {
+                                            case 12:
+                                                h = "ف";
+                                                break;
+                                            case 17:
+                                            case 32:
+                                                h = "ش";
+                                                break;
+                                            case 22:
+                                                h = "ظ";
+                                                break;
+                                            case 27:
+                                                h = "و";
+                                                break;
+                                            case 1:
+                                            case 7:
+                                            default:
+                                                h = "م";
+                                        }
+                                        break;
+                                    case 5:
+                                        switch (method) {
+                                            case 12:
+                                                h = "ق";
+                                                break;
+                                            case 17:
+                                            case 32:
+                                                h = "ص";
+                                                break;
+                                            case 22:
+                                                h = "ك";
+                                                break;
+                                            case 1:
+                                            case 7:
+                                            default:
+                                                h = "ن";
+                                        }
+                                        break;
+                                    case 6:
+                                        switch (method) {
+                                            case 7:
+                                            case 27:
+                                                h = "ص";
+                                                break;
+                                            case 17:
+                                            case 32:
+                                                h = "ض";
+                                                break;
+                                            case 22:
+                                                h = "ل";
+                                                break;
+                                            case 1:
+                                            case 12:
+                                            default:
+                                                h = "س";
+                                        }
+                                        break;
+                                    case 7:
+                                        switch (method) {
+                                            case 12:
+                                                h = "د";
+                                                break;
+                                            case 17:
+                                            case 32:
+                                                h = "ط";
+                                                break;
+                                            case 22:
+                                                h = "م";
+                                                break;
+                                            case 27:
+                                                h = "ض";
+                                                break;
+                                            case 1:
+                                            case 7:
+                                            default:
+                                                h = "ع";
+                                        }
+                                        break;
+                                    case 8:
+                                        switch (method) {
+                                            case 12:
+                                                h = "ذ";
+                                                break;
+                                            case 17:
+                                            case 32:
+                                                h = "ظ";
+                                                break;
+                                            case 22:
+                                                h = "ن";
+                                                break;
+                                            case 27:
+                                                h = "ع";
+                                                break;
+                                            case 1:
+                                            case 7:
+                                            default:
+                                                h = "ف";
+                                        }
+                                        break;
+                                    case 9:
+                                        switch (method) {
+                                            case 7:
+                                                h = "ض";
+                                                break;
+                                            case 12:
+                                                h = "ح";
+                                                break;
+                                            case 17:
+                                            case 32:
+                                                h = "ع";
+                                                break;
+                                            case 27:
+                                                h = "غ";
+                                                break;
+                                            case 1:
+                                            default:
+                                                h = "ص";
+                                        }
+                                        break;
+                                }
+                                break;
+                            case 1:
+                                switch (choosenduty) {
+                                    case 1:
+                                        switch (method) {
+                                            case 12:
+                                                h = "ج";
+                                                break;
+                                            case 17:
+                                            case 32:
+                                                h = "غ";
+                                                break;
+                                            case 22:
+                                                h = "ض";
+                                                break;
+                                            case 27:
+                                                h = "ط";
+                                                break;
+                                            case 1:
+                                            case 7:
+                                            default:
+                                                h = "ق";
+                                        }
+                                        break;
+                                    case 2:
+                                        switch (method) {
+                                            case 12:
+                                                h = "خ";
+                                                break;
+                                            case 17:
+                                            case 32:
+                                                h = "ف";
+                                                break;
+                                            case 22:
+                                                h = "ع";
+                                                break;
+                                            case 27:
+                                                h = "ظ";
+                                                break;
+                                            case 1:
+                                            case 7:
+                                            default:
+                                                h = "ر";
+                                        }
+                                        break;
+                                    case 3:
+                                        switch (method) {
+                                            case 7:
+                                                h = "س";
+                                                break;
+                                            case 17:
+                                            case 32:
+                                                h = "ق";
+                                                break;
+                                            case 22:
+                                                h = "غ";
+                                                break;
+                                            case 27:
+                                                h = "ف";
+                                                break;
+                                            case 1:
+                                            case 12:
+                                            default:
+                                                h = "ش";
+                                        }
+                                        break;
+                                    case 4:
+                                        switch (method) {
+                                            case 12:
+                                                h = "ص";
+                                                break;
+                                            case 17:
+                                            case 32:
+                                                h = "ك";
+                                                break;
+                                            case 22:
+                                                h = "ف";
+                                                break;
+                                            case 27:
+                                                h = "ق";
+                                                break;
+                                            case 1:
+                                            case 7:
+                                            default:
+                                                h = "ت";
+                                        }
+                                        break;
+                                    case 5:
+                                        switch (method) {
+                                            case 12:
+                                                h = "ض";
+                                                break;
+                                            case 17:
+                                            case 32:
+                                                h = "ل";
+                                                break;
+                                            case 22:
+                                                h = "ق";
+                                                break;
+                                            case 27:
+                                                h = "ر";
+                                                break;
+                                            case 1:
+                                            case 7:
+                                            default:
+                                                h = "ث";
+                                        }
+                                        break;
+                                    case 6:
+                                        switch (method) {
+                                            case 12:
+                                            case 27:
+                                                h = "ز";
+                                                break;
+                                            case 17:
+                                            case 32:
+                                                h = "م";
+                                                break;
+                                            case 22:
+                                                h = "س";
+                                                break;
+                                            case 1:
+                                            case 7:
+                                            default:
+                                                h = "خ";
+                                        }
+                                        break;
+                                    case 7:
+                                        switch (method) {
+                                            case 12:
+                                                h = "ث";
+                                                break;
+                                            case 17:
+                                            case 32:
+                                                h = "ن";
+                                                break;
+                                            case 22:
+                                                h = "ش";
+                                                break;
+                                            case 27:
+                                                h = "ه";
+                                                break;
+                                            case 1:
+                                            case 7:
+                                            default:
+                                                h = "ذ";
+                                        }
+                                        break;
+                                    case 8:
+                                        switch (method) {
+                                            case 7:
+                                                h = "ظ";
+                                                break;
+                                            case 12:
+                                                h = "ط";
+                                                break;
+                                            case 17:
+                                            case 22:
+                                                h = "ه";
+                                                break;
+                                            case 27:
+                                                h = "س";
+                                                break;
+                                            case 32:
+                                                h = "و";
+                                                break;
+                                            case 1:
+                                            default:
+                                                h = "ض";
+                                        }
+                                        break;
+                                    case 9:
+                                        switch (method) {
+                                            case 7:
+                                            case 12:
+                                                h = "غ";
+                                                break;
+                                            case 17:
+                                            case 22:
+                                                h = "و";
+                                                break;
+                                            case 27:
+                                                h = "ش";
+                                                break;
+                                            case 32:
+                                                h = "ه";
+                                                break;
+                                            case 1:
+                                            default:
+                                                h = "ظ";
+                                        }
+                                        break;
+                                }
+                                break;
+                        }
                         if (h !== undefined) {
                             gh += "" + h;
                         }
@@ -4934,163 +5061,163 @@ function saf(metinsaf: string | undefined, ayrac: number, shadda: number): strin
                     c += 1;
                 } while (saf(choosen, "", 1) === "");
             }
-			switch (choosen) {
-				case "ا":
-				case "ء":
-				case "ى":
-				case "ب":
-				case "ج":
-				case "د":
-				case "ه":
-				case "و":
-				case "ؤ":
-				case "ز":
-				case "ح":
-				case "ط":
-				case "ي":
-				case "ك":
-				case "ل":
-				case "م":
-				case "ن":
-				case "س":
-				case "ع":
-				case "ف":
-				case "ص":
-				case "ق":
-				case "ر":
-				case "ش":
-				case "ت":
-				case "ض":
-				case "ة":
-				case "ث":
-				case "خ":
-				case "ذ":
-				case "ض":
-				case "ظ":
-				case "غ":
-				case "ئ":
-					s = choosen + irun;
-					break;
-				case "أ":
-				case "إ":
-				case "آ":
-				case "ىٰ":
-					s = "ا" + irun;
-					break;
-				case "ک":
-					s = "ک" + irun;
-					break;
-				case "ﮒ":
-					s = "ﮒ" + irun;
-					break;
-				case "ی":
-					s = "ی" + irun;
-					break;
-				case "ۀ":
-					s = "ۀ" + irun;
-					break;
-				case "א":
-				case "ב":
-				case "ג":
-				case "ד":
-				case "ה":
-				case "ו":
-				case "ז":
-				case "ח":
-				case "ט":
-				case "י":
-				case "ל":
-				case "ס":
-				case "ע":
-				case "ק":
-				case "ר":
-				case "ש":
-				case "ת":
-				case "כ":
-				case "ך":
-				case "מ":
-				case "ם":
-				case "נ":
-				case "ן":
-				case "פ":
-				case "ף":
-				case "צ":
-				case "ץ":
-				case "A":
-				case "B":
-				case "C":
-				case "Ç":
-				case "D":
-				case "E":
-				case "F":
-				case "G":
-				case "Ğ":
-				case "H":
-				case "I":
-				case "İ":
-				case "J":
-				case "K":
-				case "L":
-				case "M":
-				case "N":
-				case "O":
-				case "Ö":
-				case "P":
-				case "R":
-				case "S":
-				case "Ş":
-				case "T":
-				case "U":
-				case "Ü":
-				case "V":
-				case "Y":
-				case "Z":
-				case "a":
-				case "b":
-				case "c":
-				case "ç":
-				case "d":
-				case "e":
-				case "f":
-				case "g":
-				case "ğ":
-				case "h":
-				case "ı":
-				case "i":
-				case "j":
-				case "k":
-				case "l":
-				case "m":
-				case "n":
-				case "o":
-				case "ö":
-				case "p":
-				case "r":
-				case "s":
-				case "ş":
-				case "t":
-				case "u":
-				case "ü":
-				case "v":
-				case "y":
-				case "z":
-					s = choosen + irun;
-					break;
-				case " ":
-					switch (ayrac) {
-						case "":
-							s = choosen;
-							break;
-						case 0:
-							s = "";
-							break;
-						default:
-							s = irun;
-					}
-					break;
-				default:
-					s = "";
-			}
+            switch (choosen) {
+                case "ا":
+                case "ء":
+                case "ى":
+                case "ب":
+                case "ج":
+                case "د":
+                case "ه":
+                case "و":
+                case "ؤ":
+                case "ز":
+                case "ح":
+                case "ط":
+                case "ي":
+                case "ك":
+                case "ل":
+                case "م":
+                case "ن":
+                case "س":
+                case "ع":
+                case "ف":
+                case "ص":
+                case "ق":
+                case "ر":
+                case "ش":
+                case "ت":
+                case "ض":
+                case "ة":
+                case "ث":
+                case "خ":
+                case "ذ":
+                case "ض":
+                case "ظ":
+                case "غ":
+                case "ئ":
+                    s = choosen + irun;
+                    break;
+                case "أ":
+                case "إ":
+                case "آ":
+                case "ىٰ":
+                    s = "ا" + irun;
+                    break;
+                case "ک":
+                    s = "ک" + irun;
+                    break;
+                case "ﮒ":
+                    s = "ﮒ" + irun;
+                    break;
+                case "ی":
+                    s = "ی" + irun;
+                    break;
+                case "ۀ":
+                    s = "ۀ" + irun;
+                    break;
+                case "א":
+                case "ב":
+                case "ג":
+                case "ד":
+                case "ה":
+                case "ו":
+                case "ז":
+                case "ח":
+                case "ט":
+                case "י":
+                case "ל":
+                case "ס":
+                case "ע":
+                case "ק":
+                case "ר":
+                case "ש":
+                case "ת":
+                case "כ":
+                case "ך":
+                case "מ":
+                case "ם":
+                case "נ":
+                case "ן":
+                case "פ":
+                case "ף":
+                case "צ":
+                case "ץ":
+                case "A":
+                case "B":
+                case "C":
+                case "Ç":
+                case "D":
+                case "E":
+                case "F":
+                case "G":
+                case "Ğ":
+                case "H":
+                case "I":
+                case "İ":
+                case "J":
+                case "K":
+                case "L":
+                case "M":
+                case "N":
+                case "O":
+                case "Ö":
+                case "P":
+                case "R":
+                case "S":
+                case "Ş":
+                case "T":
+                case "U":
+                case "Ü":
+                case "V":
+                case "Y":
+                case "Z":
+                case "a":
+                case "b":
+                case "c":
+                case "ç":
+                case "d":
+                case "e":
+                case "f":
+                case "g":
+                case "ğ":
+                case "h":
+                case "ı":
+                case "i":
+                case "j":
+                case "k":
+                case "l":
+                case "m":
+                case "n":
+                case "o":
+                case "ö":
+                case "p":
+                case "r":
+                case "s":
+                case "ş":
+                case "t":
+                case "u":
+                case "ü":
+                case "v":
+                case "y":
+                case "z":
+                    s = choosen + irun;
+                    break;
+                case " ":
+                    switch (ayrac) {
+                        case "":
+                            s = choosen;
+                            break;
+                        case 0:
+                            s = "";
+                            break;
+                        default:
+                            s = irun;
+                    }
+                    break;
+                default:
+                    s = "";
+            }
             safmetin += s;
         }
     }
@@ -5137,158 +5264,158 @@ function nutket(MyNumber: number = 0, language: string = "ARABIC"): string {
     let PlacePlural: any[] = [];
 
     language = language.toUpperCase();
-	switch (language) {
-		case "ARABIC":
-			if (MyNumber == 0 && counter == 0) {
-				return "صفر";
-			}
-			PlaceOnes = ["", "ألف", "مليون", "مليار", "تريليون"];
-			PlaceTwos = ["", "ألفان", "مليونان", "ملياران", "تريليونان"];
-			PlaceAppent = ["", "ألفاً", "مليوناً", "ملياراً", "تريليوناً"];
-			PlacePlural = ["", "آلاف", "ملايين", "مليارات", "تريليونات"];
-			MyNumber = MyNumber.toString().trim();
-			do {
-				var EventHappenned = 0;
-				if (counter > 0 && parseFloat(Right(MyNumber, 3)) == 1) {
-					temp = "";
-					if (nutuk.length > 0) {
-						nutuk = PlaceOnes[counter] + " و " + nutuk;
-					} else {
-						nutuk = PlaceOnes[counter] + " " + nutuk;
-					}
-				} else if (counter > 0 && parseFloat(Right(MyNumber, 3)) == 2) {
-					temp = "";
-					if (nutuk.length > 0) {
-						nutuk = PlaceTwos[counter] + " و " + nutuk;
-					} else {
-						nutuk = PlaceTwos[counter] + " " + nutuk;
-					}
-				} else {
-					temp = GetHundreds(Right(MyNumber, 3), language, counter, nutuk);
-				}
-				if (temp != "") {
-					if (counter > 0) {
-						if (nutuk.length > 0) {
-							nutuk = " و " + nutuk;
-						}
-						if (parseFloat(Right(MyNumber, 3)) != 2) {
-							if (Math.floor(parseFloat(Right(MyNumber, 3)) / 100) != 1) {
-								if (parseFloat(Right(MyNumber, 3)) >= 3 && parseFloat(Right(MyNumber, 3)) <= 10) {
-									nutuk = " " + PlacePlural[counter] + nutuk;
-									EventHappenned = 1;
-								}
-							}
-						}
-					}
-					if (EventHappenned == 0) {
-						if (nutuk.length > 0) {
-							nutuk = " " + PlaceAppent[counter] + nutuk;
-						} else {
-							nutuk = " " + PlaceOnes[counter] + nutuk;
-						}
-					} else {
-						EventHappenned = 0;
-					}
-					nutuk = temp + nutuk;
-					temp = "";
-				}
-				if (MyNumber.length > 3) {
-					MyNumber = Left(MyNumber, MyNumber.length - 3);
-				} else {
-					MyNumber = "";
-				}
-				counter += 1;
-			} while (MyNumber != "");
-			break;
-		case "HEBREW":
-			if (MyNumber == 0 && counter == 0) {
-				return "אֶפֶס";
-			}
-			PlaceOnes = ["", "אלף", "מיליון", "מיליארד", "טריליון"];
-			PlaceTwos = ["", "אלפיים ", "שני מיליון ", "שני מיליארד ", "שני טריליון "];
-			PlaceAppent = ["", "אלפא", "מיליון", "מיליארד", "טריליון"];
-			PlacePlural = ["", "אלפים", "מיליונים", "מיליארדים", "טריליונים"];
-			MyNumber = MyNumber.toString().trim();
-			do {
-				var EventHappenned = 0;
-				if (counter > 0 && parseFloat(Right(MyNumber, 3)) == 1) {
-					temp = "";
-					if (nutuk.length > 0) {
-						nutuk = PlaceOnes[counter] + " ו " + nutuk;
-					} else {
-						nutuk = PlaceOnes[counter] + " " + nutuk;
-					}
-				} else if (counter > 0 && parseFloat(Right(MyNumber, 3)) == 2) {
-					temp = "";
-					if (nutuk.length > 0) {
-						nutuk = PlaceTwos[counter] + " ו " + nutuk;
-					} else {
-						nutuk = PlaceTwos[counter] + " " + nutuk;
-					}
-				} else {
-					temp = GetHundreds(Right(MyNumber, 3), language, counter, nutuk);
-				}
-				if (temp != "") {
-					if (counter > 0) {
-						if (nutuk.length > 0) {
-							nutuk = " ו " + nutuk;
-						}
-						if (parseFloat(Right(MyNumber, 3)) != 2) {
-							if (Math.floor(parseFloat(Right(MyNumber, 3)) / 100) != 1) {
-								if (parseFloat(Right(MyNumber, 3)) >= 3 && parseFloat(Right(MyNumber, 3)) <= 10) {
-									nutuk = " " + PlacePlural[counter] + nutuk;
-									EventHappenned = 1;
-								}
-							}
-						}
-					}
-					if (EventHappenned == 0) {
-						if (nutuk.length > 0) {
-							nutuk = " " + PlaceAppent[counter] + nutuk;
-						} else {
-							nutuk = " " + PlaceOnes[counter] + nutuk;
-						}
-					} else {
-						EventHappenned = 0;
-					}
-					nutuk = temp + nutuk;
-					temp = "";
-				}
-				if (MyNumber.length > 3) {
-					MyNumber = Left(MyNumber, MyNumber.length - 3);
-				} else {
-					MyNumber = "";
-				}
-				counter += 1;
-			} while (MyNumber != "");
-			break;
-		case "TURKCE":
-			if (MyNumber == 0 && dongu == 0) {
-				return "sıfır";
-			}
-			place = ["", "bin ", "milyon ", "milyar ", "trilyon "];
-			MyNumber = MyNumber.toString().trim();
-			while (MyNumber != "") {
-				if (dongu == 1 && parseFloat(Right(MyNumber, 3)) == 1) {
-					temp = "";
-					nutuk = place[dongu] + nutuk;
-				} else {
-					temp = GetHundreds(Right(MyNumber, 3), language, dongu, nutuk);
-				}
-				if (temp != "") {
-					nutuk = temp + " " + place[dongu] + nutuk;
-					temp = "";
-				}
-				if (MyNumber.length > 3) {
-					MyNumber = Left(MyNumber, MyNumber.length - 3);
-				} else {
-					MyNumber = "";
-				}
-				dongu += 1;
-			}
-			break;
-		default:
-	}
+    switch (language) {
+        case "ARABIC":
+            if (MyNumber == 0 && counter == 0) {
+                return "صفر";
+            }
+            PlaceOnes = ["", "ألف", "مليون", "مليار", "تريليون"];
+            PlaceTwos = ["", "ألفان", "مليونان", "ملياران", "تريليونان"];
+            PlaceAppent = ["", "ألفاً", "مليوناً", "ملياراً", "تريليوناً"];
+            PlacePlural = ["", "آلاف", "ملايين", "مليارات", "تريليونات"];
+            MyNumber = MyNumber.toString().trim();
+            do {
+                var EventHappenned = 0;
+                if (counter > 0 && parseFloat(Right(MyNumber, 3)) == 1) {
+                    temp = "";
+                    if (nutuk.length > 0) {
+                        nutuk = PlaceOnes[counter] + " و " + nutuk;
+                    } else {
+                        nutuk = PlaceOnes[counter] + " " + nutuk;
+                    }
+                } else if (counter > 0 && parseFloat(Right(MyNumber, 3)) == 2) {
+                    temp = "";
+                    if (nutuk.length > 0) {
+                        nutuk = PlaceTwos[counter] + " و " + nutuk;
+                    } else {
+                        nutuk = PlaceTwos[counter] + " " + nutuk;
+                    }
+                } else {
+                    temp = GetHundreds(Right(MyNumber, 3), language, counter, nutuk);
+                }
+                if (temp != "") {
+                    if (counter > 0) {
+                        if (nutuk.length > 0) {
+                            nutuk = " و " + nutuk;
+                        }
+                        if (parseFloat(Right(MyNumber, 3)) != 2) {
+                            if (Math.floor(parseFloat(Right(MyNumber, 3)) / 100) != 1) {
+                                if (parseFloat(Right(MyNumber, 3)) >= 3 && parseFloat(Right(MyNumber, 3)) <= 10) {
+                                    nutuk = " " + PlacePlural[counter] + nutuk;
+                                    EventHappenned = 1;
+                                }
+                            }
+                        }
+                    }
+                    if (EventHappenned == 0) {
+                        if (nutuk.length > 0) {
+                            nutuk = " " + PlaceAppent[counter] + nutuk;
+                        } else {
+                            nutuk = " " + PlaceOnes[counter] + nutuk;
+                        }
+                    } else {
+                        EventHappenned = 0;
+                    }
+                    nutuk = temp + nutuk;
+                    temp = "";
+                }
+                if (MyNumber.length > 3) {
+                    MyNumber = Left(MyNumber, MyNumber.length - 3);
+                } else {
+                    MyNumber = "";
+                }
+                counter += 1;
+            } while (MyNumber != "");
+            break;
+        case "HEBREW":
+            if (MyNumber == 0 && counter == 0) {
+                return "אֶפֶס";
+            }
+            PlaceOnes = ["", "אלף", "מיליון", "מיליארד", "טריליון"];
+            PlaceTwos = ["", "אלפיים ", "שני מיליון ", "שני מיליארד ", "שני טריליון "];
+            PlaceAppent = ["", "אלפא", "מיליון", "מיליארד", "טריליון"];
+            PlacePlural = ["", "אלפים", "מיליונים", "מיליארדים", "טריליונים"];
+            MyNumber = MyNumber.toString().trim();
+            do {
+                var EventHappenned = 0;
+                if (counter > 0 && parseFloat(Right(MyNumber, 3)) == 1) {
+                    temp = "";
+                    if (nutuk.length > 0) {
+                        nutuk = PlaceOnes[counter] + " ו " + nutuk;
+                    } else {
+                        nutuk = PlaceOnes[counter] + " " + nutuk;
+                    }
+                } else if (counter > 0 && parseFloat(Right(MyNumber, 3)) == 2) {
+                    temp = "";
+                    if (nutuk.length > 0) {
+                        nutuk = PlaceTwos[counter] + " ו " + nutuk;
+                    } else {
+                        nutuk = PlaceTwos[counter] + " " + nutuk;
+                    }
+                } else {
+                    temp = GetHundreds(Right(MyNumber, 3), language, counter, nutuk);
+                }
+                if (temp != "") {
+                    if (counter > 0) {
+                        if (nutuk.length > 0) {
+                            nutuk = " ו " + nutuk;
+                        }
+                        if (parseFloat(Right(MyNumber, 3)) != 2) {
+                            if (Math.floor(parseFloat(Right(MyNumber, 3)) / 100) != 1) {
+                                if (parseFloat(Right(MyNumber, 3)) >= 3 && parseFloat(Right(MyNumber, 3)) <= 10) {
+                                    nutuk = " " + PlacePlural[counter] + nutuk;
+                                    EventHappenned = 1;
+                                }
+                            }
+                        }
+                    }
+                    if (EventHappenned == 0) {
+                        if (nutuk.length > 0) {
+                            nutuk = " " + PlaceAppent[counter] + nutuk;
+                        } else {
+                            nutuk = " " + PlaceOnes[counter] + nutuk;
+                        }
+                    } else {
+                        EventHappenned = 0;
+                    }
+                    nutuk = temp + nutuk;
+                    temp = "";
+                }
+                if (MyNumber.length > 3) {
+                    MyNumber = Left(MyNumber, MyNumber.length - 3);
+                } else {
+                    MyNumber = "";
+                }
+                counter += 1;
+            } while (MyNumber != "");
+            break;
+        case "TURKCE":
+            if (MyNumber == 0 && dongu == 0) {
+                return "sıfır";
+            }
+            place = ["", "bin ", "milyon ", "milyar ", "trilyon "];
+            MyNumber = MyNumber.toString().trim();
+            while (MyNumber != "") {
+                if (dongu == 1 && parseFloat(Right(MyNumber, 3)) == 1) {
+                    temp = "";
+                    nutuk = place[dongu] + nutuk;
+                } else {
+                    temp = GetHundreds(Right(MyNumber, 3), language, dongu, nutuk);
+                }
+                if (temp != "") {
+                    nutuk = temp + " " + place[dongu] + nutuk;
+                    temp = "";
+                }
+                if (MyNumber.length > 3) {
+                    MyNumber = Left(MyNumber, MyNumber.length - 3);
+                } else {
+                    MyNumber = "";
+                }
+                dongu += 1;
+            }
+            break;
+        default:
+    }
     counter = 0;
     return nutuk.trim();
 }
@@ -5473,104 +5600,104 @@ function GetTens(TensText: string, language: string, counter: number, Hundreds: 
                 }
             }
             break;
-		case "HEBREW":
-			PlaceOnes = ["", "אלפים ", "מיליון ", "מיליארד ", "טריליון "];
-			PlaceTwos = ["", "אלפיים ", "שני מיליון ", "שני מיליארד ", "שני טריליון "];
-			if (parseFloat(Left(TensText, 1)) == 1) {
-				switch (parseFloat(TensText)) {
-					case 10:
-						result = "עשר ";
-						break;
-					case 11:
-						result = "אחת עשרה ";
-						break;
-					case 12:
-						result = "שתים עשרה ";
-						break;
-					case 13:
-						result = "שלוש עשרה ";
-						break;
-					case 14:
-						result = "ארבע עשרה ";
-						break;
-					case 15:
-						result = "חמש עשרה ";
-						break;
-					case 16:
-						result = "שש עשרה ";
-						break;
-					case 17:
-						result = "שבע עשרה ";
-						break;
-					case 18:
-						result = "שמונה עשרה ";
-						break;
-					case 19:
-						result = "תשע עשרה ";
-						break;
-					default:
-				}
-			} else {
-				if (parseFloat(TensText) == 2 && Hundreds == 0 && counter > 0) {
-					result = PlaceTwos[counter] + result;
-				} else {
-					if (parseFloat(TensText) == 1 && counter > 0) {
-						result = PlaceOnes[counter] + result;
-					} else if (parseFloat(TensText) == 1 || parseFloat(TensText) == 2) {
-						if (counter == 0 && Hundreds == 0 && parseFloat(TensText) == 0) {
-							result += "";
-						}
-					}
-				}
-				if (parseFloat(TensText) > 0) {
-					if (parseFloat(Left(TensText, 1)) > 1) {
-						result += GetTensStatus(parseFloat(Left(TensText, 1)), language);
-					}
-					if (result.length > 0 && parseFloat(Right(TensText, 1)) != 0) {
-						result += "ו ";
-					}
-					result += GetDigit(parseFloat(Right(TensText, 1)), language);
-				} else {
-					if (nutuk.length > 0 && parseFloat(Left(TensText, 1)) != 0 || result.length > 0 && parseFloat(Left(TensText, 1)) != 0) {
-						result += "ו ";
-					}
-					result += GetTensStatus(parseFloat(Left(TensText, 1)), language);
-				}
-			}
-			break;
-		case "TURKCE":
-			switch (parseFloat(Left(TensText, 1))) {
-				case 1:
-					result = "on ";
-					break;
-				case 2:
-					result = "yirmi ";
-					break;
-				case 3:
-					result = "otuz ";
-					break;
-				case 4:
-					result = "kırk ";
-					break;
-				case 5:
-					result = "elli ";
-					break;
-				case 6:
-					result = "altmış ";
-					break;
-				case 7:
-					result = "yetmiş ";
-					break;
-				case 8:
-					result = "seksen ";
-					break;
-				case 9:
-					result = "doksan ";
-					break;
-				default:
-			}
-			result += GetDigit(parseFloat(Right(TensText, 1)), language);
-			break;
+        case "HEBREW":
+            PlaceOnes = ["", "אלפים ", "מיליון ", "מיליארד ", "טריליון "];
+            PlaceTwos = ["", "אלפיים ", "שני מיליון ", "שני מיליארד ", "שני טריליון "];
+            if (parseFloat(Left(TensText, 1)) == 1) {
+                switch (parseFloat(TensText)) {
+                    case 10:
+                        result = "עשר ";
+                        break;
+                    case 11:
+                        result = "אחת עשרה ";
+                        break;
+                    case 12:
+                        result = "שתים עשרה ";
+                        break;
+                    case 13:
+                        result = "שלוש עשרה ";
+                        break;
+                    case 14:
+                        result = "ארבע עשרה ";
+                        break;
+                    case 15:
+                        result = "חמש עשרה ";
+                        break;
+                    case 16:
+                        result = "שש עשרה ";
+                        break;
+                    case 17:
+                        result = "שבע עשרה ";
+                        break;
+                    case 18:
+                        result = "שמונה עשרה ";
+                        break;
+                    case 19:
+                        result = "תשע עשרה ";
+                        break;
+                    default:
+                }
+            } else {
+                if (parseFloat(TensText) == 2 && Hundreds == 0 && counter > 0) {
+                    result = PlaceTwos[counter] + result;
+                } else {
+                    if (parseFloat(TensText) == 1 && counter > 0) {
+                        result = PlaceOnes[counter] + result;
+                    } else if (parseFloat(TensText) == 1 || parseFloat(TensText) == 2) {
+                        if (counter == 0 && Hundreds == 0 && parseFloat(TensText) == 0) {
+                            result += "";
+                        }
+                    }
+                }
+                if (parseFloat(TensText) > 0) {
+                    if (parseFloat(Left(TensText, 1)) > 1) {
+                        result += GetTensStatus(parseFloat(Left(TensText, 1)), language);
+                    }
+                    if (result.length > 0 && parseFloat(Right(TensText, 1)) != 0) {
+                        result += "ו ";
+                    }
+                    result += GetDigit(parseFloat(Right(TensText, 1)), language);
+                } else {
+                    if (nutuk.length > 0 && parseFloat(Left(TensText, 1)) != 0 || result.length > 0 && parseFloat(Left(TensText, 1)) != 0) {
+                        result += "ו ";
+                    }
+                    result += GetTensStatus(parseFloat(Left(TensText, 1)), language);
+                }
+            }
+            break;
+        case "TURKCE":
+            switch (parseFloat(Left(TensText, 1))) {
+                case 1:
+                    result = "on ";
+                    break;
+                case 2:
+                    result = "yirmi ";
+                    break;
+                case 3:
+                    result = "otuz ";
+                    break;
+                case 4:
+                    result = "kırk ";
+                    break;
+                case 5:
+                    result = "elli ";
+                    break;
+                case 6:
+                    result = "altmış ";
+                    break;
+                case 7:
+                    result = "yetmiş ";
+                    break;
+                case 8:
+                    result = "seksen ";
+                    break;
+                case 9:
+                    result = "doksan ";
+                    break;
+                default:
+            }
+            result += GetDigit(parseFloat(Right(TensText, 1)), language);
+            break;
         default:
     }
     return result;
