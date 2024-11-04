@@ -9,259 +9,325 @@ def abjad(metin, tablo=1, shadda=1, detail=0):
 		SN = nitem = ''
 		for choosen in metin:
 			if choosen in ['ا', 'أ', 'إ', 'آ', 'ء', 'ى']:
-				if tablo in [1, 4, 5, 7, 10, 12, 15]: s = 1
-				elif tablo in [0, 6, 11]: s = asgar(choosen, tablo + 1)
-				elif tablo in [2, 8, 13]: s = abjad('الف', tablo - 1, 1)
-				elif tablo in [3, 9, 14]: s = bastet(choosen, 1, -1 - (tablo - 2) , 1, 'ARABIC')
+				if tablo in [1, 4, 5, 7, 10, 12, 15, 17, 20, 22, 25, 27, 30, 32, 35]: s = 1
+				elif tablo in [0, 6, 11, 16, 21, 26, 31]: s = asgar(choosen, tablo + 1)
+				elif tablo in [2, 8, 13, 18, 23, 28, 33]: s = abjad('الف', tablo - 1, 1)
+				elif tablo in [3, 9, 14, 19, 24, 29, 34]: s = bastet(choosen, 1, -1 - (tablo - 2) , 1, 'ARABIC')
 				else: err = 1
 			elif choosen == 'ؤ':
 				if tablo in [1, 4, 7, 10]: s = 7
 				elif tablo in [12, 15]: s = 6
-				elif tablo in [0, 6, 11]: s = asgar('ا', tablo + 1) + asgar('و', tablo + 1)
-				elif tablo in [2, 8, 13]: s = abjad('الف', tablo - 1, 1) + abjad('واو', tablo - 1, 1)
-				elif tablo in [3, 9, 14]: s = bastet('ا', 1, -1 - (tablo - 2) , 1, 'ARABIC') + bastet('و', 1, -1 - (tablo - 2) , 1, 'ARABIC')
+				elif tablo in [17, 20, 22, 25]: s = 801
+				elif tablo in [27, 30]: s = 41
+				elif tablo in [32, 35]: s = 901
+				elif tablo in [0, 6, 11, 16, 21, 26, 31]: s = asgar('ا', tablo + 1) + asgar('و', tablo + 1)
+				elif tablo in [2, 8, 13, 18, 23, 28, 33]: s = abjad('الف', tablo - 1, 1) + abjad('واو', tablo - 1, 1)
+				elif tablo in [3, 9, 14, 19, 24, 29, 34]: s = bastet('ا', 1, -1 - (tablo - 2) , 1, 'ARABIC') + bastet('و', 1, -1 - (tablo - 2) , 1, 'ARABIC')
 				elif tablo == 5: s = 1
 				else: err = 1
 			elif choosen == 'ئ':
 				if tablo in [1, 4, 7, 10]: s = 11
 				elif tablo in [12, 15]: s = 7
-				elif tablo in [0, 6, 11]: s = asgar('ا', tablo + 1) + asgar('ي', tablo + 1)
-				elif tablo in [2, 8, 13]: s = abjad('الف', tablo - 1, 1) + abjad('يا', tablo - 1, 1)
-				elif tablo in [3, 9, 14]: s = bastet('ا', 1, -1 - (tablo - 2) , 1, 'ARABIC') + bastet('ي', 1, -1 - (tablo - 2) , 1, 'ARABIC')
+				elif tablo in [17, 20, 22, 25, 27, 30, 32, 35]: s = 1001
+				elif tablo in [0, 6, 11, 16, 21, 26, 31]: s = asgar('ا', tablo + 1) + asgar('ي', tablo + 1)
+				elif tablo in [2, 8, 13, 18, 23, 28, 33]: s = abjad('الف', tablo - 1, 1) + abjad('يا', tablo - 1, 1)
+				elif tablo in [3, 9, 14, 19, 24, 29, 34]: s = bastet('ا', 1, -1 - (tablo - 2) , 1, 'ARABIC') + bastet('ي', 1, -1 - (tablo - 2) , 1, 'ARABIC')
 				elif tablo == 5: s = 1
 				else: err = 1
 			elif choosen == 'ۀ':
 				if tablo in [1, 4, 7, 10]: s = 15
 				elif tablo in [12, 15]: s = 13
-				elif tablo in [0, 6, 11]: s = asgar('ي', tablo + 1) + asgar('ه', tablo + 1)
-				elif tablo in [2, 8, 13]: s = abjad('يا', tablo - 1, 1) + abjad('ها', tablo - 1, 1)
-				elif tablo in [3, 9, 14]: s = bastet('ي', 1, -1 - (tablo - 2) , 1, 'ARABIC') + bastet('ه', 1, -1 - (tablo - 2) , 1, 'ARABIC')
+				elif tablo in [17, 20, 22, 25]: s = 1800
+				elif tablo in [27, 30]: s = 1700
+				elif tablo in [32, 35]: S = 1900
+				elif tablo in [0, 6, 11, 16, 21, 26, 31]: s = asgar('ي', tablo + 1) + asgar('ه', tablo + 1)
+				elif tablo in [2, 8, 13, 18, 23, 28, 33]: s = abjad('يا', tablo - 1, 1) + abjad('ها', tablo - 1, 1)
+				elif tablo in [3, 9, 14, 19, 24, 29, 34]: s = bastet('ي', 1, -1 - (tablo - 2) , 1, 'ARABIC') + bastet('ه', 1, -1 - (tablo - 2) , 1, 'ARABIC')
 				elif tablo == 5: s = 1
 				else: err = 1
 			elif choosen in ['ب', 'ﭖ']:
-				if tablo in [1, 4, 7, 10]: s = 2
+				if tablo in [1, 4, 7, 10, 17, 20, 22, 25, 27, 30, 32, 35]: s = 2
 				elif tablo in [12, 15]: s = 9
-				elif tablo in [0, 6, 11]: s = asgar(choosen, tablo + 1)
-				elif tablo in [2, 8, 13]: s = abjad('با', tablo - 1, 1)
-				elif tablo in [3, 9, 14]: s = bastet(choosen, 1, -1 - (tablo - 2) , 1, 'ARABIC')
+				elif tablo in [0, 6, 11, 16, 21, 26, 31]: s = asgar(choosen, tablo + 1)
+				elif tablo in [2, 8, 13, 18, 23, 28, 33]: s = abjad('با', tablo - 1, 1)
+				elif tablo in [3, 9, 14, 19, 24, 29, 34]: s = bastet(choosen, 1, -1 - (tablo - 2) , 1, 'ARABIC')
 				elif tablo == 5: s = 1
 				else: err = 1
 			elif choosen in ['ج', 'ﭺ']:
 				if tablo in [1, 4, 7, 10]: s = 3
 				elif tablo in [12, 15]: s = 100
-				elif tablo in [0, 6, 11]: s = asgar(choosen, tablo + 1)
-				elif tablo in [2, 8, 13]: s = abjad('جيم', tablo - 1, 1)
-				elif tablo in [3, 9, 14]: s = bastet(choosen, 1, -1 - (tablo - 2) , 1, 'ARABIC')
+				elif tablo in [17, 20, 22, 25, 27, 30, 32, 35]: s = 5
+				elif tablo in [0, 6, 11, 16, 21, 26, 31]: s = asgar(choosen, tablo + 1)
+				elif tablo in [2, 8, 13, 18, 23, 28, 33]: s = abjad('جيم', tablo - 1, 1)
+				elif tablo in [3, 9, 14, 19, 24, 29, 34]: s = bastet(choosen, 1, -1 - (tablo - 2) , 1, 'ARABIC')
 				elif tablo == 5: s = 1
 				else: err = 1
 			elif choosen == 'د':
 				if tablo in [1, 4, 7, 10]: s = 4
 				elif tablo in [12, 15]: s = 70
-				elif tablo in [0, 6, 11]: s = asgar(choosen, tablo + 1)
-				elif tablo in [2, 8, 13]: s = abjad('دال', tablo - 1, 1)
-				elif tablo in [3, 9, 14]: s = bastet(choosen, 1, -1 - (tablo - 2) , 1, 'ARABIC')
+				elif tablo in [17, 20, 22, 25, 27, 30, 32, 35]: s = 8
+				elif tablo in [0, 6, 11, 16, 21, 26, 31]: s = asgar(choosen, tablo + 1)
+				elif tablo in [2, 8, 13, 18, 23, 28, 33]: s = abjad('دال', tablo - 1, 1)
+				elif tablo in [3, 9, 14, 19, 24, 29, 34]: s = bastet(choosen, 1, -1 - (tablo - 2) , 1, 'ARABIC')
 				elif tablo == 5: s = 1
 				else: err = 1
 			elif choosen in ['ه', 'ة']:
 				if tablo in [1, 4, 7, 10]: s = 5
 				elif tablo in [12, 15]: s = 7
-				elif tablo in [0, 6, 11]: s = asgar(choosen, tablo + 1)
-				elif tablo in [2, 8, 13]: s = abjad('ها', tablo - 1, 1)
-				elif tablo in [3, 9, 14]: s = bastet(choosen, 1, -1 - (tablo - 2) , 1, 'ARABIC')
+            	elif tablo in [17, 20, 22, 25]: s = 800
+            	elif tablo in [27, 30]: s = 700
+            	elif tablo in [32, 35]: s = 900
+				elif tablo in [0, 6, 11, 16, 21, 26, 31]: s = asgar(choosen, tablo + 1)
+				elif tablo in [2, 8, 13, 18, 23, 28, 33]: s = abjad('ها', tablo - 1, 1)
+				elif tablo in [3, 9, 14, 19, 24, 29, 34]: s = bastet(choosen, 1, -1 - (tablo - 2) , 1, 'ARABIC')
 				elif tablo == 5: s = 1
 				else: err = 1
 			elif choosen == 'و':
 				if tablo in [1, 4, 7, 10]: s = 6
 				elif tablo in [12, 15]: s = 5
-				elif tablo in [0, 6, 11]: s = asgar(choosen, tablo + 1)
-				elif tablo in [2, 8, 13]: s = abjad('واو', tablo - 1, 1)
-				elif tablo in [3, 9, 14]: s = bastet(choosen, 1, -1 - (tablo - 2) , 1, 'ARABIC')
+            	elif tablo in [17, 20, 22, 25]: s = 900
+            	elif tablo in [27, 30]: s = 40
+            	elif tablo in [32, 35]: s = 800
+				elif tablo in [0, 6, 11, 16, 21, 26, 31]: s = asgar(choosen, tablo + 1)
+				elif tablo in [2, 8, 13, 18, 23, 28, 33]: s = abjad('واو', tablo - 1, 1)
+				elif tablo in [3, 9, 14, 19, 24, 29, 34]: s = bastet(choosen, 1, -1 - (tablo - 2) , 1, 'ARABIC')
 				elif tablo == 5: s = 1
 				else: err = 1
 			elif choosen in ['ز', 'ﮊ']:
 				if tablo in [1, 4, 7, 10]: s = 7
-				elif tablo in [12, 15]: s = 600
-				elif tablo in [0, 6, 11]: s = asgar(choosen, tablo + 1)
-				elif tablo in [2, 8, 13]: s = abjad('زا', tablo - 1, 1)
-				elif tablo in [3, 9, 14]: s = bastet(choosen, 1, -1 - (tablo - 2) , 1, 'ARABIC')
+				elif tablo in [12, 15, 27, 30]: s = 600
+            	elif tablo in [17, 20, 22, 25, 32, 35]: s = 20
+				elif tablo in [0, 6, 11, 16, 21, 26, 31]: s = asgar(choosen, tablo + 1)
+				elif tablo in [2, 8, 13, 18, 23, 28, 33]: s = abjad('زا', tablo - 1, 1)
+				elif tablo in [3, 9, 14, 19, 24, 29, 34]: s = bastet(choosen, 1, -1 - (tablo - 2) , 1, 'ARABIC')
 				elif tablo == 5: s = 1
 				else: err = 1
 			elif choosen == 'ح':
 				if tablo in [1, 4, 7, 10]: s = 8
 				elif tablo in [12, 15]: s = 90
-				elif tablo in [0, 6, 11]: s = asgar(choosen, tablo + 1)
-				elif tablo in [2, 8, 13]: s = abjad('حا', tablo - 1, 1)
-				elif tablo in [3, 9, 14]: s = bastet(choosen, 1, -1 - (tablo - 2) , 1, 'ARABIC')
+            	elif tablo in [17, 20, 22, 25, 27, 30, 32, 35]: s = 6
+				elif tablo in [0, 6, 11, 16, 21, 26, 31]: s = asgar(choosen, tablo + 1)
+				elif tablo in [2, 8, 13, 18, 23, 28, 33]: s = abjad('حا', tablo - 1, 1)
+				elif tablo in [3, 9, 14, 19, 24, 29, 34]: s = bastet(choosen, 1, -1 - (tablo - 2) , 1, 'ARABIC')
 				elif tablo == 5: s = 1
 				else: err = 1
 			elif choosen == 'ط':
 				if tablo in [1, 4, 7, 10]: s = 9
 				elif tablo in [12, 15]: s = 800
-				elif tablo in [0, 6, 11]: s = asgar(choosen, tablo + 1)
-				elif tablo in [2, 8, 13]: s = abjad('طا', tablo - 1, 1)
-				elif tablo in [3, 9, 14]: s = bastet(choosen, 1, -1 - (tablo - 2) , 1, 'ARABIC')
+            	elif tablo in [17, 20, 32, 35]: s = 70
+            	elif tablo in [22, 25]: s = 30
+            	elif tablo in [27, 30]: s = 100
+				elif tablo in [0, 6, 11, 16, 21, 26, 31]: s = asgar(choosen, tablo + 1)
+				elif tablo in [2, 8, 13, 18, 23, 28, 33]: s = abjad('طا', tablo - 1, 1)
+				elif tablo in [3, 9, 14, 19, 24, 29, 34]: s = bastet(choosen, 1, -1 - (tablo - 2) , 1, 'ARABIC')
 				elif tablo == 5: s = 1
 				else: err = 1
 			elif choosen in ['ی', 'ي']:
 				if tablo in [1, 4, 7, 10]: s = 10
 				elif tablo in [12, 15]: s = 6
-				elif tablo in [0, 6, 11]: s = asgar(choosen, tablo + 1)
-				elif tablo in [2, 8, 13]: s = abjad('يا', tablo - 1, 1)
-				elif tablo in [3, 9, 14]: s = bastet(choosen, 1, -1 - (tablo - 2) , 1, 'ARABIC')
+            	elif tablo in [17, 20, 22, 25, 27, 30, 32, 35]: s = 1000
+				elif tablo in [0, 6, 11, 16, 21, 26, 31]: s = asgar(choosen, tablo + 1)
+				elif tablo in [2, 8, 13, 18, 23, 28, 33]: s = abjad('يا', tablo - 1, 1)
+				elif tablo in [3, 9, 14, 19, 24, 29, 34]: s = bastet(choosen, 1, -1 - (tablo - 2) , 1, 'ARABIC')
 				elif tablo == 5: s = 1
 				else: err = 1
 			elif choosen in ['ك', 'ﮒ', 'ک']:
 				if tablo in [1, 4, 7, 10, 12, 15]: s = 20
-				elif tablo in [0, 6, 11]: s = asgar(choosen, tablo + 1)
-				elif tablo in [2, 8, 13]: s = abjad('كاف', tablo - 1, 1)
-				elif tablo in [3, 9, 14]: s = bastet(choosen, 1, -1 - (tablo - 2) , 1, 'ARABIC')
+            	elif tablo in [17, 20, 32, 35]: s = 400
+            	elif tablo in [22, 25]: s = 50
+            	elif tablo in [27, 30]: s = 10
+				elif tablo in [0, 6, 11, 16, 21, 26, 31]: s = asgar(choosen, tablo + 1)
+				elif tablo in [2, 8, 13, 18, 23, 28, 33]: s = abjad('كاف', tablo - 1, 1)
+				elif tablo in [3, 9, 14, 19, 24, 29, 34]: s = bastet(choosen, 1, -1 - (tablo - 2) , 1, 'ARABIC')
 				elif tablo == 5: s = 1
 				else: err = 1
 			elif choosen == 'ل':
 				if tablo in [1, 4, 7, 10]: s = 30
 				elif tablo in [12, 15]: s = 2
-				elif tablo in [0, 6, 11]: s = asgar(choosen, tablo + 1)
-				elif tablo in [2, 8, 13]: s = abjad('لام', tablo - 1, 1)
-				elif tablo in [3, 9, 14]: s = bastet(choosen, 1, -1 - (tablo - 2) , 1, 'ARABIC')
+            	elif tablo in [17, 20, 32, 35]: s = 500
+            	elif tablo in [22, 25]: s = 60
+            	elif tablo in [27, 30]: s = 20
+				elif tablo in [0, 6, 11, 16, 21, 26, 31]: s = asgar(choosen, tablo + 1)
+				elif tablo in [2, 8, 13, 18, 23, 28, 33]: s = abjad('لام', tablo - 1, 1)
+				elif tablo in [3, 9, 14, 19, 24, 29, 34]: s = bastet(choosen, 1, -1 - (tablo - 2) , 1, 'ARABIC')
 				elif tablo == 5: s = 1
 				else: err = 1
 			elif choosen == 'ﻻ':
-				if tablo in [1, 4, 7, 10]: s = 31				
+				if tablo in [1, 4, 7, 10]: s = 31
 				elif tablo in [12, 15]: s = 3
-				elif tablo in [0, 6, 11]: s = asgar('ا', tablo + 1) + asgar('ل', tablo + 1)
-				elif tablo in [2, 8, 13]: s = abjad('الف', tablo - 1, 1) + abjad('لام', tablo - 1, 1)
-				elif tablo in [3, 9, 14]: s = bastet('ل', 1, -1 - (tablo - 2) , 1, 'ARABIC') + bastet('ا', 1, -1 - (tablo - 2) , 1, 'ARABIC')
+            	elif tablo in [17, 20, 32, 35]: s = 501
+            	elif tablo in [22, 25]: s = 61
+            	elif tablo in [27, 30]: s = 21
+				elif tablo in [0, 6, 11, 16, 21, 26, 31]: s = asgar('ا', tablo + 1) + asgar('ل', tablo + 1)
+				elif tablo in [2, 8, 13, 18, 23, 28, 33]: s = abjad('الف', tablo - 1, 1) + abjad('لام', tablo - 1, 1)
+				elif tablo in [3, 9, 14, 19, 24, 29, 34]: s = bastet('ل', 1, -1 - (tablo - 2) , 1, 'ARABIC') + bastet('ا', 1, -1 - (tablo - 2) , 1, 'ARABIC')
 				elif tablo == 5: s = 1
 				else: err = 1
 			elif choosen == 'م':
 				if tablo in [1, 4, 7, 10]: s = 40
 				elif tablo in [12, 15]: s = 4
-				elif tablo in [0, 6, 11]: s = asgar(choosen, tablo + 1)
-				elif tablo in [2, 8, 13]: s = abjad('ميم', tablo - 1, 1)
-				elif tablo in [3, 9, 14]: s = bastet(choosen, 1, -1 - (tablo - 2) , 1, 'ARABIC')
+            	elif tablo in [17, 20, 32, 35]: s = 600
+            	elif tablo in [22, 25]: s = 70
+            	elif tablo in [27, 30]: s = 30
+				elif tablo in [0, 6, 11, 16, 21, 26, 31]: s = asgar(choosen, tablo + 1)
+				elif tablo in [2, 8, 13, 18, 23, 28, 33]: s = abjad('ميم', tablo - 1, 1)
+				elif tablo in [3, 9, 14, 19, 24, 29, 34]: s = bastet(choosen, 1, -1 - (tablo - 2) , 1, 'ARABIC')
 				elif tablo == 5: s = 1
 				else: err = 1
 			elif choosen in ['ن', 'ﯓ']:
-				if tablo in [1, 4, 7, 10]: s = 50
+				if tablo in [1, 4, 7, 10, 27, 30]: s = 50
 				elif tablo in [12, 15]: s = 3
-				elif tablo in [0, 6, 11]: s = asgar(choosen, tablo + 1)
-				elif tablo in [2, 8, 13]: s = abjad('نون', tablo - 1, 1)
-				elif tablo in [3, 9, 14]: s = bastet(choosen, 1, -1 - (tablo - 2) , 1, 'ARABIC')
+            	elif tablo in [17, 20, 32, 35]: s = 700
+            	elif tablo in [22, 25]: s = 80
+				elif tablo in [0, 6, 11, 16, 21, 26, 31]: s = asgar(choosen, tablo + 1)
+				elif tablo in [2, 8, 13, 18, 23, 28, 33]: s = abjad('نون', tablo - 1, 1)
+				elif tablo in [3, 9, 14, 19, 24, 29, 34]: s = bastet(choosen, 1, -1 - (tablo - 2) , 1, 'ARABIC')
 				elif tablo == 5: s = 1
 				else: err = 1
 			elif choosen == 'س':
-				if tablo in [1, 4, 12, 15]: s = 60				
+				if tablo in [1, 4, 12, 15]: s = 60
 				elif tablo in [7, 10]: s = 300
-				elif tablo in [0, 6, 11]: s = asgar(choosen, tablo + 1)
-				elif tablo in [2, 8, 13]: s = abjad('سين', tablo - 1, 1)
-				elif tablo in [3, 9, 14]: s = bastet(choosen, 1, -1 - (tablo - 2) , 1, 'ARABIC')
+            	elif tablo in [17, 20, 32, 35]: s = 30
+            	elif tablo in [22, 25]: s = 600
+            	elif tablo in [27, 30]: s = 800
+				elif tablo in [0, 6, 11, 16, 21, 26, 31]: s = asgar(choosen, tablo + 1)
+				elif tablo in [2, 8, 13, 18, 23, 28, 33]: s = abjad('سين', tablo - 1, 1)
+				elif tablo in [3, 9, 14, 19, 24, 29, 34]: s = bastet(choosen, 1, -1 - (tablo - 2) , 1, 'ARABIC')
 				elif tablo == 5: s = 1
 				else: err = 1
 			elif choosen == 'ع':
 				if tablo in [1, 4, 7, 10]: s = 70
 				elif tablo in [12, 15]: s = 30
-				elif tablo in [0, 6, 11]: s = asgar(choosen, tablo + 1)
-				elif tablo in [2, 8, 13]: s = abjad('عين', tablo - 1, 1)
-				elif tablo in [3, 9, 14]: s = bastet(choosen, 1, -1 - (tablo - 2) , 1, 'ARABIC')
+            	elif tablo in [17, 20, 32, 35]: s = 90
+            	elif tablo in [22, 25]: s = 200
+            	elif tablo in [27, 30]: s = 80
+				elif tablo in [0, 6, 11, 16, 21, 26, 31]: s = asgar(choosen, tablo + 1)
+				elif tablo in [2, 8, 13, 18, 23, 28, 33]: s = abjad('عين', tablo - 1, 1)
+				elif tablo in [3, 9, 14, 19, 24, 29, 34]: s = bastet(choosen, 1, -1 - (tablo - 2) , 1, 'ARABIC')
 				elif tablo == 5: s = 1
 				else: err = 1
 			elif choosen == 'ف':
 				if tablo in [1, 4, 7, 10]: s = 80
 				elif tablo in [12, 15]: s = 40
-				elif tablo in [0, 6, 11]: s = asgar(choosen, tablo + 1)
-				elif tablo in [2, 8, 13]: s = abjad('فا', tablo - 1, 1)
-				elif tablo in [3, 9, 14]: s = bastet(choosen, 1, -1 - (tablo - 2) , 1, 'ARABIC')
+            	elif tablo in [17, 20, 32, 35]: s = 200
+            	elif tablo in [22, 25]: s = 400
+            	elif tablo in [27, 30]: s = 300
+				elif tablo in [0, 6, 11, 16, 21, 26, 31]: s = asgar(choosen, tablo + 1)
+				elif tablo in [2, 8, 13, 18, 23, 28, 33]: s = abjad('فا', tablo - 1, 1)
+				elif tablo in [3, 9, 14, 19, 24, 29, 34]: s = bastet(choosen, 1, -1 - (tablo - 2) , 1, 'ARABIC')
 				elif tablo == 5: s = 1
 				else: err = 1
 			elif choosen == 'ص':
-				if tablo in [1, 4]: s = 90
-				elif tablo in [7, 10]: s = 60
+				if tablo in [1, 4, 22, 25]: s = 90
+				elif tablo in [7, 10, 27, 30]: s = 60
 				elif tablo in [12, 15]: s = 400
-				elif tablo in [0, 6, 11]: s = asgar(choosen, tablo + 1)
-				elif tablo in [2, 8, 13]: s = abjad('صاد', tablo - 1, 1)
-				elif tablo in [3, 9, 14]: s = bastet(choosen, 1, -1 - (tablo - 2) , 1, 'ARABIC')
+            	elif tablo in [17, 20, 32, 35]: s = 50
+				elif tablo in [0, 6, 11, 16, 21, 26, 31]: s = asgar(choosen, tablo + 1)
+				elif tablo in [2, 8, 13, 18, 23, 28, 33]: s = abjad('صاد', tablo - 1, 1)
+				elif tablo in [3, 9, 14, 19, 24, 29, 34]: s = bastet(choosen, 1, -1 - (tablo - 2) , 1, 'ARABIC')
 				elif tablo == 5: s = 1
 				else: err = 1
 			elif choosen == 'ق':
 				if tablo in [1, 4, 7, 10]: s = 100
 				elif tablo in [12, 15]: s = 50
-				elif tablo in [0, 6, 11]: s = asgar(choosen, tablo + 1)
-				elif tablo in [2, 8, 13]: s = abjad('قاف', tablo - 1, 1)
-				elif tablo in [3, 9, 14]: s = bastet(choosen, 1, -1 - (tablo - 2) , 1, 'ARABIC')
+            	elif tablo in [17, 20, 32, 35]: s = 300
+            	elif tablo in [22, 25]: s = 500
+            	elif tablo in [27, 30]: s = 400
+				elif tablo in [0, 6, 11, 16, 21, 26, 31]: s = asgar(choosen, tablo + 1)
+				elif tablo in [2, 8, 13, 18, 23, 28, 33]: s = abjad('قاف', tablo - 1, 1)
+				elif tablo in [3, 9, 14, 19, 24, 29, 34]: s = bastet(choosen, 1, -1 - (tablo - 2) , 1, 'ARABIC')
 				elif tablo == 5: s = 1
 				else: err = 1
 			elif choosen == 'ر':
 				if tablo in [1, 4, 7, 10]: s = 200
 				elif tablo in [12, 15]: s = 8
-				elif tablo in [0, 6, 11]: s = asgar(choosen, tablo + 1)
-				elif tablo in [2, 8, 13]: s = abjad('را', tablo - 1, 1)
-				elif tablo in [3, 9, 14]: s = bastet(choosen, 1, -1 - (tablo - 2) , 1, 'ARABIC')
+            	elif tablo in [17, 20, 22, 25, 32, 35]: s = 10
+            	elif tablo in [27, 30]: s = 500
+				elif tablo in [0, 6, 11, 16, 21, 26, 31]: s = asgar(choosen, tablo + 1)
+				elif tablo in [2, 8, 13, 18, 23, 28, 33]: s = abjad('را', tablo - 1, 1)
+				elif tablo in [3, 9, 14, 19, 24, 29, 34]: s = bastet(choosen, 1, -1 - (tablo - 2) , 1, 'ARABIC')
 				elif tablo == 5: s = 1
 				else: err = 1
 			elif choosen == 'ش':
 				if tablo in [1, 4, 12, 15]: s = 300
 				elif tablo in [7, 10]: s = 1000
-				elif tablo in [0, 6, 11]: s = asgar(choosen, tablo + 1)
-				elif tablo in [2, 8, 13]: s = abjad('شين', tablo - 1, 1)
-				elif tablo in [3, 9, 14]: s = bastet(choosen, 1, -1 - (tablo - 2) , 1, 'ARABIC')
+            	elif tablo in [17, 20, 32, 35]: s = 40
+            	elif tablo in [22, 25]: s = 700
+            	elif tablo in [27, 30]: s = 900
+				elif tablo in [0, 6, 11, 16, 21, 26, 31]: s = asgar(choosen, tablo + 1)
+				elif tablo in [2, 8, 13, 18, 23, 28, 33]: s = abjad('شين', tablo - 1, 1)
+				elif tablo in [3, 9, 14, 19, 24, 29, 34]: s = bastet(choosen, 1, -1 - (tablo - 2) , 1, 'ARABIC')
 				elif tablo == 5: s = 1
 				else: err = 1
 			elif choosen == 'ت':
 				if tablo in [1, 4, 7, 10]: s = 400
 				elif tablo in [12, 15]: s = 10
-				elif tablo in [0, 6, 11]: s = asgar(choosen, tablo + 1)
-				elif tablo in [2, 8, 13]: s = abjad('تا', tablo - 1, 1)
-				elif tablo in [3, 9, 14]: s = bastet(choosen, 1, -1 - (tablo - 2) , 1, 'ARABIC')
+            	elif tablo in [17, 20, 22, 25, 27, 30, 32, 35]: s = 3
+				elif tablo in [0, 6, 11, 16, 21, 26, 31]: s = asgar(choosen, tablo + 1)
+				elif tablo in [2, 8, 13, 18, 23, 28, 33]: s = abjad('تا', tablo - 1, 1)
+				elif tablo in [3, 9, 14, 19, 24, 29, 34]: s = bastet(choosen, 1, -1 - (tablo - 2) , 1, 'ARABIC')
 				elif tablo == 5: s = 1
 				else: err = 1
 			elif choosen == 'ث':
 				if tablo in [1, 4, 7, 10]: s = 500
 				elif tablo in [12, 15]: s = 700
-				elif tablo in [0, 6, 11]: s = asgar(choosen, tablo + 1)
-				elif tablo in [2, 8, 13]: s = abjad('ثا', tablo - 1, 1)
-				elif tablo in [3, 9, 14]: s = bastet(choosen, 1, -1 - (tablo - 2) , 1, 'ARABIC')
+            	elif tablo in [17, 20, 22, 25, 27, 30, 32, 35]: s = 4
+				elif tablo in [0, 6, 11, 16, 21, 26, 31]: s = asgar(choosen, tablo + 1)
+				elif tablo in [2, 8, 13, 18, 23, 28, 33]: s = abjad('ثا', tablo - 1, 1)
+				elif tablo in [3, 9, 14, 19, 24, 29, 34]: s = bastet(choosen, 1, -1 - (tablo - 2) , 1, 'ARABIC')
 				elif tablo == 5: s = 1
 				else: err = 1
 			elif choosen == 'خ':
 				if tablo in [1, 4, 7, 10]: s = 600
 				elif tablo in [12, 15]: s = 200
-				elif tablo in [0, 6, 11]: s = asgar(choosen, tablo + 1)
-				elif tablo in [2, 8, 13]: s = abjad('خا', tablo - 1, 1)
-				elif tablo in [3, 9, 14]: s = bastet(choosen, 1, -1 - (tablo - 2) , 1, 'ARABIC')
+            	elif tablo in [17, 20, 22, 25, 27, 30, 32, 35]: s = 7
+				elif tablo in [0, 6, 11, 16, 21, 26, 31]: s = asgar(choosen, tablo + 1)
+				elif tablo in [2, 8, 13, 18, 23, 28, 33]: s = abjad('خا', tablo - 1, 1)
+				elif tablo in [3, 9, 14, 19, 24, 29, 34]: s = bastet(choosen, 1, -1 - (tablo - 2) , 1, 'ARABIC')
 				elif tablo == 5: s = 1
 				else: err = 1
 			elif choosen == 'ذ':
 				if tablo in [1, 4, 7, 10]: s = 700
 				elif tablo in [12, 15]: s = 80
-				elif tablo in [0, 6, 11]: s = asgar(choosen, tablo + 1)
-				elif tablo in [2, 8, 13]: s = abjad('ذال', tablo - 1, 1)
-				elif tablo in [3, 9, 14]: s = bastet(choosen, 1, -1 - (tablo - 2) , 1, 'ARABIC')
+            	elif tablo in [17, 20, 22, 25, 27, 30, 32, 35]: s = 9
+				elif tablo in [0, 6, 11, 16, 21, 26, 31]: s = asgar(choosen, tablo + 1)
+				elif tablo in [2, 8, 13, 18, 23, 28, 33]: s = abjad('ذال', tablo - 1, 1)
+				elif tablo in [3, 9, 14, 19, 24, 29, 34]: s = bastet(choosen, 1, -1 - (tablo - 2) , 1, 'ARABIC')
 				elif tablo == 5: s = 1
 				else: err = 1
 			elif choosen == 'ض':
 				if tablo in [1, 4]: s = 800
 				elif tablo in [7, 10]: s = 90
 				elif tablo in [12, 15]: s = 500
-				elif tablo in [0, 6, 11]: s = asgar(choosen, tablo + 1)
-				elif tablo in [2, 8, 13]: s = abjad('ضاد', tablo - 1, 1)
-				elif tablo in [3, 9, 14]: s = bastet(choosen, 1, -1 - (tablo - 2) , 1, 'ARABIC')
+            	elif tablo in [17, 20, 32, 35]: s = 60
+            	elif tablo in [22, 25]: s = 100
+            	elif tablo in [27, 30]: s = 70
+				elif tablo in [0, 6, 11, 16, 21, 26, 31]: s = asgar(choosen, tablo + 1)
+				elif tablo in [2, 8, 13, 18, 23, 28, 33]: s = abjad('ضاد', tablo - 1, 1)
+				elif tablo in [3, 9, 14, 19, 24, 29, 34]: s = bastet(choosen, 1, -1 - (tablo - 2) , 1, 'ARABIC')
 				elif tablo == 5: s = 1
 				else: err = 1
 			elif choosen == 'ظ':
 				if tablo in [1, 4]: s = 900
 				elif tablo in [7, 10]: s = 800
 				elif tablo in [12, 15]: s = 1000
-				elif tablo in [0, 6, 11]: s = asgar(choosen, tablo + 1)
-				elif tablo in [2, 8, 13]: s = abjad('ظا', tablo - 1, 1)
-				elif tablo in [3, 9, 14]: s = bastet(choosen, 1, -1 - (tablo - 2) , 1, 'ARABIC')
+            	elif tablo in [17, 20, 32, 35]: s = 80
+            	elif tablo in [22, 25]: s = 40
+            	elif tablo in [27, 30]: s = 200
+				elif tablo in [0, 6, 11, 16, 21, 26, 31]: s = asgar(choosen, tablo + 1)
+				elif tablo in [2, 8, 13, 18, 23, 28, 33]: s = abjad('ظا', tablo - 1, 1)
+				elif tablo in [3, 9, 14, 19, 24, 29, 34]: s = bastet(choosen, 1, -1 - (tablo - 2) , 1, 'ARABIC')
 				elif tablo == 5: s = 1
 				else: err = 1
 			elif choosen == 'غ':
 				if tablo in [1, 4]: s = 1000
 				elif tablo in [7, 10, 12, 15]: s = 900
-				elif tablo in [0, 6, 11]: s = asgar(choosen, tablo + 1)
-				elif tablo in [2, 8, 13]: s = abjad('غين', tablo - 1, 1)
-				elif tablo in [3, 9, 14]: s = bastet(choosen, 1, -1 - (tablo - 2) , 1, 'ARABIC')
+            	elif tablo in [17, 20, 32, 35]: s = 100
+            	elif tablo in [22, 25]: s = 300
+            	elif tablo in [27, 30]: s = 90
+				elif tablo in [0, 6, 11, 16, 21, 26, 31]: s = asgar(choosen, tablo + 1)
+				elif tablo in [2, 8, 13, 18, 23, 28, 33]: s = abjad('غين', tablo - 1, 1)
+				elif tablo in [3, 9, 14, 19, 24, 29, 34]: s = bastet(choosen, 1, -1 - (tablo - 2) , 1, 'ARABIC')
 				elif tablo == 5: s = 1
 				else: err = 1
 			elif choosen == 'א':
@@ -660,13 +726,13 @@ def abjad(metin, tablo=1, shadda=1, detail=0):
 						SH += 1
 						s = abjad(metin[T-C], tablo, 1)
 					elif shadda == 1: s = 0
-					else: 
+					else:
 						err = 3
 					hrk += 1
 				elif choosen == 'ٰ':
 					C = 1
 					while saf(metin[T-C], '') == '' or metin[T-C] == 'ـ':
-						if metin[T-C] == 'ـ' or saf(metin[T-C], '') == metin[T-C]: 
+						if metin[T-C] == 'ـ' or saf(metin[T-C], '') == metin[T-C]:
 							s = abjad('ا', tablo, 1)
 						else:
 							C += 1
@@ -681,7 +747,7 @@ def abjad(metin, tablo=1, shadda=1, detail=0):
 				if saf(choosen, 0) == 'ا': SN += '[' + 'ا' + '=' + str(S) + ']'
 				elif saf(choosen, 0) == choosen: SN += '[' + choosen + '=' + str(S) + ']'
 			else: SM += S
-		if tablo in [4, 10, 15]:
+		if tablo in [4, 10, 15, 20, 25, 30, 35]:
 			if detail == 1 : SN += '[+' + str((len(metin) - N) + SH) + ' harf]'
 			else : SM += ((len(metin) - N) + SH)
 		if err == 0:
@@ -692,7 +758,7 @@ def abjad(metin, tablo=1, shadda=1, detail=0):
 		elif err == 3: abjadsum = 'Şedde Seçeneği?'
 	except: abjadsum = 'Hata?'
 	return abjadsum
-	
+
 def wordbyword(metin, tablo=1, shadda=1, detail=0):
 	try:
 		content = word = ''
@@ -706,14 +772,14 @@ def wordbyword(metin, tablo=1, shadda=1, detail=0):
 				calculation = ''
 	except: content = 'Hata?'
 	return content
-	
+
 def is_int(value):
 	if value is None: return False
-	try: 
+	try:
 		int(value)
 		return True
 	except: return False
-		
+
 def bastet(metin, mt, tablo=1, shadda=1, language='ARABIC', detail=0):
 	try:
 		err = 0
@@ -735,7 +801,7 @@ def bastet(metin, mt, tablo=1, shadda=1, language='ARABIC', detail=0):
 		elif err == 1: baster = 'Dil?'
 		return baster
 	except: return 'Hata?'
-	
+
 def unsur(metin, otabiat, otype, shadda=1, guide=0):
 	try:
 		T = 0
@@ -884,7 +950,7 @@ def unsur(metin, otabiat, otype, shadda=1, guide=0):
 		if otabiat in ['liste', 'list', 1]:	return liste
 		elif otabiat in ['adet', 'amount', 0]: return adet
 	except: return 'Hata?'
-		
+
 def saf(metin, ayrac=' ', shadda=1):
 	try:
 		T = 0; result = ''
@@ -913,7 +979,7 @@ def saf(metin, ayrac=' ', shadda=1):
 			result += s
 		return result
 	except: return 'Hata?'
-	
+
 def teksir(metin, ayrac=' ', shadda=1):
 	try:
 		if shadda == 2: newmetin = saf(metin, 0, 2)
@@ -934,7 +1000,7 @@ def teksir(metin, ayrac=' ', shadda=1):
 			newmetin = saf(iksir, 0)
 		return sonucu
 	except: return 'Hata?'
-		
+
 def numbers2arab(metin):
 	try:
 		na = ''
@@ -953,7 +1019,7 @@ def numbers2arab(metin):
 			else: na += choosen
 		return na
 	except: return 'Hata?'
-		
+
 def tesbih(zkr, minimum, boncuk, bolum):
 	try:
 		if zkr < minumum: zkr *= zkr
@@ -967,7 +1033,7 @@ def tesbih(zkr, minimum, boncuk, bolum):
 		return result
 	except:
 		return 'Hata?'
-		
+
 def altayaz(girdi):
 	try:
 		ss = ''
@@ -1010,21 +1076,21 @@ def rakamtopla(valuez, amount):
 				valuez = newsum
 			return valuez
 	except: return 'Hata?'
-		
+
 def newline(amount):
 	try:
 		for rows in range(amount):
 			nl += '\n'
 		return nl
 	except: return 'Hata?'
-		
+
 def asgar(harf, level=1):
 	try:
 		c = abjad(harf, level, 1)
 		if c > 12: return c - (12 * math.floor(c / 12))
 		else: return c
 	except: return 'Hata?'
-		
+
 def nutket(mynumber, language='ARABIC'):
 	try:
 		temp = spell = ''
@@ -1116,7 +1182,7 @@ def nutket(mynumber, language='ARABIC'):
 				count += 1
 		return spell.strip()
 	except: return 'Hata?'
-		
+
 def GetHundreds(mynumber, language='ARABIC', count=0, spell=''):
 	try:
 		result = ''
@@ -1161,7 +1227,7 @@ def GetHundreds(mynumber, language='ARABIC', count=0, spell=''):
 			else: result += str(GetDigit(mynumber[2:3], language, count, result + spell))
 		return result
 	except:	return 'Hata?'
-		
+
 def GetTens(tenstext, language='ARABIC', count=0, hundreds=0, spell=''):
 	try:
 		result = ''
@@ -1232,7 +1298,7 @@ def GetTens(tenstext, language='ARABIC', count=0, hundreds=0, spell=''):
 			result += str(GetDigit(tenstext[-1:], language))
 		return result
 	except:	return 'Hata?'
-		
+
 def GetTensStatus(tens, language='ARABIC'):
 	try:
 		if language.upper() == 'ARABIC':
@@ -1255,7 +1321,7 @@ def GetTensStatus(tens, language='ARABIC'):
 			elif tens == 9: result = 'תשעים '
 		return result
 	except:	return 'Hata?'
-		
+
 def GetDigit(digit, language='ARABIC'):
 	try:
 		if language.upper() == 'ARABIC':
@@ -1300,12 +1366,12 @@ def huddam(num, htype='ulvi', method=1):
 		hpart = ['']
 		htype = htype.upper()
 		method = 1
-		if method in [2, 8, 13]: 
+		if method in [2, 8, 13, 18, 23, 28, 33]:
 			method -= 1
 			mode = 'eacher'
-		if method not in [7, 12, 2, 8, 13]: 
+		if method not in [7, 12, 17, 22, 27, 32]:
 			method = 1
-		if method not in [2, 8, 13]:
+		if mode != 'eacher':
 			mode = 'regular'
 		if htype in ['ULVI', 'ULVİ']: suffix = abjad('ئيل', method, 1)
 		elif htype in ['SUFLI', 'SUFLİ']: suffix = abjad('يوش', method, 1)
@@ -1335,105 +1401,161 @@ def huddam(num, htype='ulvi', method=1):
 							h = 'ا'
 					elif int(choosen) == 2:
 						if method == 12: h = 'ل'
-						elif method in [1, 7]: h = 'ب'
+						else: h = 'ب'
 					elif int(choosen) == 3:
 						if method == 12: h = 'ن'
-						elif method in [1, 7]: h = 'ج'
+						elif method in [17, 22, 27, 32]: h = "ت"
+						else: h = 'ج'
 					elif int(choosen) == 4:
 						if method == 12: h = 'م'
-						elif method in [1, 7]: h = 'د'
+						elif method in [17, 22, 27, 32]: h = "ث"
+						else: h = 'د'
 					elif int(choosen) == 5:
 						if method == 12: h = 'و'
-						elif method in [1, 7]: h = 'ه'
+						elif method in [17, 22, 27, 32]: h = "ج"
+						else: h = 'ه'
 					elif int(choosen) == 6:
 						if method == 12: h = 'ي'
-						elif method in [1, 7]: h = 'و'
+                    	elif method in [17, 22, 27, 32]: h = "ح"
+						else: h = 'و'
 					elif int(choosen) == 7:
 						if method == 12: h = 'ه'
-						elif method in [1, 7]: h = 'ز'
+                    	elif method in [17, 22, 27, 32]: h = "خ"
+						else: h = 'ز'
 					elif int(choosen) == 8:
 						if method == 12: h = 'ر'
-						elif method in [1, 7]: h = 'ح'
+                    	elif method in [17, 22, 27, 32]: h = "د"
+						else: h = 'ح'
 					elif int(choosen) == 9:
 						if method == 12: h = 'ب'
-						elif method in [1, 7]: h = 'ط'
+                    	elif method in [17, 22, 27, 32]: h = "ذ"
+						else: h = 'ط'
 					elif int(choosen) == 0:
-						if method in [1, 7, 12]: h = ''
-					else: thyletter = h = ''
+						if method in [1, 7, 12, 17, 22, 27, 32]: h = ''
+					else: h = ''
 				elif turn == 2:
 					if int(choosen) == 1:
 						if method == 12: h = 'ت'
-						elif method in [1, 7]: h = 'ي'
+                    	elif method in [17, 22, 32]: h = "ر"
+                    	elif method in [27]: h = "ك"
+						else: h = 'ي'
 					elif int(choosen) == 2:
-						h = 'ك'
+                    	if method in [17, 22, 32]: h = "ز"
+                    	elif method in [27]: h = "ل"
+						else: h = 'ك'
 					elif int(choosen) == 3:
 						if method == 12: h = 'ع'
-						elif method in [1, 7]: h = 'ل'
+                    	elif method in [17, 32]: h = "س"
+                    	elif method in [22]: h = "ط"
+                    	elif method in [27]: h = "م"
+						else: h = 'ل'
 					elif int(choosen) == 4:
 						if method == 12: h = 'ف'
-						elif method in [1, 7]: h = 'م'
+                    	elif method in [17, 32]: h = "ش"
+                    	elif method in [22]: h = "ظ"
+                    	elif method in [27]: h = "و"
+						else: h = 'م'
 					elif int(choosen) == 5:
 						if method == 12: h = 'ق'
-						elif method in [1, 7]: h = 'ن'
+                    	elif method in [17, 32]: h = "ص"
+                    	elif method in [22]: h = "ك"
+						else: h = 'ن'
 					elif int(choosen) == 6:
-						if method == 7: h = 'ص'
-						elif method in [1, 12]: h = 'س'
+						if method in [7, 27]: h = 'ص'
+                    	elif method in [17, 32]: h = "ض"
+                    	elif method in [22]: h = "ل"
+						else: h = 'س'
 					elif int(choosen) == 7:
 						if method == 12: h = 'د'
-						elif method in [1, 7]: h = 'ع'
+                    	elif method in [17, 32]: h = "ط"
+                    	elif method in [22]: h = "م"
+                    	elif method in [27]: h = "ض"
+						else: h = 'ع'
 					elif int(choosen) == 8:
 						if method == 12: h = 'ذ'
-						elif method in [1, 7]: h = 'ف'
+                    	elif method in [17, 32]: h = "ظ"
+                    	elif method in [22]: h = "ن"
+                    	elif method in [27]: h = "ع"
+						else: h = 'ف'
 					elif int(choosen) == 9:
-						if method == 1: h = 'ص'
-						elif method == 7: h = 'ض'
+						if method == 7: h = 'ض'
 						elif method == 12: h = 'ح'
+                    	elif method in [17, 32]: h = "ع"
+                    	elif method in [27]: h = "غ"
+                    	else: h = 'ص'
 					elif int(choosen) == 0:
-						if method in [1, 7, 12]: h = ''
-					else: thyletter = h = ''
+						if method in [1, 7, 12, 17, 22, 27, 32]: h = ''
+					else: h = ''
 				elif turn == 1:
 					if int(choosen) == 1:
 						if method == 12: h = 'ج'
-						elif method in [1, 7]: h = 'ق'
+                    	elif method in [17, 32]: h = "غ"
+                    	elif method in [22]: h = "ض"
+                    	elif method in [27]: h = "ط"
+						else: h = 'ق'
 					elif int(choosen) == 2:
 						if method == 12: h = 'خ'
-						elif method in [1, 7]: h = 'ر'
+                    	elif method in [17, 32]: h = "ف"
+                    	elif method in [22]: h = "ع"
+                    	elif method in [27]: h = "ظ"
+						else: h = 'ر'
 					elif int(choosen) == 3:
 						if method == 7: h = 'س'
-						elif method in [1, 12]: h = 'ش'
+                    	elif method in [17, 32]: h = "ق"
+                    	elif method in [22]: h = "غ"
+                    	elif method in [27]: h = "ف"
+						else: h = 'ش'
 					elif int(choosen) == 4:
 						if method == 12: h = 'ص'
-						elif method in [1, 7]: h = 'ت'
+                    	elif method in [17, 32]: h = "ك"
+                    	elif method in [22]: h = "ف"
+                    	elif method in [27]: h = "ق"
+						else: h = 'ت'
 					elif int(choosen) == 5:
 						if method == 12: h = 'ض'
-						elif method in [1, 7]: h = 'ث'
+                    	elif method in [17, 32]: h = "ل"
+                    	elif method in [22]: h = "ق"
+                    	elif method in [27]: h = "ر"
+						else: h = 'ث'
 					elif int(choosen) == 6:
-						if method == 12: h = 'ز'
-						elif method in [1, 7]: h = 'خ'
+						if method in [12, 27]: h = 'ز'
+                    	elif method in [17, 32]: h = "م"
+                    	elif method in [22]: h = "س"
+						else: h = 'خ'
 					elif int(choosen) == 7:
 						if method == 12: h = 'ث'
-						elif method in [1, 7]: h = 'ذ'
+                    	elif method in [17, 32]: h = "ن"
+                    	elif method in [22]: h = "ش"
+                    	elif method in [27]: h = "ه"
+						else: h = 'ذ'
 					elif int(choosen) == 8:
-						if method == 1: h = 'ض'
-						elif method == 7: h = 'ظ'
+						if method == 7: h = 'ظ'
 						elif method == 12: h = 'ط'
+                    	elif method in [17, 22]: h = "ه"
+                    	elif method in [27]: h = "س"
+                    	elif method in [32]: h = "و"
+						else: h = 'ض'
 					elif int(choosen) == 9:
-						if method == 1: h = 'ظ'
-						elif method in[7, 12]: h = 'غ'
-					else: thyletter = h = ''
+						if method in [7, 12]: h = 'غ'
+						elif method in [17, 22]: h = "و"
+                    	elif method in [27]: h = "ش"
+                    	elif method in [32]: h = "ه"
+						else: h = 'ظ'
+					else: h = ''
 				if h is not None and h != '':
 					gh += h
 					h = ''
 				if hpart[counter] is not None:
 					for counted in range(1, counter):
-						if method == 1:	eacher += 'غ'
-						elif method == 7: eacher += 'ش'
+						if method == 7: eacher += 'ش'
 						elif method == 12: eacher += 'ظ'
+						elif method in [17, 22, 27, 32]: eacher += "ي"
+						else: eacher += 'غ'
 				if mode == 'eacher':
-					gh += eacher 
+					gh += eacher
 					eacher = ''
 			if mode == 'regular':
-				gh += eacher 
+				gh += eacher
 				eacher = ''
 		if method in [1, 7, 12]:
 			if htype in ['ULVI', 'ULVİ']: gh += 'ئيل'
@@ -1443,10 +1565,10 @@ def huddam(num, htype='ulvi', method=1):
 		else: gh = htype
 		return gh
 	except:	return 'Hata?'
-	
+
 def numerolog(metin, tablo='tr', outas='tam', shadda=1):
 	try:
-		SM = T = s = n = sesli = sessiz = err = hrk 0
+		SM = T = s = n = sesli = sessiz = err = hrk = seslit = sessizt = 0
 		nesoohc = nitem = ''
 		tablo = lower(tablo)
 		metin = upper(metin)
@@ -1878,10 +2000,14 @@ def numerolog(metin, tablo='tr', outas='tam', shadda=1):
 				if err = 1:
 					nesoohc = nesoohc & choosen
 					D = D + 1
-				else: SM = SM + s
+				else:
+					SM += s
+					seslit += sesli
+					sessizt += sessiz
+					sesli = sessiz = 0
 		if err == 0:
-			if outas == 'sesli': return rakamtopla(sesli, 1)
-			elif outas == 'sessiz': return rakamtopla(sessiz, 1)
+			if outas == 'sesli': return rakamtopla(seslit, 1)
+			elif outas == 'sessiz': return rakamtopla(sessizt, 1)
 			elif outas == 'tam': return SM
 			elif outas == 'hepsi': return rakamtopla(SM, 0)
 			else
