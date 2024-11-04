@@ -1590,7 +1590,7 @@ Function NUMBERS2ARAB(Optional metin As String) As String
     NUMBERS2ARAB = NA
 End Function
 Function NUMEROLOG(ByVal metin As String, Optional tablo As String, Optional outas As Variant, Optional shadda As Variant) As Variant
-    Dim SM, S, C, D, N, sesli, sessiz, seslit, sessizt err, counter, space, hrk As Integer : NUMEROLOG = 0 : S = 0 : N = 0 : sesli = 0 : sessiz = 0 : seslit = 0 : sessizt = 0
+    Dim SM, S, C, D, N, sesli, sessiz, seslit, sessizt, err, counter, space, hrk As Integer : NUMEROLOG = 0 : S = 0 : N = 0 : sesli = 0 : sessiz = 0 : seslit = 0 : sessizt = 0
     Dim M, nitem, nesoohc, choosen As String: nitem = "": err = 0: tablo = LCase(tablo)
     Select Case tablo
     Case "date"
