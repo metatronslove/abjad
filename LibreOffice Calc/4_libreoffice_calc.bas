@@ -2114,14 +2114,18 @@ Function NUMEROLOG(ByVal metin As String, Optional tablo As String, Optional out
                 nesoohc = nesoohc & choosen : D = D + 1
             Else
                 SM = SM + S
+                seslit = seslit + sesli
+                sessizt = sessizt + sessiz
+                sesli = 0
+                sessiz = 0
             End If
         Next counter
     End Select
     Select Case err
     Case 0
         Select Case outas
-        Case "Sesli" : NUMEROLOG = RAKAMTOPLA(sesli, 1)
-        Case "Sessiz" : NUMEROLOG = RAKAMTOPLA(sessiz, 1)
+        Case "Sesli" : NUMEROLOG = RAKAMTOPLA(seslit, 1)
+        Case "Sessiz" : NUMEROLOG = RAKAMTOPLA(sessizt, 1)
         Case "tam" : NUMEROLOG = SM
         Case "hepsi" : NUMEROLOG = RAKAMTOPLA(SM, 0)
         Case Else
@@ -2451,6 +2455,8 @@ Function ShamseyMe(ByVal metin As String) As Boolean
 End Function
 Function STR2UCODE(Optional STRNG As String) As String
 	'LibreOffice Basic Kodundaki Karakterleri Excele Uygun Hale Getirmeye Çabalıyor...
+	'Paste libreoffice VBA code to first column of the table;
+	'Second column to process first column cells;
 	Dim counter, inside As Long
 	Dim addafter, tocopy, kod As String
 	inside = 0
