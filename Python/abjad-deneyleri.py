@@ -2,6 +2,7 @@ import requests
 import math
 import datetime
 import random
+import traceback
 # -------------------- Functions to modify -----------------------------
 def abjad(metin, tablo=1, shadda=1, detail=0):
 	try:
@@ -744,9 +745,9 @@ def abjad(metin, tablo=1, shadda=1, detail=0):
 					nitem += choosen
 			T += 1
 			if detail == 1:
-				if saf(choosen, 0) == 'ا': SN += '[' + 'ا' + '=' + str(S) + ']'
-				elif saf(choosen, 0) == choosen: SN += '[' + choosen + '=' + str(S) + ']'
-			else: SM += S
+				if saf(choosen, 0) == 'ا': SN += '[' + 'ا' + '=' + str(s) + ']'
+				elif saf(choosen, 0) == choosen: SN += '[' + choosen + '=' + str(s) + ']'
+			else: SM += s
 		if tablo in [4, 10, 15, 20, 25, 30, 35]:
 			if detail == 1 : SN += '[+' + str((len(metin) - N) + SH) + ' harf]'
 			else : SM += ((len(metin) - N) + SH)
@@ -756,7 +757,8 @@ def abjad(metin, tablo=1, shadda=1, detail=0):
 		elif err == 1: abjadsum = 'Tablo Kodu?'
 		elif err == 2: abjadsum = str(N - (space + hrk)) + ' Tanımlanmayan:' + str(nitem) + ' ||' + str(space) + ' boşluk||' + str(hrk) + ' harake'
 		elif err == 3: abjadsum = 'Şedde Seçeneği?'
-	except: abjadsum = 'Hata?'
+	except Exception:
+		traceback.print_exc()
 	return abjadsum
 
 def wordbyword(metin, tablo=1, shadda=1, detail=0):
@@ -767,7 +769,7 @@ def wordbyword(metin, tablo=1, shadda=1, detail=0):
 			word += counter
 			if counter in [' ', '\n']:
 				calculation = '('  + str(abjad(word, tablo, shadda, detail)) + ')' + counter
-				if calculation !== '(0)' + counter: content += word + altayaz(calculation)
+				if calculation != '(0)' + counter: content += word + altayaz(calculation)
 				word = ''
 				calculation = ''
 	except: content = 'Hata?'
@@ -1226,7 +1228,8 @@ def GetHundreds(mynumber, language='ARABIC', count=0, spell=''):
 			if mynumber[1:2] != '0': result += str(GetTens(mynumber[-2:], language, count, float(mynumber[0:1]), result + spell))
 			else: result += str(GetDigit(mynumber[2:3], language, count, result + spell))
 		return result
-	except:	return 'Hata?'
+	except Exception:
+		traceback.print_exc()
 
 def GetTens(tenstext, language='ARABIC', count=0, hundreds=0, spell=''):
 	try:
@@ -1297,7 +1300,8 @@ def GetTens(tenstext, language='ARABIC', count=0, hundreds=0, spell=''):
 			elif float(tenstext[:1]) == 9: result = 'doksan '
 			result += str(GetDigit(tenstext[-1:], language))
 		return result
-	except:	return 'Hata?'
+	except Exception:
+		traceback.print_exc()
 
 def GetTensStatus(tens, language='ARABIC'):
 	try:
@@ -1320,7 +1324,8 @@ def GetTensStatus(tens, language='ARABIC'):
 			elif tens == 8: result = 'שמונים '
 			elif tens == 9: result = 'תשעים '
 		return result
-	except:	return 'Hata?'
+	except Exception:
+		traceback.print_exc()
 
 def GetDigit(digit, language='ARABIC'):
 	try:
@@ -1365,7 +1370,6 @@ def huddam(num, htype='ulvi', method=1):
 		counts = 1
 		hpart = ['']
 		htype = htype.upper()
-		method = 1
 		if method in [2, 8, 13, 18, 23, 28, 33]:
 			method -= 1
 			mode = 'eacher'
@@ -1404,31 +1408,31 @@ def huddam(num, htype='ulvi', method=1):
 						else: h = 'ب'
 					elif int(choosen) == 3:
 						if method == 12: h = 'ن'
-						elif method in [17, 22, 27, 32]: h = "ت"
+						elif method in [17, 22, 27, 32]: h = 'ت'
 						else: h = 'ج'
 					elif int(choosen) == 4:
 						if method == 12: h = 'م'
-						elif method in [17, 22, 27, 32]: h = "ث"
+						elif method in [17, 22, 27, 32]: h = 'ث'
 						else: h = 'د'
 					elif int(choosen) == 5:
 						if method == 12: h = 'و'
-						elif method in [17, 22, 27, 32]: h = "ج"
+						elif method in [17, 22, 27, 32]: h = 'ج'
 						else: h = 'ه'
 					elif int(choosen) == 6:
 						if method == 12: h = 'ي'
-						elif method in [17, 22, 27, 32]: h = "ح"
+						elif method in [17, 22, 27, 32]: h = 'ح'
 						else: h = 'و'
 					elif int(choosen) == 7:
 						if method == 12: h = 'ه'
-						elif method in [17, 22, 27, 32]: h = "خ"
+						elif method in [17, 22, 27, 32]: h = 'خ'
 						else: h = 'ز'
 					elif int(choosen) == 8:
 						if method == 12: h = 'ر'
-						elif method in [17, 22, 27, 32]: h = "د"
+						elif method in [17, 22, 27, 32]: h = 'د'
 						else: h = 'ح'
 					elif int(choosen) == 9:
 						if method == 12: h = 'ب'
-						elif method in [17, 22, 27, 32]: h = "ذ"
+						elif method in [17, 22, 27, 32]: h = 'ذ'
 						else: h = 'ط'
 					elif int(choosen) == 0:
 						if method in [1, 7, 12, 17, 22, 27, 32]: h = ''
@@ -1436,52 +1440,52 @@ def huddam(num, htype='ulvi', method=1):
 				elif turn == 2:
 					if int(choosen) == 1:
 						if method == 12: h = 'ت'
-						elif method in [17, 22, 32]: h = "ر"
-						elif method in [27]: h = "ك"
+						elif method in [17, 22, 32]: h = 'ر'
+						elif method == 27: h = 'ك'
 						else: h = 'ي'
 					elif int(choosen) == 2:
-						if method in [17, 22, 32]: h = "ز"
-						elif method in [27]: h = "ل"
+						if method in [17, 22, 32]: h = 'ز'
+						elif method == 27: h = 'ل'
 						else: h = 'ك'
 					elif int(choosen) == 3:
 						if method == 12: h = 'ع'
-						elif method in [17, 32]: h = "س"
-						elif method in [22]: h = "ط"
-						elif method in [27]: h = "م"
+						elif method in [17, 32]: h = 'س'
+						elif method == 22: h = 'ط'
+						elif method == 27: h = 'م'
 						else: h = 'ل'
 					elif int(choosen) == 4:
 						if method == 12: h = 'ف'
-						elif method in [17, 32]: h = "ش"
-						elif method in [22]: h = "ظ"
-						elif method in [27]: h = "و"
+						elif method in [17, 32]: h = 'ش'
+						elif method == 22: h = 'ظ'
+						elif method == 27: h = 'و'
 						else: h = 'م'
 					elif int(choosen) == 5:
 						if method == 12: h = 'ق'
-						elif method in [17, 32]: h = "ص"
-						elif method in [22]: h = "ك"
+						elif method in [17, 32]: h = 'ص'
+						elif method == 22: h = 'ك'
 						else: h = 'ن'
 					elif int(choosen) == 6:
 						if method in [7, 27]: h = 'ص'
-						elif method in [17, 32]: h = "ض"
-						elif method in [22]: h = "ل"
+						elif method in [17, 32]: h = 'ض'
+						elif method == 22: h = 'ل'
 						else: h = 'س'
 					elif int(choosen) == 7:
 						if method == 12: h = 'د'
-						elif method in [17, 32]: h = "ط"
-						elif method in [22]: h = "م"
-						elif method in [27]: h = "ض"
+						elif method in [17, 32]: h = 'ط'
+						elif method == 22: h = 'م'
+						elif method == 27: h = 'ض'
 						else: h = 'ع'
 					elif int(choosen) == 8:
 						if method == 12: h = 'ذ'
-						elif method in [17, 32]: h = "ظ"
-						elif method in [22]: h = "ن"
-						elif method in [27]: h = "ع"
+						elif method in [17, 32]: h = 'ظ'
+						elif method == 22: h = 'ن'
+						elif method == 27: h = 'ع'
 						else: h = 'ف'
 					elif int(choosen) == 9:
 						if method == 7: h = 'ض'
 						elif method == 12: h = 'ح'
-						elif method in [17, 32]: h = "ع"
-						elif method in [27]: h = "غ"
+						elif method in [17, 32]: h = 'ع'
+						elif method == 27: h = 'غ'
 						else: h = 'ص'
 					elif int(choosen) == 0:
 						if method in [1, 7, 12, 17, 22, 27, 32]: h = ''
@@ -1489,57 +1493,57 @@ def huddam(num, htype='ulvi', method=1):
 				elif turn == 1:
 					if int(choosen) == 1:
 						if method == 12: h = 'ج'
-						elif method in [17, 32]: h = "غ"
-						elif method in [22]: h = "ض"
-						elif method in [27]: h = "ط"
+						elif method in [17, 32]: h = 'غ'
+						elif method == 22: h = 'ض'
+						elif method == 27: h = 'ط'
 						else: h = 'ق'
 					elif int(choosen) == 2:
 						if method == 12: h = 'خ'
-						elif method in [17, 32]: h = "ف"
-						elif method in [22]: h = "ع"
-						elif method in [27]: h = "ظ"
+						elif method in [17, 32]: h = 'ف'
+						elif method == 22: h = 'ع'
+						elif method == 27: h = 'ظ'
 						else: h = 'ر'
 					elif int(choosen) == 3:
 						if method == 7: h = 'س'
-						elif method in [17, 32]: h = "ق"
-						elif method in [22]: h = "غ"
-						elif method in [27]: h = "ف"
+						elif method in [17, 32]: h = 'ق'
+						elif method == 22: h = 'غ'
+						elif method == 27: h = 'ف'
 						else: h = 'ش'
 					elif int(choosen) == 4:
 						if method == 12: h = 'ص'
-						elif method in [17, 32]: h = "ك"
-						elif method in [22]: h = "ف"
-						elif method in [27]: h = "ق"
+						elif method in [17, 32]: h = 'ك'
+						elif method == 22: h = 'ف'
+						elif method == 27: h = 'ق'
 						else: h = 'ت'
 					elif int(choosen) == 5:
 						if method == 12: h = 'ض'
-						elif method in [17, 32]: h = "ل"
-						elif method in [22]: h = "ق"
-						elif method in [27]: h = "ر"
+						elif method in [17, 32]: h = 'ل'
+						elif method == 22: h = 'ق'
+						elif method == 27: h = 'ر'
 						else: h = 'ث'
 					elif int(choosen) == 6:
 						if method in [12, 27]: h = 'ز'
-						elif method in [17, 32]: h = "م"
-						elif method in [22]: h = "س"
+						elif method in [17, 32]: h = 'م'
+						elif method == 22: h = 'س'
 						else: h = 'خ'
 					elif int(choosen) == 7:
 						if method == 12: h = 'ث'
-						elif method in [17, 32]: h = "ن"
-						elif method in [22]: h = "ش"
-						elif method in [27]: h = "ه"
+						elif method in [17, 32]: h = 'ن'
+						elif method == 22: h = 'ش'
+						elif method == 27: h = 'ه'
 						else: h = 'ذ'
 					elif int(choosen) == 8:
 						if method == 7: h = 'ظ'
 						elif method == 12: h = 'ط'
-						elif method in [17, 22]: h = "ه"
-						elif method in [27]: h = "س"
-						elif method in [32]: h = "و"
+						elif method in [17, 22]: h = 'ه'
+						elif method == 27: h = 'س'
+						elif method == 32: h = 'و'
 						else: h = 'ض'
 					elif int(choosen) == 9:
 						if method in [7, 12]: h = 'غ'
-						elif method in [17, 22]: h = "و"
-						elif method in [27]: h = "ش"
-						elif method in [32]: h = "ه"
+						elif method in [17, 22]: h = 'و'
+						elif method == 27: h = 'ش'
+						elif method == 32: h = 'ه'
 						else: h = 'ظ'
 					else: h = ''
 				if h is not None and h != '':
@@ -1549,7 +1553,7 @@ def huddam(num, htype='ulvi', method=1):
 					for counted in range(1, counter):
 						if method == 7: eacher += 'ش'
 						elif method == 12: eacher += 'ظ'
-						elif method in [17, 22, 27, 32]: eacher += "ي"
+						elif method in [17, 22, 27, 32]: eacher += 'ي'
 						else: eacher += 'غ'
 				if mode == 'eacher':
 					gh += eacher
@@ -1557,14 +1561,15 @@ def huddam(num, htype='ulvi', method=1):
 			if mode == 'regular':
 				gh += eacher
 				eacher = ''
-		if method in [1, 7, 12]:
+		if method in [1, 7, 12, 17, 22, 27, 32]:
 			if htype in ['ULVI', 'ULVİ']: gh += 'ئيل'
 			elif htype in ['SUFLI', 'SUFLİ']: gh += 'يوش'
 			elif htype in ['ŞER', 'SER']: gh += 'طيش'
 			else: gh += htype
 		else: gh = htype
 		return gh
-	except:	return 'Hata?'
+	except Exception:
+		traceback.print_exc()
 
 def numerolog(metin, tablo='tr', outas='tam', shadda=1):
 	try:
@@ -1573,7 +1578,7 @@ def numerolog(metin, tablo='tr', outas='tam', shadda=1):
 		tablo = lower(tablo)
 		metin = upper(metin)
 		if tablo == 'date':
-			s = float(str(metin.year) + str(metin.month) + str(metin.day)))
+			s = float(str(metin.year) + str(metin.month) + str(metin.day))
 		else:
 			for choosen in metin:
 				if choosen == 'A':
@@ -1997,7 +2002,7 @@ def numerolog(metin, tablo='tr', outas='tam', shadda=1):
 					else:
 						nitem = nitem & choosen
 						err = 2
-				if err = 1:
+				if err == 1:
 					nesoohc = nesoohc & choosen
 					D = D + 1
 				else:
@@ -2010,11 +2015,25 @@ def numerolog(metin, tablo='tr', outas='tam', shadda=1):
 			elif outas == 'sessiz': return rakamtopla(sessizt, 1)
 			elif outas == 'tam': return SM
 			elif outas == 'hepsi': return rakamtopla(SM, 0)
-			else
+			else:
 				if float(outas) > 0: return rakamtopla(SM, float(outas))
 				else: return 'Çıktı türü?'
 		elif err == 1: return nesoohc + ' (' + D + ' karakter \'' + tablo + '\' için tanımsız)'
 		elif err == 2: return nitem + ' (' + str(N  - space + hrk) + ' karakter yöntemlerde tanımsız)'
 		elif err == 3: return 'Şedde Ayarı?'
-	except:	return 'Hata?'
+	except Exception:
+		traceback.print_exc()
 # ----------------------------------------------------------------------
+methods = [1,7,12,17,22,27,32]
+testers = [1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100,200,300,400,500,600,700,800,900,1000,2000]
+for method in methods:
+	for tester in testers:
+		letter = huddam(tester, '', method)
+		abjadv = abjad(letter, method, 1, 0)
+		if abjadv!=tester:
+			print("method:",str(method),"\ntester:",str(tester),"abjad:",str(abjadv),"huddam:",letter,"\nresult: incorrect match")
+		else:
+			print("method:",str(method),"\ntester:",str(tester),"abjad:",str(abjadv),"huddam:",letter,"\nresult: correct match")
+			clearline = len(str("method: tester:abjad:huddam: result: correct match") + str(method) + str(tester) + str(abjadv) + letter)
+			for x in range(clearline):
+				print('\b')
