@@ -2,6 +2,8 @@ import requests
 import math
 import datetime
 import random
+import sys
+import time
 import traceback
 # -------------------- Functions to modify -----------------------------
 def abjad(metin, tablo=1, shadda=1, detail=0):
@@ -2025,15 +2027,22 @@ def numerolog(metin, tablo='tr', outas='tam', shadda=1):
 		traceback.print_exc()
 # ----------------------------------------------------------------------
 methods = [1,7,12,17,22,27,32]
-testers = [1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100,200,300,400,500,600,700,800,900,1000,2000]
+testers = [1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100,200,300,400,500,600,700,800,900,1000,6447] #6394 is a test entitie ;)
+methlen = 2
+testlen = 6
+hadimln = 10
 for method in methods:
 	for tester in testers:
 		letter = huddam(tester, '', method)
 		abjadv = abjad(letter, method, 1, 0)
+		methodview = str(' '*methlen) + str(method)
+		testerview = str(' '*testlen) + str(tester)
+		abjad_view = str(' '*testlen) + str(abjadv)
+		huddam_len = str(' '*hadimln) + letter
 		if abjadv!=tester:
-			print("method:",str(method),"\ntester:",str(tester),"abjad:",str(abjadv),"huddam:",letter,"\nresult: incorrect match")
+			print("method: " + methodview[-1*methlen:] + " \033[92m►\033[0mtester: " + testerview[-1*testlen:] + " \033[92m►\033[0mabjad: " + abjad_view[-1*testlen:] + " \033[92m►\033[0mhuddam: " + huddam_len[-1*hadimln:] + " \033[92m►\033[0mresult: \033[93mincorrect match\033[0m")
 		else:
-			print("method:",str(method),"\ntester:",str(tester),"abjad:",str(abjadv),"huddam:",letter,"\nresult: correct match")
-			clearline = len(str("method: tester:abjad:huddam: result: correct match") + str(method) + str(tester) + str(abjadv) + letter)
-			for x in range(clearline):
-				print('\b')
+			strline = "method: " + methodview[-1*methlen:] + " \033[92m►\033[0mtester: " + testerview[-1*testlen:] + " \033[92m►\033[0mabjad: " + abjad_view[-1*testlen:] + " \033[92m►\033[0mhuddam: " + huddam_len[-1*hadimln:] + " \033[92m►\033[0mresult: \033[92mcorrect match\033[0m"
+			print(strline, sep='',end =' '*19 + '\b'*len(strline) + '\b'*19, file = sys.stdout, flush = True)
+			time.sleep(.043)
+print('\033[92mtest complete\033[0m', sep='',end ='\n\r', file = sys.stdout, flush = True)
