@@ -3000,8 +3000,8 @@ function numerolog(metin, tablo, outas, shadda) {
 	let sessizt=0;
 	let nesoohc='';
 	let nitem='';
-	tablo=lower(tablo);
-	metin=upper(metin);
+	tablo=tablo.toLowerCase();
+	metin=metin.toUpperCase();
 	if (tablo=='date') {
 		s=parseFloat(String(getFullYear(metin))+String(getMonth(metin))+String(getDay(metin)));
 	} else {
