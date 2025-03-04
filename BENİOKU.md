@@ -262,13 +262,9 @@ olması gibi.
 Biraz bağlantı:
 |Konum Bağlantı Adresi|İçerik|
 |:--------------------------------------------------------|------------------------------------------------------:|
-|https://abdil.one/occult-abjad-calculator|Bu kodlardan yararlandığım bir sayfa|
-|https://abdil.one/|Kodlayıcının blogu|
-|https://ebced.abdil.one/|Eğlence için JS örneklendirmesi|
-|https://forum.libreoffice.org.tr/viewforum.php?f=6|Hesap Tablosu ile alakalı soru ve yanıtlar|
+|https://one.fanclub.rocks/occult-abjad-calculator|Bu kodlardan yararlandığım bir sayfa|
+|https://one.fanclub.rocks/|Kodlayıcının blogu|
 |https://github.com/metatronslove/abjad|Kullanıcı Tanımlı Ebced Fonksiyonları için Kaynak|
-|https://ruhsalenerji.org|İslami Gizli İlimlerle İlgili İçerik|
-|https://www.youtube.com/channel/UCuv0cfdSZ9F0bFTh64n802g|Kodlayıcının kanalı|
 
 Biraz video:
 [![LibreOffice Calc makroları AndrOpen Office'de KULLANILABİLİR](https://img.youtube.com/vi/H1VLp7zScys/maxresdefault.jpg)](https://youtu.be/H1VLp7zScys "LibreOffice Calc makroları AndrOpen Office'de KULLANILABİLİR")
