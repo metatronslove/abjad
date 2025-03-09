@@ -147,21 +147,49 @@
   =TESBEH(99, 25, 99, 33)
   ```
 
----
-
-## 📜 Abjad Table Codes
-
-| Code | System |
-|------|--------|
-| 0    | Minimum Abjad |
-| 1    | Small Abjad (Cumel-i Kebir) |
-| 2    | Big Abjad |
-| 3    | Maximum Abjad |
-| 4    | Small Abjad + Letter Quantity |
-| 5    | Letter Quantity |
-| 6-35 | Arabic-specific tables |
+# Ebced Tablo Kodları  
+**Cümel-i Kebir ve Diğer Sistemler**  
 
 ---
+
+## 📊 Temel Ebced Sistemleri (0-5)  
+
+| Türkçe Lejant            | İngilizce Lejant         | Kod | Açıklama                          |
+|--------------------------|--------------------------|-----|-----------------------------------|
+| **Asgari Ebced**         | **Minimum Abjad**        | 0   | En temel Ebced sistemi.           |
+| **Sağir Ebced**          | **Small Abjad**          | 1   | Küçük Ebced (Cümel-i Kebir).      |
+| **Kebir Ebced**          | **Big Abjad**            | 2   | Büyük Ebced.                      |
+| **Ekber Ebced**          | **Maximum Abjad**        | 3   | En geniş kapsamlı Ebced.          |
+| **Sağir + Harf Adedi**   | **Small + Letter Qty**   | 4   | Sağir Ebced + harf sayısı ekler.  |
+| **Harf Adedi**           | **Letter Quantity**      | 5   | Sadece harf sayısını hesaplar.    |
+
+---
+
+## 🌍 Diğer Ebced Sistemleri (6-35)  
+
+| Kod Aralığı | Türkçe Sistem Adı       | İngilizce Sistem Adı    | Açıklama                          |
+|-------------|-------------------------|-------------------------|-----------------------------------|
+| **6-10**    | **Mağribi Ebced**       | Maghrebi Abjad          | Mağrib bölgesine özgü sistem.     |
+| **11-15**   | **Kur'an Frekans Sırası**| Quran Frequency Order   | Kur'an harflerinin frekans sırası.|
+| **16-20**   | **Hicaz Sırası**        | Hijaz Order             | Hicaz bölgesi harf düzeni.        |
+| **21-25**   | **Mağribi Hicaz Sırası**| Maghrebi Hijaz Order    | Mağribi-Hicaz karışık sıralama.   |
+| **26-30**   | **İklil Sırası**        | Aqli Order              | Akıllı/mantıksal harf gruplandırması. |
+| **31-35**   | **Şam Ebced Sırası**    | Sham Abjad Order        | Şam bölgesine özgü Ebced.         |
+
+---
+
+## 🧮 Hisab El Cümel  
+**Desteklenen Sistemler**:  
+- `6-10` Mağribi Ebced  
+- `11-15` Kur'an Frekans Sırası  
+- `16-20` Hicaz Sırası  
+- `21-25` Mağribi Hicaz Sırası  
+- `26-30` İklil Sırası  
+- `31-35` Şam Ebced Sırası  
+
+---
+
+> **Not**: Kodlar **0-35** arasındadır. Her aralık, belirli bir Ebced sistemini temsil eder.  
 
 ## 🔗 Resources
 - [Live Web Calculator](https://one.fanclub.rocks/occult-abjad-calculator)
