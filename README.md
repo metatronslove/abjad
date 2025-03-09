@@ -174,7 +174,7 @@
 | **16-20**   | **Hicaz Sırası**        | Hijaz Order             | Hicaz bölgesi harf düzeni.        |
 | **21-25**   | **Mağribi Hicaz Sırası**| Maghrebi Hijaz Order    | Mağribi-Hicaz karışık sıralama.   |
 | **26-30**   | **İklil Sırası**        | Aqli Order              | Akıllı/mantıksal harf gruplandırması. |
-| **31-35**   | **Şam Ebced Sırası**    | Sham Abjad Order        | Şam bölgesine özgü Ebced.         |
+| **31-35**   | **Şemsî Ebced Sırası**  | Shamse Abjad Order      | Şemsî Ebced.                      |
 
 ---
 
@@ -185,7 +185,7 @@
 - `16-20` Hicaz Sırası  
 - `21-25` Mağribi Hicaz Sırası  
 - `26-30` İklil Sırası  
-- `31-35` Şam Ebced Sırası  
+- `31-35` Şemsî Ebced Sırası  
 
 ---
 
