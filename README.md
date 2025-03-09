@@ -171,8 +171,8 @@
 |-------------|-------------------------|-------------------------|-----------------------------------|
 | **6-10**    | **Mağribi Ebced**       | Maghrebi Abjad          | Mağrib bölgesine özgü sistem.     |
 | **11-15**   | **Kur'an Frekans Sırası**| Quran Frequency Order   | Kur'an harflerinin frekans sırası.|
-| **16-20**   | **Hicaz Sırası**        | Hijaz Order             | Hicaz bölgesi harf düzeni.        |
-| **21-25**   | **Mağribi Hicaz Sırası**| Maghrebi Hijaz Order    | Mağribi-Hicaz karışık sıralama.   |
+| **16-20**   | **Hica Sırası**        | Hija Order             | Hica bölgesi harf düzeni.        |
+| **21-25**   | **Mağribi Hica Sırası**| Maghrebi Hija Order    | Mağribi-Hica karışık sıralama.   |
 | **26-30**   | **İklil Sırası**        | Aqli Order              | Akıllı/mantıksal harf gruplandırması. |
 | **31-35**   | **Şemsî Ebced Sırası**  | Shamse Abjad Order      | Şemsî Ebced.                      |
 
@@ -182,7 +182,7 @@
 **Desteklenen Sistemler**:  
 - `6-10` Mağribi Ebced  
 - `11-15` Kur'an Frekans Sırası  
-- `16-20` Hicaz Sırası  
+- `16-20` Hica Sırası  
 - `21-25` Mağribi Hicaz Sırası  
 - `26-30` İklil Sırası  
 - `31-35` Şemsî Ebced Sırası  
