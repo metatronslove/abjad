@@ -47,6 +47,7 @@
 - **Example**:
   ```excel
   =ABJAD("النور", 1, 2, 0) → 256
+  ```
 
 ### `bastet("text or number"; reps; table_code; language)`
 - **Purpose**: Apply the usul-ul bast method for cosmic expansion.
@@ -183,7 +184,7 @@
 - `6-10` Mağribi Ebced  
 - `11-15` Kur'an Frekans Sırası  
 - `16-20` Hica Sırası  
-- `21-25` Mağribi Hicaz Sırası  
+- `21-25` Mağribi Hica Sırası  
 - `26-30` İklil Sırası  
 - `31-35` Şemsî Ebced Sırası  
 
@@ -200,4 +201,6 @@
 
 > *"Numbers are the language of the universe."*
 > *– Ancient Proverb*
+```To share
+https://metatronslove.github.io/abjad/
 ```
