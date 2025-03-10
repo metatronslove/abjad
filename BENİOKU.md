@@ -174,10 +174,10 @@
 |-------------|-------------------------|-------------------------|-----------------------------------|
 | **6-10**    | **Mağribi Ebced**       | Maghrebi Abjad          | Mağrib bölgesine özgü sistem.     |
 | **11-15**   | **Kur'an Frekans Sırası**| Quran Frequency Order   | Kur'an harflerinin frekans sırası.|
-| **16-20**   | **Hica Sırası**        | Hija Order             | Hica bölgesi harf düzeni.        |
+| **16-20**   | **Hica Sırası**        | Hija Order             | Hica harf düzeni.        |
 | **21-25**   | **Mağribi Hica Sırası**| Maghrebi Hija Order    | Mağribi-Hica karışık sıralama.   |
 | **26-30**   | **İklil Sırası**        | Aqli Order              | Akıllı/mantıksal harf gruplandırması. |
-| **31-35**   | **Şemsî Ebced Sırası**    | Shamse Abjad Order        | Şemsî bölgesine özgü Ebced.         |
+| **31-35**   | **Şemsî Ebced Sırası**    | Shamse Abjad Order        | Şemsî Ebced.         |
 
 ---
 
@@ -186,7 +186,7 @@
 - `6-10` Mağribi Ebced  
 - `11-15` Kur'an Frekans Sırası  
 - `16-20` Hica Sırası  
-- `21-25` Mağribi Hicaz Sırası  
+- `21-25` Mağribi Hica Sırası  
 - `26-30` İklil Sırası  
 - `31-35` Şemsî Ebced Sırası  
 
@@ -203,4 +203,6 @@
 
 > *"Sayılar, evrenin dilidir."*  
 > *– Antik Özdeyiş*
+```Paylaşım için
+https://metatronslove.github.io/abjad/
 ```
