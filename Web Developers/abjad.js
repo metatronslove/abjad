@@ -1479,14 +1479,14 @@ function abjad(metin, tablo, shadda, detail) {
 		if (detail==1) {
 			if (saf(choosen, 0)=='ا') {
 				if ([4, 10, 15, 20, 25, 30, 35].includes(tablo)) {
-					SN+='[ا='+ String(s) + ', 1 harf]';
+					SN+='[ا='+String(s)+', 1 harf]';
 				} else {
-					SN+='['+'ا'+'='+String(s)+']';
+					SN+='[ا='+String(s)+']';
 				}
 			} else if (saf(choosen, 0)==choosen) {
 				if ([4, 10, 15, 20, 25, 30, 35].includes(tablo)) {
-					if (s != 0){
-						SN+='['+choosen+'='+ String(s) + ', 1 harf]';
+					if (s!=0){
+						SN+='['+choosen+'='+String(s)+', 1 harf]';
 					}	
 				} else {
 					SN+='['+choosen+'='+String(s)+']';
@@ -1494,12 +1494,11 @@ function abjad(metin, tablo, shadda, detail) {
 			}
 		} else {
 			if ([4, 10, 15, 20, 25, 30, 35].includes(tablo)) {
-					if (s != 0){
-						SM+=s+1;
-					}	
-				} else {
-					SM+=s;
-				}
+				if (s!=0){
+					SM+=s+1;
+				}	
+			} else {
+				SM+=s;
 			}
 		}		
 		if (err==0) {
