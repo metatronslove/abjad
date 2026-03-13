@@ -1627,7 +1627,7 @@ function unsur(metin, otabiat, otype, shadda, guide) {
 			selected+='ي'+'ا';
 		} else if (['א', 'ב', 'ג', 'ד', 'ה', 'ו', 'ז', 'ח', 'ט', 'י', 'כ', 'ל', 'מ', 'נ', 'ס', 'ע', 'פ', 'צ', 'ק', 'ר', 'ש', 'ת', 'ם', 'ן', 'ף', 'ץ', 'ך'].includes(selectable)) {
 			selected+=selectable;
-		} else if (['A', 'B', 'C', 'Ç', 'D', 'E', 'F', 'G', 'Ğ', 'H', 'I', 'İ', 'J', 'K', 'L', 'M', 'N', 'O', 'Ö', 'P', 'R', 'S', 'Ş', 'T', 'U', 'Ü', 'V', 'Y', 'Z']).includes(selectable.toLocaleUpperCase('tr-TR')) {
+		} else if (['A', 'B', 'C', 'Ç', 'D', 'E', 'F', 'G', 'Ğ', 'H', 'I', 'İ', 'J', 'K', 'L', 'M', 'N', 'O', 'Ö', 'P', 'R', 'S', 'Ş', 'T', 'U', 'Ü', 'V', 'Y', 'Z'].includes(selectable.toLocaleUpperCase('tr-TR'))) {
 			selected+=selectable.toLocaleUpperCase('tr-TR');
 		}
 		T+=1;
