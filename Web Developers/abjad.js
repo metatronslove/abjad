@@ -1487,7 +1487,7 @@ function abjad(metin, tablo, shadda, detail) {
 		}
 		if ([4, 10, 15, 20, 25, 30, 35].includes(tablo)) {
 			if (detail==1) {
-				SN+='[+' + String(abjad(metin, 5, 1) + ' harf]';
+				SN+='[+' + String(abjad(metin, 5, 1)) + ' harf]';
 			} else {
 				if (s != 0){
 					SM+= s + 1;
