@@ -1580,7 +1580,7 @@ function bastet(metin, mt, tablo, shadda, language, detail) {
 	}
 	for (let hm=0; hm<mt; hm++) {
 		ns='';
-		ns=nutket(baster, language.toUpperCase());
+		ns=nutket(baster, language.toLocaleUpperCase('tr-TR'));
 		baster=0;
 		if (tablo>=0 && tablo<16) {
 			baster=abjad(ns, tablo, 1)+abjad(ns, 5);
@@ -1627,8 +1627,8 @@ function unsur(metin, otabiat, otype, shadda, guide) {
 			selected+='ي'+'ا';
 		} else if (['א', 'ב', 'ג', 'ד', 'ה', 'ו', 'ז', 'ח', 'ט', 'י', 'כ', 'ל', 'מ', 'נ', 'ס', 'ע', 'פ', 'צ', 'ק', 'ר', 'ש', 'ת', 'ם', 'ן', 'ף', 'ץ', 'ך'].includes(selectable)) {
 			selected+=selectable;
-		} else if (selectable.toUpperCase() in ['A', 'B', 'C', 'Ç', 'D', 'E', 'F', 'G', 'Ğ', 'H', 'I', 'İ', 'J', 'K', 'L', 'M', 'N', 'O', 'Ö', 'P', 'R', 'S', 'Ş', 'T', 'U', 'Ü', 'V', 'Y', 'Z']) {
-			selected+=selectable.toUpperCase();
+		} else if (selectable.toLocaleUpperCase('tr-TR') in ['A', 'B', 'C', 'Ç', 'D', 'E', 'F', 'G', 'Ğ', 'H', 'I', 'İ', 'J', 'K', 'L', 'M', 'N', 'O', 'Ö', 'P', 'R', 'S', 'Ş', 'T', 'U', 'Ü', 'V', 'Y', 'Z']) {
+			selected+=selectable.toLocaleUpperCase('tr-TR');
 		}
 		T+=1;
 	}
@@ -1994,7 +1994,7 @@ function nutket(MyNumber, language) {
     let PlaceTwos=[];
     let PlaceAppent=[];
     let PlacePlural=[];
-    language=language.toUpperCase();
+    language=language.toLocaleUpperCase('tr-TR');
     switch (language) {
         case "ARABIC":
             if (MyNumber==0 && counter==0) {
@@ -2613,7 +2613,7 @@ function huddam(num, htype, method) {
 	let mode='';
 	let counts=1;
 	let hpart=[''];
-	htype=htype.toUpperCase();
+	htype=htype.toLocaleUpperCase('tr-TR');
 	if ([2, 8, 13, 18, 23, 28, 33].includes(method)) {
 		method -= 1;
 		mode='eacher';
@@ -3010,7 +3010,7 @@ function numerolog(metin, tablo, outas, shadda) {
 	let nesoohc='';
 	let nitem='';
 	tablo=tablo.toLowerCase();
-	metin=metin.toUpperCase();
+	metin=metin.toLocaleUpperCase('tr-TR');
 	if (tablo=='date') {
 		s=parseFloat(String(getFullYear(metin))+String(getMonth(metin))+String(getDay(metin)));
 	} else {
