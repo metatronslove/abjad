@@ -1478,22 +1478,30 @@ function abjad(metin, tablo, shadda, detail) {
 		T+=1;
 		if (detail==1) {
 			if (saf(choosen, 0)=='ا') {
-				SN+='['+'ا'+'='+String(s)+']';
+				if ([4, 10, 15, 20, 25, 30, 35].includes(tablo)) {
+					SN+='[ا='+ String(s)) + ', 1 harf]';
+				} else {
+					SN+='['+'ا'+'='+String(s)+']';
+				}
 			} else if (saf(choosen, 0)==choosen) {
-				SN+='['+choosen+'='+String(s)+']';
-			}
-		} else {
-			SM+=s;
-		}
-		if ([4, 10, 15, 20, 25, 30, 35].includes(tablo)) {
-			if (detail==1) {
-				SN+='[+' + String(abjad(metin, 5, 1)) + ' harf]';
-			} else {
-				if (s != 0){
-					SM+= s + 1;
+				if ([4, 10, 15, 20, 25, 30, 35].includes(tablo)) {
+					if (s != 0){
+						SN+='['+choosen+'='+ String(s)) + ', 1 harf]';
+					}	
+				} else {
+					SN+='['+choosen+'='+String(s)+']';
 				}
 			}
-		}
+		} else {
+			if ([4, 10, 15, 20, 25, 30, 35].includes(tablo)) {
+					if (s != 0){
+						SM+=s+1;
+					}	
+				} else {
+					SM+=s;
+				}
+			}
+		}		
 		if (err==0) {
 			if (detail==1) {
 				abjadsum=SN;
