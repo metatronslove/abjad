@@ -1994,6 +1994,7 @@ function nutket(MyNumber, language) {
     let PlaceTwos=[];
     let PlaceAppent=[];
     let PlacePlural=[];
+	if (language=='arabic') { language='arabıc'; }
     language=language.toLocaleUpperCase('tr-TR');
     switch (language) {
         case "ARABIC":
