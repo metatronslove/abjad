@@ -1,3 +1,5 @@
+[![Platformlar İçin Kullanıcı Tanımlı Okült Ebced Fonksiyonları (2017-2026)](https://img.youtube.com/vi/m8akAHMgRY0/3.jpg)](https://youtu.be/m8akAHMgRY0)
+
 # Ebced Makroları Kullanım Kılavuzu (2025)
 
 Bu kılavuz, Sahur Özel tarafından geliştirilen Ebced hesaplama makrolarının farklı platformlardaki güncel kullanımlarını açıklamaktadır. Kodlar, LibreOffice Basic'ten JavaScript, Python ve Google Apps Script gibi modern dillere çevrilmiştir.
