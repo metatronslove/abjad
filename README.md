@@ -1,4 +1,4 @@
-[![Platformlar İçin Kullanıcı Tanımlı Okült Ebced Fonksiyonları (2017-2026)](https://img.youtube.com/vi/m8akAHMgRY0/3.jpg)](https://youtu.be/m8akAHMgRY0)
+[![Platformlar İçin Kullanıcı Tanımlı Okült Ebced Fonksiyonları (2017-2026)](https://img.youtube.com/vi/m8akAHMgRY0/maxresdefault.jpg)](https://youtu.be/m8akAHMgRY0)
 
 # Ebced Makroları Kullanım Kılavuzu (2025)
 
